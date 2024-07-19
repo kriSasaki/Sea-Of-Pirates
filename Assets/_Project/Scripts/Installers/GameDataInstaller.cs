@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using Project.Configs.GameResources;
+using Project.Interfaces.Data;
+using Project.Systems.Data;
 using UnityEngine;
+using Zenject;
 
-public class GameDataInstaller : MonoBehaviour
+namespace Project.Installers
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameDataInstaller : MonoInstaller
     {
-        
-    }
+        [SerializeField] private GameResourcesSheet _resourcesSheet;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void InstallBindings()
+        {
+            Container.Bind<GameResourcesSheet>().FromInstance(_resourcesSheet);
+
+            Container.BindInterfacesAndSelfTo<GameDataService>().AsSingle().NonLazy();
+
+            Container.Bind<IResourceStorageProvider>().To<ResourceStorageProvider>().AsSingle();
+        }
     }
 }
