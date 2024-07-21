@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Systems.Data
 {
-    public class GameDataService : IResourceStorageData
+    public class GameDataService : IResourceStorageData, IPlayerStatsData
     {
         private const string SaveKey = nameof(SaveKey);
 
@@ -18,7 +18,7 @@ namespace Project.Systems.Data
         }
 
         public List<GameResourceData> Storage => _gameData.StorageData;
-        public List<PlayerStatData> PlayerStats => _gameData.PlayerStatsData;
+        public List<PlayerStatData> StatsLevels => _gameData.PlayerStatsLevels;
 
         public void Save()
         {

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbd0de6a56f8b54bb9017d65ff64784, type: 3}
+  m_Name: Speed
+  m_EditorClassIdentifier: 
+  _primaryCost:
+    _resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
+    <MinCost>k__BackingField: 30
+    <MaxCost>k__BackingField: 600
+  _secondaryCost:
+    _resource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
+    <MinCost>k__BackingField: 10
+    <MaxCost>k__BackingField: 100
+    _firstApplicationLevel: 5
+    _applicationInterval: 5
+  <StatType>k__BackingField: 3
+  <Sprite>k__BackingField: {fileID: 0}
+  <MinValue>k__BackingField: 1
+  <MaxValue>k__BackingField: 10
+  <MaxLevel>k__BackingField: 30

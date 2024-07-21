@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e85060cc5591ee4fa7b64d697f5b5e4, type: 3}
   m_Name: ResourceSheet
   m_EditorClassIdentifier: 
-  <GameResources>k__BackingField:
+  _gameResources:
   - {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
   - {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
   - {fileID: 11400000, guid: fafe75ba118b0f242bea3954811fa573, type: 2}

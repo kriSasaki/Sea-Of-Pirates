@@ -1,17 +1,39 @@
+using Project.Interfaces.Stats;
+using Project.Systems.Stats;
 using System;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public class TestUpgradeSystem : MonoBehaviour
 {
-    void Start()
-    {
-        System.Collections.Generic.IEnumerable<StatType> a = Enum.GetValues(typeof(StatType)).Cast<StatType>();
-        
+   private IPlayerStats _stats;
 
-        foreach (StatType stat in a)
+    [Inject]
+    public void Construct(IPlayerStats stats)
+    {
+        _stats = stats;
+    }
+
+    private void Start()
+    {
+        Show();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B)) 
         {
-            Debug.Log(stat.ToString());
+            var s = _stats as PlayerStats;
+
+            s.UpgradeStat(StatType.Damage);
+            Debug.Log(s.GetStatLevel(StatType.Damage));
+            Show();
         }
+    }
+
+    public void Show()
+    {
+        Debug.Log(_stats.Damage.ToString());
     }
 }
