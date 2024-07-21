@@ -18,7 +18,7 @@ namespace Project.Systems.Data
         }
 
         public List<GameResourceData> Storage => _gameData.StorageData;
-        public List<StatData> PlayerStats => _gameData.PlayerStatsData;
+        public List<PlayerStatData> PlayerStats => _gameData.PlayerStatsData;
 
         public void Save()
         {

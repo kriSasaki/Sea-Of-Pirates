@@ -6,6 +6,6 @@ namespace Project.Systems.Data
     public class GameData
     {
         public List<GameResourceData> StorageData = new List<GameResourceData>();
-        public List<StatData> PlayerStatsData = new List<StatData>();
+        public List<PlayerStatData> PlayerStatsData = new List<PlayerStatData>();
     }
 }
