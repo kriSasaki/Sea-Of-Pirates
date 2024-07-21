@@ -1,14 +1,19 @@
-using Project.Configs.GameResources;
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using Project.Configs.GameResources;
+using Project.Interfaces.Data;
 using UnityEngine;
-using UnityEngine.UIElements;
+using System.Linq;
+using UnityEngine.PlayerLoop;
+using Project.Systems.Data;
+using UnityEditor.SceneManagement;
 
 public class StatConfig : ScriptableObject
 {
     [SerializeField] private UpgradeCost _primaryCost;
     [SerializeField] private AdditionalUpgradeCost _secondaryCost;
 
+    [field: SerializeField] public StatType StatType { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
     [field: SerializeField] public int MinLevel { get; private set; }
     [field: SerializeField] public int MaxLevel { get; private set; }
@@ -35,7 +40,7 @@ public class StatConfig : ScriptableObject
         return price;
     }
 
-    public bool IsLastLevel(int currentLevel)
+    public bool IsMaxLevel(int currentLevel)
     {
         return currentLevel == MaxLevel;
     }
@@ -93,7 +98,6 @@ public class AdditionalUpgradeCost : UpgradeCost
 
 public struct GameResourceAmount
 {
-
     public GameResource Type;
     public int Amount;
 
@@ -104,16 +108,106 @@ public struct GameResourceAmount
     }
 }
 
-public class StatSheet
+public class StatsSheet
 {
-    List<StatConfig> _stats;
+    [SerializeField] private List<StatConfig> _stats;
+
+    public StatConfig GetStatConfig(StatType statType)
+    {
+        return _stats.First(s => s.StatType == statType);
+    }
+}
 
 
+[System.Serializable]
+public class StatData
+{
+    public StatType StatType;
+    public int Level;
+}
+
+public class PlayerStatsProvider
+{
+    private IPlayerStatsData _statsData;
+    private StatsSheet _statsSheet;
+    private Dictionary<StatType, int> _statsLevels;
+
+    private Dictionary<StatConfig, int> _stats;
+
+    public PlayerStatsProvider(IPlayerStatsData statsData, StatsSheet statsSheet)
+    {
+        _statsData = statsData;
+        _statsSheet = statsSheet;
+
+        _statsLevels = new();
+
+        foreach (StatType statType in Enum.GetValues(typeof(StatType)).Cast<StatType>())
+        {
+            _statsLevels.Add(statType, 0);
+        }
+        foreach (StatData statData in _statsData.StatsLevels)
+        {
+            _statsLevels[statData.StatType] = statData.Level;
+        }
+    }
 }
 
 public class PlayerStats
 {
-    public int Health;
+    private Dictionary<StatType, int> _statsLevels;
+    private Dictionary<StatConfig, int> _stats;
+    private StatsSheet _statSheet;
+
+    private IPlayerStatsData _statsData;
+    public void Initialize(IPlayerStatsData statsData)
+    {
+        _statsData = statsData;
+
+        foreach(StatType statType in Enum.GetValues(typeof(StatType)).Cast<StatType>())
+        {
+            _statsLevels.Add(statType, 0);
+        }
+
+        foreach(StatData statData in _statsData.StatsLevels)
+        {
+            _statsLevels[statData.StatType] = statData.Level;
+        }
+    }
+
+    private void UpdateStatsValues()
+    {
+        MaxHealth = GetStatValue(StatType.Health);
+        Damage = GetStatValue(StatType.Damage);
+        CargoSize = GetStatValue(StatType.CargoSize);
+        CannonsAmount = GetStatValue(StatType.CannonsAmount);
+
+    }
+
+    public int GetStatValue(StatType statType)
+    {
+        return _statSheet.GetStatConfig(StatType.Health).GetValue(_statsLevels[StatType.Health]);
+    }
+
+    private void SaveStats()
+    {
+        foreach (StatType statType in _statsLevels.Keys)
+        {
+            StatData data = _statsData.StatsLevels.FirstOrDefault(s => s.StatType == statType);
+
+            if (data != null)
+            {
+                data.Level = _statsLevels[statType];
+            }
+            else
+            {
+                _statsData.StatsLevels.Add(new StatData() { StatType = statType, Level = _statsLevels[statType] });
+            }
+        }
+
+        _statsData.Save();
+    }
+
+    public int MaxHealth;
     public int Damage;
     public int CargoSize;
     public float Speed;
@@ -130,4 +224,9 @@ public enum StatType
     Speed,
     AttackRange,
     CannonsAmount
+}
+
+public interface IPlayerStatsData: ISaveable
+{
+    List<StatData> StatsLevels { get; }
 }

@@ -9,6 +9,7 @@ namespace Project.Systems.Data
     {
         private readonly IResourceStorageData _storageData;
         private readonly GameResourcesSheet _resourcesSheet;
+
         public ResourceStorageProvider(IResourceStorageData storageData, GameResourcesSheet resourcesSheet)
         {
             _storageData = storageData;
@@ -21,7 +22,7 @@ namespace Project.Systems.Data
 
             foreach (GameResource resource in _resourcesSheet.GameResources)
             {
-                GameResourceData data = _storageData.Resources.FirstOrDefault(r => r.ID == resource.ID);
+                GameResourceData data = _storageData.Storage.FirstOrDefault(r => r.ID == resource.ID);
 
                 if (data != null)
                 {
@@ -40,7 +41,7 @@ namespace Project.Systems.Data
         {
             foreach (GameResource resource in _resourcesSheet.GameResources)
             {
-                GameResourceData data = _storageData.Resources.FirstOrDefault(r => r.ID == resource.ID);
+                GameResourceData data = _storageData.Storage.FirstOrDefault(r => r.ID == resource.ID);
 
                 if (data != null)
                 {
@@ -48,7 +49,7 @@ namespace Project.Systems.Data
                 }
                 else
                 {
-                    _storageData.Resources.Add(new GameResourceData() { ID = resource.ID, Value = storage[resource] });
+                    _storageData.Storage.Add(new GameResourceData() { ID = resource.ID, Value = storage[resource] });
                 }
             }
 

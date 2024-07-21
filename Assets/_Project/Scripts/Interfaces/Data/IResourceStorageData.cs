@@ -5,6 +5,6 @@ namespace Project.Interfaces.Data
 {
     public interface IResourceStorageData : ISaveable
     {
-        List<GameResourceData> Resources { get; }
+        List<GameResourceData> Storage { get; }
     }
 }

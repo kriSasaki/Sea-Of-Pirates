@@ -17,7 +17,8 @@ namespace Project.Systems.Data
             _gameData = data ?? new GameData();
         }
 
-        public List<GameResourceData> Resources => _gameData.Storage;
+        public List<GameResourceData> Storage => _gameData.StorageData;
+        public List<StatData> PlayerStats => _gameData.PlayerStatsData;
 
         public void Save()
         {
