@@ -2,6 +2,7 @@
 
 namespace Project.Systems.Stats
 {
+    [System.Serializable]
     public struct GameResourceAmount
     {
         public GameResource Resource;
