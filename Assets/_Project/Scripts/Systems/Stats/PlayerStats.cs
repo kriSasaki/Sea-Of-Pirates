@@ -54,7 +54,7 @@ namespace Project.Systems.Stats
 
         private void SaveStats()
         {
-            _provider.UpdateStats(_stats);
+            _provider.UpdateStats();
         }
     }
 }

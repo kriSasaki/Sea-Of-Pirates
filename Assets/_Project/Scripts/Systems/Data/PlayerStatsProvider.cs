@@ -11,38 +11,46 @@ namespace Project.Systems.Data
         private readonly IPlayerStatsData _statsData;
         private readonly StatsSheet _statsSheet;
 
+        private Dictionary<StatType, PlayerStat> _stats;
+
         public PlayerStatsProvider(IPlayerStatsData statsData, StatsSheet statsSheet)
         {
             _statsData = statsData;
             _statsSheet = statsSheet;
+            _stats = null;
         }
 
         public Dictionary<StatType, PlayerStat> LoadStats()
         {
+            if (_stats != null)
+            {
+                return _stats;
+            }
+
+            _stats = new();
             Dictionary<StatType, int> statsLevels = GetStatsLevels();
-            Dictionary<StatType, PlayerStat> stats = new();
 
             foreach (StatType statType in statsLevels.Keys)
             {
-                stats.Add(statType, CreateStat(statType, statsLevels[statType]));
+                _stats.Add(statType, CreateStat(statType, statsLevels[statType]));
             }
 
-            return stats;
+            return _stats;
         }
 
-        public void UpdateStats(Dictionary<StatType, PlayerStat> stats)
+        public void UpdateStats()
         {
-            foreach (StatType statType in stats.Keys)
+            foreach (StatType statType in _stats.Keys)
             {
                 PlayerStatData data = _statsData.StatsLevels.FirstOrDefault(s => s.StatType == statType);
 
                 if (data != null)
                 {
-                    data.Level = stats[statType].Level;
+                    data.Level = _stats[statType].Level;
                 }
                 else
                 {
-                    _statsData.StatsLevels.Add(new PlayerStatData() { StatType = statType, Level = stats[statType].Level });
+                    _statsData.StatsLevels.Add(new PlayerStatData() { StatType = statType, Level = _stats[statType].Level });
                 }
             }
 
