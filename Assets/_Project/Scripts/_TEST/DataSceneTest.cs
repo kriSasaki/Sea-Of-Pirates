@@ -54,7 +54,7 @@ public class DataSceneTest : MonoBehaviour
                 Debug.Log($"{resource.ID}  is {resource.Value}");
             }
        
-            _resourceStorageProvider.UpdateStorage(_storage);
+            _resourceStorageProvider.UpdateStorage();
         }
     }
 }

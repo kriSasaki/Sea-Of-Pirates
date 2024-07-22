@@ -9,16 +9,22 @@ namespace Project.Systems.Data
     {
         private readonly IResourceStorageData _storageData;
         private readonly GameResourcesSheet _resourcesSheet;
+        private Dictionary<GameResource, int> _storage;
 
         public ResourceStorageProvider(IResourceStorageData storageData, GameResourcesSheet resourcesSheet)
         {
             _storageData = storageData;
             _resourcesSheet = resourcesSheet;
+            _storage = null;
         }
 
         public Dictionary<GameResource, int> LoadStorage()
         {
-            Dictionary<GameResource, int> storage = new Dictionary<GameResource, int>();
+            if (_storage != null)
+            {
+                return _storage;
+            }
+            _storage = new Dictionary<GameResource, int>();
 
             foreach (GameResource resource in _resourcesSheet.GameResources)
             {
@@ -26,18 +32,18 @@ namespace Project.Systems.Data
 
                 if (data != null)
                 {
-                    storage.Add(resource, data.Value);
+                    _storage.Add(resource, data.Value);
                 }
                 else
                 {
-                    storage.Add(resource, 0);
+                    _storage.Add(resource, 0);
                 }
             }
 
-            return storage;
+            return _storage;
         }
 
-        public void UpdateStorage(Dictionary<GameResource, int> storage)
+        public void UpdateStorage()
         {
             foreach (GameResource resource in _resourcesSheet.GameResources)
             {
@@ -45,11 +51,11 @@ namespace Project.Systems.Data
 
                 if (data != null)
                 {
-                    data.Value = storage[resource];
+                    data.Value = _storage[resource];
                 }
                 else
                 {
-                    _storageData.Storage.Add(new GameResourceData() { ID = resource.ID, Value = storage[resource] });
+                    _storageData.Storage.Add(new GameResourceData() { ID = resource.ID, Value = _storage[resource] });
                 }
             }
 
