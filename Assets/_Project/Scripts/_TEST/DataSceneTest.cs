@@ -49,12 +49,12 @@ public class DataSceneTest : MonoBehaviour
 
             ShowStorage();
 
-            foreach(GameResourceData resource in _resourceStorageData.Resources)
+            foreach(GameResourceData resource in _resourceStorageData.Storage)
             {
                 Debug.Log($"{resource.ID}  is {resource.Value}");
             }
        
-            _resourceStorageProvider.UpdateStorage(_storage);
+            _resourceStorageProvider.UpdateStorage();
         }
     }
 }

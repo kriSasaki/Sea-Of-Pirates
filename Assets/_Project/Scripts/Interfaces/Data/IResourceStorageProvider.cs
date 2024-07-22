@@ -7,6 +7,6 @@ namespace Project.Interfaces.Data
     {
         Dictionary<GameResource, int> LoadStorage();
 
-        void UpdateStorage(Dictionary<GameResource, int> storage);
+        void UpdateStorage();
     }
 }

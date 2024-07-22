@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class PlayerPrefsReseter : MonoBehaviour
 {
     // Для сбросв префсов в плеймоде выбрать в выпадающем меню компонента (3 точки справа - сверху)

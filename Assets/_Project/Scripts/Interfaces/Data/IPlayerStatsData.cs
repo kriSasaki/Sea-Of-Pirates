@@ -3,8 +3,8 @@ using Project.Systems.Data;
 
 namespace Project.Interfaces.Data
 {
-    public interface IResourceStorageData : ISaveable
+    public interface IPlayerStatsData : ISaveable
     {
-        List<GameResourceData> Storage { get; }
+        List<PlayerStatData> StatsLevels { get; }
     }
 }
