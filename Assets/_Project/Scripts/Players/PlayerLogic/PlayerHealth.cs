@@ -10,6 +10,8 @@ namespace Scripts.Players.PlayerLogic.Health
     {
         private const string TurnOffFlash = "HideFlash";
 
+        public Action HealthChange;
+
         [SerializeField] private Bars _bar;
         [SerializeField] private GameObject _hitEffect;
         [SerializeField] private AudioSource _soundOfHit;
@@ -19,8 +21,6 @@ namespace Scripts.Players.PlayerLogic.Health
         private float _minimalAudioPitch = 0.8f;
         private float _maximalAudioPitch = 1.2f;
         private IPlayerStats _playerStats;
-
-        public Action HealthChange;
 
         public int CurrentHealth => _currentHealth;
 
