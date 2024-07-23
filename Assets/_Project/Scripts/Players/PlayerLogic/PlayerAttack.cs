@@ -2,13 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Players.PlayerLogic.Guns;
 using System.Collections;
-using static UnityEngine.UI.CanvasScaler;
+using Project.Enemies;
+using Project.Interfaces.Stats;
+using Zenject;
 
 namespace Scripts.Players.PlayerLogic.PlayerAttack
 {
     public class PlayerAttack : MonoBehaviour
     {
         private const string StartAttackCoroutine = "StartAttack";
+
         [SerializeField] private float _àttackCoolDown = 3f;
         [SerializeField] private List<Gun> _gunList;
         [SerializeField] private GameObject AttackEffect;
@@ -16,12 +19,9 @@ namespace Scripts.Players.PlayerLogic.PlayerAttack
         private List<Enemy> _attackList = new List<Enemy>();
         private Enemy _targetEnemy;
         private bool _isAttacking;
-        private int _damage;
+        private IPlayerStats _playerStats;
 
-        private void Awake()
-        {
-            _damage = GetStatValue(StatType.Damage);
-        }
+        private int Damage => _playerStats.Damage;
 
         private void OnTriggerEnter(Collider collider)
         {
@@ -47,6 +47,12 @@ namespace Scripts.Players.PlayerLogic.PlayerAttack
             }
         }
 
+        [Inject]
+        public void Construct(IPlayerStats playerStats)
+        {
+            _playerStats = playerStats;
+        }
+
         private bool CanAttack()
         {
             return !_isAttacking && CoolDownIsUp();
@@ -64,7 +70,7 @@ namespace Scripts.Players.PlayerLogic.PlayerAttack
             {
                 _gunList[i].Attack();
             }
-            enemy.TakeDamage(_damage);
+            enemy.TakeDamage(Damage);
         }
 
         private IEnumerator StartAttack()

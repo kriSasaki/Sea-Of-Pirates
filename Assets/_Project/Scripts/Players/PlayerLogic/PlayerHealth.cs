@@ -1,5 +1,7 @@
+using Project.Interfaces.Stats;
 using System;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Scripts.Players.PlayerLogic.Health
@@ -7,7 +9,6 @@ namespace Scripts.Players.PlayerLogic.Health
     public class PlayerHealth : MonoBehaviour
     {
         private const string TurnOffFlash = "HideFlash";
-        public Action HealthChange;
 
         [SerializeField] private Bars _bar;
         [SerializeField] private GameObject _hitEffect;
@@ -15,26 +16,25 @@ namespace Scripts.Players.PlayerLogic.Health
         [SerializeField] private float _effectTime;
 
         private int _currentHealth;
-        private int _maxHealth;
         private float _minimalAudioPitch = 0.8f;
         private float _maximalAudioPitch = 1.2f;
+        private IPlayerStats _playerStats;
+
+        public Action HealthChange;
 
         public int CurrentHealth => _currentHealth;
 
-        private void Awake()
-        {
-            _maxHealth = GetStatValue(StatType.Health);
-        }
+        private int MaxHealth => _playerStats.MaxHealth;
 
         private void Start()
         {
-            _currentHealth = _maxHealth;
+            _currentHealth = MaxHealth;
         }
 
-        public int MaxHealth
+        [Inject]
+        public void Construct(IPlayerStats playerStats)
         {
-            get { return _maxHealth; }
-            set { _maxHealth = value; }
+            _playerStats = playerStats;
         }
 
         public void TakeDamage(int damage)
@@ -48,7 +48,7 @@ namespace Scripts.Players.PlayerLogic.Health
             _hitEffect.SetActive(true);
             Invoke(TurnOffFlash, _effectTime);
             _currentHealth -= damage;
-            _bar.SetHealth(_currentHealth, _maxHealth);
+            _bar.SetHealth(_currentHealth, MaxHealth);
         }
 
         private void HideFlash()
