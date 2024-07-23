@@ -1,17 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Scripts.Players.PlayerLogic.Guns;
 using System.Collections;
 using Project.Enemies;
 using Project.Interfaces.Stats;
 using Zenject;
 
-namespace Scripts.Players.PlayerLogic.PlayerAttack
+namespace Scripts.Players.PlayerLogic
 {
     public class PlayerAttack : MonoBehaviour
     {
-        private const string StartAttackCoroutine = "StartAttack";
-
         [SerializeField] private float _àttackCoolDown = 3f;
         [SerializeField] private List<Gun> _gunList;
         [SerializeField] private GameObject AttackEffect;
@@ -30,7 +27,7 @@ namespace Scripts.Players.PlayerLogic.PlayerAttack
                 _attackList.Add(enemy);
                 if (!_isAttacking)
                 {
-                    StartCoroutine(StartAttackCoroutine);
+                    StartCoroutine(StartAttack());
                 }
             }
         }

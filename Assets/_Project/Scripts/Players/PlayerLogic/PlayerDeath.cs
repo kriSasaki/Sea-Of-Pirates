@@ -1,8 +1,6 @@
-using Scripts.Players.PlayerLogic.Health;
-using Scripts.Players.PlayerLogic.Move;
 using UnityEngine;
 
-namespace Scripts.Players.PlayerLogic.Death
+namespace Scripts.Players.PlayerLogic
 {
     public class PlayerDeath : MonoBehaviour
     {

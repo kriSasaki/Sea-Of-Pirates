@@ -1,9 +1,7 @@
-using Scripts.Players.CamaraLogic.CameraFollow;
-using System.Collections;
-using System.Collections.Generic;
+using Scripts.Players.CamaraLogic;
 using UnityEngine;
 
-namespace Scripts.Players.PlayerLogic.Move
+namespace Scripts.Players.PlayerLogic
 {
     public class PlayerMove : MonoBehaviour
     {

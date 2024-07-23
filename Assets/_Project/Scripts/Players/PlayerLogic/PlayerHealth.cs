@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Scripts.Players.PlayerLogic.Health
+namespace Scripts.Players.PlayerLogic
 {
     public class PlayerHealth : MonoBehaviour
     {

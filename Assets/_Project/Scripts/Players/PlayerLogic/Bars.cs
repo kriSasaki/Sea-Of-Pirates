@@ -1,36 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Bars : MonoBehaviour
+namespace Scripts.Players.PlayerLogic
 {
-    [SerializeField] private Transform _scaleTransform;
-    [SerializeField] private Transform _target;
-
-    private Transform _cameraTransform;
-    private float _heightHealthBar = 30f;
-    private float _xScale;
-
-    private void Start()
+    public class Bars : MonoBehaviour
     {
-        _cameraTransform = Camera.main.transform;
+        [SerializeField] private Transform _scaleTransform;
+        [SerializeField] private Transform _target;
 
-    }
+        private Transform _cameraTransform;
+        private float _heightHealthBar = 30f;
+        private float _xScale;
 
-    private void LateUpdate()
-    {
-        transform.position = _target.position + Vector3.up * _heightHealthBar;
-        transform.rotation = _cameraTransform.rotation;
-    }
+        private void Start()
+        {
+            _cameraTransform = Camera.main.transform;
+        }
 
-    public void Setup(Transform target)
-    {
-        _target = target;
-    }
+        private void LateUpdate()
+        {
+            transform.position = _target.position + Vector3.up * _heightHealthBar;
+            transform.rotation = _cameraTransform.rotation;
+        }
 
-    public void SetHealth(int stats, int maxStats)
-    {
-        _xScale = (float)stats / maxStats;
-        _xScale = Mathf.Clamp01(_xScale);
+        public void Setup(Transform target)
+        {
+            _target = target;
+        }
+
+        public void SetHealth(int stats, int maxStats)
+        {
+            _xScale = (float)stats / maxStats;
+            _xScale = Mathf.Clamp01(_xScale);
+        }
     }
 }

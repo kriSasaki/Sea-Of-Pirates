@@ -1,7 +1,6 @@
 using UnityEngine;
-using Scripts.Players.Inputs.InputServices;
 
-namespace Scripts.Players.Inputs.MobileInputService
+namespace Scripts.Players.Inputs
 {
     public class MobileInputService : InputService
     {
