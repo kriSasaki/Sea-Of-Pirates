@@ -14,5 +14,6 @@ namespace Project.Configs.Quests
         [field: SerializeField] public EnemyConfig TargetType { get; private set; }
         [field: SerializeField, Min(1)] public int TargetAmount { get; private set; }
         [field: SerializeField] public GameResourceAmount Reward { get; private set; }
+        [field: SerializeField] public string Description { get; private set; }
     }
 }
