@@ -10,6 +10,12 @@ namespace Project.Systems.Data
         private readonly IResourceStorageProvider _resourceStorageProvider;
         private Dictionary<GameResource, int> _storage;
 
+        public PlayerStorage(IResourceStorageProvider provider)
+        {
+            _resourceStorageProvider = provider;
+            _storage = _resourceStorageProvider.LoadStorage();
+        }
+
         public void AddResource(GameResource gameResource, int amount)
         {
             _storage.Add(gameResource, amount);
@@ -22,7 +28,10 @@ namespace Project.Systems.Data
 
         public void TrySpendResource(GameResource gameResource, int amount)
         {
-           
+            if (_storage[gameResource] >= amount)
+            {
+                SpendResource(gameResource, amount);
+            }
         }
 
         public void TrySpendResource(GameResourceAmount gameResourceAmount)
@@ -30,9 +39,9 @@ namespace Project.Systems.Data
             TrySpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
         }
 
-        private void SpendResource()
+        private void SpendResource(GameResource gameResource, int amount)
         {
-
+            _storage[gameResource] -= amount;
         }
     }
 }
