@@ -20,9 +20,14 @@ namespace Project.Systems.Data
             AddResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
         }
 
-        public void TrySpendResource(int amount)
+        public void TrySpendResource(GameResource gameResource, int amount)
         {
-            
+           
+        }
+
+        public void TrySpendResource(GameResourceAmount gameResourceAmount)
+        {
+            TrySpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
         }
 
         private void SpendResource()

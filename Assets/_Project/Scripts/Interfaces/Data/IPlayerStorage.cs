@@ -7,6 +7,7 @@ namespace Project.Interfaces.Data
     {
         void AddResource(GameResource gameResource, int amount);
         void AddResource(GameResourceAmount gameResourceAmount);
-        void TrySpendResource();
+        void TrySpendResource(GameResource gameResource, int amount);
+        void TrySpendResource(GameResourceAmount gameResourceAmount);
     }
 }
