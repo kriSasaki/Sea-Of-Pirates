@@ -5,7 +5,7 @@ using Project.Enemies;
 using Project.Interfaces.Stats;
 using Zenject;
 
-namespace Scripts.Players.PlayerLogic
+namespace Project.Players.PlayerLogic
 {
     public class PlayerAttack : MonoBehaviour
     {

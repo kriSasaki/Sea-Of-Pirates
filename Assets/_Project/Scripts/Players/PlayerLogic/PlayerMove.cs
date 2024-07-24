@@ -1,7 +1,7 @@
-using Scripts.Players.CamaraLogic;
+using Project.Players.CamaraLogic;
 using UnityEngine;
 
-namespace Scripts.Players.PlayerLogic
+namespace Project.Players.PlayerLogic
 {
     public class PlayerMove : MonoBehaviour
     {

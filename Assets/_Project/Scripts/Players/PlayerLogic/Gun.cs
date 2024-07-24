@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scripts.Players.PlayerLogic
+namespace Project.Players.PlayerLogic
 {
     public class Gun : MonoBehaviour
     {
