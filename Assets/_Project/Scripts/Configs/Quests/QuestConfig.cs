@@ -1,14 +1,16 @@
 using Project.Configs.GameResources;
 using Project.Configs.Quests;
 using Project.Enemies;
-using Project.Interfaces.Data;
 using Project.Interfaces.Enemies;
 using Project.Systems.Stats;
 using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Project.Interfaces.Data;
+using Project.Systems.Quests;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Project.Configs.Quests
 {
@@ -21,61 +23,6 @@ namespace Project.Configs.Quests
         [field: SerializeField] public GameResourceAmount Reward { get; private set; }
         [field: SerializeField] public string Description { get; private set; }
     }
-}
-
-public interface IQuestsData : ISaveable
-{
-    List<QuestData> Quests { get; }
-}
-
-public class QuestsProvider: IQuestsProvider
-{
-    private IQuestsData _questsData;
-    private Dictionary<int, QuestStatus> _quests;
-
-    public QuestsProvider(IQuestsData questsData)
-    {
-        _questsData = questsData;
-        _quests = null;
-    }
-
-    public Dictionary<int, QuestStatus> LoadQuests()
-    {
-        if (_quests != null)
-        {
-            return _quests;
-        }
-
-        _quests = new Dictionary<int, QuestStatus>();
-
-        foreach (QuestData questData in _questsData.Quests)
-        {
-            _quests.Add(questData.ID, new QuestStatus(questData.State, questData.Progress));
-        }
-
-        return _quests;
-    }
-
-    public void UpdateQuest(int questID, QuestStatus status)
-    {
-        _quests[questID] = status;
-
-        if (_questsData.Quests.Any(q => q.ID == questID) == false)
-        {
-            _questsData.Quests.Add(new QuestData(questID, status));
-        }
-
-        QuestData data = _questsData.Quests.Find(q => q.ID == questID);
-        data.Update(status);
-
-        _questsData.Save();
-    }
-}
-
-public interface IQuestsProvider
-{
-    Dictionary<int, QuestStatus> LoadQuests();
-    void UpdateQuest(int id, QuestStatus status);
 }
 
 public class Quest
@@ -96,6 +43,7 @@ public class Quest
 
     public event Action<QuestStatus> StatusChanged;
 
+    public QuestStatus Status => _status;
     public int Progress => _status.Progress;
     public QuestState State => _status.State;
 
@@ -143,27 +91,6 @@ public class Quest
     private bool IsDone()
     {
         return Progress == _config.TargetAmount;
-    }
-}
-
-[System.Serializable]
-public class QuestData
-{
-    public int ID;
-    public QuestState State = QuestState.Avaliable;
-    public int Progress;
-
-    public QuestData(int id, QuestStatus status)
-    {
-        ID = id;
-        State = status.State;
-        Progress = status.Progress;
-    }
-
-    public void Update(QuestStatus status)
-    {
-        State = status.State;
-        Progress = status.Progress;
     }
 }
 
@@ -243,27 +170,51 @@ public class QuestSystem : MonoBehaviour
     }
 }
 
-public enum QuestState
-{
-    Avaliable,
-    Taken,
-    Done,
-    Completed
-}
-
-public struct QuestStatus
-{
-    public QuestState State;
-    public int Progress;
-
-    public QuestStatus(QuestState state, int progress)
-    {
-        State = state;
-        Progress = progress;
-    }
-}
-
 public class QuestView : MonoBehaviour
 {
+    [SerializeField] Canvas _questWindow;
+    [SerializeField] private Button _button;
+
+    [SerializeField] private TMP_Text _decription;
+
+    private void Awake()
+    {
+        HideQuestWindow();
+    }
+
+    private void OnEnable()
+    {
+        _button.onClick.AddListener(HUI);
+    }
+
+    private void OnDisable()
+    {
+        _button.onClick.RemoveListener(HUI);
+    }
+
+    private void HUI()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ShowQuestInfo(QuestConfig questConfig, QuestStatus questStatus)
+    {
+        ShowQuestWindow();
+    }
+
+    public void HideQuestInfo()
+    {
+        HideQuestWindow();
+    }
+
+    private void ShowQuestWindow()
+    {
+        _questWindow.enabled = true;
+    }
+
+    private void HideQuestWindow()
+    {
+        _questWindow.enabled = false;
+    }
 
 }
