@@ -17,12 +17,12 @@ namespace Project.Systems.Data
 
         public void AddResource(GameResourceAmount gameResourceAmount)
         {
-            
+            AddResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
         }
 
-        public void TrySpendResource()
+        public void TrySpendResource(int amount)
         {
-
+            
         }
 
         private void SpendResource()
