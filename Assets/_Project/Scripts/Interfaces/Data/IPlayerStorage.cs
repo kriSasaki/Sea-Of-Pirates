@@ -9,9 +9,9 @@ namespace Project.Interfaces.Data
         void AddResource(GameResource gameResource, int amount);
         void AddResource(GameResourceAmount gameResourceAmount);
         void AddResource(List<GameResourceAmount> gameResourcesAmounts);
-        void TrySpendResource(GameResource gameResource, int amount);
-        void TrySpendResource(GameResourceAmount gameResourceAmount);
-        void TrySpendResource(List<GameResourceAmount> gameResourcesAmounts);
+        bool TrySpendResource(GameResource gameResource, int amount);
+        bool TrySpendResource(GameResourceAmount gameResourceAmount);
+        bool TrySpendResource(List<GameResourceAmount> gameResourcesAmounts);
         bool CanSpend(GameResource gameResource, int amount);
     }
 }

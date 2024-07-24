@@ -35,25 +35,35 @@ namespace Project.Systems.Data
             }
         }
 
-        public void TrySpendResource(GameResource gameResource, int amount)
+        public bool TrySpendResource(GameResource gameResource, int amount)
         {
             if (CanSpend(gameResource, amount))
             {
                 SpendResource(gameResource, amount);
+                return true;
             }
+
+            return false;
         }
 
-        public void TrySpendResource(GameResourceAmount gameResourceAmount)
+        public bool TrySpendResource(GameResourceAmount gameResourceAmount)
         {
-            TrySpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
+            return TrySpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
         }
 
-        public void TrySpendResource(List<GameResourceAmount> gameResourcesAmounts)
+        public bool TrySpendResource(List<GameResourceAmount> gameResourcesAmounts)
         {
             foreach (var gameResourceAmount in gameResourcesAmounts)
             {
-                TrySpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
+                return CanSpend(gameResourceAmount.Resource, gameResourceAmount.Amount);
             }
+
+            foreach (var gameResourceAmount in gameResourcesAmounts)
+            {
+                SpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
+            }
+
+            return true;
         }
 
         public bool CanSpend(GameResource gameResource, int amount)
