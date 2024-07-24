@@ -18,7 +18,8 @@ namespace Project.Systems.Data
 
         public void AddResource(GameResource gameResource, int amount)
         {
-            _storage.Add(gameResource, amount);
+            _storage[gameResource] += amount;
+            SaveResources();
         }
 
         public void AddResource(GameResourceAmount gameResourceAmount)
@@ -26,9 +27,17 @@ namespace Project.Systems.Data
             AddResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
         }
 
+        public void AddResource(List<GameResourceAmount> gameResourcesAmounts)
+        {
+            foreach (var gameResourceAmount in gameResourcesAmounts)
+            {
+                AddResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
+            }
+        }
+
         public void TrySpendResource(GameResource gameResource, int amount)
         {
-            if (_storage[gameResource] >= amount)
+            if (CanSpend(gameResource, amount))
             {
                 SpendResource(gameResource, amount);
             }
@@ -39,9 +48,28 @@ namespace Project.Systems.Data
             TrySpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
         }
 
+        public void TrySpendResource(List<GameResourceAmount> gameResourcesAmounts)
+        {
+            foreach (var gameResourceAmount in gameResourcesAmounts)
+            {
+                TrySpendResource(gameResourceAmount.Resource, gameResourceAmount.Amount);
+            }
+        }
+
+        public bool CanSpend(GameResource gameResource, int amount)
+        {
+            return _storage[gameResource] >= amount;
+        }
+
         private void SpendResource(GameResource gameResource, int amount)
         {
             _storage[gameResource] -= amount;
+            SaveResources();
+        }
+
+        private void SaveResources()
+        {
+            _resourceStorageProvider.UpdateStorage();
         }
     }
 }
