@@ -101,6 +101,7 @@ public class QuestGiver : MonoBehaviour
     [SerializeField] private QuestConfig _questConfig;
 
     private IEnemyDeathNotifier _enemyDeathNotifier;
+    private IPlayerStorage _playerStorage;
 
     private Quest _quest;
 
@@ -113,9 +114,10 @@ public class QuestGiver : MonoBehaviour
         _quest.StatusChanged -= OnQuestStatusChanged;
     }
 
-    public void Construct(IEnemyDeathNotifier enemyDeathNotifier)
+    public void Construct(IEnemyDeathNotifier enemyDeathNotifier, IPlayerStorage playerStorage)
     {
         _enemyDeathNotifier = enemyDeathNotifier;
+        _playerStorage = playerStorage;
     }
 
     public void Initialize(QuestStatus questStatus)
@@ -127,6 +129,11 @@ public class QuestGiver : MonoBehaviour
 
     private void OnQuestStatusChanged(QuestStatus status)
     {
+        if(status.State == QuestState.Completed)
+        {
+            _playerStorage.AddResource(_questConfig.Reward);
+        }
+
         QuestStatusChanged?.Invoke(QuestID, status);
     }
 }
