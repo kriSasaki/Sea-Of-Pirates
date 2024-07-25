@@ -13,5 +13,7 @@ namespace Project.Interfaces.Data
         bool TrySpendResource(GameResourceAmount gameResourceAmount);
         bool TrySpendResource(List<GameResourceAmount> gameResourcesAmounts);
         bool CanSpend(GameResource gameResource, int amount);
+        bool CanSpend(GameResourceAmount gameResourceAmount);
+        bool CanSpend(List<GameResourceAmount> gameResourcesAmounts);
     }
 }

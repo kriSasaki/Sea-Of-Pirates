@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Project.Configs.GameResources;
 using Project.Interfaces.Data;
 using Project.Systems.Stats;
@@ -53,9 +54,9 @@ namespace Project.Systems.Data
 
         public bool TrySpendResource(List<GameResourceAmount> gameResourcesAmounts)
         {
-            foreach (var gameResourceAmount in gameResourcesAmounts)
+            if (CanSpend(gameResourcesAmounts) == false)
             {
-                return CanSpend(gameResourceAmount.Resource, gameResourceAmount.Amount);
+                return false;
             }
 
             foreach (var gameResourceAmount in gameResourcesAmounts)
@@ -71,12 +72,22 @@ namespace Project.Systems.Data
             return _storage[gameResource] >= amount;
         }
 
+        public bool CanSpend(GameResourceAmount gameResourceAmount)
+        {
+            return _storage[gameResourceAmount.Resource] >= gameResourceAmount.Amount;
+        }
+
+        public bool CanSpend(List<GameResourceAmount> gameResourcesAmounts)
+        {
+            return gameResourcesAmounts.All(CanSpend);
+        }
+
         private void SpendResource(GameResource gameResource, int amount)
         {
             _storage[gameResource] -= amount;
             SaveResources();
         }
-
+        
         private void SaveResources()
         {
             _resourceStorageProvider.UpdateStorage();
