@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04cd9d98eeb1706418aa7d10d6421b54, type: 3}
-  m_Name: Quest
+  m_Name: Quest 1
   m_EditorClassIdentifier: 
-  <ID>k__BackingField: 0
+  <ID>k__BackingField: 1
   <TargetType>k__BackingField: {fileID: 11400000, guid: 5cc56adb66b32cd4eb731575827a2023, type: 2}
-  <TargetAmount>k__BackingField: 1
+  <TargetAmount>k__BackingField: 35
   <Reward>k__BackingField:
-    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 30
-  <Description>k__BackingField: Wow, Mighty Pirate
+    Resource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
+    Amount: 69
+  <Description>k__BackingField: Another Quest, My Lord!

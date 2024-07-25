@@ -12,10 +12,12 @@ namespace Project.UI.Quests
         private void Awake()
         {
             Hide();
+            _questButton.gameObject.SetActive(false);
         }
 
         public void Show(IQuest quest)
         {
+            _questButton.gameObject.SetActive(true);
             _questButton.onClick.AddListener(() => _questWindow.Show(quest));
         }
 
@@ -23,6 +25,7 @@ namespace Project.UI.Quests
         {
             _questWindow.Hide();
             _questButton.onClick.RemoveAllListeners();
+            _questButton.gameObject.SetActive(false);
         }
     }
 }

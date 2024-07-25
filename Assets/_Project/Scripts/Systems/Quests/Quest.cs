@@ -3,6 +3,7 @@ using Project.Configs.Quests;
 using Project.Enemies;
 using Project.Interfaces.Enemies;
 using Project.Interfaces.Quests;
+using UnityEngine;
 
 namespace Project.Systems.Quests
 {

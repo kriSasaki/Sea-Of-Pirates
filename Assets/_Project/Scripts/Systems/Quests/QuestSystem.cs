@@ -5,24 +5,26 @@ using Zenject;
 
 namespace Project.Systems.Quests
 {
-    public class QuestSystem : IDisposable
+    public class QuestSystem : IDisposable, IInitializable
     {
         private IQuestsProvider _questsProvider;
         private List<QuestGiver> _questGivers;
 
-        [Inject]
-        public void Construct(List<QuestGiver> questGivers, IQuestsProvider questsProvider)
+        public QuestSystem(List<QuestGiver> questGivers, IQuestsProvider questsProvider)
         {
             _questsProvider = questsProvider;
             _questGivers = questGivers;
-
-            InitializeQuestGivers();
         }
 
         public void Dispose()
         {
             foreach (QuestGiver questGiver in _questGivers)
                 questGiver.QuestStatusChanged -= OnQuestStatusChanged;
+        }
+
+        public void Initialize()
+        {
+            InitializeQuestGivers();
         }
 
         private void InitializeQuestGivers()
