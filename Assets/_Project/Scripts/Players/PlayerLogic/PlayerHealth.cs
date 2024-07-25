@@ -10,7 +10,7 @@ namespace Project.Players.PlayerLogic
     {
         private const string TurnOffFlash = "HideFlash";
 
-        public Action HealthChange;
+        public event Action HealthChanged;
 
         [SerializeField] private Bars _bar;
         [SerializeField] private GameObject _hitEffect;
@@ -41,12 +41,12 @@ namespace Project.Players.PlayerLogic
         {
             if (_currentHealth <= 0)
             {
-                HealthChange?.Invoke();
+                HealthChanged?.Invoke();
                 return;
             }
             _soundOfHit.pitch = Random.Range(_minimalAudioPitch, _maximalAudioPitch);
             _hitEffect.SetActive(true);
-            Invoke(TurnOffFlash, _effectTime);
+            Invoke(nameof(HideFlash), _effectTime);
             _currentHealth -= damage;
             _bar.SetHealth(_currentHealth, MaxHealth);
         }

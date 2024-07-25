@@ -1,5 +1,6 @@
 using Project.Players.CamaraLogic;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Players.PlayerLogic
 {
@@ -10,17 +11,10 @@ namespace Project.Players.PlayerLogic
         private IInputService _inputService;
         private Camera _camera;
 
-        private void Awake()
-        {
-  //          _inputService = Game.InputService;
-        }
-
         private void Start()
         {
             _camera = Camera.main;
         }
-
-        private void CameraFollow() => _camera.GetComponent<CameraFollow>().Follow(gameObject);
 
         private void Update()
         {
@@ -37,5 +31,13 @@ namespace Project.Players.PlayerLogic
             movementVector += Physics.gravity;
             CharacterController.Move(MovementSpeed * movementVector * Time.deltaTime);
         }
+
+        [Inject]
+        private void Construct(IInputService inputService)
+        {
+            _inputService = inputService;
+        }
+
+        private void CameraFollow() => _camera.GetComponent<CameraFollow>().Follow(gameObject);
     }
 }
