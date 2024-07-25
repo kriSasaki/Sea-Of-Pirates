@@ -1018,7 +1018,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974702209}
-  - component: {fileID: 974702208}
   - component: {fileID: 974702207}
   - component: {fileID: 974702206}
   - component: {fileID: 974702205}
@@ -1092,20 +1091,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &974702208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974702204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1dbd39f43c5e414db74192612a27670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questWindow: {fileID: 1610337267}
-  _questButton: {fileID: 454500864}
 --- !u!224 &974702209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2641,6 +2626,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3683243696000880406, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
+      propertyPath: _questButton
+      value: 
+      objectReference: {fileID: 454500864}
     - target: {fileID: 4032441781655587642, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
       propertyPath: m_Name
       value: SceneContext

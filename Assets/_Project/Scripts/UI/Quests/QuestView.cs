@@ -4,13 +4,25 @@ using UnityEngine.UI;
 
 namespace Project.UI.Quests
 {
-    public class QuestView : MonoBehaviour
+    public class QuestView
     {
         [SerializeField] private QuestWindow _questWindow;
         [SerializeField] private Button _questButton;
 
-        private void Awake()
+        public QuestView(QuestWindow questWindow, Button questButton)
         {
+            _questWindow = questWindow;
+            _questButton = questButton;
+
+            if (questButton == null) 
+            {
+                Debug.LogError("Не прокинули ссылку на кнопку квеста в SceneContextInstaller на сцене");
+            }
+            if (_questWindow == null) 
+            {
+                Debug.LogError("Добавьте на сцену префаб QuestWindow");
+            }
+
             Hide();
             _questButton.gameObject.SetActive(false);
         }
