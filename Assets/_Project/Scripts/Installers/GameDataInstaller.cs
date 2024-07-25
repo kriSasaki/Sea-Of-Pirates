@@ -22,8 +22,10 @@ namespace Project.Installers
 
             Container.Bind<IResourceStorageProvider>().To<ResourceStorageProvider>().AsSingle();
             Container.Bind<IPlayerStatsProvider>().To<PlayerStatsProvider>().AsSingle();
+            Container.Bind<IQuestsProvider>().To<QuestsProvider>().AsSingle();
 
             Container.Bind<IPlayerStats>().To<PlayerStats>().AsSingle();
+            Container.Bind<IPlayerStorage>().To<PlayerStorage>().AsSingle();
         }
     }
 }

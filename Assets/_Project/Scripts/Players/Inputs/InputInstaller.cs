@@ -18,6 +18,6 @@ public class InputInstaller : MonoInstaller
             Container.Bind<IInputService>().To<StandaloneInputService>().FromNew().AsSingle();
         }
 
-        Container.Bind<PlayerMove>().FromNew().AsSingle().NonLazy();
+        //Container.Bind<PlayerMove>().FromNew().AsSingle().NonLazy();
     }
 }

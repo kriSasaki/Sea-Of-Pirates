@@ -1,29 +1,27 @@
 using Agava.WebUtility;
 using Project.SDK.Advertisment;
 using Project.Systems.Pause;
+using System;
 using UnityEngine;
 
-public class FocusController : MonoBehaviour
+public class FocusController : IDisposable
 {
     private PauseService _pauseService;
     private AdvertismentService _advertisingService;
 
-    private void OnEnable()
+    public FocusController(PauseService pauseService, AdvertismentService advertisingService)
     {
+        _pauseService = pauseService;
+        _advertisingService = advertisingService;
+
         Application.focusChanged += OnInBackgroundChangeApp;
         WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
     }
 
-    private void OnDisable()
+    public void Dispose()
     {
         Application.focusChanged -= OnInBackgroundChangeApp;
         WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
-    }
-
-    public void Initialize(PauseService pauseService, AdvertismentService advertisingService)
-    {
-        _pauseService = pauseService;
-        _advertisingService = advertisingService;
     }
 
     private void OnInBackgroundChangeApp(bool inApp)
