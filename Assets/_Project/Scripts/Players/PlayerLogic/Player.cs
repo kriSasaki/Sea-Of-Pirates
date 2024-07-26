@@ -6,10 +6,8 @@ using Random = UnityEngine.Random;
 
 namespace Project.Players.PlayerLogic
 {
-    public class PlayerHealth : MonoBehaviour
+    public class Player : MonoBehaviour
     {
-        private const string TurnOffFlash = "HideFlash";
-
         public event Action HealthChanged;
 
         [SerializeField] private Bars _bar;

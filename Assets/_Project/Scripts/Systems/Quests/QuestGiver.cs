@@ -35,7 +35,7 @@ namespace Project.Systems.Quests
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out PlayerHealth player))
+            if (other.TryGetComponent(out Player player))
             {
                 _questView.Show(_quest);
             }
@@ -43,7 +43,7 @@ namespace Project.Systems.Quests
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out PlayerHealth player))
+            if (other.TryGetComponent(out Player player))
             {
                 _questView.Hide();
             }
