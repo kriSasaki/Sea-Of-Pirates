@@ -1,25 +1,34 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Project.Systems.Audio
 {
     public class MuteController : MonoBehaviour
     {
-        [SerializeField] private AudioService _audioService;
+        private const string MuteKey = nameof(MuteKey);
+
         [SerializeField] private Button _muteButton;
         [SerializeField] private Image _muteButtonImage;
         [SerializeField] private Sprite _muteIcon;
         [SerializeField] private Sprite _unmuteIcon;
 
+        private AudioService _audioService;
         private bool _isMuted;
 
         private void Start()
         {
-            _isMuted = PlayerPrefs.GetInt("isMuted", 0) == 1;
+            _isMuted = PlayerPrefs.GetInt(MuteKey, 0) == 1;
             UpdateAudioState();
             UpdateButtonImage();
 
             _muteButton.onClick.AddListener(ToggleMute);
+        }
+
+        [Inject]
+        public void Construct(AudioService audioService)
+        {
+            _audioService = audioService;
         }
 
         private void ToggleMute()
@@ -27,7 +36,7 @@ namespace Project.Systems.Audio
             _isMuted = !_isMuted;
             UpdateAudioState();
 
-            PlayerPrefs.SetInt("isMuted", _isMuted ? 1 : 0);
+            PlayerPrefs.SetInt(MuteKey, _isMuted ? 1 : 0);
             PlayerPrefs.Save();
             UpdateButtonImage();
         }

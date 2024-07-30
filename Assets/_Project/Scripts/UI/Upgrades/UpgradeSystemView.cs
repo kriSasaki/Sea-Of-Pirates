@@ -12,7 +12,7 @@ namespace Project.UI.Upgrades
             _upgradeButton = upgradeButton;
             _upgradeWindow = upgradeWindow;
 
-            Hide();
+            HideButton();
         }
 
         public void Show()
@@ -24,6 +24,11 @@ namespace Project.UI.Upgrades
         public void Hide()
         {
             _upgradeWindow.Hide();
+            HideButton();
+        }
+
+        private void HideButton()
+        {
             _upgradeButton.onClick.RemoveAllListeners();
             _upgradeButton.gameObject.SetActive(false);
         }
