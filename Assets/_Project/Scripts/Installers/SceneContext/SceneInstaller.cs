@@ -2,6 +2,7 @@ using Project.Interfaces.Enemies;
 using Project.Spawner;
 using Project.Systems.Quests;
 using Project.UI.Quests;
+using Project.UI.Upgrades;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,6 +12,7 @@ namespace Project.Installers.SceneContext
     public class SceneInstaller : MonoInstaller
     {
         [SerializeField] private Button _questButton;
+        [SerializeField] private Button _upgradeButton;
 
         public override void InstallBindings()
         {
@@ -28,7 +30,10 @@ namespace Project.Installers.SceneContext
         private void BindUI()
         {
             Container.Bind<QuestWindow>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<QuestView>().AsSingle().WithArguments(_questButton);
+            Container.Bind<QuestView>().AsSingle().WithArguments(_questButton).NonLazy();
+
+            Container.Bind<UpgradeWindow>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<UpgradeSystemView>().AsSingle().WithArguments(_upgradeButton).NonLazy();
         }
 
         private void BindQuestSystem()
