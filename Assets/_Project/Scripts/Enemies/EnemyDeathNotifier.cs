@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Project.Enemies;
 using Project.Interfaces.Enemies;
+using Project.Spawner;
 
-namespace Project.Spawner
+namespace Project.Enemies
 {
     public class EnemyDeathNotifier: IEnemyDeathNotifier, IDisposable
     {

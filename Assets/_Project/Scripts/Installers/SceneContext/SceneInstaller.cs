@@ -1,4 +1,4 @@
-using Project.Interfaces.Enemies;
+using Project.Enemies;
 using Project.Spawner;
 using Project.Systems.Quests;
 using Project.UI.Quests;
