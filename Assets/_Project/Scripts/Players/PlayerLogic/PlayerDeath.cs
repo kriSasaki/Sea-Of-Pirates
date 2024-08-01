@@ -4,7 +4,7 @@ namespace Project.Players.PlayerLogic
 {
     public class PlayerDeath : MonoBehaviour
     {
-        [SerializeField] private Player Health;
+        [SerializeField] private PlayerHealth Health;
         [SerializeField] private PlayerMove Move;
         [SerializeField] private GameObject DeathEffect;
 

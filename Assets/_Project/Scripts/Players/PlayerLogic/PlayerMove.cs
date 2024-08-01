@@ -7,13 +7,16 @@ namespace Project.Players.PlayerLogic
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private CharacterController CharacterController;
-        [SerializeField] private float MovementSpeed;
+        [SerializeField] private int MovementSpeed;
         private IInputService _inputService;
         private Camera _camera;
+        private Player _player;
 
         private void Start()
         {
             _camera = Camera.main;
+            _player = GetComponent<Player>();
+            _player.SetSpeed(MovementSpeed);
         }
 
         private void Update()
@@ -30,12 +33,6 @@ namespace Project.Players.PlayerLogic
             }
             movementVector += Physics.gravity;
             CharacterController.Move(MovementSpeed * movementVector * Time.deltaTime);
-        }
-
-        [Inject]
-        private void Construct(IInputService inputService)
-        {
-            _inputService = inputService;
         }
 
         private void CameraFollow() => _camera.GetComponent<CameraFollow>().Follow(gameObject);

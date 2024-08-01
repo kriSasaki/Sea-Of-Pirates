@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using Project.Enemies;
-using Project.Interfaces.Stats;
-using Zenject;
 
 namespace Project.Players.PlayerLogic
 {
@@ -12,13 +10,17 @@ namespace Project.Players.PlayerLogic
         [SerializeField] private float _àttackCoolDown = 3f;
         [SerializeField] private List<Gun> _gunList;
         [SerializeField] private GameObject AttackEffect;
+        [SerializeField] private Player _player;
 
         private List<Enemy> _attackList = new List<Enemy>();
         private Enemy _targetEnemy;
         private bool _isAttacking;
-        private IPlayerStats _playerStats;
+        private int _damage;
 
-        private int Damage => _playerStats.Damage;
+        private void Start()
+        {
+            _player.SetDamage(_damage);
+        }
 
         private void OnTriggerEnter(Collider collider)
         {
@@ -44,12 +46,6 @@ namespace Project.Players.PlayerLogic
             }
         }
 
-        [Inject]
-        public void Construct(IPlayerStats playerStats)
-        {
-            _playerStats = playerStats;
-        }
-
         private bool CanAttack()
         {
             return !_isAttacking && CoolDownIsUp();
@@ -67,7 +63,7 @@ namespace Project.Players.PlayerLogic
             {
                 _gunList[i].Attack();
             }
-            enemy.TakeDamage(Damage);
+            enemy.TakeDamage(_damage);
         }
 
         private IEnumerator StartAttack()

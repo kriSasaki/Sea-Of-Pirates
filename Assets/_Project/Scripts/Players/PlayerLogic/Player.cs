@@ -1,65 +1,45 @@
 using Project.Interfaces.Stats;
-using System;
+using Project.Players.PlayerLogic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
-namespace Project.Players.PlayerLogic
+public class Player : MonoBehaviour
 {
-    public class Player : MonoBehaviour
+    [SerializeField] private PlayerAttack _attackLeft;
+    [SerializeField] private PlayerAttack _attackRight;
+    [SerializeField] private PlayerHealth _health;
+    [SerializeField] private PlayerMove _move;
+    private IPlayerStats _playerStats;
+
+    private int _maxHealth => _playerStats.MaxHealth;
+    private int _damage => _playerStats.Damage;
+    private int _speed => _playerStats.Speed;
+
+    [Inject]
+    public void Construct(IPlayerStats playerStats)
     {
-        public event Action HealthChanged;
+        _playerStats = playerStats;
+    }
 
-        [SerializeField] private Bars _bar;
-        [SerializeField] private GameObject _hitEffect;
-        [SerializeField] private AudioSource _soundOfHit;
-        [SerializeField] private float _effectTime;
+    public void SetMaxHealth(int newMaxHealth)
+    {
+        newMaxHealth = _maxHealth;
+    }
 
-        private int _currentHealth;
-        private float _minimalAudioPitch = 0.8f;
-        private float _maximalAudioPitch = 1.2f;
-        private IPlayerStats _playerStats;
-        private bool _accessPirateBayAllowed = false;
+    public void SetDamage(int newDamage)
+    {
+        newDamage = _damage;
+    }
 
-        public bool AccessPirateBayAllowed => _accessPirateBayAllowed;
+    public void SetSpeed(int newSpeed)
+    {
+        newSpeed = _speed;
+    }
 
-        public int CurrentHealth => _currentHealth;
-
-        private int MaxHealth => _playerStats.MaxHealth;
-
-        private void Start()
-        {
-            _currentHealth = MaxHealth;
-        }
-
-        [Inject]
-        public void Construct(IPlayerStats playerStats)
-        {
-            _playerStats = playerStats;
-        }
-
-        public void TakeDamage(int damage)
-        {
-            if (_currentHealth <= 0)
-            {
-                HealthChanged?.Invoke();
-                return;
-            }
-            _soundOfHit.pitch = Random.Range(_minimalAudioPitch, _maximalAudioPitch);
-            _hitEffect.SetActive(true);
-            Invoke(nameof(HideFlash), _effectTime);
-            _currentHealth -= damage;
-            _bar.SetHealth(_currentHealth, MaxHealth);
-        }
-
-        public void AllowAccessPirateBay()
-        {
-            _accessPirateBayAllowed = true;
-        }
-
-        private void HideFlash()
-        {
-            _hitEffect.SetActive(false);
-        }
+    public void TakeDamage(int damage)
+    {
+        _health.TakeDamage(damage);
     }
 }
