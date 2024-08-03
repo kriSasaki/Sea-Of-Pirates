@@ -1,3 +1,4 @@
+using Project.Interfaces.Stats;
 using Project.Players.CamaraLogic;
 using UnityEngine;
 using Zenject;
@@ -7,16 +8,28 @@ namespace Project.Players.PlayerLogic
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private CharacterController CharacterController;
-        [SerializeField] private int MovementSpeed;
         private IInputService _inputService;
         private Camera _camera;
         private Player _player;
+        private IPlayerStats _playerStats;
 
+        private int MovementSpeed => _playerStats.Speed;
+     
         private void Start()
         {
-            _camera = Camera.main;
-            _player = GetComponent<Player>();
-            _player.SetSpeed(MovementSpeed);
+            _camera = Camera.main;      
+        }
+
+        [Inject]
+        public void Construct(IPlayerStats playerStats)
+        {
+            _playerStats = playerStats;
+        }
+
+        [Inject]
+        public void Construct(IInputService inputService)
+        {
+            _inputService = inputService;
         }
 
         private void Update()

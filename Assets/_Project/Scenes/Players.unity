@@ -123,34 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &101579343 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4032441781655587642, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
-  m_PrefabInstance: {fileID: 802218083}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &101579344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101579343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610aa6665f567f241979140f468e692a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &101579345 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3683243696000880406, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
-  m_PrefabInstance: {fileID: 802218083}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101579343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8310e3039ecdf284c9c929a2398af138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &421121618
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,9 +229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _following: {fileID: 8337285387593096076}
-  RotationAngleX: 0
-  Distance: 0
-  OffsetY: 0
+  RotationAngleX: 10
+  Distance: 10
+  OffsetY: 0.5
 --- !u!1 &422973822
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneContext
       objectReference: {fileID: 0}
+    - target: {fileID: 4032441781655587642, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8400726124656432597, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
       propertyPath: _monoInstallers.Array.size
       value: 1
@@ -595,14 +571,11 @@ PrefabInstance:
     - target: {fileID: 8400726124656432597, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
       propertyPath: _monoInstallers.Array.data[1]
       value: 
-      objectReference: {fileID: 101579345}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4032441781655587642, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 101579344}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
 --- !u!1 &1155111691
 GameObject:
@@ -1441,7 +1414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 8354196387112753137}
-  MovementSpeed: 2
 --- !u!114 &8354196387112753139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,10 +1441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60307aa68c8e5ce4f8c64617b95835ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackLeft: {fileID: 1953374382}
-  _attackRight: {fileID: 2101133178}
-  _health: {fileID: 8354196387112753139}
-  _move: {fileID: 8354196387112753138}
+  _bar: {fileID: 1900119959}
+  _hitEffect: {fileID: 0}
+  _soundOfHit: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -17,20 +17,15 @@ namespace Project.Players.PlayerLogic
         private float _effectTime = 0.2f;
         private Player _player;
         private int _currentHealth;
-        private int _maxHealth;
         private float _minimalAudioPitch = 0.8f;
         private float _maximalAudioPitch = 1.2f;
         private IPlayerStats _playerStats;
-        private bool _accessPirateBayAllowed = false;
 
-        public bool AccessPirateBayAllowed => _accessPirateBayAllowed;
-
-        public int CurrentHealth => _currentHealth;  
+        private int _maxHealth;
+        public int CurrentHealth => _currentHealth;
 
         private void Start()
-        {
-            _player = GetComponent<Player>();
-            _player.SetMaxHealth(_maxHealth);
+        {       
             _currentHealth = _maxHealth;
 
         }

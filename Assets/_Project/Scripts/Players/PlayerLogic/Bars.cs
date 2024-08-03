@@ -18,7 +18,7 @@ namespace Project.Players.PlayerLogic
 
         private void LateUpdate()
         {
-            transform.position = _target.position + Vector3.up * _heightHealthBar;
+            transform.position = _target.position + Vector3.up;
             transform.rotation = _cameraTransform.rotation;
         }
 

@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using Project.Enemies;
+using Project.Players.Inputs;
+using Zenject;
+using Project.Interfaces.Stats;
 
 namespace Project.Players.PlayerLogic
 {
@@ -15,11 +18,14 @@ namespace Project.Players.PlayerLogic
         private List<Enemy> _attackList = new List<Enemy>();
         private Enemy _targetEnemy;
         private bool _isAttacking;
-        private int _damage;
+        private IPlayerStats _playerStats;
 
-        private void Start()
+        private int _damage => _playerStats.Damage;
+
+        [Inject]
+        public void Construct(IPlayerStats playerStats)
         {
-            _player.SetDamage(_damage);
+            _playerStats = playerStats;
         }
 
         private void OnTriggerEnter(Collider collider)

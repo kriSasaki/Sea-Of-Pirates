@@ -1,21 +1,27 @@
 using Project.Interfaces.Stats;
 using Project.Players.PlayerLogic;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private PlayerAttack _attackLeft;
-    [SerializeField] private PlayerAttack _attackRight;
-    [SerializeField] private PlayerHealth _health;
-    [SerializeField] private PlayerMove _move;
+    public event Action HealthChanged;
+
+    [SerializeField] private Bars _bar;
+    [SerializeField] private GameObject _hitEffect;
+    [SerializeField] private AudioSource _soundOfHit;
+
+    private float _effectTime = 0.2f;
+    private Player _player;
+    private int _currentHealth;
+    private float _minimalAudioPitch = 0.8f;
+    private float _maximalAudioPitch = 1.2f;
     private IPlayerStats _playerStats;
 
+    public int CurrentHealth => _currentHealth;
     private int _maxHealth => _playerStats.MaxHealth;
-    private int _damage => _playerStats.Damage;
-    private int _speed => _playerStats.Speed;
 
     [Inject]
     public void Construct(IPlayerStats playerStats)
@@ -23,23 +29,31 @@ public class Player : MonoBehaviour
         _playerStats = playerStats;
     }
 
-    public void SetMaxHealth(int newMaxHealth)
+    private void Start()
     {
-        newMaxHealth = _maxHealth;
-    }
-
-    public void SetDamage(int newDamage)
-    {
-        newDamage = _damage;
-    }
-
-    public void SetSpeed(int newSpeed)
-    {
-        newSpeed = _speed;
+        if (_playerStats != null)
+        {
+            _currentHealth = _maxHealth;
+            _bar.SetHealth(_currentHealth, _maxHealth);
+        }
     }
 
     public void TakeDamage(int damage)
     {
-        _health.TakeDamage(damage);
+        if (_currentHealth <= 0)
+        {
+            HealthChanged?.Invoke();
+            return;
+        }
+        _soundOfHit.pitch = Random.Range(_minimalAudioPitch, _maximalAudioPitch);
+        _hitEffect.SetActive(true);
+        Invoke(nameof(HideFlash), _effectTime);
+        _currentHealth -= damage;
+        _bar.SetHealth(_currentHealth, _maxHealth);
+    }
+
+    private void HideFlash()
+    {
+        _hitEffect.SetActive(false);
     }
 }
