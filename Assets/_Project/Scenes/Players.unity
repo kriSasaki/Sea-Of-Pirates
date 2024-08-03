@@ -1065,7 +1065,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1298,8 +1298,8 @@ GameObject:
   - component: {fileID: 8354196387112753136}
   - component: {fileID: 8354196387112753137}
   - component: {fileID: 8354196387112753140}
-  - component: {fileID: 8354196387112753139}
   - component: {fileID: 8354196387112753138}
+  - component: {fileID: 8354196387112753141}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1414,21 +1414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 8354196387112753137}
---- !u!114 &8354196387112753139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8333400688259079614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae482a5945bf6440bbc58dfdb45454d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bar: {fileID: 1900119959}
-  _hitEffect: {fileID: 0}
-  _soundOfHit: {fileID: 0}
 --- !u!114 &8354196387112753140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,6 +1429,21 @@ MonoBehaviour:
   _bar: {fileID: 1900119959}
   _hitEffect: {fileID: 0}
   _soundOfHit: {fileID: 0}
+--- !u!114 &8354196387112753141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333400688259079614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2148768d265d70a40b7628e83fb81b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 8354196387112753140}
+  Move: {fileID: 8354196387112753138}
+  DeathEffect: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
