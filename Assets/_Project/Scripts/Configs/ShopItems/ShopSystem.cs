@@ -8,6 +8,7 @@ public class ShopSystem : UiWindow
 {
     [SerializeField] private ShopItemSlot _itemSlotPrefab;
     [SerializeField] private RectTransform _itemSlotsHolder;
+    [SerializeField] private ConfirmWindow _confirmWindow;
 
     private readonly List<ShopItemSlot> _itemSlots = new();
     
@@ -52,8 +53,13 @@ public class ShopSystem : UiWindow
     {
         if (_playerStorage.CanSpend(shopItem.Price))
         {
-            _playerStorage.TrySpendResource(shopItem.Price);
-            _playerStorage.AddResource(shopItem.Good);
+            _confirmWindow.Show(shopItem, () => BuyItem(shopItem));
         }
+    }
+
+    private void BuyItem(ShopItem shopItem)
+    {
+        _playerStorage.TrySpendResource(shopItem.Price);
+        _playerStorage.AddResource(shopItem.Good);
     }
 }

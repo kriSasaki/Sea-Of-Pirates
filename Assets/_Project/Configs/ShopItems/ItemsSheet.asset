@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ItemsSheet
   m_EditorClassIdentifier: 
   _shopItems:
+  - {fileID: 11400000, guid: 64a699a48b553284e9a03b9eb46c5762, type: 2}
   - {fileID: 11400000, guid: 6d8d916ddb2d86d43a4a45f9983e638b, type: 2}
   - {fileID: 11400000, guid: 1970f88d9fce55a4296b835baac88485, type: 2}
   - {fileID: 11400000, guid: a7e6bfd488c196f4fa4c1986c4e9120e, type: 2}
