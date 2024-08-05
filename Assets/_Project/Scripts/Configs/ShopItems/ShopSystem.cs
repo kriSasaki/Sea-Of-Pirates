@@ -9,9 +9,10 @@ public class ShopSystem : UiWindow
     [SerializeField] private ShopItemSlot _itemSlotPrefab;
     [SerializeField] private RectTransform _itemSlotsHolder;
 
+    private readonly List<ShopItemSlot> _itemSlots = new();
+    
     private IPlayerStorage _playerStorage;
     private ShopItemsSheet _shopItemsSheet;
-    private readonly List<ShopItemSlot> _itemSlots = new();
 
     public override void Show()
     {
@@ -22,10 +23,11 @@ public class ShopSystem : UiWindow
 
         foreach (var item in _shopItemsSheet.ShopItems)
         {
-            ShopItemSlot itemPanel = Instantiate(_itemSlotPrefab,_itemSlotsHolder);
-            itemPanel.Initialize(item);
-            itemPanel.Selected += OnShopItemSelected;
-            _itemSlots.Add(itemPanel);
+            ShopItemSlot itemSlot = Instantiate(_itemSlotPrefab,_itemSlotsHolder);
+            itemSlot.Initialize(item);
+            itemSlot.Selected += OnShopItemSelected;
+
+            _itemSlots.Add(itemSlot);
         }
     }
 

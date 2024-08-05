@@ -373,9 +373,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9a17b4d36490648958c603c64fd7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _closeButton: {fileID: 4025696961707893927}
+  _scaleTween:
+    _scale: 0
+    _duration: 0.3
+    _ease: 27
   _barPrefab: {fileID: 3238837485969649679, guid: 8e673330b24ddfe40ac5d1fbe7e8d82c, type: 3}
   _barHolder: {fileID: 4772164394682439374}
-  _closeButton: {fileID: 4025696961707893927}
 --- !u!114 &6525979926038515171
 MonoBehaviour:
   m_ObjectHideFlags: 0

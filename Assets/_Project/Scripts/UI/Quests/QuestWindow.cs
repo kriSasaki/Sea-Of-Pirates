@@ -5,22 +5,18 @@ using UnityEngine.UI;
 
 namespace Project.UI.Quests
 {
-    public class QuestWindow : MonoBehaviour
+    public class QuestWindow : UiWindow
     {
-        [SerializeField] private Canvas _window;
         [SerializeField] private TMP_Text _decription;
         [SerializeField] private Image _rewardImage;
         [SerializeField] private TMP_Text _rewardAmount;
         [SerializeField] private TMP_Text _progressValue;
         [SerializeField] private Button _confirmButton;
 
-        private void Awake()
-        {
-            Hide();
-        }
-
         public void Show(IQuest quest)
         {
+            base.Show();
+
             _confirmButton.onClick.AddListener(() => OnButtonClicked(quest));
 
             _decription.text = quest.Config.Description;
@@ -31,15 +27,12 @@ namespace Project.UI.Quests
             int targetProgress = quest.Config.TargetAmount;
             string progress = $"{currentProgress}/{targetProgress}";
             _progressValue.text = progress;
-
-            _window.enabled = true;
         }
 
-        public void Hide()
+        public override void Hide()
         {
+            base.Hide();
             _confirmButton.onClick.RemoveAllListeners();
-
-            _window.enabled = false;
         }
 
         private void OnButtonClicked(IQuest quest)
