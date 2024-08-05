@@ -11,12 +11,14 @@ namespace Project.Installers.ProjectContext
     public class GameDataInstaller : MonoInstaller
     {
         [SerializeField] private GameResourcesSheet _resourcesSheet;
+        [SerializeField] private ShopItemsSheet _shopItemsSheet;
         [SerializeField] private StatsSheet _statsSheet;
 
         public override void InstallBindings()
         {
             Container.Bind<GameResourcesSheet>().FromInstance(_resourcesSheet);
             Container.Bind<StatsSheet>().FromInstance(_statsSheet);
+            Container.Bind<ShopItemsSheet>().FromInstance(_shopItemsSheet);
 
             Container.BindInterfacesAndSelfTo<GameDataService>().AsSingle().NonLazy();
 

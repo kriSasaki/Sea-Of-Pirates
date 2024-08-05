@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Lean.Localization;
+using NaughtyAttributes;
 using Project.Systems.Stats;
 using Project.Utils;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class StatConfig : ScriptableObject
     [SerializeField, LeanTranslationName] private string _descriptionToken;
 
     [field: SerializeField] public StatType StatType { get; private set; }
-    [field: SerializeField] public Sprite Sprite { get; private set; }
+    [field: SerializeField, ShowAssetPreview] public Sprite Sprite { get; private set; }
     [field: SerializeField, Min(0)] public int MinValue { get; private set; }
     [field: SerializeField, Min(0)] public int MaxValue { get; private set; }
     [field: SerializeField, Min(0)] public int MaxLevel { get; private set; }
