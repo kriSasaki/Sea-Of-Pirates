@@ -13,17 +13,16 @@ namespace Project.Systems.Quests
     public class QuestGiver : InteractableZone
     {
         [SerializeField] private QuestConfig _questConfig;
+        [SerializeField] private QuestMarker _questMarker;
 
         private IEnemyDeathNotifier _enemyDeathNotifier;
         private IPlayerStorage _playerStorage;
         private QuestView _questView;
-
         private Quest _quest;
 
         public event Action<int, QuestStatus> QuestStatusChanged;
 
         public int QuestID => _questConfig.ID;
-
 
         private void OnTriggerEnter(Collider other)
         {
@@ -56,9 +55,10 @@ namespace Project.Systems.Quests
             _questView = questView;
         }
 
-        public void Initialize(QuestStatus questStatus)
+        public void Initialize(QuestStatus status)
         {
-            _quest = new Quest(_questConfig, questStatus, _enemyDeathNotifier);
+            _quest = new Quest(_questConfig, status, _enemyDeathNotifier);
+            _questMarker.SetMarkerVisual(status.State);
 
             _quest.StatusChanged += OnQuestStatusChanged;
         }
@@ -69,6 +69,8 @@ namespace Project.Systems.Quests
             {
                 _playerStorage.AddResource(_questConfig.Reward);
             }
+
+            _questMarker.SetMarkerVisual(status.State);
 
             QuestStatusChanged?.Invoke(QuestID, status);
         }

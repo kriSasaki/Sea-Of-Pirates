@@ -8,6 +8,7 @@ using Zenject;
 public class TestQuestandUpgrade : MonoBehaviour
 {
     [SerializeField] private GameResource _gameResource;
+    
     private IPlayerStorage _playerStorage;
 
     [Inject]
