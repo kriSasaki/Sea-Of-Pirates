@@ -1,5 +1,6 @@
 using Project.Configs.GameResources;
 using Project.Interfaces.Data;
+using Project.SDK.Advertisment;
 using Project.Systems.Data;
 using Project.Systems.Stats;
 using Project.Systems.Storage;
@@ -20,14 +21,15 @@ namespace Project.Installers.ProjectContext
             Container.Bind<StatsSheet>().FromInstance(_statsSheet);
             Container.Bind<ShopItemsSheet>().FromInstance(_shopItemsSheet);
 
-            Container.BindInterfacesAndSelfTo<GameDataService>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<GameDataService>().AsSingle().NonLazy();
 
             Container.Bind<IResourceStorageProvider>().To<ResourceStorageProvider>().AsSingle();
             Container.Bind<IPlayerStatsProvider>().To<PlayerStatsProvider>().AsSingle();
             Container.Bind<IQuestsProvider>().To<QuestsProvider>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<PlayerStats>().AsSingle();
-            Container.BindInterfacesAndSelfTo<PlayerStorage>().AsSingle();
+            Container.Bind<StickyController>().AsSingle();
+            Container.BindInterfacesTo<PlayerStats>().AsSingle();
+            Container.BindInterfacesTo<PlayerStorage>().AsSingle();
         }
     }
 }

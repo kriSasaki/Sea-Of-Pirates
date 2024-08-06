@@ -14,7 +14,7 @@ namespace Project.SDK.Advertisment
 
         public bool IsAdsPlaying { get; private set; } = false;
 
-        public void ShowInterstitialAd(Action onClose)
+        public void ShowInterstitialAd(Action onClose = null)
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
         Agava.YandexGames.InterstitialAd.Show(OnOpenCallback, OnCloseInterstitial);
@@ -25,7 +25,7 @@ namespace Project.SDK.Advertisment
             void OnCloseInterstitial(bool wasShown)
             {
                 OnCloseCallback();
-                onClose();
+                onClose?.Invoke();
             }
         }
 

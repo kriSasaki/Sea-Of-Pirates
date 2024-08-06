@@ -36,7 +36,7 @@ namespace Project.UI.Upgrades
             CreateUpgradeBars();
         }
 
-        public override void Show()
+        public void Open()
         {
             base.Show();
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 627772748227945718}
   - component: {fileID: 329336227969672763}
   m_Layer: 5
-  m_Name: GoodImage
+  m_Name: ItemImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 7743545453288599778}
   - component: {fileID: 808238268085106635}
   - component: {fileID: 8138938701926310908}
+  - component: {fileID: 2421961309092048071}
   m_Layer: 5
   m_Name: PopupLabel
   m_TagString: Untagged
@@ -617,6 +618,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2421961309092048071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455325747305219026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: UI/ConfirmWindow/header
+  FallbackText: "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C
+    \u043F\u043E\u043A\u0443\u043F\u043A\u0443?"
 --- !u!1 &1758649762128072213
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,10 +950,7 @@ MonoBehaviour:
     _duration: 0.3
     _ease: 27
   _confirmButton: {fileID: 1763514391906055431}
-  _goodImage: {fileID: 627772748227945718}
-  _goodAmount: {fileID: 6526776462866989318}
-  _priceImage: {fileID: 2524566970957272222}
-  _priceAmount: {fileID: 1622580844734226594}
+  _shopItemView: {fileID: 8441505395624561018}
 --- !u!114 &2551605860828702792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,7 +1189,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 500, y: 400}
+  m_CellSize: {x: 500, y: 300}
   m_Spacing: {x: 60, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -1644,6 +1657,7 @@ GameObject:
   - component: {fileID: 3385588942223126177}
   - component: {fileID: 5316674552688092619}
   - component: {fileID: 9069758384522243598}
+  - component: {fileID: 2603603282250263871}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1767,6 +1781,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2603603282250263871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579519342498338032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: UI/ConfirmWindow/button
+  FallbackText: "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C"
 --- !u!1 &3715838751141532295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,8 +1949,8 @@ CanvasGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3715838751141532295}
-  m_Enabled: 0
-  m_Alpha: 0.06
+  m_Enabled: 1
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1938,7 +1966,7 @@ GameObject:
   - component: {fileID: 4561512604535947430}
   - component: {fileID: 6526776462866989318}
   m_Layer: 5
-  m_Name: GoodAmount
+  m_Name: ItemAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2600,7 +2628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.029180635, g: 0.9433962, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2638,11 +2666,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.1354807, g: 0.8490566, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7599322, b: 0, a: 1}
+    m_PressedColor: {r: 0.13725491, g: 0.8509804, b: 0, a: 1}
+    m_SelectedColor: {r: 0.13725491, g: 0.8509804, b: 0, a: 1}
+    m_DisabledColor: {r: 0.13725491, g: 0.8509804, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2966,7 +2994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3034,6 +3062,7 @@ GameObject:
   - component: {fileID: 8493997263712024211}
   - component: {fileID: 3376959926485087763}
   - component: {fileID: 5139525531632269918}
+  - component: {fileID: 8441505395624561018}
   m_Layer: 5
   m_Name: ItemView
   m_TagString: Untagged
@@ -3103,6 +3132,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8441505395624561018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369118302895801071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa62bcf8dcbf94408dbe0818a80c474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemImage: {fileID: 627772748227945718}
+  _itemAmount: {fileID: 6526776462866989318}
+  _priceImage: {fileID: 2524566970957272222}
+  _priceAmount: {fileID: 1622580844734226594}
 --- !u!1 &6386018000423464107
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,7 +3928,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7294038205974380805}
         m_TargetAssemblyTypeName: ShopSystem, Assembly-CSharp
-        m_MethodName: Show
+        m_MethodName: Open
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

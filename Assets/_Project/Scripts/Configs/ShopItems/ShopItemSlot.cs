@@ -1,20 +1,71 @@
-﻿using Project.Systems.Stats;
-using System;
-using TMPro;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopItemSlot : MonoBehaviour
+[RequireComponent(typeof(ShopItemView))]
+public class ShopItemSlot : ItemSlot
 {
-    [SerializeField] private Button _selectButton;
-    [SerializeField] private Image _goodImage;
-    [SerializeField] private TMP_Text _goodAmount;
-    [SerializeField] private Image _priceImage;
-    [SerializeField] private TMP_Text _priceAmount;
-
-    private ShopItem _shopItem;
+    private ShopItem _item;
+    private ShopItemView _itemView;
 
     public event Action<ShopItem> Selected;
+
+    public void Initialize(ShopItem item)
+    {
+        _item = item;
+
+        _itemView = GetComponent<ShopItemView>();
+        _itemView.Set(_item);
+    }
+
+    protected override void OnItemSelected()
+    {
+        Selected?.Invoke(_item);
+    }
+}
+
+public class InAppItemSlot : ItemSlot
+{
+    private InAppItem _item;
+    private ShopItemView _itemView;
+    private InAppItemData _itemData;
+
+    public event Action<InAppItem, InAppItemData> Selected;
+    public void Initialize(InAppItem item, InAppItemData itemData)
+    {
+        _item = item;
+        _itemData = itemData;
+
+        _itemView = GetComponent<ShopItemView>();
+
+        _itemView.Set(_itemData);
+    }
+
+    protected override void OnItemSelected()
+    {
+        Selected?.Invoke(_item, _itemData);
+    }
+}
+
+public struct InAppItemData
+{
+    public Sprite ItemSprite;
+    public string ItemAmount;
+    public string PriceValue;
+    public string PriceCurrencyCode;
+
+    public InAppItemData(Sprite itemSprite, string itemAmount, string priceValue, string priceCurrencyCode)
+    {
+        ItemSprite = itemSprite;
+        ItemAmount = itemAmount;
+        PriceValue = priceValue;
+        PriceCurrencyCode = priceCurrencyCode;
+    }
+}
+
+public abstract class ItemSlot : MonoBehaviour
+{
+    [SerializeField] private Button _selectButton;
 
     private void Awake()
     {
@@ -26,21 +77,5 @@ public class ShopItemSlot : MonoBehaviour
         _selectButton.onClick.RemoveListener(OnItemSelected);
     }
 
-    private void OnItemSelected()
-    {
-        Selected?.Invoke(_shopItem);
-    }
-
-    public void Initialize(ShopItem shopItem)
-    {
-        _shopItem = shopItem;
-
-        GameResourceAmount good = _shopItem.Good;
-        GameResourceAmount price = _shopItem.Price;
-
-        _goodImage.sprite = good.Resource.Sprite;
-        _goodAmount.text = good.Amount.ToString();
-        _priceImage.sprite = price.Resource.Sprite;
-        _priceAmount.text = price.Amount.ToString();
-    }
+    protected abstract void OnItemSelected();
 }

@@ -15,4 +15,6 @@ quests/Level1/quest01,Sink the lousy boat
 quests/Level1/quest02,Need more fun!
 quests/ProgressLabel,Sunk
 quests/OK,OK
-Interacrables/UpgradePlace,Marina
+Interactables/UpgradePlace,Marina
+UI/ConfirmWindow/button,Confirm
+UI/ConfirmWindow/header,Confirm purchase?

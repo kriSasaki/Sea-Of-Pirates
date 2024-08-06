@@ -13,7 +13,7 @@ namespace Project.UI.Quests
         [SerializeField] private TMP_Text _progressValue;
         [SerializeField] private Button _confirmButton;
 
-        public void Show(IQuest quest)
+        public void Open(IQuest quest)
         {
             base.Show();
 

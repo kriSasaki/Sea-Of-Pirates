@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9d6b4a3b1b0cb4cb55208902e4bd93, type: 3}
   m_Name: Wood_Small
   m_EditorClassIdentifier: 
-  <Good>k__BackingField:
+  <Item>k__BackingField:
     Resource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
     Amount: 200
   <Price>k__BackingField:

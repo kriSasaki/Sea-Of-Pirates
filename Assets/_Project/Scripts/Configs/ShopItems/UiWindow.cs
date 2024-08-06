@@ -10,7 +10,6 @@ public class UiWindow : MonoBehaviour
 
     private Canvas _windowCanvas;
     
-
     private void Awake()
     {
         _windowCanvas = GetComponent<Canvas>();
@@ -25,14 +24,13 @@ public class UiWindow : MonoBehaviour
         _closeButton.onClick.RemoveListener(Hide);
     }
 
-    public virtual void Show()
-    {
-        _windowCanvas.enabled = true;
-        _scaleTween.Run();
-    }
-
     public virtual void Hide()
     {
         _windowCanvas.enabled = false;
+    }
+    protected void Show()
+    {
+        _windowCanvas.enabled = true;
+        _scaleTween.Run();
     }
 }

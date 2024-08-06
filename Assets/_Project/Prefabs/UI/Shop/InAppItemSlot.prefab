@@ -290,7 +290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1222
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83b59412a9472b344b51d62eb2563efe, type: 2}
   m_sharedMaterial: {fileID: 8234647958132089315, guid: 83b59412a9472b344b51d62eb2563efe, type: 2}
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.65
+  m_fontSize: 80
   m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 5044195720304430032}
   - component: {fileID: 2258020766935510160}
   m_Layer: 5
-  m_Name: ShopItemSlot
+  m_Name: InAppItemSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.42924845, g: 0.13333334, b: 0.49019608, a: 1}
+  m_Color: {r: 0.13333334, g: 0.48719165, b: 0.49019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -492,11 +492,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7490196, g: 0.28235295, b: 0.8509804, a: 1}
+    m_NormalColor: {r: 0.2823529, g: 0.8509804, b: 0.79825723, a: 1}
     m_HighlightedColor: {r: 0.99215686, g: 0.6745098, b: 0.16078432, a: 1}
-    m_PressedColor: {r: 0.42745098, g: 0.13333334, b: 0.49019608, a: 1}
-    m_SelectedColor: {r: 0.42745098, g: 0.13333334, b: 0.49019608, a: 1}
-    m_DisabledColor: {r: 0.7490196, g: 0.28235295, b: 0.8509804, a: 1}
+    m_PressedColor: {r: 0.28235295, g: 0.8509804, b: 0.8, a: 1}
+    m_SelectedColor: {r: 0.28235295, g: 0.8509804, b: 0.8, a: 1}
+    m_DisabledColor: {r: 0.28235295, g: 0.8509804, b: 0.8, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.2
   m_SpriteState:
@@ -549,7 +549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35000002, y: 0.060000002}
   m_AnchorMax: {x: 0.5, y: 0.21000001}
-  m_AnchoredPosition: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 1, y: 0.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6455035941316188822

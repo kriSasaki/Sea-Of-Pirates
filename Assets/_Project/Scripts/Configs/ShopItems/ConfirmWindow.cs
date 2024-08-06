@@ -1,36 +1,26 @@
-﻿using Project.Systems.Stats;
-using System;
-using TMPro;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ConfirmWindow : UiWindow
 {
     [SerializeField] private Button _confirmButton;
-    [SerializeField] private Image _goodImage;
-    [SerializeField] private TMP_Text _goodAmount;
-    [SerializeField] private Image _priceImage;
-    [SerializeField] private TMP_Text _priceAmount;
+    [SerializeField] private ShopItemView _shopItemView;
 
-    public void Show(ShopItem shopItem, Action confirmCallback)
+    public void Open(ShopItem shopItem, Action confirmCallback)
     {
         base.Show();
 
-        GameResourceAmount good = shopItem.Good;
-        GameResourceAmount price = shopItem.Price;
-
-        _goodImage.sprite = good.Resource.Sprite;
-        _goodAmount.text = good.Amount.ToString();
-        _priceImage.sprite = price.Resource.Sprite;
-        _priceAmount.text = price.Amount.ToString();
-
-        _confirmButton.onClick.AddListener(() => ConfirmPurchase(confirmCallback)); 
+        _shopItemView.Set(shopItem);
+        _confirmButton.onClick.AddListener(() => ConfirmPurchase(confirmCallback));
     }
 
-    private void ConfirmPurchase(Action confirmCallback)
+    public void Open(InAppItemData itemData, Action confirmCallback)
     {
-        confirmCallback.Invoke();
-        Hide();
+        base.Show();
+
+        _shopItemView.Set(itemData);
+        _confirmButton.onClick.AddListener(() => ConfirmPurchase(confirmCallback));
     }
 
     public override void Hide()
@@ -39,4 +29,11 @@ public class ConfirmWindow : UiWindow
 
         _confirmButton.onClick.RemoveAllListeners();
     }
+
+    private void ConfirmPurchase(Action confirmCallback)
+    {
+        confirmCallback.Invoke();
+        Hide();
+    }
+
 }
