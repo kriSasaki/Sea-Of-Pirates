@@ -5,12 +5,12 @@ using UnityEngine.UI;
 [RequireComponent(typeof(ShopItemView))]
 public class ShopItemSlot : ItemSlot
 {
-    private ShopItem _item;
+    private GameResourceItem _item;
     private ShopItemView _itemView;
 
-    public event Action<ShopItem> Selected;
+    public event Action<GameResourceItem> Selected;
 
-    public void Initialize(ShopItem item)
+    public void Initialize(GameResourceItem item)
     {
         _item = item;
 

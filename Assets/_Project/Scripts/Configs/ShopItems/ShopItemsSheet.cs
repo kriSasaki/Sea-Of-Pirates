@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShopItemsSheet : ScriptableObject
 {
-    [SerializeField] private List<ShopItem> _shopItems;
+    [SerializeField] private List<GameResourceItem> _shopItems;
 
-    public IEnumerable<ShopItem> ShopItems => _shopItems;
+    public IEnumerable<GameResourceItem> ShopItems => _shopItems;
 }

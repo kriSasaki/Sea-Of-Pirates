@@ -35,7 +35,7 @@ public class ShopSystem : UiWindow
 
     private void LoadShopItems()
     {
-        foreach (ShopItem item in _shopItemsSheet.ShopItems)
+        foreach (GameResourceItem item in _shopItemsSheet.ShopItems)
         {
             ShopItemSlot itemSlot = Instantiate(_itemSlotPrefab, _itemSlotsHolder);
             itemSlot.Initialize(item);
@@ -55,26 +55,26 @@ public class ShopSystem : UiWindow
     {
         foreach (var product in products)
         {
-            if (_inAppitemsSheet.TryGetItemConfig(product.id, out InAppItemConfig itemConfig))
-            {
-                InAppItem item = _inAppItemfactory.Create(itemConfig);
+            //if (_inAppitemsSheet.TryGetItemConfig(product.id, out InAppItemConfig itemConfig))
+            //{
+            //    InAppItem item = _inAppItemfactory.Create(itemConfig);
 
-                if (item.IsPurchasable)
-                {
-                    InAppItemSlot slot = UnityEngine.Object.Instantiate(_inAppSlotPrefab);
+            //    if (item.IsPurchasable)
+            //    {
+            //        InAppItemSlot slot = UnityEngine.Object.Instantiate(_inAppSlotPrefab);
 
-                    InAppItemData itemData = new InAppItemData(
-                        itemConfig.Sprite,
-                        itemConfig.Amount,
-                        product.priceValue,
-                        product.priceCurrencyCode);
+            //        InAppItemData itemData = new InAppItemData(
+            //            itemConfig.Sprite,
+            //            itemConfig.Amount,
+            //            product.priceValue,
+            //            product.priceCurrencyCode);
 
-                    slot.Initialize(item, itemData);
-                    slot.Selected += OnInAppItemSelected;
+            //        slot.Initialize(item, itemData);
+            //        slot.Selected += OnInAppItemSelected;
 
-                    _inAppItemSlots.Add(slot);
-                }
-            }
+            //        _inAppItemSlots.Add(slot);
+            //    }
+            //}
         }
     }
 
@@ -97,7 +97,7 @@ public class ShopSystem : UiWindow
         _shopItemsSheet = shopItemsSheet;
     }
 
-    private void OnShopItemSelected(ShopItem shopItem)
+    private void OnShopItemSelected(GameResourceItem shopItem)
     {
         if (_playerStorage.CanSpend(shopItem.Price))
         {
@@ -108,6 +108,13 @@ public class ShopSystem : UiWindow
     private void OnInAppItemSelected(InAppItem item, InAppItemData itemData)
     {
         _confirmWindow.Open(itemData, () => BuyItem(item));
+        Agava.YandexGames.Billing.PurchaseProduct("@3", (d) =>
+        {
+            Agava.YandexGames.Billing.ConsumeProduct(d.purchaseData.purchaseToken, () =>
+            {
+                BuyItem(item);
+            });
+        });
     }
 
 
@@ -116,7 +123,7 @@ public class ShopSystem : UiWindow
         item.Purcahse();
     }
 
-    private void BuyItem(ShopItem shopItem)
+    private void BuyItem(GameResourceItem shopItem)
     {
         _playerStorage.TrySpendResource(shopItem.Price);
         _playerStorage.AddResource(shopItem.Item);

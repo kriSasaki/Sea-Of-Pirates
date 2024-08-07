@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Systems.Data
 {
-    public class GameDataService : IResourceStorageData, IPlayerStatsData, IQuestsData, IStickyData
+    public class GameDataService : IResourceStorageData, IPlayerStatsData, IQuestsData, IAdvertismentData
     {
         private const string SaveKey = nameof(SaveKey);
 
@@ -23,7 +23,7 @@ namespace Project.Systems.Data
 
         public List<QuestData> Quests => _gameData.Quests;
 
-        public bool IsStickyActive { get => _gameData.IsStickyActive; set => _gameData.IsStickyActive = value; }
+        public bool IsAddActive { get => _gameData.IsAddActive; set => _gameData.IsAddActive = value; }
 
         public void Save()
         {

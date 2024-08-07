@@ -27,7 +27,7 @@ namespace Project.Installers.ProjectContext
             Container.Bind<IPlayerStatsProvider>().To<PlayerStatsProvider>().AsSingle();
             Container.Bind<IQuestsProvider>().To<QuestsProvider>().AsSingle();
 
-            Container.Bind<StickyController>().AsSingle();
+            Container.Bind<AdvertismentController>().AsSingle();
             Container.BindInterfacesTo<PlayerStats>().AsSingle();
             Container.BindInterfacesTo<PlayerStorage>().AsSingle();
         }

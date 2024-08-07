@@ -7,7 +7,7 @@ public class ConfirmWindow : UiWindow
     [SerializeField] private Button _confirmButton;
     [SerializeField] private ShopItemView _shopItemView;
 
-    public void Open(ShopItem shopItem, Action confirmCallback)
+    public void Open(GameResourceItem shopItem, Action confirmCallback)
     {
         base.Show();
 

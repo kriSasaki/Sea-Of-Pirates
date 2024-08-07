@@ -9,6 +9,6 @@ namespace Project.Systems.Data
         public List<PlayerStatData> PlayerStatsLevels = new List<PlayerStatData>();
         public List<QuestData> Quests = new List<QuestData>();
 
-        public bool IsStickyActive = true;
+        public bool IsAddActive = true;
     }
 }

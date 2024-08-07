@@ -10,7 +10,7 @@ public class ShopItemView : MonoBehaviour
     [SerializeField] private Image _priceImage;
     [SerializeField] private TMP_Text _priceAmount;
 
-    public void Set(ShopItem shopItem)
+    public void Set(GameResourceItem shopItem)
     {
         GameResourceAmount item = shopItem.Item;
         GameResourceAmount price = shopItem.Price;
