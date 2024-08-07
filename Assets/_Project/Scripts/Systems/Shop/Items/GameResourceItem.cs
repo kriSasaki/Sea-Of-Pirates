@@ -7,12 +7,9 @@ namespace Project.Systems.Shop.Items
 {
     public class GameResourceItem : GameItem
     {
-        private readonly IPlayerStorage _playerStorage;
-
         public GameResourceItem(GameResourceItemConfig config, IPlayerStorage playerStorage)
-            : base(config)
+            : base(config, playerStorage)
         {
-            _playerStorage = playerStorage;
             Item = config.Item;
 
         }
@@ -24,7 +21,7 @@ namespace Project.Systems.Shop.Items
 
         public override void Get()
         {
-            _playerStorage.AddResource(Item);
+            PlayerStorage.AddResource(Item);
         }
     }
 }

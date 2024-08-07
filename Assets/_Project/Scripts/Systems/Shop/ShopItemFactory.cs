@@ -1,17 +1,17 @@
-﻿using Agava.YandexGames;
+﻿using System;
+using System.Collections.Generic;
+using Agava.YandexGames;
 using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
 using Project.SDK.Advertisment;
 using Project.Systems.Shop.Items;
-using System;
-using System.Collections.Generic;
 
 namespace Project.Systems.Shop
 {
     public class ShopItemFactory
     {
-        private IPlayerStorage _playerStorage;
-        private AdvertismentController _advertismentController;
+        private readonly IPlayerStorage _playerStorage;
+        private readonly AdvertismentController _advertismentController;
 
         public ShopItemFactory(IPlayerStorage playerStorage, AdvertismentController advertismentController)
         {

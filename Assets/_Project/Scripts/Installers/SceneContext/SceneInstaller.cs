@@ -3,9 +3,12 @@ using Project.Interfaces.Hold;
 using Project.Players.Hold;
 using Project.Spawner;
 using Project.Systems.Quests;
+using Project.Systems.Shop;
 using Project.UI.Quests;
 using Project.UI.Reward;
+using Project.UI.Shop;
 using Project.UI.Upgrades;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -19,6 +22,7 @@ namespace Project.Installers.SceneContext
             BindEnemies();
             BindUI();
             BindQuestSystem();
+            BindShopSystem();
             BindPlayer();
         }
 
@@ -38,6 +42,9 @@ namespace Project.Installers.SceneContext
             Container.Bind<UpgradeButton>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UpgradeSystemView>().AsSingle().NonLazy();
 
+            Container.Bind<ShopWindow>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ShopButtom>().FromComponentInHierarchy().AsSingle();
+
             Container.Bind<RewardView>().FromComponentInHierarchy().AsSingle();
         }
 
@@ -45,6 +52,13 @@ namespace Project.Installers.SceneContext
         {
             Container.Bind<QuestGiver>().FromComponentsInHierarchy().AsCached();
             Container.BindInterfacesTo<QuestSystem>().FromNew().AsSingle();
+        }
+
+
+        private void BindShopSystem()
+        {
+            Container.Bind<ShopItemFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ShopSystem>().FromNew().AsSingle().NonLazy();
         }
 
         private void BindPlayer()

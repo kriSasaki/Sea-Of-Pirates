@@ -2920,8 +2920,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4769540458718848859}
+  - component: {fileID: 7907039649686844297}
   - component: {fileID: 383712128054737826}
-  - component: {fileID: 7294038205974380805}
   - component: {fileID: 5441168188138650466}
   - component: {fileID: 3033189041410677955}
   - component: {fileID: 6036227876210455983}
@@ -2953,15 +2953,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &383712128054737826
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5791254816319027191}
-  m_CullTransparentMesh: 1
---- !u!114 &7294038205974380805
+--- !u!114 &7907039649686844297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2970,7 +2962,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5791254816319027191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adbc9ce854abf5b4cbda753f726c4313, type: 3}
+  m_Script: {fileID: 11500000, guid: ec9cd824cc1ed2d42b5e3f35de9ace57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _closeButton: {fileID: 2795679319354249766}
@@ -2981,6 +2973,14 @@ MonoBehaviour:
   _itemSlotPrefab: {fileID: 4927039480572625832, guid: df4fd97a72a10f84da5681ef3201a4ce, type: 3}
   _itemSlotsHolder: {fileID: 5992104942006149199}
   _confirmWindow: {fileID: 4176707178509134083}
+--- !u!222 &383712128054737826
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791254816319027191}
+  m_CullTransparentMesh: 1
 --- !u!114 &5441168188138650466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3817,6 +3817,7 @@ GameObject:
   - component: {fileID: 5195165847482895156}
   - component: {fileID: 7190301182378365452}
   - component: {fileID: 6112177188025064769}
+  - component: {fileID: 4991454964476243781}
   m_Layer: 5
   m_Name: ShopButton
   m_TagString: Untagged
@@ -3926,7 +3927,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7294038205974380805}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopSystem, Assembly-CSharp
         m_MethodName: Open
         m_Mode: 1
@@ -3938,6 +3939,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4991454964476243781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268561175324477463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23fda9ec2c76b54384f585888b8fb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaleTween:
+    _scale: 1.3
+    _duration: 0.3
+    _ease: 1
 --- !u!1 &8857250035315110564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4843,7 +4860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020709979036854343, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
       propertyPath: m_text
-      value: "\u0410\u0433\u0430"
+      value: OK
       objectReference: {fileID: 0}
     - target: {fileID: 7385140719886888389, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
       propertyPath: m_AnchoredPosition.y

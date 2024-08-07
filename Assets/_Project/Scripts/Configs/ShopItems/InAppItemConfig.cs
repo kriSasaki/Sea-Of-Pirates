@@ -6,7 +6,7 @@ namespace Project.Configs.ShopItems
     {
         [SerializeField] private Sprite _sprite;
 
-        public string ID { get; private set; }
+        [field:SerializeField] public string ID { get; private set; }
         public override Sprite Sprite => _sprite;
     }
 }
