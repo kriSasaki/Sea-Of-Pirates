@@ -6,16 +6,16 @@ namespace Project.Systems.Shop.Items
 {
     public abstract class InAppItem : ShopItem
     {
-        private readonly CatalogProduct _itemData;
+        private readonly CatalogProduct _product;
 
-        protected InAppItem(InAppItemConfig config, CatalogProduct itemData)
+        protected InAppItem(InAppItemConfig config, CatalogProduct product)
             : base(config)
         {
-            _itemData = itemData;
+            _product = product;
         }
 
-        public string ID => _itemData.id;
-        public override string PriceAmountText => $"{_itemData.priceValue} {_itemData.priceCurrencyCode}";
+        public string ID => _product.id;
+        public override string PriceAmountText => _product.price;
         public override Sprite PriceSprite => null;
     }
 }

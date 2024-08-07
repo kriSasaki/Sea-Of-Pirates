@@ -17,8 +17,11 @@ namespace Project.UI.Shop
         {
             _itemImage.sprite = item.Sprite;
             _itemAmount.text = item.AmountText;
+
             _priceAmount.text = item.PriceAmountText;
-            _priceImage.sprite = item.Sprite;
+
+            _priceImage.sprite = item.PriceSprite;
+            _priceImage.gameObject.SetActive(item.PriceSprite != null);
         }
     }
 }

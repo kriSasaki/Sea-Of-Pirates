@@ -27,16 +27,16 @@ namespace Project.Systems.Shop
             throw new NotImplementedException();
         }
 
-        public InAppItem Create(InAppItemConfig config, CatalogProduct itemData)
+        public InAppItem Create(InAppItemConfig config, CatalogProduct product)
         {
             if (config is InAppResourceItemConfig resourceConfig)
-                return new InAppResourceItem(_playerStorage, resourceConfig, itemData);
+                return new InAppResourceItem(_playerStorage, resourceConfig, product);
 
             if (config is AddRemovalConfig addRemovalConfig)
-                return new AddRemovalItem(_advertismentController, addRemovalConfig, itemData);
+                return new AddRemovalItem(_advertismentController, addRemovalConfig, product);
 
             if (config is BundleItemConfig bundleConfig)
-                return new BundleItem(CreateBundle(bundleConfig, itemData), bundleConfig, itemData);
+                return new BundleItem(CreateBundle(bundleConfig, product), bundleConfig, product);
 
             throw new NotImplementedException();
         }

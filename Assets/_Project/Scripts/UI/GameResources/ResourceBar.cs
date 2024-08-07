@@ -1,6 +1,7 @@
 using Project.Configs.GameResources;
 using Project.Interfaces.Storage;
 using Project.Utils;
+using Project.Utils.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,6 +45,6 @@ public class ResourceBar : MonoBehaviour
 
     private void ChangeResourceAmount(int amount)
     {
-        _amount.text = amount.ToString();
+        _amount.text = amount.ToFormatString();
     }
 }

@@ -1,15 +1,18 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class PlayerPrefsReseter : MonoBehaviour
+namespace Project.Utils
 {
-    [Button("Reset Player Prefs")]
-    public void ResetPlayerPrefs()
+    [ExecuteInEditMode]
+    public class PlayerPrefsReseter : MonoBehaviour
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
+        [Button("Reset Player Prefs")]
+        public void ResetPlayerPrefs()
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
 
-        Debug.Log("Player Prefs is reseted");
+            Debug.Log("Player Prefs is reseted");
+        }
     }
 }

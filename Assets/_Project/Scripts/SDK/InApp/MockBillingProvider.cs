@@ -20,7 +20,7 @@ namespace Project.SDK.InApp
 
             foreach (var config in _shopItemsConfigs.InAppItemsConfigs)
             {
-                products.Add(new CatalogProduct() { id = config.ID, priceValue = "4", priceCurrencyCode = "YAN" });
+                products.Add(new CatalogProduct() { id = config.ID, price = "4 YAN" });
             }
 
             onLoadCallback(products.ToArray());
