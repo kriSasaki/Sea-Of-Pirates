@@ -1,4 +1,5 @@
 using Project.Configs.GameResources;
+using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
 using Project.SDK.Advertisment;
 using Project.Systems.Data;
@@ -12,14 +13,14 @@ namespace Project.Installers.ProjectContext
     public class GameDataInstaller : MonoInstaller
     {
         [SerializeField] private GameResourcesSheet _resourcesSheet;
-        [SerializeField] private ShopItemsSheet _shopItemsSheet;
+        [SerializeField] private ShopItemsConfigs _shopItemsSheet;
         [SerializeField] private StatsSheet _statsSheet;
 
         public override void InstallBindings()
         {
             Container.Bind<GameResourcesSheet>().FromInstance(_resourcesSheet);
             Container.Bind<StatsSheet>().FromInstance(_statsSheet);
-            Container.Bind<ShopItemsSheet>().FromInstance(_shopItemsSheet);
+            Container.Bind<ShopItemsConfigs>().FromInstance(_shopItemsSheet);
 
             Container.BindInterfacesTo<GameDataService>().AsSingle().NonLazy();
 

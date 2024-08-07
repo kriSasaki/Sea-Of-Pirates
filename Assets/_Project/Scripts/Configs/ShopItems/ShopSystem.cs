@@ -1,27 +1,27 @@
 ﻿using Agava.YandexGames;
+using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
-using Project.UI.Upgrades;
-using System;
+using Project.Systems.Shop;
+using Project.Systems.Shop.Items;
+using Project.UI;
+using Project.UI.Shop;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 public class ShopSystem : UiWindow
 {
     [SerializeField] private ShopItemSlot _itemSlotPrefab;
-    [SerializeField] private InAppItemSlot _inAppSlotPrefab;
     [SerializeField] private RectTransform _itemSlotsHolder;
     [SerializeField] private ConfirmWindow _confirmWindow;
 
-    private InAppItemFactory _inAppItemfactory;
-    private InAppItemsSheet _inAppitemsSheet;
+    private ShopItemFactory _shopItemfactory;
 
     private readonly List<ShopItemSlot> _itemSlots = new();
-    private readonly List<InAppItemSlot> _inAppItemSlots = new();
 
     private IPlayerStorage _playerStorage;
-    private ShopItemsSheet _shopItemsSheet;
+    private ShopItemsConfigs _shopItemsConfigs;
 
     public void Open()
     {
@@ -30,102 +30,90 @@ public class ShopSystem : UiWindow
         if (_itemSlots.Count > 0)
             return;
 
-        LoadShopItems();
+        LoadGameItems();
+        LoadInAppItems();
     }
 
-    private void LoadShopItems()
+    private void LoadGameItems()
     {
-        foreach (GameResourceItem item in _shopItemsSheet.ShopItems)
+        foreach (GameItemConfig config in _shopItemsConfigs.GameItemsConfigs)
         {
-            ShopItemSlot itemSlot = Instantiate(_itemSlotPrefab, _itemSlotsHolder);
-            itemSlot.Initialize(item);
-            itemSlot.Selected += OnShopItemSelected;
+            GameItem item = _shopItemfactory.Create(config);
 
-            _itemSlots.Add(itemSlot);
+            ShopItemSlot itemSlot = CreateItemSlot();
+            itemSlot.Initialize(item, () => OnItemSelected(item));
         }
+    }
+
+    private void LoadInAppItems(CatalogProduct[] products)
+    {
+        foreach (var config in _shopItemsConfigs.InAppItemsConfigs)
+        {
+            CatalogProduct itemData = products.FirstOrDefault(p => p.id == config.ID);
+
+            if (itemData == null)
+                continue;
+
+            InAppItem item = _shopItemfactory.Create(config, itemData);
+
+            if (item.IsAvaliable == false)
+                continue;
+
+            ShopItemSlot itemSlot = CreateItemSlot();
+            itemSlot.Initialize(item, () => OnItemSelected(item));
+        }
+    }
+
+    private ShopItemSlot CreateItemSlot()
+    {
+        return Instantiate(_itemSlotPrefab, _itemSlotsHolder);
     }
 
     private void LoadInAppItems()
     {
-        Agava.YandexGames.Billing.GetProductCatalog(productCatalogRespose => UpdateItemCatalog(productCatalogRespose.products));
+        Agava.YandexGames.Billing.GetProductCatalog(productCatalogRespose => LoadInAppItems(productCatalogRespose.products));
     }
 
-
-    private void UpdateItemCatalog(CatalogProduct[] products)
-    {
-        foreach (var product in products)
-        {
-            //if (_inAppitemsSheet.TryGetItemConfig(product.id, out InAppItemConfig itemConfig))
-            //{
-            //    InAppItem item = _inAppItemfactory.Create(itemConfig);
-
-            //    if (item.IsPurchasable)
-            //    {
-            //        InAppItemSlot slot = UnityEngine.Object.Instantiate(_inAppSlotPrefab);
-
-            //        InAppItemData itemData = new InAppItemData(
-            //            itemConfig.Sprite,
-            //            itemConfig.Amount,
-            //            product.priceValue,
-            //            product.priceCurrencyCode);
-
-            //        slot.Initialize(item, itemData);
-            //        slot.Selected += OnInAppItemSelected;
-
-            //        _inAppItemSlots.Add(slot);
-            //    }
-            //}
-        }
-    }
-
-
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-
-        foreach (var itemSlot in _itemSlots)
-        {
-            itemSlot.Selected -= OnShopItemSelected;
-        }
-    }
 
     [Inject]
-    public void Construct(IPlayerStorage playerStorage, ShopItemsSheet shopItemsSheet)
+    public void Construct(IPlayerStorage playerStorage, ShopItemsConfigs shopItemsConfigs)
     {
         _playerStorage = playerStorage;
-        _shopItemsSheet = shopItemsSheet;
+        _shopItemsConfigs = shopItemsConfigs;
     }
 
-    private void OnShopItemSelected(GameResourceItem shopItem)
+    private void OnItemSelected(GameItem item)
     {
-        if (_playerStorage.CanSpend(shopItem.Price))
+        if (_playerStorage.CanSpend(item.Price))
         {
-            _confirmWindow.Open(shopItem, () => BuyItem(shopItem));
+            _confirmWindow.Open(item, () => BuyItem(item));
         }
     }
 
-    private void OnInAppItemSelected(InAppItem item, InAppItemData itemData)
+    private void OnItemSelected(InAppItem item)
     {
-        _confirmWindow.Open(itemData, () => BuyItem(item));
-        Agava.YandexGames.Billing.PurchaseProduct("@3", (d) =>
+        Agava.YandexGames.Billing.PurchaseProduct(item.ID, (purchaseProductResponse) =>
         {
-            Agava.YandexGames.Billing.ConsumeProduct(d.purchaseData.purchaseToken, () =>
+            Agava.YandexGames.Billing.ConsumeProduct(purchaseProductResponse.purchaseData.purchaseToken, () =>
             {
                 BuyItem(item);
             });
         });
     }
 
-
     private void BuyItem(InAppItem item)
     {
-        item.Purcahse();
-    }
-
-    private void BuyItem(GameResourceItem shopItem)
+        GetShopItem(item);
+    }    
+    
+    private void BuyItem(GameItem item)
     {
-        _playerStorage.TrySpendResource(shopItem.Price);
-        _playerStorage.AddResource(shopItem.Item);
+        if (_playerStorage.TrySpendResource(item.Price))
+            GetShopItem(item);
+    }
+    
+    private void GetShopItem(ShopItem item)
+    {
+        item.Get();
     }
 }
