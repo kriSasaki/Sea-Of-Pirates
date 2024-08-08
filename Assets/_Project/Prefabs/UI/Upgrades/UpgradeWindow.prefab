@@ -378,7 +378,7 @@ MonoBehaviour:
     _scale: 0
     _duration: 0.3
     _ease: 27
-  _barPrefab: {fileID: 3238837485969649679, guid: 8e673330b24ddfe40ac5d1fbe7e8d82c, type: 3}
+  _barPrefab: {fileID: 3238837485969649679, guid: a66f615e6f9ecf1449128eeeb54e51fe, type: 3}
   _barHolder: {fileID: 4772164394682439374}
 --- !u!114 &6525979926038515171
 MonoBehaviour:
