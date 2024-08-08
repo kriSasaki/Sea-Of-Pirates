@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -97,13 +97,13 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.6886792, g: 0.684781, b: 0.684781, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.9622642, g: 0.7977441, b: 0.1216447, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.3
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -373,9 +373,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9a17b4d36490648958c603c64fd7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _barPrefab: {fileID: 3238837485969649679, guid: 8e673330b24ddfe40ac5d1fbe7e8d82c, type: 3}
-  _barHolder: {fileID: 4772164394682439374}
   _closeButton: {fileID: 4025696961707893927}
+  _scaleTween:
+    _scale: 0
+    _duration: 0.3
+    _ease: 27
+  _barPrefab: {fileID: 3238837485969649679, guid: a66f615e6f9ecf1449128eeeb54e51fe, type: 3}
+  _barHolder: {fileID: 4772164394682439374}
 --- !u!114 &6525979926038515171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationName: Interacrables/UpgradePlace
+  translationName: Interactables/UpgradePlace
   FallbackText: "\u041F\u0440\u0438\u0441\u0442\u0430\u043D\u044C"
 --- !u!1 &8801239055999140688
 GameObject:

@@ -2,28 +2,25 @@
 using Project.Interfaces.Data;
 using Project.Interfaces.Stats;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Project.UI.Upgrades
 {
     [RequireComponent(typeof(Canvas))]
-    public class UpgradeWindow : MonoBehaviour
+    public class UpgradeWindow : UiWindow
     {
         [SerializeField] private StatUpgradeBar _barPrefab;
         [SerializeField] private RectTransform _barHolder;
-        [SerializeField] private Button _closeButton;
 
         private readonly List<StatUpgradeBar> _bars = new();
 
-        private Canvas _windowCanvas;
         private StatsSheet _statsSheet;
         private IUpgradableStats _stats;
         private IPlayerStorage _playerStorage;
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
-            _closeButton.onClick.RemoveListener(Hide);
+            base.OnDestroy();
 
             foreach (StatUpgradeBar bar in _bars)
                 bar.StatUpgraded -= OnStatUpgraded;
@@ -35,16 +32,13 @@ namespace Project.UI.Upgrades
             _statsSheet = statsSheet;
             _stats = stats;
             _playerStorage = playerStorage;
-            _windowCanvas = GetComponent<Canvas>();
-            _closeButton.onClick.AddListener(Hide);
 
             CreateUpgradeBars();
-            Hide();
         }
 
-        public void Show()
+        public void Open()
         {
-            _windowCanvas.enabled = true;
+            base.Show();
 
             foreach (StatUpgradeBar bar in _bars)
             {
@@ -52,10 +46,6 @@ namespace Project.UI.Upgrades
             }
         }
 
-        public void Hide()
-        {
-            _windowCanvas.enabled = false;
-        }
 
         private void CreateUpgradeBars()
         {

@@ -17,7 +17,7 @@ namespace Project.UI.Quests
 
         public void Show(IQuest quest)
         {
-            _questButton.Show(() => _questWindow.Show(quest));
+            _questButton.Show(() => _questWindow.Open(quest));
         }
 
         public void Hide()

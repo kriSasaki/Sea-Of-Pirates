@@ -22,8 +22,8 @@ MonoBehaviour:
     <MaxCost>k__BackingField: 100
     _firstApplicationLevel: 3
     _applicationInterval: 1
-  _nameToken: stat/Cannons/desc
-  _descriptionToken: stat/Cannons/name
+  _nameToken: stat/Cannons/name
+  _descriptionToken: stat/Cannons/desc
   <StatType>k__BackingField: 5
   <Sprite>k__BackingField: {fileID: 21300000, guid: f67c07a21fc9ce2469a62810c96c2abf, type: 3}
   <MinValue>k__BackingField: 1

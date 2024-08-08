@@ -13,7 +13,7 @@
 
         public void Show()
         {
-            _upgradeButton.Show(_upgradeWindow.Show);
+            _upgradeButton.Show(_upgradeWindow.Open);
         }
 
         public void Hide()
