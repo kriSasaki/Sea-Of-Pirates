@@ -2,6 +2,7 @@
 using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
 using Project.Systems.Stats;
+using Project.Utils.Extensions;
 
 namespace Project.Systems.Shop.Items
 {
@@ -22,7 +23,7 @@ namespace Project.Systems.Shop.Items
 
         public GameResourceAmount Item => _config.Item;
 
-        public override string AmountText => Item.Amount.ToString();
+        public override string AmountText => Item.Amount.ToValueString();
 
         public override void Get()
         {

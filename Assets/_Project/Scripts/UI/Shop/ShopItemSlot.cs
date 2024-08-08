@@ -1,16 +1,19 @@
-﻿using Project.Systems.Shop.Items;
+﻿using Project.Configs.UI;
+using Project.Systems.Shop.Items;
 using System;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Project.UI.Shop
 {
-    [RequireComponent(typeof(ShopItemView))]
     public class ShopItemSlot : MonoBehaviour
     {
         [SerializeField] private Button _selectButton;
+        [SerializeField] private ShopItemView _itemView;
 
-        private ShopItemView _itemView;
+        private ShopItem _item;
+
         private Action _onSelectCallback;
 
         private void Awake()
@@ -23,12 +26,20 @@ namespace Project.UI.Shop
             _selectButton.onClick.RemoveListener(OnItemSelected);
         }
 
-        public void Initialize(ShopItem item, Action onSelectCallback)
+        public void Initialize(ShopItem item, Action onSelectCallback, ItemViewColorConfig config = null)
         {
+            _item = item;
             _onSelectCallback = onSelectCallback;
 
-            _itemView = GetComponent<ShopItemView>();
-            _itemView.Set(item);
+            _itemView.Set(item, config);
+        }
+
+        public void CheckAvaliability()
+        {
+            if(_item.IsAvaliable == false)
+            {
+                _selectButton.interactable = false;
+            }
         }
 
         private void OnItemSelected()

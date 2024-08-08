@@ -1,6 +1,7 @@
 ﻿using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
 using Project.Systems.Stats;
+using Project.Utils.Extensions;
 using UnityEngine;
 
 namespace Project.Systems.Shop.Items
@@ -16,8 +17,7 @@ namespace Project.Systems.Shop.Items
         public GameResourceAmount Item { get; }
 
         public override Sprite PriceSprite => Price.Resource.Sprite;
-        public override string PriceAmountText => Price.Amount.ToString();
-        public override string AmountText => Item.Amount.ToString();
+        public override string AmountText => Item.Amount.ToValueString();
 
         public override void Get()
         {

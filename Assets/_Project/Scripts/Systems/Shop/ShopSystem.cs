@@ -5,12 +5,11 @@ using Project.Interfaces.Data;
 using Project.SDK.InApp;
 using Project.Systems.Shop.Items;
 using Project.UI.Shop;
-using UnityEngine;
 using Zenject;
 
 namespace Project.Systems.Shop
 {
-    public class ShopSystem:IInitializable
+    public class ShopSystem : IInitializable
     {
         private readonly IPlayerStorage _playerStorage;
         private readonly IBillingProvider _billingProvider;
@@ -40,7 +39,6 @@ namespace Project.Systems.Shop
         public void Initialize()
         {
             _shopButtom.Show(OpenShop);
-            Debug.Log("ЫЫЫ");
         }
 
         private void OpenShop()
@@ -92,9 +90,7 @@ namespace Project.Systems.Shop
             _billingProvider.HandlePurchase(item.ID, () =>
             {
                 GetShopItem(item);
-
-                if (item.IsAvaliable == false)
-                    _shopWindow.RemoveItemSlot(item);
+                _shopWindow.CheckSlots();
             });
         }
 

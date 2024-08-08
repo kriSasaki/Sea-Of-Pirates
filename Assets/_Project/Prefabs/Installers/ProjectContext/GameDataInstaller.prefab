@@ -47,3 +47,4 @@ MonoBehaviour:
   _resourcesSheet: {fileID: 11400000, guid: e26ebb0fa3fce6d4da41541eff6df81e, type: 2}
   _shopItemsCongigs: {fileID: 11400000, guid: 38e464eab21d937458c9985377e809be, type: 2}
   _statsSheet: {fileID: 11400000, guid: 966ef926af973744eaf9c4375c38f969, type: 2}
+  _uiConfigs: {fileID: 11400000, guid: b6c3ebaee4851c1498172005568fa1dd, type: 2}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Project.Interfaces.Data;
 using Project.Interfaces.Stats;
 using Project.Systems.Stats;
+using Project.Utils.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -87,8 +88,8 @@ namespace Project.UI.Upgrades
             int currentValue = _config.GetValue(currentLevel);
             int nextValue = _config.GetValue(nextLevel);
 
-            _currentStatValue.text = currentValue.ToString();
-            _nextStatValue.text = nextValue.ToString();
+            _currentStatValue.text = currentValue.ToValueString();
+            _nextStatValue.text = nextValue.ToValueString();
         }
 
         private void UpdatePriceView(List<GameResourceAmount> upgradePrice, int currentLevel)
@@ -122,7 +123,7 @@ namespace Project.UI.Upgrades
                 GameResourceAmount upgradeCost = upgradePrice[i];
 
                 bool canSpend = _playerStorage.CanSpend(upgradeCost);
-                _upgradePriceView[i].Set(upgradeCost.Resource.Sprite, upgradeCost.Amount.ToString(), canSpend);
+                _upgradePriceView[i].Set(upgradeCost.Resource.Sprite, upgradeCost.Amount.ToValueString(), canSpend);
             }
         }
 

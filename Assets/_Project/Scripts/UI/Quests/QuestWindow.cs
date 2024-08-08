@@ -1,4 +1,5 @@
 ﻿using Project.Interfaces.Quests;
+using Project.Utils.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ namespace Project.UI.Quests
             _confirmButton.onClick.AddListener(() => OnButtonClicked(quest));
 
             _decription.text = quest.Config.Description;
-            _rewardAmount.text = quest.Config.Reward.Amount.ToString();
+            _rewardAmount.text = quest.Config.Reward.Amount.ToValueString();
             _rewardImage.sprite = quest.Config.Reward.Resource.Sprite;
 
             int currentProgress = quest.Status.Progress;

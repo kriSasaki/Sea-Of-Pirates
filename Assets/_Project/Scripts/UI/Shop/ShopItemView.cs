@@ -1,4 +1,5 @@
-﻿using Project.Systems.Shop.Items;
+﻿using Project.Configs.UI;
+using Project.Systems.Shop.Items;
 using Project.Systems.Stats;
 using TMPro;
 using UnityEngine;
@@ -13,8 +14,17 @@ namespace Project.UI.Shop
         [SerializeField] private Image _priceImage;
         [SerializeField] private TMP_Text _priceAmount;
 
-        public void Set(ShopItem item)
+        [SerializeField] private Image _background;
+        [SerializeField] private Image _cover;
+
+        public void Set(ShopItem item, ItemViewColorConfig config = null)
         {
+            if (config != null)
+            {
+                _background.color = config.BackgroundColor;
+                _cover.color = config.CoverColor;
+            }
+
             _itemImage.sprite = item.Sprite;
             _itemAmount.text = item.AmountText;
 
