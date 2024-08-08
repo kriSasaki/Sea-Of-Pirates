@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44f46ada9c952b418622ce2e99a78bb, type: 3}
   m_Name: Diamonds_Large
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: c4deac0e8f0ef3b459c2ea57583e51df, type: 3}
+  _sprite: {fileID: 21300000, guid: e4b8e070eb3d10641ae939f8c9b3ac8c, type: 3}
   <ID>k__BackingField: ADD1000
   <Item>k__BackingField:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
-    Amount: 1000
+    Amount: 700

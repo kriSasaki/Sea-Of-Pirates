@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3489918222635473507}
   - component: {fileID: 5449510451459040741}
   - component: {fileID: 3363473939175398908}
+  - component: {fileID: 8840581673171469921}
   m_Layer: 5
   m_Name: PriceImage
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c4deac0e8f0ef3b459c2ea57583e51df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e376d68dc14dfd4aaff46df00ebc0a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -96,6 +97,21 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8840581673171469921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752231163425702604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1913228886779256364
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +522,7 @@ MonoBehaviour:
   m_fontSizeMax: 50
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
