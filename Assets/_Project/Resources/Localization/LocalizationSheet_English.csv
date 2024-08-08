@@ -16,5 +16,9 @@ quests/Level1/quest02,Need more fun!
 quests/ProgressLabel,Sunk
 quests/OK,OK
 Interactables/UpgradePlace,Marina
+Misc/thousandToken,k
+Misc/millionToken,m
 UI/ConfirmWindow/button,Confirm
 UI/ConfirmWindow/header,Confirm purchase?
+UI/Shop/GameItemHeader,RESOURCES
+UI/Shop/InAppItemHeader,OFFERS

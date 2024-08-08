@@ -16,5 +16,9 @@ quests/Level1/quest02,Daha fazla eğlenceye ihtiyacınız var!
 quests/ProgressLabel,Batık
 quests/OK,Evet
 Interactables/UpgradePlace,yat Limanı
+Misc/thousandToken,k
+Misc/millionToken,m
 UI/ConfirmWindow/button,Onaylamak
 UI/ConfirmWindow/header,Satın alma onaylansın mı?
+UI/Shop/GameItemHeader,KAYNAKLAR
+UI/Shop/InAppItemHeader,TEKLİFLER

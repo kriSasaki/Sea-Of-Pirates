@@ -1,3 +1,4 @@
+using Lean.Localization;
 using Project.SDK.Advertisment;
 using Project.SDK.InApp;
 using Project.Systems.Audio;
@@ -11,9 +12,12 @@ namespace Project.Installers.ProjectContext
     public class ServiceInstaller : MonoInstaller
     {
         [SerializeField] private AudioService _audioServicePrefab;
+        [SerializeField] private LeanLocalization _localizationPrefab;
 
         public override void InstallBindings()
         {
+            Container.Bind<LeanLocalization>().FromComponentInNewPrefab(_localizationPrefab).AsSingle().NonLazy();
+
             Container.Bind<AudioService>().FromComponentInNewPrefab(_audioServicePrefab).AsSingle();
             Container.Bind<PauseService>().FromNew().AsSingle();
             Container.Bind<AdvertismentController>().AsSingle();

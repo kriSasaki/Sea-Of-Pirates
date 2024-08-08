@@ -23,6 +23,6 @@ namespace Project.Systems.Shop.Items
 
         public override Sprite PriceSprite => Price.Resource.Sprite;
 
-        public override string PriceAmountText => Price.Amount.ToValueString();
+        public override string PriceAmountText => Price.Amount.ToNumericalString();
     }
 }

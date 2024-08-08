@@ -21,7 +21,7 @@ namespace Project.UI.Quests
             _confirmButton.onClick.AddListener(() => OnButtonClicked(quest));
 
             _decription.text = quest.Config.Description;
-            _rewardAmount.text = quest.Config.Reward.Amount.ToValueString();
+            _rewardAmount.text = quest.Config.Reward.Amount.ToNumericalString();
             _rewardImage.sprite = quest.Config.Reward.Resource.Sprite;
 
             int currentProgress = quest.Status.Progress;

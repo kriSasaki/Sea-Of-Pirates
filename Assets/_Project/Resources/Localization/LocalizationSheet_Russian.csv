@@ -16,5 +16,9 @@ quests/Level1/quest02,Нужно больше весел!
 quests/ProgressLabel,Потоплено
 quests/OK,Ага
 Interactables/UpgradePlace,Пристань
+Misc/thousandToken,т
+Misc/millionToken,м
 UI/ConfirmWindow/button,Подтвердить
 UI/ConfirmWindow/header,Подтвердить покупку?
+UI/Shop/GameItemHeader,РЕСУРСЫ
+UI/Shop/InAppItemHeader,ПРЕДЛОЖЕНИЯ

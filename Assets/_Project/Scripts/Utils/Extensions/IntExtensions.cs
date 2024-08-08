@@ -1,19 +1,25 @@
-﻿using System.Globalization;
+﻿using Lean.Localization;
+using System.Globalization;
 
 namespace Project.Utils.Extensions
 {
     public static class IntExtensions
     {
-        public static string ToValueString(this int value)
+        private const float Thousand = 1000;
+        private const float Million = 1000000;
+        private const string ThousandToken = "Misc/thousandToken";
+        private const string MillionToken = "Misc/millionToken";
+
+        public static string ToNumericalString(this int value)
         {
-            if (value < 1000)
+            if (value < Thousand)
                 return value.ToString();
 
-            if (value < 100000)
-                return (value / 1000f).ToString("f1", CultureInfo.InvariantCulture) + "k";
+            if (value < Million)
+                return (value / Thousand).ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(ThousandToken);
 
             else
-                return (value / 1000000f).ToString("f1") + "m";
+                return (value / Million).ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(MillionToken);
         }
     }
 }

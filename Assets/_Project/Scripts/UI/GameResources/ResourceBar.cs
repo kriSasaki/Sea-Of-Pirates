@@ -45,6 +45,6 @@ public class ResourceBar : MonoBehaviour
 
     private void ChangeResourceAmount(int amount)
     {
-        _amount.text = amount.ToValueString();
+        _amount.text = amount.ToNumericalString();
     }
 }

@@ -23,7 +23,7 @@ namespace Project.Systems.Shop.Items
 
         public GameResourceAmount Item => _config.Item;
 
-        public override string AmountText => Item.Amount.ToValueString();
+        public override string AmountText => Item.Amount.ToNumericalString();
 
         public override void Get()
         {
