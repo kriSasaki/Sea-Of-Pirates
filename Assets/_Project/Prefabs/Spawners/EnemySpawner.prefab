@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyConfig: {fileID: 11400000, guid: 5cc56adb66b32cd4eb731575827a2023, type: 2}
   _enemyFactory:
-    _prefab: {fileID: 6421893452489964851, guid: c997935175cfdac438b0bd5767449c4f, type: 3}
+    _prefab: {fileID: 3680630046399554367, guid: 005eda9bf4174d64c9a0f6cc0ded9da7, type: 3}
   _maxEnemies: 10
   _spawnRadius: 4.12
   _spawnDelay: 0
