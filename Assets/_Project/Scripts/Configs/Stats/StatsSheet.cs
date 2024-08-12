@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using NaughtyAttributes;
 using Project.Systems.Stats;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatsSheet", menuName = "Configs/Stats/StatSheet", order = 1)]
 public class StatsSheet : ScriptableObject
 {
-    [SerializeField] private List<StatConfig> _stats;
+    [SerializeField, Expandable] private List<StatConfig> _stats;
 
     public IEnumerable<StatConfig> Stats => _stats;
 

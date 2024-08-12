@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioServicePrefab: {fileID: 5384577051183474806, guid: 76be350c0ecc12a4a8a6b90b19281a52, type: 3}
+  _localizationPrefab: {fileID: 4020807609481623539, guid: dc8f868e9dc6fe34d9666395cd8e28a9, type: 3}

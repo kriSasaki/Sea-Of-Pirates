@@ -1,4 +1,5 @@
-﻿using Project.Utils;
+﻿using Cysharp.Threading.Tasks;
+using Project.Utils;
 using System;
 using System.Collections;
 using TMPro;
@@ -10,14 +11,15 @@ namespace Project.UI.Reward
     [RequireComponent(typeof(RectTransform))]
     public class RewardView : MonoBehaviour
     {
+        private const float ZeroAlpha = 0f;
+        private const float MaxAlpha = 1f;
+
         [SerializeField] private Button _button;
         [SerializeField] private Image _rewardIcon;
         [SerializeField] private TMP_Text _rewardAmount;
         [SerializeField] private Slider _timeSlider;
         [SerializeField] private TMP_Text _timerlabel;
-
         [SerializeField] private CanvasGroup _canvasGroup;
-
         [SerializeField] private AppearingUITween _tween;
 
         private Coroutine _offerRoutine;
@@ -27,23 +29,27 @@ namespace Project.UI.Reward
         private void Awake()
         {
             RectTransform rectTransform = GetComponent<RectTransform>();
+
             _tween.Initialize(rectTransform);
+            _canvasGroup.alpha = ZeroAlpha;
         }
 
         public void Show(Sprite rewardSprite, int rewardAmount, float offerDuration, Action rewardCallback)
         {
+
             _rewardIcon.sprite = rewardSprite;
             _rewardAmount.text = rewardAmount.ToString();
 
             _button.interactable = true;
             _button.onClick.AddListener(() => RequestReward(rewardCallback));
 
+            _canvasGroup.alpha = MaxAlpha;
             _tween.Appear();
 
             _offerRoutine = StartCoroutine(RewardOffering(offerDuration));
         }
 
-        public void Hide()
+        public async UniTaskVoid Hide()
         {
             if (_offerRoutine != null)
             {
@@ -56,7 +62,9 @@ namespace Project.UI.Reward
 
             OfferExpired.Invoke();
 
-            _tween.Disappear();
+            await _tween.DissapearAsync(destroyCancellationToken);
+
+            _canvasGroup.alpha = ZeroAlpha;
         }
 
         private void UpdateTimeBar(float offerDuration, float elapsedTime)
@@ -80,13 +88,13 @@ namespace Project.UI.Reward
                 yield return null;
             }
 
-            Hide();
+            Hide().Forget();
         }
 
         private void RequestReward(Action rewardCallback)
         {
             rewardCallback();
-            Hide();
+            Hide().Forget();
         }
     }
 }
