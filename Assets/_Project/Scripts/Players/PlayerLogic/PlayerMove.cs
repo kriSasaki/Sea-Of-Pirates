@@ -14,22 +14,17 @@ namespace Project.Players.PlayerLogic
         private IPlayerStats _playerStats;
 
         private int MovementSpeed => _playerStats.Speed;
-     
+
         private void Start()
         {
-            _camera = Camera.main;      
+            _camera = Camera.main;
         }
 
         [Inject]
-        public void Construct(IPlayerStats playerStats)
+        public void Construct(IPlayerStats playerStats, IInputService inputService)
         {
             _playerStats = playerStats;
-        }
-
-        [Inject]
-        public void Construct(IInputService inputService)
-        {
-            _inputService = inputService;
+            _inputService = inputService; // Добавлено присвоение переменной _inputService
         }
 
         private void Update()
