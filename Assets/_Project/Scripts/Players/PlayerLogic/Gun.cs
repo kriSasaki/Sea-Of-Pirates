@@ -1,25 +1,26 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Project.Enemies;
 using System.Collections;
+using Project.Enemies;
+using Project.Players.PlayerLogic;
 
 namespace Project.Players.PlayerLogic
 {
     public class Gun : MonoBehaviour
     {
         [SerializeField] private GameObject _particleObject;
-        [SerializeField] private float _àttackCoolDown = 1f;
+        [SerializeField] private float _attackCoolDown = 1f;
         [SerializeField] private AudioSource _soundOfGunshot;
         [SerializeField] private float _minimalAudioPitch;
         [SerializeField] private float _maximalAudioPitch;
         [SerializeField] private float _effectTime;
         [SerializeField] private PlayerAttack _playerAttack;
+        [SerializeField] private AudioClip _audioClip;
+
         private float _attackRange;
         private float _damage;
-
         private List<Enemy> _enemiesInRange = new List<Enemy>();
-        private bool _canAttack = false;
-        private bool _isAttacking;
+        private Coroutine _attackCoroutine;
 
         private void Start()
         {
@@ -32,8 +33,10 @@ namespace Project.Players.PlayerLogic
             if (other.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 _enemiesInRange.Add(enemy);
-                _canAttack = true;
-                StartCoroutine(StartAttack());
+                if (_attackCoroutine == null)
+                {
+                    _attackCoroutine = StartCoroutine(StartAttack());
+                }
             }
         }
 
@@ -42,9 +45,10 @@ namespace Project.Players.PlayerLogic
             if (other.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 _enemiesInRange.Remove(enemy);
-                if (_enemiesInRange.Count == 0)
+                if (_enemiesInRange.Count == 0 && _attackCoroutine != null)
                 {
-                    _canAttack = false;
+                    StopCoroutine(_attackCoroutine);
+                    _attackCoroutine = null;
                 }
             }
         }
@@ -58,6 +62,7 @@ namespace Project.Players.PlayerLogic
                 if (distance <= _attackRange)
                 {
                     _soundOfGunshot.pitch = Random.Range(_minimalAudioPitch, _maximalAudioPitch);
+                    _soundOfGunshot.PlayOneShot(_audioClip, _soundOfGunshot.pitch);
                     _particleObject.SetActive(true);
                     Invoke(nameof(HideFlash), _effectTime);
 
@@ -68,25 +73,11 @@ namespace Project.Players.PlayerLogic
 
         private IEnumerator StartAttack()
         {
-            _isAttacking = true;
-            while (_isAttacking)
+            while (_enemiesInRange.Count > 0)
             {
-                if (CanAttack())
-                {
-                    Attack();
-                    yield return new WaitForSeconds(_àttackCoolDown);
-                }
+                Attack();
+                yield return new WaitForSeconds(_attackCoolDown);
             }
-        }
-
-        private bool CanAttack()
-        {
-            return !_isAttacking && CoolDownIsUp();
-        }
-
-        private bool CoolDownIsUp()
-        {
-            return _àttackCoolDown <= 0;
         }
 
         private Enemy FindClosestEnemy()
