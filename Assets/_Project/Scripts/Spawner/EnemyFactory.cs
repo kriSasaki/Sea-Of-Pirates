@@ -9,12 +9,11 @@ namespace Project.Spawner
         [SerializeField] private Enemy _prefab;
 
         private Enemy _newEnemy;
-        private EnemyWandering _enemyWandering;
 
-        public Enemy Create(EnemyConfig enemyConfig, Vector3 position)
+        public Enemy Create(EnemyConfig enemyConfig, Vector3 centrePosition, float movementRange)
         {
-            _newEnemy = Object.Instantiate(_prefab, position, Quaternion.identity);
-            _newEnemy.Initialize(enemyConfig, position);
+            _newEnemy = Object.Instantiate(_prefab, centrePosition, Quaternion.identity);
+            _newEnemy.Initialize(enemyConfig, centrePosition, movementRange);
 
             return _newEnemy;
         }

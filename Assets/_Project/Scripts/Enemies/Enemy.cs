@@ -20,13 +20,13 @@ namespace Project.Enemies
 
         public event Action<Enemy> Died;
 
-        public void Initialize(EnemyConfig enemyConfig, Vector3 center)
+        public void Initialize(EnemyConfig enemyConfig, Vector3 center, float movementRange)
         {
             _health = enemyConfig.Health;
             _damage = enemyConfig.Damage;
             _gameResource = enemyConfig.GameResource;
             _resourceAmount = enemyConfig.ResourceAmount;
-            _enemyWandering.StartMoving(center);
+            _enemyWandering.Initialize(center, movementRange);
         }
 
         public void TakeDamage(int damage)
