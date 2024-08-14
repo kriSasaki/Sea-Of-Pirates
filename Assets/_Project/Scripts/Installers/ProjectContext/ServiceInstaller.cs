@@ -1,9 +1,10 @@
 using Lean.Localization;
+using Project.Interfaces.SDK;
 using Project.SDK.Advertisment;
 using Project.SDK.InApp;
+using Project.SDK.Leaderboard;
 using Project.Systems.Audio;
 using Project.Systems.Pause;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -20,19 +21,24 @@ namespace Project.Installers.ProjectContext
 
             Container.Bind<AudioService>().FromComponentInNewPrefab(_audioServicePrefab).AsSingle();
             Container.Bind<PauseService>().FromNew().AsSingle();
-            Container.Bind<AdvertismentController>().AsSingle();
-            Container.Bind<AdvertismentService>().FromNew().AsSingle();
-            Container.BindInterfacesAndSelfTo<FocusController>().FromNew().AsSingle().NonLazy();
 
-            BindBillingProvider();
+            BindSDK();
+
+            Container.Bind<AdvertismentController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<FocusController>().FromNew().AsSingle().NonLazy();
         }
 
-        private void BindBillingProvider()
+        private void BindSDK()
         {
+
 #if !UNITY_EDITOR && UNITY_WEBGL
             Container.Bind<IBillingProvider>().To<BillingProvider>().FromNew().AsSingle();
+            Container.Bind<ILeaderboardService>().To<YandexLeaderboardService>().FromNew().AsSingle();
+            Container.Bind<IAdvertismentService>().To<YandexAdvertismentService>().FromNew().AsSingle();
 #else
-            Container.Bind<IBillingProvider>().To<MockBillingProvider>().FromNew().AsSingle();
+            Container.Bind<IBillingService>().To<MockBillingService>().FromNew().AsSingle();
+            Container.Bind<ILeaderboardService>().To<MockLeaderboardService>().FromNew().AsSingle();
+            Container.Bind<IAdvertismentService>().To<MockAdvertismentService>().FromNew().AsSingle();
 #endif
         }
     }

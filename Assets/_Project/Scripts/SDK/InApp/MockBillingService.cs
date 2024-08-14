@@ -1,15 +1,15 @@
-﻿using Agava.YandexGames;
-using Project.Configs.ShopItems;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Agava.YandexGames;
+using Project.Configs.ShopItems;
 
 namespace Project.SDK.InApp
 {
-    public class MockBillingProvider : IBillingProvider
+    public class MockBillingService : IBillingService
     {
         private readonly ShopItemsConfigs _shopItemsConfigs;
 
-        public MockBillingProvider(ShopItemsConfigs shopItemsConfigs)
+        public MockBillingService(ShopItemsConfigs shopItemsConfigs)
         {
             _shopItemsConfigs = shopItemsConfigs;
         }
