@@ -48,3 +48,4 @@ MonoBehaviour:
   _shopItemsCongigs: {fileID: 11400000, guid: 38e464eab21d937458c9985377e809be, type: 2}
   _statsSheet: {fileID: 11400000, guid: 966ef926af973744eaf9c4375c38f969, type: 2}
   _uiConfigs: {fileID: 11400000, guid: b6c3ebaee4851c1498172005568fa1dd, type: 2}
+  _gameConfig: {fileID: 11400000, guid: 3d086b684b02b3c49b7409e745e4bc58, type: 2}

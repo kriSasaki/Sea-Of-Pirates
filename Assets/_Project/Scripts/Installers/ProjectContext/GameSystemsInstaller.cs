@@ -1,11 +1,21 @@
 using Project.Players.Inputs;
+using Project.Systems.Stats;
+using Project.Systems.Storage;
 using Zenject;
 
 namespace Project.Installers.ProjectContext
 {
-    public class InputInstaller : MonoInstaller
+    public class GameSystemsInstaller : MonoInstaller
     {
         public override void InstallBindings()
+        {
+            Container.BindInterfacesTo<PlayerStats>().AsSingle();
+            Container.BindInterfacesTo<PlayerStorage>().AsSingle();
+
+            BindInput();
+        }
+
+        private void BindInput()
         {
             if (Agava.WebUtility.Device.IsMobile)
             {

@@ -1,24 +1,31 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Project.Configs.Game;
 using Project.Configs.GameResources;
+using Project.Interfaces.Audio;
 using Project.Interfaces.Data;
 using Project.Interfaces.Storage;
 using Project.Systems.Stats;
+using UnityEngine;
 
 namespace Project.Systems.Storage
 {
     public class PlayerStorage : IPlayerStorage, IStorageNotifier
     {
         private readonly IResourceStorageProvider _resourceStorageProvider;
+        private readonly IAudioService _audioService;
         private readonly Dictionary<GameResource, int> _storage;
+        private readonly AudioClip _earnResourceSound;
 
         public event Action<GameResource, int> ResourceAmountChanged;
 
-        public PlayerStorage(IResourceStorageProvider provider)
+        public PlayerStorage(IResourceStorageProvider provider, IAudioService audioService, GameConfig config)
         {
             _resourceStorageProvider = provider;
+            _audioService = audioService;
             _storage = _resourceStorageProvider.LoadStorage();
+            _earnResourceSound = config.EarnResourceSound;
         }
 
         public int GetResourceAmount(GameResource gameResource)
@@ -30,6 +37,7 @@ namespace Project.Systems.Storage
         {
             _storage[gameResource] += amount;
             ResourceAmountChanged?.Invoke(gameResource, _storage[gameResource]);
+            _audioService.PlaySound(_earnResourceSound);
             SaveResources();
         }
 
