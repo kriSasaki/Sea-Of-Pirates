@@ -260,8 +260,8 @@ GameObject:
   - component: {fileID: 9000589612999532615}
   - component: {fileID: 3087822812051056961}
   - component: {fileID: 7589264530268542164}
-  - component: {fileID: 770948188415375868}
-  m_Layer: 0
+  - component: {fileID: 8395251853516251805}
+  m_Layer: 9
   m_Name: Fort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,8 +336,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &770948188415375868
-MeshCollider:
+--- !u!135 &8395251853516251805
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -354,7 +354,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 17b07cb1524f9e14c91d167c1536ec00, type: 3}
+  serializedVersion: 3
+  m_Radius: 17
+  m_Center: {x: 0, y: 5.270745, z: 0.0000009536743}

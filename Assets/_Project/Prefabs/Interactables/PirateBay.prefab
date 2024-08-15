@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1500475534823553360}
   - component: {fileID: 1500475534824903094}
   - component: {fileID: 1500475534825561818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1698124224197860128}
   - component: {fileID: 1698124224200810406}
   - component: {fileID: 1698124224199760896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4119493377801698675}
   - component: {fileID: 4119493377798755733}
   - component: {fileID: 4119493377799674617}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4353951543496789631}
   - component: {fileID: 4353951543495927449}
   - component: {fileID: 4353951543494486517}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4531110995121651035}
   - component: {fileID: 4531110995122378173}
   - component: {fileID: 4531110995123559121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 6376705511977133343}
   - component: {fileID: 7742118463788212458}
   - component: {fileID: 512249218887358162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974244206722206234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629046425446319030}
-  m_Layer: 0
+  - component: {fileID: 2511603901690347783}
+  - component: {fileID: 6579762983306907852}
+  m_Layer: 8
   m_Name: PirateBay
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -567,3 +569,38 @@ Transform:
   - {fileID: 4974244206722206234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2511603901690347783
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895037373998079775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6579762983306907852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895037373998079775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be84fe8381b2d974cb35bc0e7c2a9e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerZoneRadius: 25
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}

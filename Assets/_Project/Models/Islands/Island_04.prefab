@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6662337029517745721}
   - component: {fileID: 6930212643672233525}
   - component: {fileID: 829468547956063648}
-  m_Layer: 0
+  - component: {fileID: 4433696525213594376}
+  m_Layer: 9
   m_Name: Island_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &4433696525213594376
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889868198416084267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 52
+  m_Center: {x: -5.38, y: 6.2709064, z: 3.9905453}
