@@ -90,7 +90,7 @@ Material:
     - _CelPrimaryMode: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _DepthMaxDistance: 2.76
+    - _DepthMaxDistance: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _EmissionScaleUI: 0
@@ -147,7 +147,7 @@ Material:
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _DepthGradientDeep: {r: 0, g: 0.5714579, b: 0.6981132, a: 1}
+    - _DepthGradientDeep: {r: 0.056639347, g: 0.67564774, b: 0.8113208, a: 1}
     - _DepthGradientShallow: {r: 0, g: 0.7522936, b: 1, a: 0.6666667}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}

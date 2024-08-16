@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43755645, g: 0.485398, b: 0.5656735, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,13 +210,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29199703}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14481196, y: 0.724038, z: -0.6322702, w: 0.23459081}
+  m_LocalRotation: {x: 0.6482695, y: 0.20042022, z: 0.13129409, w: 0.72273123}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 79.583, y: 120, z: -28.744}
+  m_LocalEulerAnglesHint: {x: 62.18, y: 80.235, z: 74.462}
 --- !u!4 &56985279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6015634727627202708, guid: 3643ca7f55793344aa00d629ca36763b, type: 3}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 245906454}
   - component: {fileID: 245906453}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Reseter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -979,8 +979,8 @@ Camera:
   m_GameObject: {fileID: 979110784}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.048415758, g: 0.73144037, b: 0.8018868, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2512,12 +2512,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 979110787}
   - {fileID: 29199705}
+  - {fileID: 704961794}
+  - {fileID: 521866363}
   - {fileID: 973228126}
   - {fileID: 819473030}
   - {fileID: 889743312}
   - {fileID: 798734621}
-  - {fileID: 1452843874}
-  - {fileID: 704961794}
-  - {fileID: 521866363}
   - {fileID: 2769700093590826667}
+  - {fileID: 1452843874}
   - {fileID: 245906454}
