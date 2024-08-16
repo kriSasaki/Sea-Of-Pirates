@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2395517025591561075}
   - component: {fileID: 3165451929991827009}
   - component: {fileID: 389434489036508630}
+  - component: {fileID: 4679441054666868532}
   m_Layer: 9
   m_Name: Env_Cloud_01
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4679441054666868532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881184696496382190}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 333.92368, y: 82.56467, z: 80.41988}
+  m_Center: {x: 0.000015258789, y: 41.282333, z: -0.000019073486}

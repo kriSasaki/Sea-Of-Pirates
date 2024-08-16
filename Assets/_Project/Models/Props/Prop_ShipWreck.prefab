@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 237563071457152157}
   - component: {fileID: 1071155112746485482}
   - component: {fileID: 467418668504690235}
-  m_Layer: 0
+  - component: {fileID: 8556040471820090245}
+  m_Layer: 9
   m_Name: Prop_ShipWreck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8556040471820090245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610500177270312657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20.44, y: 30.570837, z: 28.8}
+  m_Center: {x: 0.10215759, y: 10.2233515, z: -1.8256183}
 --- !u!1 &6493853977127255721
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +117,7 @@ GameObject:
   - component: {fileID: 4945296223620771883}
   - component: {fileID: 7035709866435538547}
   - component: {fileID: 1022345969984474555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Shipwreck_02_Sails
   m_TagString: Untagged
   m_Icon: {fileID: 0}

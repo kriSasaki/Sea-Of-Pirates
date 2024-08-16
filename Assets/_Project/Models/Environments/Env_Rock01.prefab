@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6106457114956136631}
   - component: {fileID: 1211748237424144771}
   - component: {fileID: 3978121729269273931}
-  - component: {fileID: 2901093953204388609}
+  - component: {fileID: 3172654715845941809}
   m_Layer: 9
   m_Name: Env_Rock01
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2901093953204388609
+--- !u!135 &3172654715845941809
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,5 +103,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 16.827728
-  m_Center: {x: 0.30142212, y: 10.8464155, z: 0.8451028}
+  m_Radius: 13.462182
+  m_Center: {x: 0.2411375, y: 8.677132, z: 0.67608213}
