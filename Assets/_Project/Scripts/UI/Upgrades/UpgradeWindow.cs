@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Project.Configs.UI;
+using Project.Interfaces.Audio;
 using Project.Interfaces.Data;
 using Project.Interfaces.Stats;
 using UnityEngine;
@@ -17,6 +19,8 @@ namespace Project.UI.Upgrades
         private StatsSheet _statsSheet;
         private IUpgradableStats _stats;
         private IPlayerStorage _playerStorage;
+        private IAudioService _audioService;
+        private AudioClip _upgradeSound;
 
         protected override void OnDestroy()
         {
@@ -27,12 +31,18 @@ namespace Project.UI.Upgrades
         }
 
         [Inject]
-        public void Construct(StatsSheet statsSheet, IUpgradableStats stats, IPlayerStorage playerStorage)
+        public void Construct(
+            StatsSheet statsSheet,
+            IUpgradableStats stats,
+            IPlayerStorage playerStorage,
+            IAudioService audioService,
+            UiConfigs config)
         {
             _statsSheet = statsSheet;
             _stats = stats;
             _playerStorage = playerStorage;
-
+            _audioService = audioService;
+            _upgradeSound = config.UpgradeSound;
             CreateUpgradeBars();
         }
 
@@ -61,6 +71,8 @@ namespace Project.UI.Upgrades
 
         private void OnStatUpgraded()
         {
+            _audioService.PlaySound(_upgradeSound);
+
             foreach (StatUpgradeBar bar in _bars)
             {
                 bar.CheckUpgradePrice();

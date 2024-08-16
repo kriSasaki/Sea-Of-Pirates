@@ -1,4 +1,6 @@
-﻿using Project.Utils;
+﻿using Project.Configs.UI;
+using Project.Interfaces.Audio;
+using Project.Utils;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,6 +37,7 @@ namespace Project.UI
         private void Construct()
         {
             _button = GetComponent<Button>();
+
             _scaleTween.Initialize(transform);
         }
     }
