@@ -7,7 +7,7 @@ namespace Project.Players.PlayerLogic
 {
     public class PlayerMove : MonoBehaviour
     {
-        [SerializeField] private CharacterController CharacterController;
+        [SerializeField] private Rigidbody _playerRigidbody;
         private IInputService _inputService;
         private Camera _camera;
         private Player _player;
@@ -24,7 +24,7 @@ namespace Project.Players.PlayerLogic
         public void Construct(IPlayerStats playerStats, IInputService inputService)
         {
             _playerStats = playerStats;
-            _inputService = inputService; // Добавлено присвоение переменной _inputService
+            _inputService = inputService;
         }
 
         private void Update()
@@ -40,7 +40,8 @@ namespace Project.Players.PlayerLogic
                 transform.forward = movementVector;
             }
             movementVector += Physics.gravity;
-            CharacterController.Move(MovementSpeed * movementVector * Time.deltaTime);
+
+            _playerRigidbody.velocity = movementVector * MovementSpeed;
         }
 
         private void CameraFollow() => _camera.GetComponent<CameraFollow>().Follow(gameObject);
