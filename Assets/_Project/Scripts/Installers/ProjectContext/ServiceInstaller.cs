@@ -1,4 +1,5 @@
 using Lean.Localization;
+using Project.Interfaces.Audio;
 using Project.Interfaces.SDK;
 using Project.SDK.Advertisment;
 using Project.SDK.InApp;
@@ -19,7 +20,7 @@ namespace Project.Installers.ProjectContext
         {
             Container.Bind<LeanLocalization>().FromComponentInNewPrefab(_localizationPrefab).AsSingle().NonLazy();
 
-            Container.Bind<AudioService>().FromComponentInNewPrefab(_audioServicePrefab).AsSingle();
+            Container.BindInterfacesAndSelfTo<AudioService>().FromComponentInNewPrefab(_audioServicePrefab).AsSingle();
             Container.Bind<PauseService>().FromNew().AsSingle();
 
             BindSDK();

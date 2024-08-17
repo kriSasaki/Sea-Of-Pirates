@@ -1,3 +1,4 @@
+using Project.Configs.Game;
 using Project.Configs.GameResources;
 using Project.Configs.ShopItems;
 using Project.Configs.UI;
@@ -16,6 +17,7 @@ namespace Project.Installers.ProjectContext
         [SerializeField] private ShopItemsConfigs _shopItemsCongigs;
         [SerializeField] private StatsSheet _statsSheet;
         [SerializeField] private UiConfigs _uiConfigs;
+        [SerializeField] private GameConfig _gameConfig;
 
         public override void InstallBindings()
         {
@@ -23,16 +25,13 @@ namespace Project.Installers.ProjectContext
             Container.Bind<StatsSheet>().FromInstance(_statsSheet);
             Container.Bind<ShopItemsConfigs>().FromInstance(_shopItemsCongigs);
             Container.Bind<UiConfigs>().FromInstance(_uiConfigs);
+            Container.Bind<GameConfig>().FromInstance(_gameConfig);
 
             Container.BindInterfacesTo<GameDataService>().AsSingle().NonLazy();
 
             Container.Bind<IResourceStorageProvider>().To<ResourceStorageProvider>().AsSingle();
             Container.Bind<IPlayerStatsProvider>().To<PlayerStatsProvider>().AsSingle();
             Container.Bind<IQuestsProvider>().To<QuestsProvider>().AsSingle();
-
-            
-            Container.BindInterfacesTo<PlayerStats>().AsSingle();
-            Container.BindInterfacesTo<PlayerStorage>().AsSingle();
         }
     }
 }
