@@ -8,8 +8,8 @@ namespace Project.Players.PlayerLogic
         [SerializeField] private Transform _target;
 
         private Transform _cameraTransform;
-        private float _heightHealthBar = 30f;
         private float _xScale;
+        [SerializeField] private float _heightOffset = 10.0f;
 
         private void Start()
         {
@@ -18,7 +18,7 @@ namespace Project.Players.PlayerLogic
 
         private void LateUpdate()
         {
-            transform.position = _target.position + Vector3.up * _heightHealthBar;
+            transform.position = _target.position + Vector3.up * _heightOffset;
             transform.rotation = _cameraTransform.rotation;
         }
 

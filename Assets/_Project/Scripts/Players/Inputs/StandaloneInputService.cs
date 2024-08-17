@@ -4,21 +4,30 @@ namespace Project.Players.Inputs
 {
     public class StandaloneInputService : InputService
     {
+        private Vector2 _currentAxis = Vector2.zero;
+
         public override Vector2 Axis
         {
             get
             {
-                Vector2 axis = SimpleInputAxis();
-
-                if (axis == Vector2.zero)
+                Vector2 targetAxis = SimpleInputAxis();
+                if (targetAxis == Vector2.zero)
                 {
-                    axis = UnityAxis();
+                    targetAxis = UnityAxis();
                 }
-                return axis;
+                _currentAxis = SmoothTransition(targetAxis);
+                return _currentAxis;
             }
         }
 
         private static Vector2 UnityAxis() =>
             new Vector2(UnityEngine.Input.GetAxis("Horizontal"), UnityEngine.Input.GetAxis("Vertical"));
+
+        private Vector2 SmoothTransition(Vector2 targetAxis)
+        {
+            float smoothTime = 0.1f;
+            _currentAxis = Vector2.Lerp(_currentAxis, targetAxis, Time.deltaTime / smoothTime);
+            return _currentAxis;
+        }
     }
 }
