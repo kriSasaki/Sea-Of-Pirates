@@ -1,3 +1,4 @@
+using Project.Interfaces.Audio;
 using Project.Interfaces.Stats;
 using Project.Players.PlayerLogic;
 using System;
@@ -11,22 +12,22 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Bars _bar;
     [SerializeField] private GameObject _hitEffect;
-    [SerializeField] private AudioSource _soundOfHit;
+    [SerializeField] private AudioClip _audioClip;
 
     private float _effectTime = 0.2f;
     private Player _player;
     private int _currentHealth;
-    private float _minimalAudioPitch = 0.8f;
-    private float _maximalAudioPitch = 1.2f;
     private IPlayerStats _playerStats;
+    private IAudioService _audioService;
 
     public int CurrentHealth => _currentHealth;
     private int _maxHealth => _playerStats.MaxHealth;
 
     [Inject]
-    public void Construct(IPlayerStats playerStats)
+    public void Construct(IPlayerStats playerStats, IAudioService audioService)
     {
         _playerStats = playerStats;
+        _audioService = audioService;
     }
 
     private void Start()
@@ -45,9 +46,10 @@ public class Player : MonoBehaviour
             HealthChanged?.Invoke();
             return;
         }
-        _soundOfHit.pitch = Random.Range(_minimalAudioPitch, _maximalAudioPitch);
+        
         _hitEffect.SetActive(true);
         Invoke(nameof(HideFlash), _effectTime);
+        _audioService.PlaySound(_audioClip);
         _currentHealth -= damage;
         _bar.SetHealth(_currentHealth, _maxHealth);
     }

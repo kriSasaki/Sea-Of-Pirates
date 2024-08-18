@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using Project.Enemies;
-using Project.Players.PlayerLogic;
+using Project.Interfaces.Audio;
+using Zenject;
 
 namespace Project.Players.PlayerLogic
 {
@@ -10,17 +11,23 @@ namespace Project.Players.PlayerLogic
     {
         [SerializeField] private GameObject _particleObject;
         [SerializeField] private float _attackCoolDown = 1f;
-        [SerializeField] private AudioSource _soundOfGunshot;
         [SerializeField] private float _minimalAudioPitch;
         [SerializeField] private float _maximalAudioPitch;
         [SerializeField] private float _effectTime;
         [SerializeField] private PlayerAttack _playerAttack;
         [SerializeField] private AudioClip _audioClip;
 
+        private IAudioService _audioService;
         private float _attackRange;
         private float _damage;
         private List<Enemy> _enemiesInRange = new List<Enemy>();
         private Coroutine _attackCoroutine;
+
+        [Inject]
+        public void Construct(IAudioService audioService)
+        {        
+            _audioService = audioService;
+        }
 
         private void Start()
         {
@@ -61,11 +68,9 @@ namespace Project.Players.PlayerLogic
                 float distance = Vector3.Distance(transform.position, nearestEnemy.transform.position);
                 if (distance <= _attackRange)
                 {
-                    _soundOfGunshot.pitch = Random.Range(_minimalAudioPitch, _maximalAudioPitch);
-                    _soundOfGunshot.PlayOneShot(_audioClip, _soundOfGunshot.pitch);
+                    _audioService.PlaySound(_audioClip);
                     _particleObject.SetActive(true);
                     Invoke(nameof(HideFlash), _effectTime);
-
                     nearestEnemy.TakeDamage((int)_damage);
                 }
             }
