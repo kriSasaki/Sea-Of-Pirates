@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
     private float _effectTime = 0.2f;
     private Player _player;
     private int _currentHealth;
-    private float _minimalAudioPitch = 0.8f;
-    private float _maximalAudioPitch = 1.2f;
     private IPlayerStats _playerStats;
     private IAudioService _audioService;
 
