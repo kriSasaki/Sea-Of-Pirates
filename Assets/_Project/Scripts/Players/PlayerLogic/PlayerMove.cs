@@ -39,9 +39,10 @@ namespace Project.Players.PlayerLogic
 
                 transform.forward = movementVector;
             }
-            movementVector += Physics.gravity;
 
-            _playerRigidbody.velocity = movementVector * MovementSpeed;
+            Vector3 velocity = movementVector * MovementSpeed;
+            velocity.y = _playerRigidbody.velocity.y;
+            _playerRigidbody.velocity = velocity;
         }
 
         private void CameraFollow() => _camera.GetComponent<CameraFollow>().Follow(gameObject);
