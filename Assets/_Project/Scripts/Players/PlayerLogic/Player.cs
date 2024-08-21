@@ -4,7 +4,6 @@ using Project.Players.PlayerLogic;
 using System;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
@@ -41,6 +40,8 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("Player take damage: " + damage);
+        
         if (_currentHealth <= 0)
         {
             HealthChanged?.Invoke();

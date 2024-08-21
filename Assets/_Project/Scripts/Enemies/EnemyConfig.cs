@@ -8,11 +8,13 @@ namespace Project.Enemies
     {
         [SerializeField] private int _health;
         [SerializeField] private int _damage;
+        [SerializeField] private float _attackSpeed;
         [SerializeField] private GameResource _gameResource;
         [SerializeField] private int _resourceAmount;
 
         public int Health => _health;
         public int Damage => _damage;
+        public float AttackSpeed => _attackSpeed;
         public GameResource GameResource => _gameResource;
         public int ResourceAmount => _resourceAmount;
     }
