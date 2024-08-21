@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Project.Configs.GameResources
@@ -6,6 +7,6 @@ namespace Project.Configs.GameResources
     public class GameResource : ScriptableObject
     {
         [field: SerializeField] public int ID { get; private set; }
-        [field: SerializeField] public Sprite Sprite { get; private set; }
+        [field: SerializeField, ShowAssetPreview] public Sprite Sprite { get; private set; }
     }
 }

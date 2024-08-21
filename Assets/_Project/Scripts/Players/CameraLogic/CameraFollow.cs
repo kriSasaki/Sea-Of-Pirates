@@ -5,9 +5,9 @@ namespace Project.Players.CamaraLogic
     public class CameraFollow : MonoBehaviour
     {
         [SerializeField] private Transform _following;
-        [SerializeField] private float RotationAngleX;
-        [SerializeField] private float Distance;
-        [SerializeField] private float OffsetY;
+        [SerializeField] private float RotationAngleX = 55f;
+        [SerializeField] private float Distance = 100;
+        [SerializeField] private float OffsetY = 0.5f;
 
         private void LateUpdate()
         {

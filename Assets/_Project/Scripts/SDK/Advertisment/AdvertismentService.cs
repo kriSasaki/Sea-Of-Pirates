@@ -1,9 +1,10 @@
+﻿using Project.Interfaces.SDK;
 using Project.Systems.Pause;
 using System;
 
 namespace Project.SDK.Advertisment
 {
-    public class AdvertismentService
+    public abstract class AdvertismentService : IAdvertismentService
     {
         private readonly PauseService _pauseService;
 
@@ -14,44 +15,22 @@ namespace Project.SDK.Advertisment
 
         public bool IsAdsPlaying { get; private set; } = false;
 
-        public void ShowInterstitialAd(Action onClose)
-        {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        Agava.YandexGames.InterstitialAd.Show(OnOpenCallback, OnCloseInterstitial);
-#else
-            OnOpenCallback();
-            OnCloseInterstitial(true);
-#endif
-            void OnCloseInterstitial(bool wasShown)
-            {
-                OnCloseCallback();
-                onClose();
-            }
-        }
+        public abstract void ShowInterstitialAd();
 
-        public void ShowRewardAd(Action onSuccess)
-        {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        Agava.YandexGames.VideoAd.Show(OnOpenCallback, OnRewardedCallback, OnCloseCallback, OnErrorCallback);
-#else
-            OnOpenCallback();
-            OnRewardedCallback();
-            OnCloseCallback();
+        public abstract void ShowRewardAd(Action onRewardedCallback);
 
-#endif
-            void OnRewardedCallback()
-            {
-                onSuccess();
-            }
-        }
+        public abstract void ShowSticky();
 
-        private void OnCloseCallback()
+        public abstract void HideSticky();
+
+
+        protected void CloseAd()
         {
             IsAdsPlaying = false;
             _pauseService.Unpause();
         }
 
-        private void OnOpenCallback()
+        protected void OpenAd()
         {
             IsAdsPlaying = true;
             _pauseService.Pause();

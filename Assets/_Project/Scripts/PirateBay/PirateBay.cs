@@ -9,10 +9,7 @@ public class PirateBay : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            if(player.AccessPirateBayAllowed)
-            {
-                _canvasPirateBay.SetActive(true);
-            }
+            _canvasPirateBay.SetActive(true);
         }
     }
 
@@ -20,10 +17,7 @@ public class PirateBay : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            if (player.AccessPirateBayAllowed == false)
-            {
-                player.AllowAccessPirateBay();
-            }
+          
             _canvasPirateBay.SetActive(false);
         }
     }

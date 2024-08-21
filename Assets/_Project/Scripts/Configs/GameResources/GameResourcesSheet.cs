@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using NaughtyAttributes;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Project.Configs.GameResources
@@ -6,7 +7,7 @@ namespace Project.Configs.GameResources
     [CreateAssetMenu(fileName = "GameResourcesShert", menuName = "Configs/GameResourceSheet")]
     public class GameResourcesSheet : ScriptableObject
     {
-        [SerializeField] private List<GameResource> _gameResources;
+        [SerializeField, Expandable] private List<GameResource> _gameResources;
 
         public IEnumerable<GameResource> GameResources => _gameResources;
     }

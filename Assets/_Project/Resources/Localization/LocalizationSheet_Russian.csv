@@ -15,4 +15,19 @@ quests/Level1/quest01,Затопи вшивую шлюпку
 quests/Level1/quest02,Нужно больше весел!
 quests/ProgressLabel,Потоплено
 quests/OK,Ага
-Interacrables/UpgradePlace,Пристань
+Interactables/UpgradePlace,Пристань
+Misc/thousandToken,т
+Misc/millionToken,м
+UI/ConfirmWindow/button,Подтвердить
+UI/ConfirmWindow/header,Подтвердить покупку?
+UI/Shop/GameItemHeader,РЕСУРСЫ
+UI/Shop/InAppItemHeader,ПРЕДЛОЖЕНИЯ
+Anonymous,Аноним
+Leaderboard/Name,Игрок
+Leaderboard/Rank,Место
+Leaderboard/Score,Потоплено
+Leaderboard/AuthorizationText,Для просмотра таблицы лидеров нужно авторизоваться
+Leaderboard/AuthorizationButton,Авторизоваться
+UI/NextLevel/CanPass,Теперь мы можем спокойно пройти через рифы. Хотите отправиться дальше?
+UI/NextLevel/CanNotPass,Впереди опасные рифы! Без карты сразу же разобъемся! Возвращайтесь с картой.
+UI/NextLevel/EndGame,Поздравляем вас с прохождением игры! Приплывайте к нас в следующих обновлениях!
