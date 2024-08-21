@@ -24,7 +24,9 @@ namespace Project.Players.Hold
 
         public event Action<int> CargoChanged;
 
-        private int CargoSize => _playerStats.CargoSize;
+        public int CargoSize => _playerStats.CargoSize;
+
+        public bool IsEmpty => _cargo.Count == 0;
 
         public void AddResource(GameResourceAmount gameResourceAmount)
         {

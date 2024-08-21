@@ -388,8 +388,10 @@ GameObject:
   - component: {fileID: 3130018821738816215}
   - component: {fileID: 105835416161628424}
   - component: {fileID: 4278262211469618358}
+  - component: {fileID: 5369457474029541763}
+  - component: {fileID: 2830222150428370994}
   m_Layer: 5
-  m_Name: CargoBar
+  m_Name: HoldBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,6 +456,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2.32
+--- !u!225 &5369457474029541763
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526229822047226071}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2830222150428370994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526229822047226071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504379b1b678d8c4c9904b9a24e28446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filler: {fileID: 6153254916129794947}
+  _fillDuration: 0.1
+  _fillEase: 1
+  _fadeDuration: 0.2
+  _fadeEase: 1
+  _fadeDelay: 1
+  _amountLabel: {fileID: 2406244994816175578}
 --- !u!1 &1090214449427765125
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +636,8 @@ GameObject:
   - component: {fileID: 6354198887829640553}
   - component: {fileID: 6638180008389700890}
   - component: {fileID: 2781136740875154246}
+  - component: {fileID: 3051390333084773651}
+  - component: {fileID: 930571992240038410}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -669,6 +704,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2.32
+--- !u!225 &3051390333084773651
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159462194340620572}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &930571992240038410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159462194340620572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc25db02332cc142b5a9e2f39fd1cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filler: {fileID: 5998841046581531296}
+  _fillDuration: 0.1
+  _fillEase: 1
+  _fadeDuration: 0.2
+  _fadeEase: 1
+  _fadeDelay: 1
+  _amountLabel: {fileID: 2975388702452950001}
 --- !u!1 &1363666993815352937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1263,7 @@ GameObject:
   - component: {fileID: 4626715727506049737}
   - component: {fileID: 2406244994816175578}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: AmountLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3080,7 +3146,7 @@ GameObject:
   - component: {fileID: 2472680156294001912}
   - component: {fileID: 2975388702452950001}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: AmountLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3572,7 +3638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917132774479316637, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_fontSize
-      value: 41.5
+      value: 30.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3800,7 +3866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917132774479316637, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_fontSize
-      value: 41.5
+      value: 30.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3910,7 +3976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917132774479316637, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_fontSize
-      value: 41.5
+      value: 30.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4020,7 +4086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917132774479316637, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_fontSize
-      value: 41.5
+      value: 30.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4578,7 +4644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5085836833440236920, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
       propertyPath: m_fontSize
-      value: 59.3
+      value: 63.1
       objectReference: {fileID: 0}
     - target: {fileID: 6083812475952838136, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4586,7 +4652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6441869992288504658, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 56.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

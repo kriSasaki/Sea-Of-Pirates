@@ -157,6 +157,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 930571992240038410, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: _fadeDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 930571992240038410, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: _fillDuration
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1382879734565059555, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -291,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531982518883318067, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_fontSize
-      value: 40.5
+      value: 30.2
       objectReference: {fileID: 0}
     - target: {fileID: 3105235736253970350, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_SizeDelta.y
@@ -299,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4074214703256279451, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_fontSize
-      value: 63.05
+      value: 63.1
       objectReference: {fileID: 0}
     - target: {fileID: 4878340127109327453, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchorMax.y
@@ -363,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723508348776306129, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_fontSize
-      value: 40.5
+      value: 30.2
       objectReference: {fileID: 0}
     - target: {fileID: 5932076586037747527, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchorMax.y
@@ -435,11 +443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6136927685824498137, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_fontSize
-      value: 40.5
+      value: 30.2
       objectReference: {fileID: 0}
     - target: {fileID: 6168792412584403253, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_fontSize
-      value: 40.5
+      value: 30.2
       objectReference: {fileID: 0}
     - target: {fileID: 6819946100414161387, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchorMax.y

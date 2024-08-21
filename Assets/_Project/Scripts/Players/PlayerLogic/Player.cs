@@ -21,37 +21,42 @@ public class Player : MonoBehaviour
     private IAudioService _audioService;
 
     public int CurrentHealth => _currentHealth;
-    private int _maxHealth => _playerStats.MaxHealth;
+    public int MaxHealth => _playerStats.MaxHealth;
 
     [Inject]
     public void Construct(IPlayerStats playerStats, IAudioService audioService)
     {
         _playerStats = playerStats;
         _audioService = audioService;
+
+        _currentHealth = MaxHealth;
     }
 
     private void Start()
     {
         if (_playerStats != null)
         {
-            _currentHealth = _maxHealth;
-            _bar.SetHealth(_currentHealth, _maxHealth);
+            _currentHealth = MaxHealth;
+            _bar.SetHealth(_currentHealth, MaxHealth);
         }
+
+        HealthChanged?.Invoke();
     }
 
     public void TakeDamage(int damage)
     {
+        HealthChanged?.Invoke();
+
         if (_currentHealth <= 0)
         {
-            HealthChanged?.Invoke();
             return;
         }
-        
+
         _hitEffect.SetActive(true);
         Invoke(nameof(HideFlash), _effectTime);
         _audioService.PlaySound(_audioClip);
         _currentHealth -= damage;
-        _bar.SetHealth(_currentHealth, _maxHealth);
+        _bar.SetHealth(_currentHealth, MaxHealth);
     }
 
     private void HideFlash()
