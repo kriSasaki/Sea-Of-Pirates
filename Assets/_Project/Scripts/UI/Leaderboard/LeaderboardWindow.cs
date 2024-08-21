@@ -20,6 +20,7 @@ namespace Project.UI.Leaderboard
         {
             base.Awake();
             _authorizationButton.onClick.AddListener(OnAuthorizationClicked);
+            Hide();
         }
 
         protected override void OnDestroy()

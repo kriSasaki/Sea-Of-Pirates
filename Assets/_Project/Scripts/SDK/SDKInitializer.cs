@@ -12,7 +12,7 @@ namespace Project.SDK
         private IEnumerator Start()
         {
             yield return null;
-#if !UNITY_EDITOR
+#if UNITY_WEBGL && !UNITY_EDITOR
         Agava.YandexGames.YandexGamesSdk.Initialize(LoadScene);
 #else
             LoadScene();
