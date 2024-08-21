@@ -1,32 +1,32 @@
 using UnityEngine;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
-namespace Project.Enemies
+namespace Project.Enemies.EnemyLogic
 {
     public class EnemyWandering : MonoBehaviour
     {
         [SerializeField] private float _movingDuration = 2f;
-        [SerializeField] private float _lootAtDuration = 0.5f;
-
-        private Vector3 _center;
-        private float _movementRange;
-        private Vector3 _newNextPosition;
+        [SerializeField] private float _lookAtDuration = 0.5f;
+        [SerializeField] private float _movementRange = 5f;
         
-        public void Initialize(Vector3 center , float movementRange)
+        private Vector3 _newNextPosition;
+        private Vector3 _startPosition;
+
+        private void Awake()
         {
-            _center = center;
-            _movementRange = movementRange;
+            _startPosition = transform.position;
             StartMoving();
         }
 
         private void StartMoving()
         {
-            _newNextPosition = Random.insideUnitSphere * _movementRange + _center;
+            _newNextPosition = Random.insideUnitSphere * _movementRange + _startPosition;
             _newNextPosition = new Vector3(
                 _newNextPosition.x,
                 transform.position.y,
                 _newNextPosition.z);
-            transform.DOLookAt(_newNextPosition, _lootAtDuration);
+            transform.DOLookAt(_newNextPosition, _lookAtDuration);
             transform.DOMove(_newNextPosition, _movingDuration, false).OnComplete(StartMoving);
         }
     }

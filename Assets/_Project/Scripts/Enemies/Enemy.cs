@@ -7,8 +7,6 @@ namespace Project.Enemies
 {
     public class Enemy : MonoBehaviour, IEnemy
     {
-        [SerializeField] private EnemyWandering _enemyWandering;
-        
         private const int MinimumHealth = 0;
 
         private EnemyConfig _enemyConfig;
@@ -20,13 +18,12 @@ namespace Project.Enemies
 
         public event Action<Enemy> Died;
 
-        public void Initialize(EnemyConfig enemyConfig, Vector3 center, float movementRange)
+        public void Initialize(EnemyConfig enemyConfig)
         {
             _health = enemyConfig.Health;
             _damage = enemyConfig.Damage;
             _gameResource = enemyConfig.GameResource;
             _resourceAmount = enemyConfig.ResourceAmount;
-            _enemyWandering.Initialize(center, movementRange);
         }
 
         public void TakeDamage(int damage)

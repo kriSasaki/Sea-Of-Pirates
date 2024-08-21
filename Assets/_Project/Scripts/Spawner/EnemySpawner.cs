@@ -30,7 +30,7 @@ namespace Project.Spawner
 
         private void Spawn()
         {
-            _enemy = _enemyFactory.Create(_enemyConfig, transform.position, _spawnRange);
+            _enemy = _enemyFactory.Create(_enemyConfig, transform.position);
             _enemies.Add(_enemy);
             _enemy.Died += OnEnemyDied;
             _enemy.transform.position = Random.insideUnitSphere * _spawnRange + _enemy.transform.position;

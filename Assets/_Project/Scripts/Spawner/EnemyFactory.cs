@@ -10,10 +10,10 @@ namespace Project.Spawner
 
         private Enemy _newEnemy;
 
-        public Enemy Create(EnemyConfig enemyConfig, Vector3 centrePosition, float movementRange)
+        public Enemy Create(EnemyConfig enemyConfig, Vector3 position)
         {
-            _newEnemy = Object.Instantiate(_prefab, centrePosition, Quaternion.identity);
-            _newEnemy.Initialize(enemyConfig, centrePosition, movementRange);
+            _newEnemy = Object.Instantiate(_prefab, position, Quaternion.identity);
+            _newEnemy.Initialize(enemyConfig);
 
             return _newEnemy;
         }

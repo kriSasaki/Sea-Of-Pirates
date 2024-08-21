@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7796736599079713467, guid: 32307b0d2e7707b45adf521958045f97, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20.402618
+      objectReference: {fileID: 0}
     - target: {fileID: 9186901106969843457, guid: 32307b0d2e7707b45adf521958045f97, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -883,6 +887,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _maxEnemies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
+      propertyPath: _spawnDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
+      propertyPath: _spawnRange
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
