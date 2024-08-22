@@ -8,20 +8,24 @@ using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
-    public event Action HealthChanged;
-
-    [SerializeField] private Bars _bar;
     [SerializeField] private GameObject _hitEffect;
     [SerializeField] private AudioClip _audioClip;
 
-    private float _effectTime = 0.2f;
-    private Player _player;
-    private int _currentHealth;
     private IPlayerStats _playerStats;
     private IAudioService _audioService;
 
+    private float _effectTime = 0.2f;
+    private int _currentHealth;
+
+    public event Action HealthChanged;
+
     public int CurrentHealth => _currentHealth;
     public int MaxHealth => _playerStats.MaxHealth;
+
+    private void Start()
+    {
+        HealthChanged?.Invoke();
+    }
 
     [Inject]
     public void Construct(IPlayerStats playerStats, IAudioService audioService)
@@ -32,31 +36,19 @@ public class Player : MonoBehaviour
         _currentHealth = MaxHealth;
     }
 
-    private void Start()
-    {
-        if (_playerStats != null)
-        {
-            _currentHealth = MaxHealth;
-            _bar.SetHealth(_currentHealth, MaxHealth);
-        }
-
-        HealthChanged?.Invoke();
-    }
-
     public void TakeDamage(int damage)
     {
+        _currentHealth = Math.Max(_currentHealth - damage, 0);
+
         HealthChanged?.Invoke();
+        ShowHitEffect();
+    }
 
-        if (_currentHealth <= 0)
-        {
-            return;
-        }
-
+    private void ShowHitEffect()
+    {
+        _audioService.PlaySound(_audioClip);
         _hitEffect.SetActive(true);
         Invoke(nameof(HideFlash), _effectTime);
-        _audioService.PlaySound(_audioClip);
-        _currentHealth -= damage;
-        _bar.SetHealth(_currentHealth, MaxHealth);
     }
 
     private void HideFlash()

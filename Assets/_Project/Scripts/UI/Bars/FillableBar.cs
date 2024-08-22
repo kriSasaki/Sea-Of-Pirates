@@ -11,6 +11,11 @@ namespace Project.UI.Bars
         [SerializeField] private float _fillDuration = 0.1f;
         [SerializeField] private Ease _fillEase = Ease.Linear;
 
+        public void Set(float currentValue, float maxValue)
+        {
+            _filler.fillAmount = currentValue / maxValue;
+        }
+
         public void Fill(float currentValue, float maxValue)
         {
             OnFill();

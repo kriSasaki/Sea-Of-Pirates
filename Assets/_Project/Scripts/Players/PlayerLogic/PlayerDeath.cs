@@ -10,11 +10,11 @@ namespace Project.Players.PlayerLogic
 
         private bool _isDead;
 
-        private void Start() => Health.HealthChanged += HealthChanged;
+        private void Start() => Health.HealthChanged += OnHealthChanged;
 
-        private void OnDestroy() => Health.HealthChanged -= HealthChanged;
+        private void OnDestroy() => Health.HealthChanged -= OnHealthChanged;
 
-        private void HealthChanged()
+        private void OnHealthChanged()
         {
             if (!_isDead && Health.CurrentHealth <= 0)
             {

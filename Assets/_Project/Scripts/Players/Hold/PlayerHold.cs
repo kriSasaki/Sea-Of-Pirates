@@ -6,10 +6,11 @@ using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
 using Project.Systems.Stats;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Players.Hold
 {
-    public class PlayerHold : IPlayerHold
+    public class PlayerHold : IPlayerHold, IInitializable
     {
         private readonly IPlayerStats _playerStats;
         private readonly IPlayerStorage _playerStorage;
@@ -27,6 +28,11 @@ namespace Project.Players.Hold
         public int CargoSize => _playerStats.CargoSize;
 
         public bool IsEmpty => _cargo.Count == 0;
+
+        public void Initialize()
+        {
+            CargoChanged?.Invoke(GetResourcesAmount());
+        }
 
         public void AddResource(GameResourceAmount gameResourceAmount)
         {

@@ -25,7 +25,7 @@ namespace Project.UI.Bars
 
         private void OnHealthChanged()
         {
-            _amountLabel.text = $"{_player.CurrentHealth} / {_player.MaxHealth}";
+            _amountLabel.text = _player.CurrentHealth.ToString();
 
             Fill(_player.CurrentHealth, _player.MaxHealth);
 
