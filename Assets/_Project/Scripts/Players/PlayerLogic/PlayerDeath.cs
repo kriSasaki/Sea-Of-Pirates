@@ -1,32 +1,41 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Project.Players.PlayerLogic
 {
     public class PlayerDeath : MonoBehaviour
     {
-        [SerializeField] private Player Health;
-        [SerializeField] private PlayerMove Move;
-        [SerializeField] private GameObject DeathEffect;
+        [SerializeField] private Player _health;
+        [SerializeField] private PlayerMove _move;
+        [SerializeField] private GameObject _deathEffect;
+        [SerializeField] private GameObject _respawnPoint;
 
+        private float _effectTime = 3f;
         private bool _isDead;
 
-        private void Start() => Health.HealthChanged += OnHealthChanged;
+        private void Start() => _health.HealthChanged += OnHealthChanged;
 
-        private void OnDestroy() => Health.HealthChanged -= OnHealthChanged;
+        private void OnDestroy() => _health.HealthChanged -= OnHealthChanged;
 
         private void OnHealthChanged()
         {
-            if (!_isDead && Health.CurrentHealth <= 0)
+            if (!_isDead && _health.CurrentHealth <= 0)
             {
-                Die();
+                StartCoroutine(Die());
             }
         }
 
-        private void Die()
+        private IEnumerator Die()
         {
             _isDead = true;
-            Move.enabled = false;
-            Instantiate(DeathEffect, transform.position, Quaternion.identity);
+            _move.enabled = true;
+            _deathEffect.SetActive(true);
+
+            yield return new WaitForSeconds(_effectTime);
+
+            transform.position = _respawnPoint.transform.position;
+            _deathEffect.SetActive(false);
+            _move.enabled = true;
         }
     }
 }
