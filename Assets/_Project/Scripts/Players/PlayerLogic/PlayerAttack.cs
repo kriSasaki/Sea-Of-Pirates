@@ -7,12 +7,14 @@ using Zenject;
 using Project.Interfaces.Stats;
 using System;
 using System.Linq;
+using DTT.AreaOfEffectRegions;
 
 namespace Project.Players.PlayerLogic
 {
     public class PlayerAttack : MonoBehaviour
     {
         [SerializeField] private SphereCollider _attackZone;
+        [SerializeField] private CircleRegion _attackView;
         [SerializeField] private float _attackCooldown = 2f;
 
         private IPlayerStats _playerStats;
@@ -32,6 +34,7 @@ namespace Project.Players.PlayerLogic
         private void Start()
         {
             SetAttackZone();
+            ExitBattle();
         }
 
         private void OnDestroy()
@@ -73,16 +76,19 @@ namespace Project.Players.PlayerLogic
         private void SetAttackZone()
         {
             _attackZone.radius = AttackRange;
+            _attackView.Radius = AttackRange;
         }
 
         private void EnterBattle()
         {
             _battleCoroutine = StartCoroutine(Battle());
+            _attackView.gameObject.SetActive(true);
         }
 
         private void ExitBattle()
         {
             ClearBattleCoroutine();
+            _attackView.gameObject.SetActive(false);
         }
 
         private IEnumerator Battle()
