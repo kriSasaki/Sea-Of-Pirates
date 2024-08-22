@@ -1,7 +1,11 @@
-﻿namespace Project.Interfaces.Stats
+﻿using System;
+
+namespace Project.Interfaces.Stats
 {
     public interface IPlayerStats
     {
+        public event Action StatsUpdated;
+
         int MaxHealth { get; }
         int Damage { get; }
         int CargoSize { get; }

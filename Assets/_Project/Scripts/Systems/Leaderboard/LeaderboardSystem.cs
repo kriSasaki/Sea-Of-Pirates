@@ -31,7 +31,7 @@ namespace Project.Systems.Leaderboard
         public void Initialize()
         {
             _leaderboardWindow.AuthorizationRequested += OnAuthorizationRequested;
-            _leaderboardButton.Show(OnLeaderboardButtonCLicked);
+            _leaderboardButton.Bind(OnLeaderboardButtonCLicked);
         }
 
         private void OnAuthorizationRequested()

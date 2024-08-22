@@ -48,7 +48,10 @@ namespace Project.Systems.Quests
         }
 
         [Inject]
-        public void Construct(IEnemyDeathNotifier enemyDeathNotifier, IPlayerStorage playerStorage, QuestView questView)
+        public void Construct(
+            IEnemyDeathNotifier enemyDeathNotifier,
+            IPlayerStorage playerStorage,
+            QuestView questView)
         {
             _enemyDeathNotifier = enemyDeathNotifier;
             _playerStorage = playerStorage;
@@ -68,6 +71,7 @@ namespace Project.Systems.Quests
             if (status.State == QuestState.Completed)
             {
                 _playerStorage.AddResource(_questConfig.Reward);
+                _questView.Hide();
             }
 
             _questMarker.SetMarkerVisual(status.State);

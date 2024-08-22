@@ -10,6 +10,7 @@ namespace Project.Configs.UI
 
         [field: SerializeField] public AudioClip OpenWindowSound { get; private set; }
         [field: SerializeField] public AudioClip CloseWindowSound { get; private set; }
+        [field: SerializeField] public AudioClip ShowButtonSound { get; private set; }
         [field: SerializeField] public AudioClip RewardOfferSound { get; private set; }
         [field: SerializeField] public AudioClip UpgradeSound { get; private set; }
     }

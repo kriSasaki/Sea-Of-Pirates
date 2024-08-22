@@ -38,7 +38,7 @@ namespace Project.Systems.Shop
 
         public void Initialize()
         {
-            _shopButton.Show(OpenShop);
+            _shopButton.Bind(OpenShop);
         }
 
         private void OpenShop()
