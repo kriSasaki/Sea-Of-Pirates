@@ -1,4 +1,5 @@
 using Project.Interfaces.Audio;
+using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
 using Project.Players.PlayerLogic;
 using System;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
 
     private IPlayerStats _playerStats;
     private IAudioService _audioService;
+    private IPlayerHold _playerHold;
 
     private float _effectTime = 0.2f;
     private int _currentHealth;
@@ -28,11 +30,11 @@ public class Player : MonoBehaviour
     }
 
     [Inject]
-    public void Construct(IPlayerStats playerStats, IAudioService audioService)
+    public void Construct(IPlayerStats playerStats, IAudioService audioService, IPlayerHold playerHold)
     {
         _playerStats = playerStats;
         _audioService = audioService;
-
+        _playerHold = playerHold;
         _currentHealth = MaxHealth;
     }
 
@@ -42,6 +44,17 @@ public class Player : MonoBehaviour
 
         HealthChanged?.Invoke();
         ShowHitEffect();
+    }
+
+    public void RestoreHealthMaximum()
+    {
+        _currentHealth = MaxHealth;
+        HealthChanged?.Invoke();
+    }
+
+    public void LoadPlayerHoldStorage()
+    {
+        _playerHold.LoadToStorage();
     }
 
     private void ShowHitEffect()

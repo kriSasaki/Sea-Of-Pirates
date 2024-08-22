@@ -103,9 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2148768d265d70a40b7628e83fb81b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: {fileID: 3136934157469651738}
-  Move: {fileID: 5742568367049463457}
-  DeathEffect: {fileID: 8784429493431493838}
+  _health: {fileID: 3136934157469651738}
+  _move: {fileID: 5742568367049463457}
+  _deathEffect: {fileID: 8784429493431493838}
+  _respawnPoint: {fileID: 0}
 --- !u!54 &3722445594469159487
 Rigidbody:
   m_ObjectHideFlags: 0
