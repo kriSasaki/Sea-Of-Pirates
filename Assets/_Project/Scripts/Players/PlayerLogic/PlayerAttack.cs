@@ -10,19 +10,29 @@ namespace Project.Players.PlayerLogic
 {
     public class PlayerAttack : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> _gunList;
+        [SerializeField] private SphereCollider _attackZone;
+
         private IPlayerStats _playerStats;
 
         public int Damage => _playerStats.Damage;
         public int AttackRange => _playerStats.AttackRange;
-        private int _cannonsAmount => _playerStats.CannonsAmount;
+        public int CannonsAmount => _playerStats.CannonsAmount;
 
         private void Start()
         {
-            for (int i = 0; i < _cannonsAmount; i++)
-            {
-                _gunList[i].SetActive(true);
-            }
+
+
+            SetAttackZone();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            
+        }
+
+        private void SetAttackZone()
+        {
+            _attackZone.radius = AttackRange;
         }
 
         [Inject]
@@ -30,5 +40,7 @@ namespace Project.Players.PlayerLogic
         {
             _playerStats = playerStats;
         }
+
+
     }
 }
