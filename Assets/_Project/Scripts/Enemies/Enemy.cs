@@ -11,7 +11,7 @@ namespace Project.Enemies
 
         public int Damage => _damage;
         public float AttackSpeed => _attackSpeed;
-        
+
         private EnemyConfig _enemyConfig;
 
         private int _health;
@@ -34,7 +34,6 @@ namespace Project.Enemies
         public void TakeDamage(int damage)
         {
             _health -= damage;
-            Debug.Log("Enemy take damage: " + damage);
 
             if (_health <= MinimumHealth)
             {

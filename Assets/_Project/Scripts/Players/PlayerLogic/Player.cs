@@ -40,8 +40,6 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Player take damage: " + damage);
-        
         if (_currentHealth <= 0)
         {
             HealthChanged?.Invoke();

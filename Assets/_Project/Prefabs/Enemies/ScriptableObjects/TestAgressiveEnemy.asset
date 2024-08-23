@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: TestAgressiveEnemy
   m_EditorClassIdentifier: 
-  _health: 0
-  _damage: 0
-  _attackSpeed: 0
-  _gameResource: {fileID: 0}
-  _resourceAmount: 0
+  _health: 1000000
+  _damage: 1
+  _attackSpeed: 1
+  _gameResource: {fileID: 11400000, guid: fafe75ba118b0f242bea3954811fa573, type: 2}
+  _resourceAmount: 1

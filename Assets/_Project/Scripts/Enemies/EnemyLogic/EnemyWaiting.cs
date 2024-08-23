@@ -1,46 +1,29 @@
 using System;
+using Project.Enemies.EnemyLogic.StateMachine;
 using UnityEngine;
 
 namespace Project.Enemies.EnemyLogic
 {
-    public class EnemyWaiting : MonoBehaviour
+    public class EnemyWaiting : EnemyMove
     {
-        [SerializeField] private EnemyMove _enemyMove;
-        [SerializeField] private EnemyChase _enemyChase;
-        [SerializeField] private EnemyAttack _enemyAttack;
+        private readonly Vector3 SpawnPosition;
 
-        private Vector3 _spawnPosition;
-        private float _distanceFromSpawn;
-        
-        private void Awake()
+        private float DistanceFromSpawn;
+
+        public EnemyWaiting(StateMachine.StateMachine stateMachine, Vector3 spawnPosition, Transform transform,
+            float speed, float rotateSpeed, float maxMagnitudeDelta) : base(stateMachine, transform, speed, rotateSpeed,
+            maxMagnitudeDelta)
         {
-            _spawnPosition = transform.position;
-            enabled = false;
+            SpawnPosition = spawnPosition;
+            Transform = transform;
         }
 
-        private void Update()
+        public override void Update()
         {
-            if (transform.position == _spawnPosition)
+            if (Transform.position != SpawnPosition)
             {
-                enabled = false;
+                Move(SpawnPosition);
             }
-            
-            _enemyMove.Move(_spawnPosition);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-                _enemyChase.StartChase(player);
-                _enemyAttack.SetTarget(player);
-                enabled = false;
-            }
-        }
-
-        public void StartWaiting()
-        {
-            enabled = true;
         }
     }
 }

@@ -2,53 +2,47 @@ using UnityEngine;
 
 namespace Project.Enemies.EnemyLogic
 {
-    public class EnemyChase : MonoBehaviour
+    public class EnemyChase : EnemyMove
     {
-        [SerializeField] private EnemyMove _enemyMove;
-        [SerializeField] private EnemyWaiting _enemyWaiting;
-        [SerializeField] private EnemyAttack _enemyAttack;
-        [SerializeField] private float _maxDistanceFromSpawn = 30;
-        [SerializeField] private float _rangeToAttack = 5;
-        [SerializeField] private float _speed = 2f;
+        private readonly Vector3 _spawnPosition;
+        private readonly float _maxDistanceFromSpawn;
+        private readonly float _rangeToAttack;
 
-        private Player _target;
-        private Vector3 _spawnPosition;
         private float _distanceFromSpawn;
         private float _distanceFromTarget;
 
-        private void Awake()
+        public EnemyChase(StateMachine.StateMachine stateMachine, Transform transform, Player target,
+            Vector3 spawnPosition, float maxDistanceFromSpawn, float speed, float rotateSpeed,
+            float maxMagnitudeDelta, float rangeToAttack) : base(stateMachine, transform, speed, rotateSpeed,
+            maxMagnitudeDelta)
         {
-            _spawnPosition = transform.position;
-            enabled = false;
+            Transform = transform;
+            _target = target;
+            _spawnPosition = spawnPosition;
+            _maxDistanceFromSpawn = maxDistanceFromSpawn;
+            _rangeToAttack = rangeToAttack;
         }
 
-        private void Update()
+        public override void Update()
         {
-            _distanceFromTarget = (transform.position - _target.transform.position).magnitude;
-            _distanceFromSpawn = (_spawnPosition - transform.position).magnitude;
+            _distanceFromTarget = (Transform.position - _target.transform.position).magnitude;
+            _distanceFromSpawn = (_spawnPosition - Transform.position).magnitude;
 
             if (_distanceFromSpawn <= _maxDistanceFromSpawn)
             {
                 if (_distanceFromTarget <= _rangeToAttack)
                 {
-                    _enemyAttack.Attack();
+                    _stateMachine.SetState<EnemyAttack>();
                 }
                 else
                 {
-                    _enemyMove.Move(_target.transform.position);
+                    Move(_target.transform.position);
                 }
             }
             else
             {
-                enabled = false;
-                _enemyWaiting.StartWaiting();
+                _stateMachine.SetState<EnemyWaiting>();
             }
-        }
-
-        public void StartChase(Player target)
-        {
-            _target = target;
-            enabled = true;
         }
     }
 }

@@ -1,28 +1,48 @@
-using System;
+using Project.Enemies.EnemyLogic.StateMachine;
 using UnityEngine;
 
 namespace Project.Enemies.EnemyLogic
 {
-    public class EnemyAttack : MonoBehaviour
+    public class EnemyAttack : State
     {
-        [SerializeField] private Enemy _enemy;
+        private const float BaseAttackTime = 1;
+        private readonly Transform _transform;
+        private readonly float _rangeToAttack;
+        private readonly int _damage;
+        private readonly float _attackSpeed;
 
-        private float _baseAttackTime = 1;
-        private float _attackTime => _baseAttackTime / _enemy.AttackSpeed;
+        private float _attackTime => BaseAttackTime / _attackSpeed;
 
-        private Player _target;
         private float _lastAttackTime;
+        private float _distanceFromTarget;
 
-        public void SetTarget(Player target)
+        public EnemyAttack(StateMachine.StateMachine stateMachine, Transform transform, Player target,
+            float rangeToAttack, int damage, float attackSpeed) : base(stateMachine)
         {
+            _transform = transform;
             _target = target;
+            _rangeToAttack = rangeToAttack;
+            _damage = damage;
+            _attackSpeed = attackSpeed;
         }
-        
+
+        public override void Update()
+        {
+            _distanceFromTarget = (_transform.position - _target.transform.position).magnitude;
+
+            if (_distanceFromTarget > _rangeToAttack)
+            {
+                _stateMachine.SetState<EnemyChase>();
+            }
+
+            Attack();
+        }
+
         public void Attack()
         {
             if (_lastAttackTime <= 0)
             {
-                _target.TakeDamage(_enemy.Damage);
+                _target.TakeDamage(_damage);
 
                 _lastAttackTime = _attackTime;
             }
