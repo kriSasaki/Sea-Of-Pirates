@@ -78,3 +78,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelConfig: {fileID: 0}
+  _vfxSpawner: {fileID: -3694470578919396721, guid: e860f29d35620be4dac14dc48a18b119, type: 3}

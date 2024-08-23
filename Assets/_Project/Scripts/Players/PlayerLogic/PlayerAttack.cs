@@ -1,26 +1,31 @@
-using System.Collections.Generic;
-using UnityEngine;
 using System.Collections;
-using Project.Enemies;
-using Project.Players.Inputs;
-using Zenject;
-using Project.Interfaces.Stats;
-using System;
+using System.Collections.Generic;
 using System.Linq;
-using DTT.AreaOfEffectRegions;
+using Project.Enemies;
+using Project.Interfaces.Audio;
+using Project.Interfaces.Stats;
+using Project.Utils.VFX;
+using UnityEngine;
+using Zenject;
 
 namespace Project.Players.PlayerLogic
 {
+    [RequireComponent(typeof(SphereCollider))]
     public class PlayerAttack : MonoBehaviour
     {
-        [SerializeField] private SphereCollider _attackZone;
-        [SerializeField] private CircleRegion _attackView;
+        [SerializeField] private AttackZoneView _attackZoneView;
+        [SerializeField] private float _attackAngle = 100;
         [SerializeField] private float _attackCooldown = 2f;
+        [SerializeField] private AudioClip _shootSound;
+        [SerializeField] private Collider _shipCollider;
 
+
+        private readonly List<Enemy> _detectedEnemies = new();
+
+        private SphereCollider _detectZone;
         private IPlayerStats _playerStats;
-
-
-        private List<Enemy> _enemiesInZone = new();
+        private IAudioService _audioService;
+        private VfxSpawner _vfxSpawner;
         private Coroutine _battleCoroutine;
         private WaitForSeconds _attackDelay;
 
@@ -28,13 +33,14 @@ namespace Project.Players.PlayerLogic
         public int AttackRange => _playerStats.AttackRange;
         public int CannonsAmount => _playerStats.CannonsAmount;
 
-        private bool IsEnemiesInZone => _enemiesInZone.Count > 0;
+        private bool HasDetectedEnemies => _detectedEnemies.Count > 0;
         private bool IsInBattle => _battleCoroutine != null;
+        private float HalfAttackAnlge => _attackAngle / 2f;
 
         private void Start()
         {
             SetAttackZone();
-            ExitBattle();
+            _attackZoneView.Hide();
         }
 
         private void OnDestroy()
@@ -46,7 +52,7 @@ namespace Project.Players.PlayerLogic
         {
             if (other.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                _enemiesInZone.Add(enemy);
+                _detectedEnemies.Add(enemy);
 
                 if (IsInBattle == false)
                     EnterBattle();
@@ -57,72 +63,45 @@ namespace Project.Players.PlayerLogic
         {
             if (other.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                _enemiesInZone.Remove(enemy);
+                _detectedEnemies.Remove(enemy);
 
-                if (IsEnemiesInZone == false)
+                if (HasDetectedEnemies == false)
                     ExitBattle();
             }
         }
 
         [Inject]
-        private void Construct(IPlayerStats playerStats)
+        private void Construct(
+            IPlayerStats playerStats,
+            IAudioService audioService,
+            VfxSpawner vfxSpawner)
         {
+            _detectZone = GetComponent<SphereCollider>();
             _playerStats = playerStats;
-            _playerStats.StatsUpdated += OnStatsUpdated;
-
+            _audioService = audioService;
+            _vfxSpawner = vfxSpawner;
             _attackDelay = new WaitForSeconds(_attackCooldown);
+
+            _playerStats.StatsUpdated += OnStatsUpdated;
         }
 
         private void SetAttackZone()
         {
-            _attackZone.radius = AttackRange;
-            _attackView.Radius = AttackRange;
+            _detectZone.radius = AttackRange;
+            _attackZoneView.SetRadius(AttackRange);
+            _attackZoneView.SetAngle(_attackAngle);
         }
 
         private void EnterBattle()
         {
             _battleCoroutine = StartCoroutine(Battle());
-            _attackView.gameObject.SetActive(true);
+            _attackZoneView.Show();
         }
 
         private void ExitBattle()
         {
             ClearBattleCoroutine();
-            _attackView.gameObject.SetActive(false);
-        }
-
-        private IEnumerator Battle()
-        {
-            while (IsEnemiesInZone)
-            {
-                yield return _attackDelay;
-                
-                foreach (Enemy enemy in GetTargetEnemies())
-                {
-                    enemy.TakeDamage(Damage);
-                }
-
-                yield return null;
-                CheckEnemies();
-            }
-
-            ExitBattle();
-        }
-
-        private IEnumerable<Enemy> GetTargetEnemies()
-        {
-            return _enemiesInZone
-                .OrderBy(e => Vector3.SqrMagnitude(e.transform.position - transform.position))
-                .Take(Mathf.Min(_enemiesInZone.Count, CannonsAmount));
-        }
-
-        private void CheckEnemies()
-        {
-            for (int i = _enemiesInZone.Count - 1; i >= 0; i--)
-            {
-                if (_enemiesInZone[i] == null)
-                    _enemiesInZone.RemoveAt(i);
-            }
+            _attackZoneView.Hide();
         }
 
         private void ClearBattleCoroutine()
@@ -133,9 +112,87 @@ namespace Project.Players.PlayerLogic
             _battleCoroutine = null;
         }
 
+        private IEnumerator Battle()
+        {
+            while (HasDetectedEnemies)
+            {
+                yield return _attackDelay;
+
+                CheckEnemies();
+
+                IEnumerable<Enemy> targetEnemies = GetTargetEnemies();
+
+                if (targetEnemies.Count() > 0)
+                {
+                    foreach (Enemy enemy in targetEnemies)
+                    {
+                        _vfxSpawner.SpawnCannonSmoke(_shipCollider, enemy.transform.position);
+                        enemy.TakeDamage(Damage);
+                    }
+
+                    _audioService.PlaySound(_shootSound);
+                }
+
+                yield return null;
+
+                CheckEnemies();
+            }
+
+            ExitBattle();
+        }
+
+        private IEnumerable<Enemy> GetTargetEnemies()
+        {
+            return _detectedEnemies
+                .Where(e => CanAttackEnemy(e))
+                .OrderBy(e => Vector3.SqrMagnitude(e.transform.position - transform.position))
+                .Take(Mathf.Min(_detectedEnemies.Count(), CannonsAmount));
+        }
+
+        private bool CanAttackEnemy(Enemy enemy)
+        {
+            Vector3 direction = enemy.transform.position - transform.position;
+            float rightAngle = Vector3.Angle(transform.right, direction);
+            float leftAngle = Vector3.Angle(-transform.right, direction);
+
+            return rightAngle <= HalfAttackAnlge || leftAngle <= HalfAttackAnlge;
+        }
+
+        private void CheckEnemies()
+        {
+            for (int i = _detectedEnemies.Count - 1; i >= 0; i--)
+            {
+                Enemy enemy = _detectedEnemies[i];
+
+                if (enemy == null || enemy.gameObject.activeInHierarchy == false)
+                    _detectedEnemies.Remove(enemy);
+            }
+        }
+
         private void OnStatsUpdated()
         {
             SetAttackZone();
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            DrawAttackZones(_attackAngle, 25f);
+        }
+
+        private void DrawAttackZones(float angle, float range)
+        {
+            DrawCone(angle, transform.right, range);
+            DrawCone(angle, -transform.right, range);
+        }
+
+        private void DrawCone(float angle, Vector3 direction, float range)
+        {
+            Quaternion rotation = Quaternion.AngleAxis(angle / 2f, Vector3.up);
+            Gizmos.DrawRay(transform.position, rotation * direction * range);
+
+            rotation = Quaternion.AngleAxis(-angle / 2f, Vector3.up);
+            Gizmos.DrawRay(transform.position, rotation * direction * range);
         }
     }
 }

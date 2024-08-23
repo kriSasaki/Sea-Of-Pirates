@@ -2,6 +2,7 @@ using Project.Interfaces.Audio;
 using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
 using Project.Players.PlayerLogic;
+using Project.Utils.VFX;
 using System;
 using UnityEngine;
 using Zenject;
@@ -9,14 +10,13 @@ using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameObject _hitEffect;
     [SerializeField] private AudioClip _audioClip;
 
     private IPlayerStats _playerStats;
     private IAudioService _audioService;
     private IPlayerHold _playerHold;
+    private VfxSpawner _vfxSpawner;
 
-    private float _effectTime = 0.2f;
     private int _currentHealth;
 
     public event Action HealthChanged;
@@ -30,11 +30,16 @@ public class Player : MonoBehaviour
     }
 
     [Inject]
-    public void Construct(IPlayerStats playerStats, IAudioService audioService, IPlayerHold playerHold)
+    public void Construct(
+        IPlayerStats playerStats,
+        IAudioService audioService,
+        IPlayerHold playerHold,
+        VfxSpawner vfxSpawner)
     {
         _playerStats = playerStats;
         _audioService = audioService;
         _playerHold = playerHold;
+        _vfxSpawner = vfxSpawner;
         _currentHealth = MaxHealth;
     }
 
@@ -60,12 +65,6 @@ public class Player : MonoBehaviour
     private void ShowHitEffect()
     {
         _audioService.PlaySound(_audioClip);
-        _hitEffect.SetActive(true);
-        Invoke(nameof(HideFlash), _effectTime);
-    }
-
-    private void HideFlash()
-    {
-        _hitEffect.SetActive(false);
+        _vfxSpawner.SpawnExplosion(transform.position);
     }
 }

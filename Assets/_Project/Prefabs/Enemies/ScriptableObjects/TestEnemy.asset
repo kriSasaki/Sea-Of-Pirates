@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
-  _health: 1
+  _health: 15
   _damage: 0
   _gameResource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
   _resourceAmount: 1

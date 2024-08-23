@@ -13,6 +13,7 @@ using Project.UI.Quests;
 using Project.UI.Reward;
 using Project.UI.Shop;
 using Project.UI.Upgrades;
+using Project.Utils.VFX;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +22,7 @@ namespace Project.Installers.SceneContext
     public class SceneInstaller : MonoInstaller
     {
         [SerializeField] private LevelConfig _levelConfig;
+        [SerializeField] private VfxSpawner _vfxSpawner;
 
         public override void InstallBindings()
         {
@@ -34,6 +36,7 @@ namespace Project.Installers.SceneContext
         private void BindConfigs()
         {
             Container.Bind<LevelConfig>().FromInstance(_levelConfig).AsSingle();
+            Container.Bind<VfxSpawner>().FromInstance(_vfxSpawner).AsSingle();
         }
 
         private void BindEnemies()
