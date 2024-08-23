@@ -10,11 +10,8 @@ namespace Project.Systems.Interactables
         {
             if (collider.gameObject.TryGetComponent<Player>(out Player playerComponent))
             {
-                Player player = collider.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.LoadPlayerHoldStorage();
-                }
+                Player player = collider.GetComponent<Player>();             
+                player.LoadPlayerHoldStorage();            
             }
         }
     }
