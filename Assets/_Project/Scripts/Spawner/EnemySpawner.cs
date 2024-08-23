@@ -33,25 +33,37 @@ namespace Project.Spawner
             _enemy = _enemyFactory.Create(_enemyConfig, transform.position);
             _enemies.Add(_enemy);
             _enemy.Died += OnEnemyDied;
-            _enemy.transform.position = transform.position + Random.insideUnitSphere * _spawnRadius;
-            _enemy.transform.position = new Vector3(
-                _enemy.transform.position.x,
+            SetPosition(_enemy);
+        }
+
+        private void Respawn(Enemy enemy)
+        {
+            enemy.Restore();
+            SetPosition(enemy);
+            Debug.Log(_enemies.Contains(enemy));
+        }
+
+        private void SetPosition(Enemy enemy)
+        {
+            enemy.transform.position = transform.position + Random.insideUnitSphere * _spawnRadius;
+            enemy.transform.position = new Vector3(
+                enemy.transform.position.x,
                 transform.position.y,
-                _enemy.transform.position.z);
+                enemy.transform.position.z);
         }
 
         private void OnEnemyDied(Enemy enemy)
         {
-            enemy.Died -= OnEnemyDied;
-            _enemies.Remove(enemy);
+            // enemy.Died -= OnEnemyDied;
+            // _enemies.Remove(enemy);
             EnemyDied?.Invoke(_enemyConfig);
-            StartCoroutine(WaitUntilSpawn());
+            StartCoroutine(WaitUntilSpawn(enemy));
         }
 
-        private IEnumerator WaitUntilSpawn()
+        private IEnumerator WaitUntilSpawn(Enemy enemy)
         {
             yield return new WaitForSeconds(_spawnDelay);
-            Spawn();
+            Respawn(enemy);
         }
     }
 }

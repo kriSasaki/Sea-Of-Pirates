@@ -20,6 +20,7 @@ namespace Project.Enemies
 
         public void Initialize(EnemyConfig enemyConfig)
         {
+            _enemyConfig = enemyConfig;
             _health = enemyConfig.Health;
             _damage = enemyConfig.Damage;
             _gameResource = enemyConfig.GameResource;
@@ -34,8 +35,20 @@ namespace Project.Enemies
             {
                 Died?.Invoke(this);
 
-                Destroy(gameObject);
+                Deactivate();
+                // Destroy(gameObject);
             }
+        }
+
+        public void Deactivate()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void Restore()
+        {
+            gameObject.SetActive(true);
+            _health = _enemyConfig.Health;
         }
     }
 }
