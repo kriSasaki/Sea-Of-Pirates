@@ -11,8 +11,9 @@ namespace Project.Spawner
     {
         [SerializeField] private EnemyConfig _enemyConfig;
         [SerializeField] private EnemyFactory _enemyFactory;
+        [SerializeField] private bool _isRespawnable;
         [SerializeField] private int _maxEnemies;
-        [SerializeField] private float _spawnRadius;
+        [SerializeField] private float _spawnRange;
         [SerializeField] private float _spawnDelay;
 
         public event Action<EnemyConfig> EnemyDied; 
@@ -33,7 +34,7 @@ namespace Project.Spawner
             _enemy = _enemyFactory.Create(_enemyConfig, transform.position);
             _enemies.Add(_enemy);
             _enemy.Died += OnEnemyDied;
-            _enemy.transform.position = transform.position + Random.insideUnitSphere * _spawnRadius;
+            _enemy.transform.position = Random.insideUnitSphere * _spawnRange + _enemy.transform.position;
             _enemy.transform.position = new Vector3(
                 _enemy.transform.position.x,
                 transform.position.y,
