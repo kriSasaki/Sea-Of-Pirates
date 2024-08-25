@@ -11,6 +11,7 @@ namespace Project.Spawner
     {
         [SerializeField] private EnemyConfig _enemyConfig;
         [SerializeField] private EnemyFactory _enemyFactory;
+        [SerializeField] private bool _isRespawnable;
         [SerializeField] private int _maxEnemies;
         [SerializeField] private float _spawnRange;
         [SerializeField] private float _spawnDelay;
