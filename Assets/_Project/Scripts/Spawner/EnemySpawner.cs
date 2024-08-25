@@ -11,8 +11,9 @@ namespace Project.Spawner
     {
         [SerializeField] private EnemyConfig _enemyConfig;
         [SerializeField] private EnemyFactory _enemyFactory;
+        [SerializeField] private bool _isRespawnable;
         [SerializeField] private int _maxEnemies;
-        [SerializeField] private float _spawnRadius;
+        [SerializeField] private float _spawnRange;
         [SerializeField] private float _spawnDelay;
 
         public event Action<EnemyConfig> EnemyDied; 
@@ -33,37 +34,25 @@ namespace Project.Spawner
             _enemy = _enemyFactory.Create(_enemyConfig, transform.position);
             _enemies.Add(_enemy);
             _enemy.Died += OnEnemyDied;
-            SetPosition(_enemy);
-        }
-
-        private void Respawn(Enemy enemy)
-        {
-            enemy.Restore();
-            SetPosition(enemy);
-            Debug.Log(_enemies.Contains(enemy));
-        }
-
-        private void SetPosition(Enemy enemy)
-        {
-            enemy.transform.position = transform.position + Random.insideUnitSphere * _spawnRadius;
-            enemy.transform.position = new Vector3(
-                enemy.transform.position.x,
+            _enemy.transform.position = Random.insideUnitSphere * _spawnRange + _enemy.transform.position;
+            _enemy.transform.position = new Vector3(
+                _enemy.transform.position.x,
                 transform.position.y,
-                enemy.transform.position.z);
+                _enemy.transform.position.z);
         }
 
         private void OnEnemyDied(Enemy enemy)
         {
-            // enemy.Died -= OnEnemyDied;
-            // _enemies.Remove(enemy);
+            enemy.Died -= OnEnemyDied;
+            _enemies.Remove(enemy);
             EnemyDied?.Invoke(_enemyConfig);
-            StartCoroutine(WaitUntilSpawn(enemy));
+            StartCoroutine(WaitUntilSpawn());
         }
 
-        private IEnumerator WaitUntilSpawn(Enemy enemy)
+        private IEnumerator WaitUntilSpawn()
         {
             yield return new WaitForSeconds(_spawnDelay);
-            Respawn(enemy);
+            Spawn();
         }
     }
 }
