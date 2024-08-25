@@ -7,6 +7,9 @@ namespace Project.Interfaces.Hold
     {
         event Action<int> CargoChanged;
 
+        public  bool IsEmpty { get; }
+        public int CargoSize { get; }
+
         void AddResource(GameResourceAmount gameResourceAmount);
 
         void LoadToStorage();

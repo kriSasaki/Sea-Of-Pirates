@@ -1,4 +1,5 @@
 ﻿using Project.Interfaces.Quests;
+using Project.UI.Bars;
 using Project.Utils.Extensions;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Project.UI.Quests
         [SerializeField] private Image _rewardImage;
         [SerializeField] private TMP_Text _rewardAmount;
         [SerializeField] private TMP_Text _progressValue;
+        [SerializeField] private FillableBar _progressBar;
         [SerializeField] private Button _confirmButton;
 
         public void Open(IQuest quest)
@@ -27,7 +29,9 @@ namespace Project.UI.Quests
             int currentProgress = quest.Status.Progress;
             int targetProgress = quest.Config.TargetAmount;
             string progress = $"{currentProgress}/{targetProgress}";
+
             _progressValue.text = progress;
+            _progressBar.Set(currentProgress, targetProgress);
         }
 
         public override void Hide()

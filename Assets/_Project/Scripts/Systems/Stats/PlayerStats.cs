@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Project.Interfaces.Data;
 using Project.Interfaces.Stats;
 
@@ -16,6 +17,8 @@ namespace Project.Systems.Stats
 
             SetStatValues();
         }
+
+        public event Action StatsUpdated;
 
         public int MaxHealth { get; private set; }
         public int Damage { get; private set; }
@@ -44,6 +47,7 @@ namespace Project.Systems.Stats
         {
             SetStatValues();
             SaveStats();
+            StatsUpdated?.Invoke();
         }
 
         private void SetStatValues()

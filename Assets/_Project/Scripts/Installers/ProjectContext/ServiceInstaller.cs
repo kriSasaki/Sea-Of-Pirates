@@ -33,7 +33,7 @@ namespace Project.Installers.ProjectContext
         {
 
 #if !UNITY_EDITOR && UNITY_WEBGL
-            Container.Bind<IBillingProvider>().To<BillingProvider>().FromNew().AsSingle();
+            Container.Bind<IBillingService>().To<YandexBillingService>().FromNew().AsSingle();
             Container.Bind<ILeaderboardService>().To<YandexLeaderboardService>().FromNew().AsSingle();
             Container.Bind<IAdvertismentService>().To<YandexAdvertismentService>().FromNew().AsSingle();
 #else

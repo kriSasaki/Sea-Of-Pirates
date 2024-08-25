@@ -16,5 +16,6 @@ MonoBehaviour:
   <InApptemViewColor>k__BackingField: {fileID: 11400000, guid: a09fbbd5fee9fd14e926652e5f7c55c8, type: 2}
   <OpenWindowSound>k__BackingField: {fileID: 8300000, guid: 8f36e651978180241a905029b53cc475, type: 3}
   <CloseWindowSound>k__BackingField: {fileID: 8300000, guid: 9800152f6e804744c9b54a332e19e87d, type: 3}
+  <ShowButtonSound>k__BackingField: {fileID: 8300000, guid: e0bab816a2b4059478c7087ec70061ea, type: 3}
   <RewardOfferSound>k__BackingField: {fileID: 8300000, guid: e0bab816a2b4059478c7087ec70061ea, type: 3}
   <UpgradeSound>k__BackingField: {fileID: 8300000, guid: 4b242e2cf1b6b2b4281d0a82175fc426, type: 3}

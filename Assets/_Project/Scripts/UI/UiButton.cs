@@ -14,17 +14,26 @@ namespace Project.UI
         [SerializeField] private ScaleTween _scaleTween;
 
         private Button _button;
+        private IAudioService _audioService;
+        private UiConfigs _config;
 
         private void OnDestroy()
         {
             _button.onClick.RemoveAllListeners();
         }
 
+        public void Bind(Action onClickCallback)
+        {
+            _button.onClick.AddListener(onClickCallback.Invoke);
+        }
+
         public void Show(Action onClickCallback)
         {
             gameObject.SetActive(true);
+            _audioService.PlaySound(_config.ShowButtonSound);
             _scaleTween.Run();
-            _button.onClick.AddListener(onClickCallback.Invoke);
+
+            Bind(onClickCallback);
         }
 
         public void Hide()
@@ -34,9 +43,11 @@ namespace Project.UI
         }
 
         [Inject]
-        private void Construct()
+        private void Construct(IAudioService audioService, UiConfigs config)
         {
             _button = GetComponent<Button>();
+            _audioService = audioService;
+            _config = config;
 
             _scaleTween.Initialize(transform);
         }

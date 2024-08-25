@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &957770460269779112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2137511364166176026}
+  m_Layer: 8
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2137511364166176026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957770460269779112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.12, y: 2.76, z: -26.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1629046425446319030}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1500475534823712206
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +663,8 @@ GameObject:
   - component: {fileID: 1629046425446319030}
   - component: {fileID: 2511603901690347783}
   - component: {fileID: 6579762983306907852}
+  - component: {fileID: 8018254645570196009}
+  - component: {fileID: 8520623027649184754}
   m_Layer: 8
   m_Name: PirateBay
   m_TagString: Untagged
@@ -655,6 +688,7 @@ Transform:
   - {fileID: 1698124224197860128}
   - {fileID: 6376705511977133343}
   - {fileID: 4974244206722206234}
+  - {fileID: 2137511364166176026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2511603901690347783
@@ -688,6 +722,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be84fe8381b2d974cb35bc0e7c2a9e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerZoneRadius: 25
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &8018254645570196009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895037373998079775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4e00d74243f5f428dd30d0ea33e989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerZoneRadius: 25
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &8520623027649184754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895037373998079775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dd0803f36eaab498bc00d0e42fab63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerZoneRadius: 25

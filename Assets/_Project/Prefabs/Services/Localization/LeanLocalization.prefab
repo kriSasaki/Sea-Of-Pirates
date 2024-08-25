@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4091159073477374030}
   - component: {fileID: 4020807609481623539}
+  - component: {fileID: 4460759790973545783}
   m_Layer: 0
   m_Name: LeanLocalization
   m_TagString: Untagged
@@ -61,6 +62,19 @@ MonoBehaviour:
   - Root: {fileID: 3658104359582579385, guid: 13bf5c7b3b1728544ae27a5b25269034, type: 3}
     sources:
     - {fileID: 1357634133306890151, guid: 13bf5c7b3b1728544ae27a5b25269034, type: 3}
+--- !u!114 &4460759790973545783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138916412786789007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383bd7c15dc0b1c43b315eecbbf681e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leanLanguage: {fileID: 4020807609481623539}
 --- !u!1001 &3497647217485724609
 PrefabInstance:
   m_ObjectHideFlags: 0

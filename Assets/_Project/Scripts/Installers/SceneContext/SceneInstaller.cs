@@ -58,7 +58,8 @@ namespace Project.Installers.SceneContext
 
         private void BindPlayer()
         {
-            Container.Bind<IPlayerHold>().To<PlayerHold>().AsSingle();
+            Container.BindInterfacesTo<PlayerHold>().AsSingle();
+            Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
         }
 
         private void BindQuestSystem()
