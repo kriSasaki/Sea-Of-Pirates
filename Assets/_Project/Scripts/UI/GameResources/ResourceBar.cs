@@ -1,7 +1,7 @@
 using Project.Configs.GameResources;
 using Project.Interfaces.Storage;
-using Project.Utils;
 using Project.Utils.Extensions;
+using Project.Utils.Tweens;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,7 +40,7 @@ public class ResourceBar : MonoBehaviour
             return;
 
         ChangeResourceAmount(amount);
-        _scaleTween.Run();
+        _scaleTween.RunFrom();
     }
 
     private void ChangeResourceAmount(int amount)

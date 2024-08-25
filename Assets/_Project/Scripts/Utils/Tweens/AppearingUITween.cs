@@ -3,17 +3,18 @@ using DG.Tweening;
 using System.Threading;
 using UnityEngine;
 
-namespace Project.Utils
+namespace Project.Utils.Tweens
 {
     [System.Serializable]
     public class AppearingUITween
     {
-        [SerializeField] float _duration = 0.4f;
-        [SerializeField] Ease _ease = Ease.Linear;
-        [SerializeField] Vector2 _hidedAnchorPosition;
+        [SerializeField] private float _duration = 0.4f;
+        [SerializeField] private Ease _ease = Ease.Linear;
+        [SerializeField] private Vector2 _hidedAnchorPosition;
 
         private RectTransform _rectTransform;
         private Vector2 _originPosition;
+
         public void Initialize(RectTransform rectTransform)
         {
             _rectTransform = rectTransform;

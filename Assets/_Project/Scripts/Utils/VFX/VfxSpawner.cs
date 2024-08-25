@@ -10,7 +10,12 @@ namespace Project.Utils.VFX
         public void SpawnCannonSmoke(Collider shooterCollider, Vector3 targetPosition)
         {
             Vector3 spawnPosition = shooterCollider.ClosestPoint(targetPosition);
-            Instantiate(_cannonSmokePrefab, spawnPosition, Quaternion.LookRotation(targetPosition - spawnPosition));
+            SpawnCannonSmoke(spawnPosition, targetPosition);
+        }
+        
+        public void SpawnCannonSmoke(Vector3 from, Vector3 towards)
+        {
+            Instantiate(_cannonSmokePrefab, from, Quaternion.LookRotation(towards - from));
         }
 
         public void SpawnExplosion(Vector3 atPosition)

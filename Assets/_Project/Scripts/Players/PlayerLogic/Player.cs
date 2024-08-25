@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     public int CurrentHealth => _currentHealth;
     public int MaxHealth => _playerStats.MaxHealth;
+    public bool IsAlive => _currentHealth > 0;
 
     private void Start()
     {

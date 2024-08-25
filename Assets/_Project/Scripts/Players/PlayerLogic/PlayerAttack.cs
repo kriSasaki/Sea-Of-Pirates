@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Project.Enemies;
 using Project.Interfaces.Audio;
 using Project.Interfaces.Stats;
-using Project.Utils.VFX;
 using UnityEngine;
 using Zenject;
 
@@ -13,21 +13,18 @@ namespace Project.Players.PlayerLogic
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerAttack : MonoBehaviour
     {
-        [SerializeField] private AttackZoneView _attackZoneView;
+        [SerializeField] private PlayerAttackView _attackView;
         [SerializeField] private float _attackAngle = 100;
         [SerializeField] private float _attackCooldown = 2f;
         [SerializeField] private AudioClip _shootSound;
-        [SerializeField] private Collider _shipCollider;
-
 
         private readonly List<Enemy> _detectedEnemies = new();
 
         private SphereCollider _detectZone;
         private IPlayerStats _playerStats;
         private IAudioService _audioService;
-        private VfxSpawner _vfxSpawner;
         private Coroutine _battleCoroutine;
-        private WaitForSeconds _attackDelay;
+        private WaitUntil _hasTargetAwaiter;
 
         public int Damage => _playerStats.Damage;
         public int AttackRange => _playerStats.AttackRange;
@@ -40,7 +37,6 @@ namespace Project.Players.PlayerLogic
         private void Start()
         {
             SetAttackZone();
-            _attackZoneView.Hide();
         }
 
         private void OnDestroy()
@@ -73,14 +69,12 @@ namespace Project.Players.PlayerLogic
         [Inject]
         private void Construct(
             IPlayerStats playerStats,
-            IAudioService audioService,
-            VfxSpawner vfxSpawner)
+            IAudioService audioService)
         {
             _detectZone = GetComponent<SphereCollider>();
             _playerStats = playerStats;
             _audioService = audioService;
-            _vfxSpawner = vfxSpawner;
-            _attackDelay = new WaitForSeconds(_attackCooldown);
+            _hasTargetAwaiter = new WaitUntil(HasTargetEnemines);
 
             _playerStats.StatsUpdated += OnStatsUpdated;
         }
@@ -88,20 +82,20 @@ namespace Project.Players.PlayerLogic
         private void SetAttackZone()
         {
             _detectZone.radius = AttackRange;
-            _attackZoneView.SetRadius(AttackRange);
-            _attackZoneView.SetAngle(_attackAngle);
+            _attackView.SetRange(AttackRange);
+            _attackView.SetAngle(_attackAngle);
         }
 
         private void EnterBattle()
         {
             _battleCoroutine = StartCoroutine(Battle());
-            _attackZoneView.Show();
+            _attackView.Show();
         }
 
         private void ExitBattle()
         {
             ClearBattleCoroutine();
-            _attackZoneView.Hide();
+            _attackView.Hide();
         }
 
         private void ClearBattleCoroutine()
@@ -116,22 +110,19 @@ namespace Project.Players.PlayerLogic
         {
             while (HasDetectedEnemies)
             {
-                yield return _attackDelay;
+                yield return _attackView.Reloading(_attackCooldown);
 
                 CheckEnemies();
 
-                IEnumerable<Enemy> targetEnemies = GetTargetEnemies();
+                yield return _hasTargetAwaiter;
 
-                if (targetEnemies.Count() > 0)
+                foreach (Enemy enemy in GetTargetEnemies())
                 {
-                    foreach (Enemy enemy in targetEnemies)
-                    {
-                        _vfxSpawner.SpawnCannonSmoke(_shipCollider, enemy.transform.position);
-                        enemy.TakeDamage(Damage);
-                    }
-
-                    _audioService.PlaySound(_shootSound);
+                    _attackView.Shoot(enemy.transform.position);
+                    enemy.TakeDamage(Damage);
                 }
+
+                _audioService.PlaySound(_shootSound);
 
                 yield return null;
 
@@ -139,6 +130,11 @@ namespace Project.Players.PlayerLogic
             }
 
             ExitBattle();
+        }
+
+        private bool HasTargetEnemines()
+        {
+            return _detectedEnemies.Any(e => CanAttackEnemy(e));
         }
 
         private IEnumerable<Enemy> GetTargetEnemies()

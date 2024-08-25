@@ -32,12 +32,6 @@ public class ShipAttackCones : ArcRegionBase
 
         _leftCone.localPosition = Vector3.zero;
         _leftCone.localScale = radius * 2 * Vector3.one;
-
-        for (int i = 0; i < _maskedCentres.Length; i++)
-        {
-            _maskedCentres[i].sharedMaterial.SetFloat(ArcShaderID, 1 - Arc / 360);
-            _maskedCentres[i].sharedMaterial.SetFloat(ProgressShaderID, Mathf.Clamp01(_fillProgress));
-        }
     }
 
     public void SetAngle(float angle)

@@ -74,7 +74,9 @@ namespace Project.Players.PlayerLogic
             if (Vector3.Dot(transform.forward, _inputDirection) < 0)
                 return;
 
-            Vector3 velocity = (_inputDirection.normalized * MovementSpeed);
+            Vector3 direction = _inputDirection.magnitude > 1f? _inputDirection.normalized : _inputDirection;
+            Vector3 velocity = (direction * MovementSpeed);
+            
 
             _playerRigidbody.velocity = velocity;
         }

@@ -1,8 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
 using Project.Configs.UI;
 using Project.Interfaces.Audio;
-using Project.Utils;
 using Project.Utils.Extensions;
+using Project.Utils.Tweens;
 using System;
 using System.Collections;
 using TMPro;

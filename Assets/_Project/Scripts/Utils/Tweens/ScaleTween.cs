@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Project.Utils
+namespace Project.Utils.Tweens
 {
     [System.Serializable]
     public class ScaleTween
@@ -19,12 +19,18 @@ namespace Project.Utils
             _originScale = _transform.localScale;
         }
 
-        public void Run()
+        public void RunFrom()
         {
             _transform.DOScale(_scale, _duration)
                 .From()
                 .SetEase(_ease)
                 .OnComplete(() => _transform.localScale = _originScale);
+        }
+
+        public void RunTo()
+        {
+            _transform.DOScale(_scale, _duration)
+                .SetEase(_ease);
         }
     }
 }

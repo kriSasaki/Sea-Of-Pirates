@@ -1,6 +1,6 @@
 ﻿using Project.Configs.UI;
 using Project.Interfaces.Audio;
-using Project.Utils;
+using Project.Utils.Tweens;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +31,7 @@ namespace Project.UI
         {
             gameObject.SetActive(true);
             _audioService.PlaySound(_config.ShowButtonSound);
-            _scaleTween.Run();
+            _scaleTween.RunFrom();
 
             Bind(onClickCallback);
         }
