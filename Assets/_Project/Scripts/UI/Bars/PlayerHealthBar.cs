@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Project.Players.PlayerLogic;
+using TMPro;
 using UnityEngine;
 using Zenject;
 

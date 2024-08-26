@@ -1,6 +1,6 @@
 using Lean.Localization;
-using Project.Enemies;
-using Project.Systems.Stats;
+using Project.Configs.Enemies;
+using Project.Systems.Data;
 using UnityEngine;
 
 namespace Project.Configs.Quests

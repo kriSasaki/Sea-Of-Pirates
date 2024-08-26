@@ -1,9 +1,9 @@
 ﻿using System;
 using Project.Configs.Quests;
+using Project.Interactables;
 using Project.Interfaces.Data;
 using Project.Interfaces.Enemies;
 using Project.Players.PlayerLogic;
-using Project.Systems.Interactables;
 using Project.UI.Quests;
 using UnityEngine;
 using Zenject;

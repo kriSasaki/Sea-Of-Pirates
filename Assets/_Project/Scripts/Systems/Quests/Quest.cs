@@ -1,6 +1,6 @@
 ﻿using System;
+using Project.Configs.Enemies;
 using Project.Configs.Quests;
-using Project.Enemies;
 using Project.Interfaces.Enemies;
 using Project.Interfaces.Quests;
 using UnityEngine;

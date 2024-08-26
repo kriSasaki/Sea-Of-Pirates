@@ -1,3 +1,4 @@
+using Project.Players.PlayerLogic;
 using UnityEngine;
 
 namespace Project.Enemies.EnemyLogic.StateMachine
@@ -37,7 +38,7 @@ namespace Project.Enemies.EnemyLogic.StateMachine
                         MaxMagnitudeDelta, _rangeToAttack));
                     _stateMachine.AddState(new EnemyAttack(_stateMachine, transform, _target, _rangeToAttack,
                         _enemy.Damage,
-                        _enemy.AttackSpeed));
+                        _enemy.AttackInterval));
                 }
 
                 _stateMachine.SetState<EnemyChase>();

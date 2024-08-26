@@ -1,5 +1,5 @@
 using Project.Players.Inputs;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using Project.Systems.Storage;
 using Zenject;
 

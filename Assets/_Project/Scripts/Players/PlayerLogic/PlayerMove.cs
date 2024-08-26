@@ -34,15 +34,19 @@ namespace Project.Players.PlayerLogic
 
         private void FixedUpdate()
         {
+            if (_player.IsAlive == false)
+                return;
+
             Rotate();
             Move();
         }
 
         [Inject]
-        private void Construct(IPlayerStats playerStats, IInputService inputService)
+        private void Construct(IPlayerStats playerStats, IInputService inputService, Player player)
         {
             _playerStats = playerStats;
             _inputService = inputService;
+            _player = player;
         }
 
         private void ReadInput()
@@ -74,9 +78,9 @@ namespace Project.Players.PlayerLogic
             if (Vector3.Dot(transform.forward, _inputDirection) < 0)
                 return;
 
-            Vector3 direction = _inputDirection.magnitude > 1f? _inputDirection.normalized : _inputDirection;
+            Vector3 direction = _inputDirection.magnitude > 1f ? _inputDirection.normalized : _inputDirection;
             Vector3 velocity = (direction * MovementSpeed);
-            
+
 
             _playerRigidbody.velocity = velocity;
         }

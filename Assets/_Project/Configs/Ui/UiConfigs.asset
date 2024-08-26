@@ -19,3 +19,4 @@ MonoBehaviour:
   <ShowButtonSound>k__BackingField: {fileID: 8300000, guid: e0bab816a2b4059478c7087ec70061ea, type: 3}
   <RewardOfferSound>k__BackingField: {fileID: 8300000, guid: e0bab816a2b4059478c7087ec70061ea, type: 3}
   <UpgradeSound>k__BackingField: {fileID: 8300000, guid: 4b242e2cf1b6b2b4281d0a82175fc426, type: 3}
+  <PlayerLooseSound>k__BackingField: {fileID: 8300000, guid: 7653deff0da046444958851d46a1bcf3, type: 3}

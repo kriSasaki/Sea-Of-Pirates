@@ -1,4 +1,4 @@
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using System;
 
 namespace Project.Interfaces.Hold

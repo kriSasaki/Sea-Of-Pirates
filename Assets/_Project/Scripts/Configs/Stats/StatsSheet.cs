@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatsSheet", menuName = "Configs/Stats/StatSheet", order = 1)]

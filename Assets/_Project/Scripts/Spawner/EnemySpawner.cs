@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Project.Enemies;
+using Project.Configs.Enemies;
+using Project.Interfaces.Enemies;
+using Project.Utils.Extensions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,61 +13,68 @@ namespace Project.Spawner
     {
         [SerializeField] private EnemyConfig _enemyConfig;
         [SerializeField] private EnemyFactory _enemyFactory;
-        [SerializeField] private bool _isRespawnable;
+        [SerializeField] private bool _isRespawnable = true;
         [SerializeField] private int _maxEnemies;
         [SerializeField] private float _spawnRadius;
-        [SerializeField] private float _spawnDelay;
+        [SerializeField, Min(3f)] private float _respawnDelay;
+
+        private readonly List<IPoolableEnemy> _enemies = new ();
+
+        private WaitForSeconds _respawnCooldown;
 
         public event Action<EnemyConfig> EnemyDied; 
-        
-        private List<Enemy> _enemies = new List<Enemy>();
-        private Enemy _enemy;
 
         private void Start()
         {
+            _respawnCooldown = new WaitForSeconds(_respawnDelay);
+
             for (int i = 0; i < _maxEnemies; i++)
             {
                 Spawn();
             }
         }
 
-        private void Spawn()
+        private void OnDestroy()
         {
-            _enemy = _enemyFactory.Create(_enemyConfig, transform.position);
-            _enemies.Add(_enemy);
-            _enemy.Died += OnEnemyDied;
-            SetPosition(_enemy);
-        }
-        
-        private void Respawn(Enemy enemy)
-        {
-            enemy.Restore();
-            SetPosition(enemy);
+            foreach (var enemy in _enemies)
+                enemy.Died -= OnEnemyDied;
         }
 
-        private void SetPosition(Enemy enemy)
+        private void Spawn()
         {
-            enemy.transform.position = transform.position + Random.insideUnitSphere * _spawnRadius;
-            enemy.transform.position = new Vector3(
-                enemy.transform.position.x,
-                transform.position.y,
-                enemy.transform.position.z);
+            Vector3 enemyPosition = GetSpawnPosition();
+            IPoolableEnemy enemy = _enemyFactory.Create(_enemyConfig, enemyPosition);
+
+            _enemies.Add(enemy);
+            enemy.Died += OnEnemyDied;
+        }
+
+        private Vector3 GetSpawnPosition()
+        {
+            return (transform.position + Random.insideUnitSphere * _spawnRadius).WithZeroY();
         }
         
-        private void OnEnemyDied(Enemy enemy)
+        private void OnEnemyDied(IEnemy enemy)
         {
             EnemyDied?.Invoke(_enemyConfig);
 
             if (_isRespawnable)
             {
-                StartCoroutine(WaitUntilSpawn(enemy));
+                StartCoroutine(Respawning(enemy as IPoolableEnemy));
             }
         }
 
-        private IEnumerator WaitUntilSpawn(Enemy enemy)
+        private IEnumerator Respawning(IPoolableEnemy enemy)
         {
-            yield return new WaitForSeconds(_spawnDelay);
-            Respawn(enemy);
+            yield return _respawnCooldown;
+            enemy.Respawn(GetSpawnPosition());
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.cyan;
+
+            Gizmos.DrawWireSphere(transform.position, _spawnRadius);
         }
     }
 }

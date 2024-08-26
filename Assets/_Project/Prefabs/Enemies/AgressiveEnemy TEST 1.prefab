@@ -85,7 +85,7 @@ MonoBehaviour:
   _speed: 8
   _rotateSpeed: 0.03
   _maxDistanceFromSpawn: 30
-  _rangeToAttack: 20
+  _rangeToAttack: 15
 --- !u!135 &700612705485491940
 SphereCollider:
   m_ObjectHideFlags: 0

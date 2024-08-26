@@ -5,7 +5,7 @@ using Project.Configs.GameResources;
 using Project.Interfaces.Data;
 using Project.Interfaces.SDK;
 using Project.Interfaces.Stats;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using Project.UI.Reward;
 using UnityEngine;
 using Zenject;

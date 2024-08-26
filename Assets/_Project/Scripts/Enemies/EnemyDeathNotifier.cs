@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Project.Configs.Enemies;
 using Project.Interfaces.Enemies;
 using Project.Spawner;
 

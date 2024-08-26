@@ -1,3 +1,4 @@
+using Project.Configs.Enemies;
 using Project.Enemies;
 using UnityEngine;
 
@@ -8,14 +9,14 @@ namespace Project.Spawner
     {
         [SerializeField] private Enemy _prefab;
 
-        private Enemy _newEnemy;
+        [SerializeField] private VfxSpawner _vfxSpawner;
 
         public Enemy Create(EnemyConfig enemyConfig, Vector3 position)
         {
-            _newEnemy = Object.Instantiate(_prefab, position, Quaternion.identity);
-            _newEnemy.Initialize(enemyConfig);
+            Enemy enemy = Object.Instantiate(_prefab, position, Quaternion.identity);
+            enemy.Initialize(enemyConfig, _vfxSpawner);
 
-            return _newEnemy;
+            return enemy;
         }
     }
 }

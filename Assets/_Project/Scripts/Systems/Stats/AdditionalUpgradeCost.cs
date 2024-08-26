@@ -1,7 +1,7 @@
 ﻿using Project.Utils;
 using UnityEngine;
 
-namespace Project.Systems.Stats
+namespace Project.Systems.Data
 {
     [System.Serializable]
     public class AdditionalUpgradeCost : UpgradeCost

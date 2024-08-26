@@ -1,7 +1,7 @@
 using Project.Configs.Level;
 using Project.Enemies;
-using Project.Interfaces.Hold;
-using Project.Players.Hold;
+using Project.Interactables;
+using Project.Players.PlayerLogic;
 using Project.Spawner;
 using Project.Systems.Leaderboard;
 using Project.Systems.Quests;
@@ -13,7 +13,7 @@ using Project.UI.Quests;
 using Project.UI.Reward;
 using Project.UI.Shop;
 using Project.UI.Upgrades;
-using Project.Utils.VFX;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -30,8 +30,10 @@ namespace Project.Installers.SceneContext
             BindEnemies();
             BindSystems();
             BindUI();
+            BindInteractables();
             BindPlayer();
         }
+
 
         private void BindConfigs()
         {
@@ -57,12 +59,22 @@ namespace Project.Installers.SceneContext
         {
             Container.Bind<RewardView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<NextLevelWindow>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PlayerDeathWindow>().FromComponentInHierarchy().AsSingle();
+        }
+
+
+        private void BindInteractables()
+        {
+            Container.Bind<PirateBay>().FromComponentInHierarchy().AsSingle();
         }
 
         private void BindPlayer()
         {
             Container.BindInterfacesTo<PlayerHold>().AsSingle();
             Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PlayerAttack>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<PlayerLootController>().FromNew().AsSingle().NonLazy();
+
         }
 
         private void BindQuestSystem()

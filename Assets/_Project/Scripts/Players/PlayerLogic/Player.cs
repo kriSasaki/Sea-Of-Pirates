@@ -1,70 +1,75 @@
 using Project.Interfaces.Audio;
 using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
-using Project.Players.PlayerLogic;
-using Project.Utils.VFX;
+using Project.Spawner;
 using System;
 using UnityEngine;
 using Zenject;
 
-public class Player : MonoBehaviour
+namespace Project.Players.PlayerLogic
 {
-    [SerializeField] private AudioClip _audioClip;
-
-    private IPlayerStats _playerStats;
-    private IAudioService _audioService;
-    private IPlayerHold _playerHold;
-    private VfxSpawner _vfxSpawner;
-
-    private int _currentHealth;
-
-    public event Action HealthChanged;
-
-    public int CurrentHealth => _currentHealth;
-    public int MaxHealth => _playerStats.MaxHealth;
-    public bool IsAlive => _currentHealth > 0;
-
-    private void Start()
+    public class Player : MonoBehaviour
     {
-        HealthChanged?.Invoke();
-    }
+        [SerializeField] private AudioClip _audioClip;
 
-    [Inject]
-    public void Construct(
-        IPlayerStats playerStats,
-        IAudioService audioService,
-        IPlayerHold playerHold,
-        VfxSpawner vfxSpawner)
-    {
-        _playerStats = playerStats;
-        _audioService = audioService;
-        _playerHold = playerHold;
-        _vfxSpawner = vfxSpawner;
-        _currentHealth = MaxHealth;
-    }
+        private IPlayerStats _playerStats;
+        private IAudioService _audioService;
+        private IPlayerHold _playerHold;
+        private VfxSpawner _vfxSpawner;
 
-    public void TakeDamage(int damage)
-    {
-        _currentHealth = Math.Max(_currentHealth - damage, 0);
+        private int _currentHealth;
 
-        HealthChanged?.Invoke();
-        ShowHitEffect();
-    }
+        public event Action HealthChanged;
 
-    public void RestoreHealthMaximum()
-    {
-        _currentHealth = MaxHealth;
-        HealthChanged?.Invoke();
-    }
+        public int CurrentHealth => _currentHealth;
+        public int MaxHealth => _playerStats.MaxHealth;
+        public bool IsAlive => _currentHealth > 0;
 
-    public void LoadPlayerHoldStorage()
-    {
-        _playerHold.LoadToStorage();
-    }
+        private void Start()
+        {
+            HealthChanged?.Invoke();
+        }
 
-    private void ShowHitEffect()
-    {
-        _audioService.PlaySound(_audioClip);
-        _vfxSpawner.SpawnExplosion(transform.position);
+        [Inject]
+        public void Construct(
+            IPlayerStats playerStats,
+            IAudioService audioService,
+            IPlayerHold playerHold,
+            VfxSpawner vfxSpawner)
+        {
+            _playerStats = playerStats;
+            _audioService = audioService;
+            _playerHold = playerHold;
+            _vfxSpawner = vfxSpawner;
+            _currentHealth = MaxHealth;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (IsAlive == false)
+                return;
+
+            _currentHealth = Math.Max(_currentHealth - damage, 0);
+
+            HealthChanged?.Invoke();
+            ShowHitEffect();
+        }
+
+        public void Heal()
+        {
+            _currentHealth = MaxHealth;
+            HealthChanged?.Invoke();
+        }
+
+        public void UnloadHold()
+        {
+            _playerHold.LoadToStorage();
+        }
+
+        private void ShowHitEffect()
+        {
+            _audioService.PlaySound(_audioClip);
+            _vfxSpawner.SpawnExplosion(transform.position, transform);
+        }
     }
 }

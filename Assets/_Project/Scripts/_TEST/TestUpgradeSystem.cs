@@ -1,5 +1,5 @@
 using Project.Interfaces.Stats;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using System;
 using System.Linq;
 using UnityEngine;

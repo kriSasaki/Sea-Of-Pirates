@@ -1,29 +1,27 @@
 using Project.Enemies.EnemyLogic.StateMachine;
+using Project.Players.PlayerLogic;
 using UnityEngine;
 
 namespace Project.Enemies.EnemyLogic
 {
     public class EnemyAttack : State
     {
-        private const float BaseAttackTime = 1;
         private readonly Transform _transform;
         private readonly float _rangeToAttack;
         private readonly int _damage;
-        private readonly float _attackSpeed;
-
-        private float _attackTime => BaseAttackTime / _attackSpeed;
+        private float _attackInterval;
 
         private float _lastAttackTime;
         private float _distanceFromTarget;
 
         public EnemyAttack(StateMachine.StateMachine stateMachine, Transform transform, Player target,
-            float rangeToAttack, int damage, float attackSpeed) : base(stateMachine)
+            float rangeToAttack, int damage, float attackInterval) : base(stateMachine)
         {
             _transform = transform;
             _target = target;
             _rangeToAttack = rangeToAttack;
             _damage = damage;
-            _attackSpeed = attackSpeed;
+            _attackInterval = attackInterval;
         }
 
         public override void Update()
@@ -44,7 +42,7 @@ namespace Project.Enemies.EnemyLogic
             {
                 _target.TakeDamage(_damage);
 
-                _lastAttackTime = _attackTime;
+                _lastAttackTime = _attackInterval;
             }
 
             _lastAttackTime -= Time.deltaTime;

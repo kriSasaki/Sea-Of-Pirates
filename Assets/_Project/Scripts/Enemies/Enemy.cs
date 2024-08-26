@@ -1,54 +1,61 @@
 using System;
-using Project.Configs.GameResources;
+using Project.Configs.Enemies;
 using Project.Interfaces.Enemies;
+using Project.Spawner;
+using Project.Systems.Data;
 using UnityEngine;
 
 namespace Project.Enemies
 {
-    public class Enemy : MonoBehaviour, IEnemy
+    public class Enemy : MonoBehaviour, IPoolableEnemy
     {
         private const int MinimumHealth = 0;
 
-        public int Damage => _damage;
-        public float AttackSpeed => _attackSpeed;
-
         private EnemyConfig _enemyConfig;
+        private VfxSpawner _vfxSpawner;
+        private int _currentHealth;
 
-        private int _health;
-        private int _damage;
-        private float _attackSpeed;
-        private GameResource _gameResource;
-        private int _resourceAmount;
+        public event Action<IEnemy> Died;
 
-        public event Action<Enemy> Died;
+        public int Damage => _enemyConfig.Damage;
+        public float AttackInterval => _enemyConfig.AttackInterval;
+        public bool IsAlive => _currentHealth > MinimumHealth;
 
-        public void Initialize(EnemyConfig enemyConfig)
+        public Vector3 Position => transform.position;
+        public GameResourceAmount Loot => _enemyConfig.Loot;
+        public EnemyConfig Config => _enemyConfig;
+
+        public void Initialize(EnemyConfig enemyConfig, VfxSpawner vfxSpawner)
         {
             _enemyConfig = enemyConfig;
-            _health = enemyConfig.Health;
-            _damage = enemyConfig.Damage;
-            _attackSpeed = enemyConfig.AttackSpeed;
-            _gameResource = enemyConfig.GameResource;
-            _resourceAmount = enemyConfig.ResourceAmount;
+            _vfxSpawner = vfxSpawner;
+            _currentHealth = enemyConfig.MaxHealth;
         }
 
         public void TakeDamage(int damage)
         {
-            _health -= damage;
+            _currentHealth -= damage;
+            _vfxSpawner.SpawnExplosion(transform.position);
 
-            if (_health <= MinimumHealth)
+            if (!IsAlive)
             {
-                Died?.Invoke(this);
-
-                Deactivate();
-                // Destroy(gameObject);
+                Die();
+                return;
             }
+
         }
 
-        public void Restore()
+        public void Respawn(Vector3 atPosition)
         {
             gameObject.SetActive(true);
-            _health = _enemyConfig.Health;
+            transform.position = atPosition;
+            _currentHealth = _enemyConfig.MaxHealth;
+        }
+
+        private void Die()
+        {
+            Died?.Invoke(this);
+            Deactivate();
         }
 
         private void Deactivate()
