@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5855166293377802412}
   - component: {fileID: 5247627675837813409}
   - component: {fileID: 6421893452489964851}
-  - component: {fileID: -3475931412803428373}
+  - component: {fileID: -3537188180463687041}
+  - component: {fileID: 700612705485491940}
   m_Layer: 7
-  m_Name: Enemy TEST
+  m_Name: AgressiveEnemy TEST 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2562f7ef340174d8e26f0d05cb6631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3475931412803428373
+--- !u!114 &-3537188180463687041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,12 +78,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 4942434603011551097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97788ed0e4a66354fb341691057975b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fb579bbae144df1a622c5f8f735ebf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movingDuration: 3
-  _lookAtDuration: 0.7
-  _movementRange: 35
+  _enemy: {fileID: 6421893452489964851}
+  _speed: 8
+  _rotateSpeed: 0.03
+  _maxDistanceFromSpawn: 30
+  _rangeToAttack: 20
+--- !u!135 &700612705485491940
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942434603011551097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 24
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3310296006747516159
 PrefabInstance:
   m_ObjectHideFlags: 0

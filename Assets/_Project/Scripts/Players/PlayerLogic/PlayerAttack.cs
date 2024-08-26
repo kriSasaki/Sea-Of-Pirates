@@ -1,8 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using Project.Enemies;
-using Project.Players.Inputs;
 using Zenject;
 using Project.Interfaces.Stats;
 
