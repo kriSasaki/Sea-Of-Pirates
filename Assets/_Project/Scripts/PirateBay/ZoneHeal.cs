@@ -1,4 +1,3 @@
-using Project.Enemies;
 using UnityEngine;
 
 namespace Project.Systems.Interactables
@@ -9,11 +8,8 @@ namespace Project.Systems.Interactables
         {
             if (collider.gameObject.TryGetComponent<Player>(out Player playerComponent))
             {
-                Player player = collider.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.RestoreHealthMaximum();
-                }
+                Player player = collider.GetComponent<Player>();             
+                player.RestoreHealthMaximum();               
             }
         }
     }

@@ -8,7 +8,7 @@ namespace Project.Players.PlayerLogic
         [SerializeField] private Player _health;
         [SerializeField] private PlayerMove _move;
         [SerializeField] private GameObject _deathEffect;
-        [SerializeField] private GameObject _respawnPoint;
+        [SerializeField] private Transform _respawnPoint;
 
         private float _effectTime = 3f;
         private bool _isDead;
