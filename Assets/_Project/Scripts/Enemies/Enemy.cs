@@ -45,15 +45,15 @@ namespace Project.Enemies
             }
         }
 
-        public void Deactivate()
-        {
-            gameObject.SetActive(false);
-        }
-
         public void Restore()
         {
             gameObject.SetActive(true);
             _health = _enemyConfig.Health;
+        }
+
+        private void Deactivate()
+        {
+            gameObject.SetActive(false);
         }
     }
 }
