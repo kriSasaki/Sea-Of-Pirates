@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
@@ -14,7 +15,6 @@ namespace Project.Enemies.EnemyLogic
         [SerializeField] private float _lookAtDuration = 0.5f;
         [SerializeField] private float _movementRange = 5f;
 
-
         private float _movePause;
         private Vector3 _newNextPosition;
         private Vector3 _startPosition;
@@ -22,6 +22,10 @@ namespace Project.Enemies.EnemyLogic
         private void Awake()
         {
             _startPosition = transform.position;
+        }
+
+        private void OnEnable()
+        {
             StartMoving();
         }
 
@@ -44,8 +48,8 @@ namespace Project.Enemies.EnemyLogic
             yield return new WaitForSeconds(_movePause);
             StartMoving();
         }
-
-        private void OnDestroy()
+        
+        private void OnDisable()
         {
             transform.DOKill();
         }
