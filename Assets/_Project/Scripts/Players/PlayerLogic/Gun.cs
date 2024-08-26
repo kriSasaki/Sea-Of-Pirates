@@ -40,6 +40,7 @@ namespace Project.Players.PlayerLogic
             if (other.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 _enemiesInRange.Add(enemy);
+                
                 if (_attackCoroutine == null)
                 {
                     _attackCoroutine = StartCoroutine(StartAttack());
@@ -52,6 +53,7 @@ namespace Project.Players.PlayerLogic
             if (other.TryGetComponent<Enemy>(out Enemy enemy))
             {
                 _enemiesInRange.Remove(enemy);
+                
                 if (_enemiesInRange.Count == 0 && _attackCoroutine != null)
                 {
                     StopCoroutine(_attackCoroutine);
@@ -63,9 +65,11 @@ namespace Project.Players.PlayerLogic
         public void Attack()
         {
             Enemy nearestEnemy = FindClosestEnemy();
+            
             if (nearestEnemy != null)
             {
                 float distance = Vector3.Distance(transform.position, nearestEnemy.transform.position);
+                
                 if (distance <= _attackRange)
                 {
                     _audioService.PlaySound(_audioClip);
@@ -95,6 +99,7 @@ namespace Project.Players.PlayerLogic
                 if (enemy != null)
                 {
                     float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                    
                     if (distance < minDistance)
                     {
                         minDistance = distance;
@@ -102,7 +107,7 @@ namespace Project.Players.PlayerLogic
                     }
                 }
             }
-
+            
             return closestEnemy;
         }
 

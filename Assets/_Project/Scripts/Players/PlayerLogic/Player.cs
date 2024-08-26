@@ -6,7 +6,6 @@ using Project.Utils.VFX;
 using System;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
