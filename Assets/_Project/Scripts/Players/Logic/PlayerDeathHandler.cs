@@ -1,45 +1,39 @@
 using Cysharp.Threading.Tasks;
 using Project.Interactables;
 using Project.Interfaces.Audio;
+using Project.Players.View;
 using Project.UI;
-using Project.Utils.Tweens;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.PlayerLogic
+namespace Project.Players.Logic
 {
     public class PlayerDeathHandler : MonoBehaviour
     {
         [SerializeField] private AudioClip _deathSound;
-        [SerializeField] private SinkTween _sinkTween;
 
         private Player _player;
-        private Transform _shipTransform;
+        private PlayerView _playerView;
         private PirateBay _pirateBay;
         private PlayerDeathWindow _playerDeathWindow;
         private PlayerAttack _playerAttack;
         private IAudioService _audioService;
 
-        private void Awake()
-        {
-            _sinkTween.Initialize(_shipTransform);
-        }
-
         [Inject]
         private void Construct(
             Player player,
+            PlayerView playerView,
             PirateBay pirateBay,
             PlayerDeathWindow playerDeathWindow,
             PlayerAttack playerAttack,
             IAudioService audioService)
         {
             _player = player;
+            _playerView = playerView;
             _pirateBay = pirateBay;
             _playerDeathWindow = playerDeathWindow;
             _playerAttack = playerAttack;
             _audioService = audioService;
-            _shipTransform = _player.transform;
-
             _player.HealthChanged += OnHealthChanged;
         }
 
@@ -59,7 +53,7 @@ namespace Project.Players.PlayerLogic
             _playerAttack.enabled = false;
             _audioService.PlaySound(_deathSound);
 
-            await _sinkTween.Sink();
+            await _playerView.DieAsync();
 
             _playerDeathWindow.Show(RessurectPlayer);
         }
@@ -67,9 +61,8 @@ namespace Project.Players.PlayerLogic
         private void RessurectPlayer()
         {
             _player.Heal();
-
-            _shipTransform.position = _pirateBay.PlayerRessurectPoint.position;
-            _shipTransform.rotation = Quaternion.identity;
+            _player.transform.position = _pirateBay.PlayerRessurectPoint.position;
+            _playerView.Ressurect();
             _playerAttack.enabled = true;
         }
     }

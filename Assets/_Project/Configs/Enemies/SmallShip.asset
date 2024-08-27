@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
+  m_Name: SmallShip
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 8
+  <Damage>k__BackingField: 8
+  <AttackInterval>k__BackingField: 0.79
+  <Speed>k__BackingField: 0.33
+  <ShipView>k__BackingField: {fileID: 11400000, guid: adae7a561a9fa2a458130a23f5291339, type: 2}
+  <Loot>k__BackingField:
+    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
+    Amount: 20

@@ -16,9 +16,4 @@ namespace Project.Interfaces.Enemies
 
         void TakeDamage(int damage);
     }
-
-    public interface IPoolableEnemy : IEnemy
-    {
-       void Respawn(Vector3 atPosition);
-    }
 }

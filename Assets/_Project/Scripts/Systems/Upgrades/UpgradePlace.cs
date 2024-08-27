@@ -1,5 +1,5 @@
 ﻿using Project.Interactables;
-using Project.Players.PlayerLogic;
+using Project.Players.Logic;
 using UnityEngine;
 using Zenject;
 

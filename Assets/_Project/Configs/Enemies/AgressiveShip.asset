@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
-  m_Name: TestAgressiveEnemy
+  m_Name: AgressiveShip
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 15
   <Damage>k__BackingField: 2
   <AttackInterval>k__BackingField: 1
   <Speed>k__BackingField: 0.18
+  <ShipView>k__BackingField: {fileID: 11400000, guid: 52aa67e284cd61c409fd3e5664c6bcdc, type: 2}
   <Loot>k__BackingField:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     Amount: 20

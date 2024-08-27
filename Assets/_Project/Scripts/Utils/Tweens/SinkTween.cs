@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Project.Utils.Extensions;
+using System.Threading;
 using UnityEngine;
 
 namespace Project.Utils.Tweens
@@ -19,17 +20,17 @@ namespace Project.Utils.Tweens
             _transform = transform;
         }
 
-        public async UniTask Sink()
+        public async UniTask Sink(CancellationToken token)
         {
             await UniTask.WhenAll
                 (
                     _transform.DOMoveY(-_sinkDeep, _sinkDuration)
                         .SetEase(_sinkEase)
                         .SetRelative()
-                        .ToUniTask(),
+                        .WithCancellation(token),
 
                     _transform.DORotate(_transform.rotation.eulerAngles.WithX(_sinkAngle), _sinkDuration)
-                        .ToUniTask()
+                        .WithCancellation(token)
                 );
         }
     }

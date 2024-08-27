@@ -1,5 +1,5 @@
 using Project.Enemies.EnemyLogic.StateMachine;
-using Project.Players.PlayerLogic;
+using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Enemies.EnemyLogic
@@ -49,3 +49,4 @@ namespace Project.Enemies.EnemyLogic
         }
     }
 }
+

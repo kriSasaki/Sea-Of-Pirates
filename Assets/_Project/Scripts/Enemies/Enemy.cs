@@ -1,5 +1,7 @@
 using System;
+using Cysharp.Threading.Tasks;
 using Project.Configs.Enemies;
+using Project.Enemies.View;
 using Project.Interfaces.Enemies;
 using Project.Spawner;
 using Project.Systems.Data;
@@ -11,26 +13,34 @@ namespace Project.Enemies
     {
         private const int MinimumHealth = 0;
 
-        private EnemyConfig _enemyConfig;
+        [SerializeField] BoxCollider _boxCollider;
+        [SerializeField] private EnemyView _enemyView;
+
+        private EnemyConfig _config;
         private VfxSpawner _vfxSpawner;
         private int _currentHealth;
 
         public event Action<IEnemy> Died;
 
-        public int Damage => _enemyConfig.Damage;
-        public float AttackInterval => _enemyConfig.AttackInterval;
+        public int Damage => _config.Damage;
+        public float AttackInterval => _config.AttackInterval;
         public bool IsAlive => _currentHealth > MinimumHealth;
 
         public Vector3 Position => transform.position;
-        public GameResourceAmount Loot => _enemyConfig.Loot;
-        public EnemyConfig Config => _enemyConfig;
+        public GameResourceAmount Loot => _config.Loot;
+        public EnemyConfig Config => _config;
 
-        public void Initialize(EnemyConfig enemyConfig, VfxSpawner vfxSpawner)
+        public void Initialize(EnemyConfig config, VfxSpawner vfxSpawner)
         {
-            _enemyConfig = enemyConfig;
+            _config = config;
             _vfxSpawner = vfxSpawner;
-            _currentHealth = enemyConfig.MaxHealth;
+            _currentHealth = config.MaxHealth;
+
+            config.ShipView.SetShipColliderSize(_boxCollider);
+            _enemyView.Initialize(_config.ShipView);
+            name = config.name;
         }
+
 
         public void TakeDamage(int damage)
         {
@@ -49,18 +59,24 @@ namespace Project.Enemies
         {
             gameObject.SetActive(true);
             transform.position = atPosition;
-            _currentHealth = _enemyConfig.MaxHealth;
+            _currentHealth = _config.MaxHealth;
+            _enemyView.Ressurect();
         }
 
         private void Die()
         {
             Died?.Invoke(this);
-            Deactivate();
         }
 
         private void Deactivate()
         {
             gameObject.SetActive(false);
+        }
+
+        public async UniTask SinkAsync()
+        {
+            await _enemyView.DieAsync();
+            Deactivate();
         }
     }
 }

@@ -1,7 +1,8 @@
 using Project.Configs.Level;
 using Project.Enemies;
 using Project.Interactables;
-using Project.Players.PlayerLogic;
+using Project.Players.Logic;
+using Project.Players.View;
 using Project.Spawner;
 using Project.Systems.Leaderboard;
 using Project.Systems.Quests;
@@ -13,7 +14,6 @@ using Project.UI.Quests;
 using Project.UI.Reward;
 using Project.UI.Shop;
 using Project.UI.Upgrades;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -72,6 +72,7 @@ namespace Project.Installers.SceneContext
         {
             Container.BindInterfacesTo<PlayerHold>().AsSingle();
             Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PlayerView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerAttack>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<PlayerLootController>().FromNew().AsSingle().NonLazy();
 

@@ -5,7 +5,7 @@ using Project.Utils.Tweens;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.PlayerViews
+namespace Project.Players.View
 {
     public class PlayerAttackView : MonoBehaviour
     {

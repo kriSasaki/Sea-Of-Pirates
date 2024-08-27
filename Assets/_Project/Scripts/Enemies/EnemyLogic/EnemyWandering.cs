@@ -37,7 +37,7 @@ namespace Project.Enemies.EnemyLogic
                 transform.position.y,
                 _newNextPosition.z);
             transform.DOLookAt(_newNextPosition, _lookAtDuration);
-            transform.DOMove(_newNextPosition, _movingDuration, false).OnComplete
+            transform.DOMove(_newNextPosition, _movingDuration, false).SetSpeedBased().OnComplete
                 (() => StartCoroutine(WaitForMove()));
         }
 

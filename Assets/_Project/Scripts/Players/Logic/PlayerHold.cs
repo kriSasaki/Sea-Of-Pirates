@@ -8,7 +8,7 @@ using Project.Systems.Data;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.PlayerLogic
+namespace Project.Players.Logic
 {
     public class PlayerHold : IPlayerHold, IInitializable
     {

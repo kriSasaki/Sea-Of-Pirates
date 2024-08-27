@@ -3,7 +3,7 @@ using Project.Configs.Game;
 using Project.Configs.GameResources;
 using Project.Configs.Level;
 using Project.Interfaces.Data;
-using Project.Players.PlayerLogic;
+using Project.Players.Logic;
 using Project.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;

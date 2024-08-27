@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Project.Configs.Enemies;
 using Project.Interfaces.Enemies;
 using Project.Utils.Extensions;
@@ -66,7 +67,9 @@ namespace Project.Spawner
 
         private IEnumerator Respawning(IPoolableEnemy enemy)
         {
+            yield return enemy.SinkAsync().ToCoroutine();
             yield return _respawnCooldown;
+
             enemy.Respawn(GetSpawnPosition());
         }
 

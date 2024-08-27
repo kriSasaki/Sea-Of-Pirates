@@ -2,7 +2,7 @@
 using Project.Interfaces.Enemies;
 using Project.Interfaces.Hold;
 
-namespace Project.Players.PlayerLogic
+namespace Project.Players.Logic
 {
     public class PlayerLootController : IDisposable
     {

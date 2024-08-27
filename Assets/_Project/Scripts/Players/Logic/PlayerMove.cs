@@ -5,7 +5,7 @@ using Project.Utils.Extensions;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.PlayerLogic
+namespace Project.Players.Logic
 {
     public class PlayerMove : MonoBehaviour
     {

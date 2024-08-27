@@ -5,11 +5,11 @@ using System.Linq;
 using Project.Interfaces.Audio;
 using Project.Interfaces.Enemies;
 using Project.Interfaces.Stats;
-using Project.Players.PlayerViews;
+using Project.Players.View;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.PlayerLogic
+namespace Project.Players.Logic
 {
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerAttack : MonoBehaviour
@@ -62,7 +62,7 @@ namespace Project.Players.PlayerLogic
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<IEnemy>(out IEnemy enemy) && enemy.IsAlive)
+            if (other.TryGetComponent(out IEnemy enemy) && enemy.IsAlive)
             {
                 TrackEnemy(enemy);
                 TryEnterBattle();
@@ -71,7 +71,7 @@ namespace Project.Players.PlayerLogic
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent<IEnemy>(out IEnemy enemy))
+            if (other.TryGetComponent(out IEnemy enemy))
             {
                 UntrackEnemy(enemy);
                 TryExitBattle();

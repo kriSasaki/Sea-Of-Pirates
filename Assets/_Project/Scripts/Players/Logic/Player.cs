@@ -6,7 +6,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.PlayerLogic
+namespace Project.Players.Logic
 {
     public class Player : MonoBehaviour
     {

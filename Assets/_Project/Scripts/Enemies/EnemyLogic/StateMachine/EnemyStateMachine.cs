@@ -1,4 +1,4 @@
-using Project.Players.PlayerLogic;
+using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Enemies.EnemyLogic.StateMachine

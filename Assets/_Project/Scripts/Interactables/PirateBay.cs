@@ -1,4 +1,3 @@
-using Project.Players.PlayerLogic;
 using UnityEngine;
 
 namespace Project.Interactables

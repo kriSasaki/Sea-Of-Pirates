@@ -3,7 +3,7 @@ using Project.Configs.Quests;
 using Project.Interactables;
 using Project.Interfaces.Data;
 using Project.Interfaces.Enemies;
-using Project.Players.PlayerLogic;
+using Project.Players.Logic;
 using Project.UI.Quests;
 using UnityEngine;
 using Zenject;
