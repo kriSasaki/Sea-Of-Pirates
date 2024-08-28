@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805e509c5fd97cf4ca69213a91132f41, type: 3}
+  m_Name: AggressiveBehaviour
+  m_EditorClassIdentifier: 
+  <IdleState>k__BackingField: {fileID: 11400000, guid: ec8d321c0a1a0bc49a96eb66c1a59425, type: 2}
+  <BattleState>k__BackingField: {fileID: 11400000, guid: c5f6206024a54f94b881450e844457e2, type: 2}
+  <DeadState>k__BackingField: {fileID: 11400000, guid: 2f1aba0687a4e2f4881399766fd1b40d, type: 2}

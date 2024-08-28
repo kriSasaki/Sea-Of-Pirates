@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: SmallShip
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 8
+  <Speed>k__BackingField: 2.77
   <Damage>k__BackingField: 8
   <AttackInterval>k__BackingField: 0.79
-  <Speed>k__BackingField: 0.33
+  <AttackRange>k__BackingField: 0
+  <DetectRange>k__BackingField: 4.16
   <ShipView>k__BackingField: {fileID: 11400000, guid: adae7a561a9fa2a458130a23f5291339, type: 2}
+  <BehaviourConfig>k__BackingField: {fileID: 11400000, guid: 6ff9ccca0b64f654e99bf35a570efa27, type: 2}
   <Loot>k__BackingField:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     Amount: 20

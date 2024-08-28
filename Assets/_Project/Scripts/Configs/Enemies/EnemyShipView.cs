@@ -29,7 +29,7 @@ namespace Project.Configs.Enemies
         public void SetShipColliderSize(BoxCollider boxCollider)
         {
             boxCollider.size = ShipMesh.bounds.size;
-            boxCollider.center = boxCollider.center.WithY(boxCollider.size.y / 2);
+            boxCollider.center = ShipMesh.bounds.center;
         }
     }
 }

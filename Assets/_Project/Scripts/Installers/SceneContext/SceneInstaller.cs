@@ -23,6 +23,7 @@ namespace Project.Installers.SceneContext
     {
         [SerializeField] private LevelConfig _levelConfig;
         [SerializeField] private VfxSpawner _vfxSpawner;
+        [SerializeField] private Enemy _enemyPrefab;
 
         public override void InstallBindings()
         {
@@ -43,6 +44,7 @@ namespace Project.Installers.SceneContext
 
         private void BindEnemies()
         {
+            Container.Bind<EnemyFactory>().FromNew().AsSingle().WithArguments(_enemyPrefab);
             Container.Bind<EnemySpawner>().FromComponentsInHierarchy().AsCached();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
         }

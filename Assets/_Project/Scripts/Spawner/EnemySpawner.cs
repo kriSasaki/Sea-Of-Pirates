@@ -6,6 +6,7 @@ using Project.Configs.Enemies;
 using Project.Interfaces.Enemies;
 using Project.Utils.Extensions;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Project.Spawner
@@ -13,7 +14,6 @@ namespace Project.Spawner
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private EnemyConfig _enemyConfig;
-        [SerializeField] private EnemyFactory _enemyFactory;
         [SerializeField] private bool _isRespawnable = true;
         [SerializeField] private int _maxEnemies;
         [SerializeField] private float _spawnRadius;
@@ -21,6 +21,7 @@ namespace Project.Spawner
 
         private readonly List<IPoolableEnemy> _enemies = new ();
 
+        private EnemyFactory _enemyFactory;
         private WaitForSeconds _respawnCooldown;
 
         public event Action<EnemyConfig> EnemyDied; 
@@ -41,10 +42,16 @@ namespace Project.Spawner
                 enemy.Died -= OnEnemyDied;
         }
 
+        [Inject]
+        private void Construct(EnemyFactory enemyFactory)
+        {
+            _enemyFactory = enemyFactory;
+        }
+
         private void Spawn()
         {
             Vector3 enemyPosition = GetSpawnPosition();
-            IPoolableEnemy enemy = _enemyFactory.Create(_enemyConfig, enemyPosition);
+            IPoolableEnemy enemy = _enemyFactory.Create(_enemyConfig, enemyPosition, transform);
 
             _enemies.Add(enemy);
             enemy.Died += OnEnemyDied;

@@ -16,7 +16,7 @@ namespace Project.Enemies.View
             transform.localPosition = transform.localPosition + view.GetViewOffset();
 
             SetOriginLocalPosition(transform.localPosition);
-            InitializeShipSwinger(view.GetViewOffset());
+            InitializeShipSwinger(view.GetWaterlineOffset());
         }
     }
 }

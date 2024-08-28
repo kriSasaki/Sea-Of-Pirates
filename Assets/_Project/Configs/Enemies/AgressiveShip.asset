@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: AgressiveShip
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 15
+  <Speed>k__BackingField: 15
   <Damage>k__BackingField: 2
-  <AttackInterval>k__BackingField: 1
-  <Speed>k__BackingField: 0.18
+  <AttackInterval>k__BackingField: 1.4
+  <AttackRange>k__BackingField: 17.9
+  <DetectRange>k__BackingField: 45
   <ShipView>k__BackingField: {fileID: 11400000, guid: 52aa67e284cd61c409fd3e5664c6bcdc, type: 2}
+  <BehaviourConfig>k__BackingField: {fileID: 11400000, guid: cdf535ecb4a96794db17185fc592f0b8, type: 2}
   <Loot>k__BackingField:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     Amount: 20

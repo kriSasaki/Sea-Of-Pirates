@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 805e509c5fd97cf4ca69213a91132f41, type: 3}
-  m_Name: EnemyBehaviour
+  m_Name: PeacefullBehaviour
   m_EditorClassIdentifier: 
-  BaseState:
-    rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  <IdleState>k__BackingField: {fileID: 11400000, guid: a7f526d5de7ff68468fee7f0d8a272b8, type: 2}
+  <BattleState>k__BackingField: {fileID: 11400000, guid: 53dd700888b4b6541a7540e388d17fb7, type: 2}
+  <DeadState>k__BackingField: {fileID: 11400000, guid: 2f1aba0687a4e2f4881399766fd1b40d, type: 2}
