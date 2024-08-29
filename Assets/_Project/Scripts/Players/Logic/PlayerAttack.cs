@@ -35,7 +35,7 @@ namespace Project.Players.Logic
 
         private bool HasTrackedEnemies => _trackedEnemies.Count > 0;
         private bool IsInBattle => _battleCoroutine != null;
-        private float HalfAttackAnlge => _attackAngle / 2f;
+        private float HalfAttackAngle => _attackAngle / 2f;
 
         private void Start()
         {
@@ -86,7 +86,7 @@ namespace Project.Players.Logic
             _detectZone = GetComponent<SphereCollider>();
             _playerStats = playerStats;
             _audioService = audioService;
-            _hasTargetAwaiter = new WaitUntil(HasTargetEnemines);
+            _hasTargetAwaiter = new WaitUntil(HasTargetEnemies);
 
             _playerStats.StatsUpdated += OnStatsUpdated;
         }
@@ -170,7 +170,7 @@ namespace Project.Players.Logic
             ExitBattle();
         }
 
-        private bool HasTargetEnemines()
+        private bool HasTargetEnemies()
         {
             return _trackedEnemies.Any(enemy => CanAttackEnemy(enemy));
         }
@@ -192,7 +192,7 @@ namespace Project.Players.Logic
             float rightAngle = Vector3.Angle(transform.right, direction);
             float leftAngle = Vector3.Angle(-transform.right, direction);
 
-            return rightAngle <= HalfAttackAnlge || leftAngle <= HalfAttackAnlge;
+            return rightAngle <= HalfAttackAngle || leftAngle <= HalfAttackAngle;
         }
 
         private void ClearTrackedEnemies()

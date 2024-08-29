@@ -8,12 +8,13 @@ namespace Project.Configs.Enemies
     {
         [field: SerializeField] public int MaxHealth { get; private set; }
         [field: SerializeField] public float Speed { get; private set; }
+        [field: SerializeField] public float RotationSpeed { get; private set; }
         [field: SerializeField] public int Damage { get; private set; }
         [field: SerializeField] public float AttackInterval { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; }
         [field: SerializeField] public float DetectRange { get; private set; }
         [field: SerializeField] public EnemyShipView ShipView { get; private set; }
-        [field: SerializeField] public EnemyBehaviourConfig BehaviourConfig { get; private set; }
+        [field: SerializeField] public EnemyBehaviorConfig BehaviourConfig { get; private set; }
         [field: SerializeField] public GameResourceAmount Loot { get; private set; }
     }
 }

@@ -68,19 +68,21 @@ public class ChasingState : BattleState
     private async UniTaskVoid Attack(CancellationToken token)
     {
         _isAttacking = true;
+        while (Vector3.Distance(Player.transform.position, Enemy.Position) < Config.AttackRange)
+        {
+            Vector3 direction = Player.transform.position - Enemy.Position;
+            Quaternion rotation = Quaternion.FromToRotation(Enemy.transform.forward, direction);
 
-        Vector3 direction = Player.transform.position - Enemy.Position;
-        Quaternion rotation = Quaternion.FromToRotation(Enemy.transform.forward, direction);
+            await UniTask.WhenAll(
+                Enemy.transform.DORotate(rotation.eulerAngles, 1f).WithCancellation(token),
+                UniTask.Delay(System.TimeSpan.FromSeconds(Config.AttackInterval), cancellationToken: token));
 
-        await UniTask.WhenAll(
-            Enemy.transform.DORotate(rotation.eulerAngles, 1f).WithCancellation(token),
-            UniTask.Delay(System.TimeSpan.FromSeconds(Config.AttackInterval), cancellationToken: token));
+            float distanceFromTarget = Vector3.Distance(Player.transform.position, Enemy.Position);
 
-        float distanceFromTarget = Vector3.Distance(Player.transform.position, Enemy.Position);
-
-        if (distanceFromTarget <= Config.AttackRange)
-            Player.TakeDamage(Config.Damage);
-
+            if (distanceFromTarget <= Config.AttackRange)
+                Player.TakeDamage(Config.Damage);
+        }
+        Debug.Log("Я все");
         _isAttacking = false;
     }
 }

@@ -7,9 +7,9 @@ namespace Project.Spawner
 {
     public class EnemyFactory
     {
-        private Enemy _prefab;
-        private VfxSpawner _vfxSpawner;
-        private Player _player;
+        private readonly Enemy _prefab;
+        private readonly VfxSpawner _vfxSpawner;
+        private readonly Player _player;
 
         public EnemyFactory(Enemy prefab, VfxSpawner vfxSpawner, Player player)
         {
@@ -21,8 +21,7 @@ namespace Project.Spawner
         public Enemy Create(EnemyConfig enemyConfig, Vector3 position, Transform parent = null)
         {
             Enemy enemy = Object.Instantiate(_prefab, position, Quaternion.identity, parent);
-            EnemyStateMachine stateMachine = new EnemyStateMachine(enemyConfig.BehaviourConfig, _player);
-            enemy.Initialize(enemyConfig, _vfxSpawner, stateMachine);
+            enemy.Initialize(enemyConfig, _vfxSpawner, _player);
 
             return enemy;
         }

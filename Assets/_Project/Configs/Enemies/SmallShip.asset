@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SmallShip
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 8
-  <Speed>k__BackingField: 2.77
+  <Speed>k__BackingField: 5
+  <RotationSpeed>k__BackingField: 40
   <Damage>k__BackingField: 8
   <AttackInterval>k__BackingField: 0.79
   <AttackRange>k__BackingField: 0

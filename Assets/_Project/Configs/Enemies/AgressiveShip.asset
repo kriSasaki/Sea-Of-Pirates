@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: AgressiveShip
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 15
-  <Speed>k__BackingField: 15
+  <Speed>k__BackingField: 10
+  <RotationSpeed>k__BackingField: 90
   <Damage>k__BackingField: 2
   <AttackInterval>k__BackingField: 1.4
   <AttackRange>k__BackingField: 17.9

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Boat
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 8
-  <Speed>k__BackingField: 15
+  <Speed>k__BackingField: 3
+  <RotationSpeed>k__BackingField: 10
   <Damage>k__BackingField: 8
   <AttackInterval>k__BackingField: 0.79
   <AttackRange>k__BackingField: 0

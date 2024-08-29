@@ -18,6 +18,7 @@ namespace Project.Enemies
         {
             _detectZone = GetComponent<SphereCollider>();
             _detectZone.radius = detectRange;
+            _detectRange = detectRange;
         }
 
         private void OnTriggerEnter(Collider other)

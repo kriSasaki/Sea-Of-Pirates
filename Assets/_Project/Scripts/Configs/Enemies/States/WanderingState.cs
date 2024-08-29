@@ -39,7 +39,6 @@ public class WanderingState : IdleState
         if (Vector3.Distance(Enemy.Position, _nextPosition) <0.01f)
         {
             _nextPosition = (Random.insideUnitSphere * _movementRange + _startPosition).WithY(Enemy.Position.y);
-            Debug.Log("new pos is" + _nextPosition + Enemy.name);
         }
     }
 

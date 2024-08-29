@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace Project.Enemies
 {
+    [RequireComponent(typeof(EnemyStateMachine))]
     public class Enemy : MonoBehaviour, IPoolableEnemy
     {
         private const int MinimumHealth = 0;
@@ -29,21 +30,16 @@ namespace Project.Enemies
         public event Action PlayerLost;
         public event Action Respawned;
 
-
         public int Damage => _config.Damage;
         public float AttackInterval => _config.AttackInterval;
         public bool IsAlive => _currentHealth > MinimumHealth;
 
         public EnemyMover Mover => _mover;
+        public PlayerDetector Detector => _playerDetector;
         public Vector3 Position => transform.position;
         public GameResourceAmount Loot => _config.Loot;
         public EnemyConfig Config => _config;
         public Vector3 SpawnPosition { get; private set; }
-
-        private void Update()
-        {
-            _stateMachine.Update();
-        }
 
         private void OnDestroy()
         {
@@ -54,21 +50,21 @@ namespace Project.Enemies
         public void Initialize(
             EnemyConfig config, 
             VfxSpawner vfxSpawner,
-            EnemyStateMachine stateMachine)
+            Player player)
         {
+            name = config.name;
             _config = config;
             _vfxSpawner = vfxSpawner;
             _currentHealth = config.MaxHealth;
-            _stateMachine = stateMachine;
+            _stateMachine = GetComponent<EnemyStateMachine>();
             _mover = new EnemyMover(_config, transform);
 
             SpawnPosition = transform.position;
-            name = config.name;
 
             config.ShipView.SetShipColliderSize(_boxCollider);
             _enemyView.Initialize(_config.ShipView);
             _playerDetector.Initialize(_config.DetectRange);
-            _stateMachine.Initialize(this);
+            _stateMachine.Initialize(player);
 
             _playerDetector.PlayerDetected += OnPlayerDetected;
             _playerDetector.PlayerLost += OnPlayerLost;
