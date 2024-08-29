@@ -1,6 +1,7 @@
 using Project.Configs.Enemies;
-using Project.Enemies;
+using Project.Enemies.Logic;
 using Project.Players.Logic;
+using System.Xml.Linq;
 using UnityEngine;
 
 namespace Project.Spawner
@@ -21,6 +22,7 @@ namespace Project.Spawner
         public Enemy Create(EnemyConfig enemyConfig, Vector3 position, Transform parent = null)
         {
             Enemy enemy = Object.Instantiate(_prefab, position, Quaternion.identity, parent);
+            enemy.name = enemyConfig.name;
             enemy.Initialize(enemyConfig, _vfxSpawner, _player);
 
             return enemy;

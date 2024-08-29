@@ -15,9 +15,10 @@ namespace Project.Spawner
     {
         [SerializeField] private EnemyConfig _enemyConfig;
         [SerializeField] private bool _isRespawnable = true;
-        [SerializeField] private int _maxEnemies;
+        [SerializeField, Min (1)] private int _maxEnemies;
         [SerializeField] private float _spawnRadius;
         [SerializeField, Min(3f)] private float _respawnDelay;
+        [SerializeField] private LayerMask _layerMask;
 
         private readonly List<IPoolableEnemy> _enemies = new ();
 
@@ -38,7 +39,7 @@ namespace Project.Spawner
 
         private void OnDestroy()
         {
-            foreach (var enemy in _enemies)
+            foreach (IPoolableEnemy enemy in _enemies)
                 enemy.Died -= OnEnemyDied;
         }
 
@@ -59,17 +60,29 @@ namespace Project.Spawner
 
         private Vector3 GetSpawnPosition()
         {
+            Vector3 position = GetRandomSpawnPosition();
+            Bounds shipBound = _enemyConfig.ShipView.ShipBounds;
+
+            while (Physics.CheckBox(position, shipBound.extents, Quaternion.identity, _layerMask))
+            {
+                position = GetRandomSpawnPosition();
+            }
+
+            return position;
+            //return (transform.position + Random.insideUnitSphere * _spawnRadius).WithZeroY();
+        }
+
+        private Vector3 GetRandomSpawnPosition()
+        {
             return (transform.position + Random.insideUnitSphere * _spawnRadius).WithZeroY();
         }
-        
+
         private void OnEnemyDied(IEnemy enemy)
         {
             EnemyDied?.Invoke(_enemyConfig);
 
             if (_isRespawnable)
-            {
                 StartCoroutine(Respawning(enemy as IPoolableEnemy));
-            }
         }
 
         private IEnumerator Respawning(IPoolableEnemy enemy)
@@ -83,7 +96,6 @@ namespace Project.Spawner
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.cyan;
-
             Gizmos.DrawWireSphere(transform.position, _spawnRadius);
         }
     }

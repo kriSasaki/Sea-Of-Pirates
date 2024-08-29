@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyConfig: {fileID: 11400000, guid: 5cc56adb66b32cd4eb731575827a2023, type: 2}
-  _enemyFactory:
-    _prefab: {fileID: 6421893452489964851, guid: e25d2506f1582044a9444905bd8f5f78, type: 3}
-    _vfxSpawner: {fileID: -3694470578919396721, guid: e860f29d35620be4dac14dc48a18b119, type: 3}
   _isRespawnable: 1
   _maxEnemies: 10
   _spawnRadius: 0
   _respawnDelay: 5
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64

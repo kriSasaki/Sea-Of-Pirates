@@ -12,6 +12,8 @@ namespace Project.Configs.Enemies
         [field: SerializeField] public Mesh ShipMesh { get; private set; }
         [field: SerializeField] public Mesh SailsMesh { get; private set; }
 
+        public Bounds ShipBounds => ShipMesh.bounds;
+
         public Vector3 GetViewOffset()
         {
             float verticalOffset = ShipMesh.bounds.size.y * -_verticalOffsetPercent;

@@ -36,6 +36,9 @@ namespace Project.Players.Logic
 
         public void AddResource(GameResourceAmount gameResourceAmount)
         {
+            if (gameResourceAmount.Resource == null)
+                throw new ArgumentNullException(nameof(gameResourceAmount) + " GameResource is null!");
+
             int inHoldCargo = GetResourcesAmount();
 
             if (inHoldCargo == CargoSize)

@@ -9,6 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bec9b8e93d4fcf44a8949d4a3fd44f58, type: 3}
-  m_Name: Passive State
+  m_Script: {fileID: 11500000, guid: 4e1f0062f34a238448420f51f2001d1a, type: 3}
+  m_Name: WanderingIdle
   m_EditorClassIdentifier: 
+  _playerDetectionDelay: 1
+  _movementRange: 23.1
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 576

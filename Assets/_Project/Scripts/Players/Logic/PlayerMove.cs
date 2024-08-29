@@ -10,9 +10,8 @@ namespace Project.Players.Logic
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private Rigidbody _playerRigidbody;
-        [SerializeField, Range(0.01f, 0.2f)] private float _rotationDelta;
-
-        private readonly float _rotationMagnitude = 1f;
+        [SerializeField, Range(30f, 120f)] private float _rotationDelta;
+        [SerializeField, Range(0.1f, 0.7f)] private float _moveAngleDot;
 
         private IInputService _inputService;
         private Camera _camera;
@@ -64,18 +63,14 @@ namespace Project.Players.Logic
             if (_inputDirection == Vector3.zero)
                 return;
 
-            Vector3 rotationAngle = Vector3.RotateTowards(
-                transform.forward,
-                _inputDirection,
-                _rotationDelta,
-                _rotationMagnitude);
+            Quaternion lookRotation = Quaternion.LookRotation(_inputDirection);
 
-            transform.forward = rotationAngle;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationDelta * Time.deltaTime);
         }
 
         private void Move()
         {
-            if (Vector3.Dot(transform.forward, _inputDirection) < 0)
+            if (Vector3.Dot(transform.forward, _inputDirection) < _moveAngleDot)
                 return;
 
             Vector3 direction = _inputDirection.magnitude > 1f ? _inputDirection.normalized : _inputDirection;

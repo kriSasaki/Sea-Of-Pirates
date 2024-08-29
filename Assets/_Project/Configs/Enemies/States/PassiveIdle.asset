@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87ed359dbb07c54f9c35bc5f8c0331f, type: 3}
-  m_Name: Chasing State
+  m_Script: {fileID: 11500000, guid: bec9b8e93d4fcf44a8949d4a3fd44f58, type: 3}
+  m_Name: PassiveIdle
   m_EditorClassIdentifier: 
-  _maxDistanceFromSpawn: 19.28
+  _playerDetectionDelay: 2.9

@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1f0062f34a238448420f51f2001d1a, type: 3}
-  m_Name: Wandering State
+  m_Script: {fileID: 11500000, guid: 18bc916a8de91ff45b990f90c68c7788, type: 3}
+  m_Name: PassiveBattle
   m_EditorClassIdentifier: 
-  _lookAtDuration: 0.5
-  _movementRange: 12

@@ -8,30 +8,29 @@ using Project.Spawner;
 using Project.Systems.Data;
 using UnityEngine;
 
-namespace Project.Enemies
+namespace Project.Enemies.Logic
 {
-    [RequireComponent(typeof(EnemyStateMachine))]
+    [RequireComponent(typeof(EnemyStateMachine), typeof(BoxCollider))]
     public class Enemy : MonoBehaviour, IPoolableEnemy
     {
         private const int MinimumHealth = 0;
 
-        [SerializeField] BoxCollider _boxCollider;
-        [SerializeField] private EnemyView _enemyView;
+        [SerializeField] private EnemyView _view;
         [SerializeField] private PlayerDetector _playerDetector;
 
+        private BoxCollider _shipCollider;
         private EnemyConfig _config;
         private VfxSpawner _vfxSpawner;
-        private int _currentHealth;
         private EnemyMover _mover;
         private EnemyStateMachine _stateMachine;
+        private int _currentHealth;
 
         public event Action<IEnemy> Died;
-        public event Action PlayerDetected;
-        public event Action PlayerLost;
         public event Action Respawned;
+        public event Action Damaged;
 
         public int Damage => _config.Damage;
-        public float AttackInterval => _config.AttackInterval;
+        public float AttackInterval => _config.AttackICooldown;
         public bool IsAlive => _currentHealth > MinimumHealth;
 
         public EnemyMover Mover => _mover;
@@ -41,59 +40,61 @@ namespace Project.Enemies
         public EnemyConfig Config => _config;
         public Vector3 SpawnPosition { get; private set; }
 
-        private void OnDestroy()
-        {
-            _playerDetector.PlayerDetected -= OnPlayerDetected;
-            _playerDetector.PlayerLost -= OnPlayerLost;
-        }
-
         public void Initialize(
-            EnemyConfig config, 
+            EnemyConfig config,
             VfxSpawner vfxSpawner,
             Player player)
         {
-            name = config.name;
+            _shipCollider = GetComponent<BoxCollider>();
             _config = config;
             _vfxSpawner = vfxSpawner;
             _currentHealth = config.MaxHealth;
             _stateMachine = GetComponent<EnemyStateMachine>();
             _mover = new EnemyMover(_config, transform);
 
-            SpawnPosition = transform.position;
+            config.ShipView.SetShipColliderSize(_shipCollider);
+            SetSpawnPosition();
 
-            config.ShipView.SetShipColliderSize(_boxCollider);
-            _enemyView.Initialize(_config.ShipView);
+            _view.Initialize(_config.ShipView, _vfxSpawner);
             _playerDetector.Initialize(_config.DetectRange);
             _stateMachine.Initialize(player);
-
-            _playerDetector.PlayerDetected += OnPlayerDetected;
-            _playerDetector.PlayerLost += OnPlayerLost;
         }
-
-
-
 
         public void TakeDamage(int damage)
         {
             _currentHealth -= damage;
-            _vfxSpawner.SpawnExplosion(transform.position);
+            _view.TakeDamage();
+
+            Damaged?.Invoke();
 
             if (!IsAlive)
-            {
                 Die();
-                return;
-            }
+        }
 
+        public void DealDamage (Player player)
+        {
+            _view.Shoot(player.transform.position);
+            player.TakeDamage(Damage);
         }
 
         public void Respawn(Vector3 atPosition)
         {
             gameObject.SetActive(true);
             transform.position = atPosition;
-            SpawnPosition = transform.position;
-            _currentHealth = _config.MaxHealth;
-            _enemyView.Ressurect();
+            SetSpawnPosition();
+            RestoreHealth();
+            _view.Ressurect();
             Respawned?.Invoke();
+        }
+
+        private void RestoreHealth()
+        {
+            _currentHealth = _config.MaxHealth;
+        }
+
+        private void SetSpawnPosition()
+        {
+            SpawnPosition = transform.position;
         }
 
         private void Die()
@@ -108,14 +109,8 @@ namespace Project.Enemies
 
         public async UniTask SinkAsync()
         {
-            await _enemyView.DieAsync();
+            await _view.DieAsync();
             Deactivate();
         }
-
-        private void OnPlayerLost()
-            => PlayerLost?.Invoke();
-
-        private void OnPlayerDetected()
-            => PlayerDetected?.Invoke();
     }
 }

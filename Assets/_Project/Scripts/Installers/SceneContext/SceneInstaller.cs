@@ -1,5 +1,6 @@
 using Project.Configs.Level;
 using Project.Enemies;
+using Project.Enemies.Logic;
 using Project.Interactables;
 using Project.Players.Logic;
 using Project.Players.View;

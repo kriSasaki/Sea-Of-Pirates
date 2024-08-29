@@ -1,39 +1,40 @@
 ﻿using Project.Configs.Enemies;
 using UnityEngine;
 
-namespace Project.Enemies
+namespace Project.Enemies.Logic
 {
     public class EnemyMover
     {
         private readonly float _speed;
+        private readonly float _rotationSpeed;
         private readonly Transform _transform;
-        private readonly float _rotateSpeed = 50f;
-        private readonly float _movingDotProduct = 0.1f;
+        private readonly float _moveAngleDot;
 
         private Vector3 Position => _transform.position;
 
         public EnemyMover(EnemyConfig config, Transform transform)
         {
             _speed = config.Speed;
-            _rotateSpeed = config.RotationSpeed;
+            _rotationSpeed = config.RotationSpeed;
+            _moveAngleDot = config.MoveAngleDot;
             _transform = transform;
         }
 
         public void Move(Vector3 target)
         {
-            LookToTarget(target);
+            RotateTowards(target);
 
-            if (Vector3.Dot(_transform.forward, (target - Position).normalized) < _movingDotProduct)
+            if (Vector3.Dot(_transform.forward, (target - Position).normalized) <= _moveAngleDot)
                 return;
 
             _transform.position = Vector3.MoveTowards(Position, target, _speed * Time.deltaTime);
         }
 
-        private void LookToTarget(Vector3 target)
+        private void RotateTowards(Vector3 target)
         {
-            Vector3 direction = target - _transform.position;
+            Vector3 direction = target - Position;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
-            _transform.rotation = Quaternion.RotateTowards(_transform.rotation, lookRotation, _rotateSpeed * Time.deltaTime);
+            _transform.rotation = Quaternion.RotateTowards(_transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
         }
     }
 }

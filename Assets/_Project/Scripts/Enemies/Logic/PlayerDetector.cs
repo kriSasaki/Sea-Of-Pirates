@@ -2,7 +2,7 @@
 using Project.Players.Logic;
 using UnityEngine;
 
-namespace Project.Enemies
+namespace Project.Enemies.Logic
 {
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerDetector : MonoBehaviour
@@ -14,6 +14,18 @@ namespace Project.Enemies
         public event Action PlayerDetected;
         public event Action PlayerLost;
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out Player player))
+                PlayerDetected?.Invoke();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent(out Player player))
+                PlayerLost?.Invoke();
+        }
+
         public void Initialize(float detectRange)
         {
             _detectZone = GetComponent<SphereCollider>();
@@ -21,21 +33,22 @@ namespace Project.Enemies
             _detectRange = detectRange;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent<Player>(out Player player))
-                PlayerDetected?.Invoke();
-        }
+        public void Enable()
+            => _detectZone.enabled = true;
 
-        private void OnTriggerExit(Collider other)
+
+        public void Disable()
+            => _detectZone.enabled = false;
+
+        public void CheckPlayer()
         {
-            if (other.TryGetComponent<Player>(out Player player))
-                PlayerLost?.Invoke();
+            Disable();
+            Enable();
         }
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.gray;
+            Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, _detectRange);
         }
     }

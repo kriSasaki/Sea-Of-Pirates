@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18bc916a8de91ff45b990f90c68c7788, type: 3}
-  m_Name: Peacefull State
+  m_Script: {fileID: 11500000, guid: d87ed359dbb07c54f9c35bc5f8c0331f, type: 3}
+  m_Name: ChasingBattle
   m_EditorClassIdentifier: 
+  _maxDistanceFromSpawn: 20

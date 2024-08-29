@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: AgressiveShip
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 15
-  <Speed>k__BackingField: 10
-  <RotationSpeed>k__BackingField: 90
-  <Damage>k__BackingField: 2
-  <AttackInterval>k__BackingField: 1.4
-  <AttackRange>k__BackingField: 17.9
-  <DetectRange>k__BackingField: 45
-  <ShipView>k__BackingField: {fileID: 11400000, guid: 52aa67e284cd61c409fd3e5664c6bcdc, type: 2}
-  <BehaviourConfig>k__BackingField: {fileID: 11400000, guid: cdf535ecb4a96794db17185fc592f0b8, type: 2}
-  <Loot>k__BackingField:
+  _maxHealth: 5
+  _damage: 5
+  _attackCooldown: 2
+  _speed: 10
+  _rotationSpeed: 47.2
+  _moveAngleDot: 0.7
+  _attackRange: 25
+  _detectRange: 40
+  _shipView: {fileID: 11400000, guid: 52aa67e284cd61c409fd3e5664c6bcdc, type: 2}
+  _behaviourConfig: {fileID: 11400000, guid: cdf535ecb4a96794db17185fc592f0b8, type: 2}
+  _loot:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 20
+    Amount: 4

@@ -738,7 +738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _maxEnemies
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _spawnDelay
@@ -2133,7 +2133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _maxEnemies
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _spawnDelay
@@ -2145,11 +2145,19 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5cc56adb66b32cd4eb731575827a2023, type: 2}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _spawnRadius
-      value: 32.35
+      value: 41.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
+      propertyPath: _respawnDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _isRespawnable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 576
       objectReference: {fileID: 0}
     - target: {fileID: 3203546240083801509, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: _enemyFactory._prefab
@@ -2157,7 +2165,7 @@ PrefabInstance:
       objectReference: {fileID: 511951091663768269, guid: efb13058bc1a210408a9604391fa2823, type: 3}
     - target: {fileID: 6297248264014575848, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.5
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6297248264014575848, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2165,7 +2173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6297248264014575848, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 155.2
+      value: 150.7
       objectReference: {fileID: 0}
     - target: {fileID: 6297248264014575848, guid: d062034c354193c4ca52527229d1627e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2433,6 +2441,14 @@ PrefabInstance:
       propertyPath: _sinkTween._sinkDuration
       value: 3.06
       objectReference: {fileID: 0}
+    - target: {fileID: 3722445594469159487, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
+      propertyPath: m_Drag
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722445594469159487, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3752899164081436785, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.7
@@ -2477,9 +2493,25 @@ PrefabInstance:
       propertyPath: _unloadDuration
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5742568367049463457, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
+      propertyPath: _dotProduct
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742568367049463457, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
+      propertyPath: _moveAngleDot
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742568367049463457, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
+      propertyPath: _rotationDelta
+      value: 88.8
+      objectReference: {fileID: 0}
     - target: {fileID: 9095237347911496701, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
       propertyPath: _attackAngle
       value: 91.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095237347911496701, guid: fdf085d27830b934ba566ba47ffd1403, type: 3}
+      propertyPath: _attackCooldown
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
