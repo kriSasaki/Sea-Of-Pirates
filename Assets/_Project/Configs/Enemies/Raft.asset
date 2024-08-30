@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Raft
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _maxHealth: 8
   _damage: 0
-  _attackCooldown: 0.1
+  _attackCooldown: 5
   _speed: 5
-  _rotationSpeed: 30
+  _rotationSpeed: 42.2
   _moveAngleDot: 0.7
   _attackRange: 0
   _detectRange: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
   _behaviourConfig: {fileID: 11400000, guid: 6ff9ccca0b64f654e99bf35a570efa27, type: 2}
   _loot:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 4
+    Amount: 3

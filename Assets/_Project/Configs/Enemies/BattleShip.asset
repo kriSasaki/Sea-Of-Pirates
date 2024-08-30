@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: BattleShip
   m_EditorClassIdentifier: 
-  _maxHealth: 5
-  _damage: 5
-  _attackCooldown: 2
-  _speed: 10
-  _rotationSpeed: 38.3
+  _maxHealth: 89
+  _damage: 15
+  _attackCooldown: 3
+  _speed: 4
+  _rotationSpeed: 46.9
   _moveAngleDot: 0.7
   _attackRange: 25
-  _detectRange: 40
+  _detectRange: 45
   _enemyView: {fileID: 1333205628139548919, guid: cb0bae0291c2a054c9fdfdd467a7c879, type: 3}
-  _behaviourConfig: {fileID: 11400000, guid: cdf535ecb4a96794db17185fc592f0b8, type: 2}
+  _behaviourConfig: {fileID: 11400000, guid: 0dae694b26a10c04c8732c456914397f, type: 2}
   _loot:
-    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 4
+    Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
+    Amount: 5

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1fef92b5ee88f849af0a538b92962b9, type: 3}
   m_Name: SimpleAttack
   m_EditorClassIdentifier: 
-  _attackAngle: 30
+  _attackAngle: 40
