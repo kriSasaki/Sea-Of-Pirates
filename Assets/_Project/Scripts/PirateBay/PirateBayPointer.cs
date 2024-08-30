@@ -2,24 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PirateBayPointer : MonoBehaviour
 {
     [SerializeField] private Transform _playerTransform; // Ссылка на объект Player
     [SerializeField] private Camera _camera; // Ссылка на камеру, с которой идет обзор
     [SerializeField] private Transform _pointerIconTransform; // Ссылка на иконку указателя
-
+    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Canvas _pointerCanvas;
     // Пределы экрана для указателя (в процентах от ширины и высоты экрана)
     [SerializeField] private float _screenMarginX = 0.1f; // Горизонтальные пределы
     [SerializeField] private float _screenMarginY = 0.1f; // Вертикальные пределы
-
-    private Quaternion[] rotations = new Quaternion[]
-    {
-    Quaternion.Euler(0f, 0f, 90f),    // вверх
-    Quaternion.Euler(0f, 0f, -90f),   // вниз
-    Quaternion.Euler(0f, 0f, 180f),   // влево
-    Quaternion.Euler(0f, 0f, 0f),     // вправо
-    Quaternion.identity                // по умолчанию (в случае незапланированного индекса)
-    };
 
     private void Update()
     {
@@ -29,6 +22,14 @@ public class PirateBayPointer : MonoBehaviour
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_camera);
         float minDistance = Mathf.Infinity;
         int planeIndex = 0;
+        if (!IsVisibleFrom(_camera, _renderer))
+        {
+            _pointerCanvas.enabled = true;
+        }
+        else
+        {
+            _pointerCanvas.enabled = false;
+        }
 
         for (int i = 0; i < 6; i++)
         {
@@ -46,11 +47,9 @@ public class PirateBayPointer : MonoBehaviour
         Vector3 worldPosition = ray.GetPoint(minDistance);
         Vector3 screenPosition = _camera.WorldToScreenPoint(worldPosition);
 
-        // Ограничиваем указатель в пределах заданных границ экрана
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
 
-        // Вычисляем новые координаты с учетом пределов
         screenPosition.x = Mathf.Clamp(screenPosition.x, screenWidth * _screenMarginX, screenWidth * (1 - _screenMarginX));
         screenPosition.y = Mathf.Clamp(screenPosition.y, screenHeight * _screenMarginY, screenHeight * (1 - _screenMarginY));
 
@@ -68,4 +67,19 @@ public class PirateBayPointer : MonoBehaviour
 
         return rotations[planeIndex];
     }
+    private Quaternion[] rotations = new Quaternion[]
+    {
+    Quaternion.Euler(0f, 0f, 90f),    // вверх
+    Quaternion.Euler(0f, 0f, -90f),   // вниз
+    Quaternion.Euler(0f, 0f, 180f),   // влево
+    Quaternion.Euler(0f, 0f, 0f),     // вправо
+    Quaternion.identity                // по умолчанию (в случае незапланированного индекса)
+    };
+    private bool IsVisibleFrom(Camera cam, Renderer renderer)
+    {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
+        return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+    }
+
+
 }
