@@ -1,5 +1,4 @@
 ﻿using Project.Configs.Enemies;
-using Project.Enemies.Logic;
 using Project.Players.Logic;
 using UnityEngine;
 
@@ -21,6 +20,7 @@ namespace Project.Enemies.Logic.States
 
             OnInitialize();
         }
+
         public virtual void Enter()
         {
         }

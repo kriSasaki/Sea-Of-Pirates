@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Project.Enemies.Logic.States.Idle;
+using UnityEngine;
 
 namespace Project.Enemies.Logic.States
 {
@@ -14,7 +15,7 @@ namespace Project.Enemies.Logic.States
 
         private void OnEnemyRespawned()
         {
-            StateMachine.SetState(StateMachine._idleState);
+            StateMachine.SetState<IdleState>();
         }
 
         public override void Exit()

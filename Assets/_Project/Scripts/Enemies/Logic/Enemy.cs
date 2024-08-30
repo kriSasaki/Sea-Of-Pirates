@@ -29,15 +29,16 @@ namespace Project.Enemies.Logic
         public event Action Respawned;
         public event Action Damaged;
 
-        public int Damage => _config.Damage;
-        public float AttackInterval => _config.AttackICooldown;
         public bool IsAlive => _currentHealth > MinimumHealth;
+        public int Damage => _config.Damage;
+        public float AttackInterval => _config.AttackCooldown;
 
+        public EnemyConfig Config => _config;
         public EnemyMover Mover => _mover;
+        public Collider ShipCollider => _shipCollider;
         public PlayerDetector Detector => _playerDetector;
         public Vector3 Position => transform.position;
         public GameResourceAmount Loot => _config.Loot;
-        public EnemyConfig Config => _config;
         public Vector3 SpawnPosition { get; private set; }
 
         public void Initialize(
@@ -71,7 +72,7 @@ namespace Project.Enemies.Logic
                 Die();
         }
 
-        public void DealDamage (Player player)
+        public void HitPlayer (Player player)
         {
             _view.Shoot(player.transform.position);
             player.TakeDamage(Damage);

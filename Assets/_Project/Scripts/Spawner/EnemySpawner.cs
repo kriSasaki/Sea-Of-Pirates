@@ -18,7 +18,7 @@ namespace Project.Spawner
         [SerializeField, Min (1)] private int _maxEnemies;
         [SerializeField] private float _spawnRadius;
         [SerializeField, Min(3f)] private float _respawnDelay;
-        [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private LayerMask _obstaclesMask;
 
         private readonly List<IPoolableEnemy> _enemies = new ();
 
@@ -63,13 +63,12 @@ namespace Project.Spawner
             Vector3 position = GetRandomSpawnPosition();
             Bounds shipBound = _enemyConfig.ShipView.ShipBounds;
 
-            while (Physics.CheckBox(position, shipBound.extents, Quaternion.identity, _layerMask))
+            while (Physics.CheckBox(position, shipBound.extents, Quaternion.identity, _obstaclesMask))
             {
                 position = GetRandomSpawnPosition();
             }
 
             return position;
-            //return (transform.position + Random.insideUnitSphere * _spawnRadius).WithZeroY();
         }
 
         private Vector3 GetRandomSpawnPosition()

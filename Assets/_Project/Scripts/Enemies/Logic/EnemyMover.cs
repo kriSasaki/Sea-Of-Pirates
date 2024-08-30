@@ -5,6 +5,9 @@ namespace Project.Enemies.Logic
 {
     public class EnemyMover
     {
+        private readonly Vector3 _rightAngle = new(0, -90, 0);
+        private readonly Vector3 _leftAngle = new(0, 90, 0);
+
         private readonly float _speed;
         private readonly float _rotationSpeed;
         private readonly Transform _transform;
@@ -30,10 +33,25 @@ namespace Project.Enemies.Logic
             _transform.position = Vector3.MoveTowards(Position, target, _speed * Time.deltaTime);
         }
 
-        private void RotateTowards(Vector3 target)
+        public void RotateTowards(Vector3 target)
         {
             Vector3 direction = target - Position;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
+            _transform.rotation = Quaternion.RotateTowards(_transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
+        }
+
+        public void RotateTowards(Vector3 target, BoardSide side)
+        {
+            Vector3 direction = (target - Position).normalized;
+
+            Quaternion boardAngleOffset = side switch
+            {
+                BoardSide.Left => Quaternion.Euler(_leftAngle),
+                BoardSide.Right => Quaternion.Euler(_rightAngle),
+                _ => throw new System.NotImplementedException()
+            };
+
+            Quaternion lookRotation = Quaternion.LookRotation(direction) * boardAngleOffset;
             _transform.rotation = Quaternion.RotateTowards(_transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
         }
     }

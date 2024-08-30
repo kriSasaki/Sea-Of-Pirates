@@ -20,7 +20,9 @@ namespace Project.Players.Logic
         private int _currentHealth;
 
         public event Action HealthChanged;
+        public event Action Died;
 
+        public Vector3 Position => transform.position;
         public int CurrentHealth => _currentHealth;
         public int MaxHealth => _playerStats.MaxHealth;
         public bool IsAlive => _currentHealth > 0;
@@ -53,6 +55,9 @@ namespace Project.Players.Logic
 
             HealthChanged?.Invoke();
             ShowHitEffect();
+
+            if (IsAlive == false)
+                Died?.Invoke();
         }
 
         public void Heal()

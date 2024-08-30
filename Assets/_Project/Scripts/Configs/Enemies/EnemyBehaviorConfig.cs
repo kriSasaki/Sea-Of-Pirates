@@ -1,4 +1,6 @@
 ﻿using Project.Enemies.Logic.States;
+using Project.Enemies.Logic.States.Battle;
+using Project.Enemies.Logic.States.Idle;
 using System;
 using UnityEngine;
 

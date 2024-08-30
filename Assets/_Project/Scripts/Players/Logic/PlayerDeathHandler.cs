@@ -34,18 +34,15 @@ namespace Project.Players.Logic
             _playerDeathWindow = playerDeathWindow;
             _playerAttack = playerAttack;
             _audioService = audioService;
-            _player.HealthChanged += OnHealthChanged;
+            _player.Died += OnPlayerDied;
         }
 
 
-        private void OnDestroy() => _player.HealthChanged -= OnHealthChanged;
+        private void OnDestroy() => _player.Died -= OnPlayerDied;
 
-        private void OnHealthChanged()
+        private void OnPlayerDied()
         {
-            if (!_player.IsAlive)
-            {
-                Die().Forget();
-            }
+            Die().Forget();
         }
 
         private async UniTaskVoid Die()

@@ -27,7 +27,7 @@ namespace Project.Configs.Enemies
         public float RotationSpeed => _rotationSpeed;
         public float MoveAngleDot => _moveAngleDot;
         public int Damage => _damage;
-        public float AttackICooldown => _attackCooldown;
+        public float AttackCooldown => _attackCooldown;
         public float AttackRange => _attackRange;
         public float DetectRange => _detectRange;
         public EnemyShipView ShipView => _shipView;

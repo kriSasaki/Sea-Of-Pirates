@@ -38,7 +38,7 @@ namespace Project.Enemies.Logic.States
 
         private void OnEnemyDied(IEnemy enemy)
         {
-            StateMachine.SetState(StateMachine._deadState);
+            StateMachine.SetState<DeadState>();
         }
     }
 }
