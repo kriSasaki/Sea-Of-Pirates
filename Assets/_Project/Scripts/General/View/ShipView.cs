@@ -1,19 +1,23 @@
 ﻿using Cysharp.Threading.Tasks;
+using Project.Utils.Extensions;
 using Project.Utils.Tweens;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Project.General.View
 {
     public abstract class ShipView : MonoBehaviour
     {
-       
+        [SerializeField] private float _verticalOffset = 0.5f;
         [SerializeField] private SinkTween _sinkTween;
         [SerializeField] private ShipSwinger _shipSwinger;
 
         private Vector3 _originLocalPosition;
 
-        private void Start()
+        private void Awake()
         {
+            transform.localPosition = transform.localPosition.AddY(-_verticalOffset);
+            _originLocalPosition = transform.localPosition;
             _sinkTween.Initialize(transform);
         }
 
@@ -39,14 +43,13 @@ namespace Project.General.View
         {
         }
 
-        protected void InitializeShipSwinger(Vector3 waterLineOffset)
+        private void OnDrawGizmosSelected()
         {
-            _shipSwinger.Initialize(waterLineOffset);
-        }
+            Gizmos.color = Color.yellow;
 
-        protected void SetOriginLocalPosition(Vector3 position)
-        {
-            _originLocalPosition = position;
+            Gizmos.DrawLine(
+                transform.position.AddY(_verticalOffset),
+                transform.position.AddY(_verticalOffset) + Vector3.forward * 20);
         }
     }
 }

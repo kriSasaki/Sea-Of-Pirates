@@ -49,6 +49,6 @@ MonoBehaviour:
   _maxEnemies: 10
   _spawnRadius: 0
   _respawnDelay: 5
-  _layerMask:
+  _obstaclesMask:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 704

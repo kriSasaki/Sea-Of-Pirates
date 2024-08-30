@@ -1,5 +1,5 @@
-﻿using Project.Configs.Enemies;
-using Project.General.View;
+﻿using Project.General.View;
+using Project.Interfaces.Audio;
 using Project.Spawner;
 using UnityEngine;
 
@@ -9,29 +9,30 @@ namespace Project.Enemies.View
     {
         [SerializeField] private MeshFilter _shipMesh;
         [SerializeField] private MeshFilter _sailMesh;
+        [SerializeField] private AudioClip _shootSound;
+        [SerializeField] private AudioClip _hitSound;
+
 
         private VfxSpawner _vfxSpawner;
+        private IAudioService _audioService;
 
-        public void Initialize(EnemyShipView view, VfxSpawner vfxSpawner)
+        public Bounds ShipBounds => _shipMesh.sharedMesh.bounds;
+        public void Initialize(VfxSpawner vfxSpawner, IAudioService audioService)
         {
-            _shipMesh.mesh = view.ShipMesh;
-            _sailMesh.mesh = view.SailsMesh;
             _vfxSpawner = vfxSpawner;
-            transform.localPosition = transform.localPosition + view.GetViewOffset();
-
-            SetOriginLocalPosition(transform.localPosition);
-            InitializeShipSwinger(view.GetWaterlineOffset());
+            _audioService = audioService;
         }
 
         public void Shoot(Vector3 targetPosition)
         {
             _vfxSpawner.SpawnCannonSmoke(transform.position, targetPosition);
+            _audioService.PlaySound(_shootSound);
         }
 
         public void TakeDamage()
         {
             _vfxSpawner.SpawnExplosion(transform.position, transform);
+            _audioService.PlaySound(_hitSound);
         }
-
     }
 }

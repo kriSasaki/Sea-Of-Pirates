@@ -10,7 +10,7 @@ namespace Project.Players.Logic
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private Rigidbody _playerRigidbody;
-        [SerializeField, Range(30f, 120f)] private float _rotationDelta;
+        [SerializeField, Range(30f, 120f)] private float _rotationSpeed;
         [SerializeField, Range(0.1f, 0.7f)] private float _moveAngleDot;
 
         private IInputService _inputService;
@@ -65,7 +65,7 @@ namespace Project.Players.Logic
 
             Quaternion lookRotation = Quaternion.LookRotation(_inputDirection);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationDelta * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
         }
 
         private void Move()

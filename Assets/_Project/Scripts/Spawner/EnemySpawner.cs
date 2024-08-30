@@ -61,9 +61,9 @@ namespace Project.Spawner
         private Vector3 GetSpawnPosition()
         {
             Vector3 position = GetRandomSpawnPosition();
-            Bounds shipBound = _enemyConfig.ShipView.ShipBounds;
+            Bounds shipBounds = _enemyConfig.View.ShipBounds;
 
-            while (Physics.CheckBox(position, shipBound.extents, Quaternion.identity, _obstaclesMask))
+            while (Physics.CheckBox(position, shipBounds.extents, Quaternion.identity, _obstaclesMask))
             {
                 position = GetRandomSpawnPosition();
             }

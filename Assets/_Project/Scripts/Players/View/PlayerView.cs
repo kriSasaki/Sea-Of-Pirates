@@ -6,12 +6,9 @@ namespace Project.Players.View
     public class PlayerView : ShipView
     {
         [SerializeField] private ParticleSystem _waterTrail;
-        [SerializeField] private Vector3 _waterLineOffset = new (0f, -1.3f, 0f);
 
-        private void Awake()
+        private void Start()
         {
-            SetOriginLocalPosition(transform.localPosition);
-            InitializeShipSwinger(_waterLineOffset);
             _waterTrail.Play();
         }
 

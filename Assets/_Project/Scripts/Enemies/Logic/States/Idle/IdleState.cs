@@ -14,6 +14,12 @@ namespace Project.Enemies.Logic.States.Idle
         {
             base.Enter();
             DetectPlayerAsync(ExitToken).Forget();
+            Enemy.Damaged += OnEnemyDamaged;
+        }
+
+        private void OnEnemyDamaged()
+        {
+            StateMachine.SetState<BattleState>();
         }
 
         private void OnPlayerDetected()
@@ -25,6 +31,8 @@ namespace Project.Enemies.Logic.States.Idle
         {
             base.Exit();
             Detector.PlayerDetected -= OnPlayerDetected;
+            Enemy.Damaged -= OnEnemyDamaged;
+
         }
 
         private async UniTaskVoid DetectPlayerAsync(CancellationToken token)

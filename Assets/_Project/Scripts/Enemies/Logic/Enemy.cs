@@ -2,6 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using Project.Configs.Enemies;
 using Project.Enemies.View;
+using Project.Interfaces.Audio;
 using Project.Interfaces.Enemies;
 using Project.Players.Logic;
 using Project.Spawner;
@@ -14,12 +15,13 @@ namespace Project.Enemies.Logic
     public class Enemy : MonoBehaviour, IPoolableEnemy
     {
         private const int MinimumHealth = 0;
+        private const float ShootDelay = 0.1f;
 
-        [SerializeField] private EnemyView _view;
         [SerializeField] private PlayerDetector _playerDetector;
 
-        private BoxCollider _shipCollider;
         private EnemyConfig _config;
+        private BoxCollider _shipCollider;
+        private EnemyView _view;
         private VfxSpawner _vfxSpawner;
         private EnemyMover _mover;
         private EnemyStateMachine _stateMachine;
@@ -44,19 +46,22 @@ namespace Project.Enemies.Logic
         public void Initialize(
             EnemyConfig config,
             VfxSpawner vfxSpawner,
-            Player player)
+            Player player,
+            IAudioService audioService)
         {
             _shipCollider = GetComponent<BoxCollider>();
+            _stateMachine = GetComponent<EnemyStateMachine>();
+
             _config = config;
             _vfxSpawner = vfxSpawner;
-            _currentHealth = config.MaxHealth;
-            _stateMachine = GetComponent<EnemyStateMachine>();
             _mover = new EnemyMover(_config, transform);
+            _view = Instantiate(_config.View, transform);
+            _currentHealth = config.MaxHealth;
 
-            config.ShipView.SetShipColliderSize(_shipCollider);
             SetSpawnPosition();
+            SetShipColliderSize();
 
-            _view.Initialize(_config.ShipView, _vfxSpawner);
+            _view.Initialize(_vfxSpawner, audioService);
             _playerDetector.Initialize(_config.DetectRange);
             _stateMachine.Initialize(player);
         }
@@ -72,9 +77,10 @@ namespace Project.Enemies.Logic
                 Die();
         }
 
-        public void HitPlayer (Player player)
+        public async UniTaskVoid DealDamageAsync (Player player)
         {
             _view.Shoot(player.transform.position);
+            await UniTask.Delay(TimeSpan.FromSeconds(ShootDelay),cancellationToken: destroyCancellationToken);
             player.TakeDamage(Damage);
         }
 
@@ -86,6 +92,12 @@ namespace Project.Enemies.Logic
             RestoreHealth();
             _view.Ressurect();
             Respawned?.Invoke();
+        }
+
+        public void SetShipColliderSize()
+        {
+            _shipCollider.size = _view.ShipBounds.size;
+            _shipCollider.center = _view.ShipBounds.center;
         }
 
         private void RestoreHealth()

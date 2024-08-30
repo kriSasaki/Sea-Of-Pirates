@@ -17,13 +17,12 @@ namespace Project.Players.Logic
         [SerializeField] private PlayerAttackView _attackView;
         [SerializeField] private float _attackAngle = 100;
         [SerializeField] private float _attackCooldown = 2f;
-        [SerializeField] private AudioClip _shootSound;
 
         private readonly List<IEnemy> _trackedEnemies = new();
+        private readonly WaitForSeconds _shootDelay = new(0.08f);
 
         private SphereCollider _detectZone;
         private IPlayerStats _playerStats;
-        private IAudioService _audioService;
         private Coroutine _battleCoroutine;
         private WaitUntil _hasTargetAwaiter;
 
@@ -79,13 +78,10 @@ namespace Project.Players.Logic
         }
 
         [Inject]
-        private void Construct(
-            IPlayerStats playerStats,
-            IAudioService audioService)
+        private void Construct(IPlayerStats playerStats)
         {
             _detectZone = GetComponent<SphereCollider>();
             _playerStats = playerStats;
-            _audioService = audioService;
             _hasTargetAwaiter = new WaitUntil(HasTargetEnemies);
 
             _playerStats.StatsUpdated += OnStatsUpdated;
@@ -159,10 +155,10 @@ namespace Project.Players.Logic
                 foreach (IEnemy enemy in GetTargetEnemies())
                 {
                     _attackView.Shoot(enemy.Position);
+                    yield return _shootDelay;
                     enemy.TakeDamage(Damage);
                 }
 
-                _audioService.PlaySound(_shootSound);
 
                 yield return _attackView.CannonsUnloading();
             }
@@ -212,27 +208,6 @@ namespace Project.Players.Logic
         private void OnStatsUpdated()
         {
             SetAttackZone();
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.yellow;
-            DrawAttackZones(_attackAngle, 25f);
-        }
-
-        private void DrawAttackZones(float angle, float range)
-        {
-            DrawCone(angle, transform.right, range);
-            DrawCone(angle, -transform.right, range);
-        }
-
-        private void DrawCone(float angle, Vector3 direction, float range)
-        {
-            Quaternion rotation = Quaternion.AngleAxis(angle / 2f, Vector3.up);
-            Gizmos.DrawRay(transform.position, rotation * direction * range);
-
-            rotation = Quaternion.AngleAxis(-angle / 2f, Vector3.up);
-            Gizmos.DrawRay(transform.position, rotation * direction * range);
         }
     }
 }

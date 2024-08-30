@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60307aa68c8e5ce4f8c64617b95835ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: f3daf13c9ad43874fa8107fa36968986, type: 3}
+  _audioClip: {fileID: 8300000, guid: b82879f833ef9f742a6c55911eb75769, type: 3}
 --- !u!114 &5742568367049463457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +65,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRigidbody: {fileID: 3722445594469159487}
-  _rotationDelta: 100
+  _rotationSpeed: 95.4
+  _moveAngleDot: 0.659
 --- !u!114 &3119734213491335052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,8 +89,8 @@ Rigidbody:
   m_GameObject: {fileID: 1298651433288004100}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 100
+  m_Drag: 0.8
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -241,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 5603430958712583707}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d55faa7c27b2ed4aaf00dd4cca533c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _verticalOffset: 0.44
   _sinkTween:
     _sinkDeep: 5.66
     _sinkDuration: 3.82
@@ -267,7 +269,6 @@ MonoBehaviour:
     _sinkEase: 28
   _shipSwinger: {fileID: 6536938811106678299}
   _waterTrail: {fileID: 487657544277507433}
-  _waterLineOffset: {x: 0, y: -1.52, z: 0}
 --- !u!114 &6536938811106678299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038a84e81d7d1ef4996b9f97165a82d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waterlineLevel: 0.89
   _timeOffsetMultiplier: 2
   _minWaveFrequency: 1
   _maxWaveFrequency: 2
@@ -343,8 +345,8 @@ GameObject:
   m_Component:
   - component: {fileID: 127920284012805211}
   - component: {fileID: 9095237347911496701}
-  - component: {fileID: 378822387187641448}
   - component: {fileID: 5715749594416267659}
+  - component: {fileID: 378822387187641448}
   m_Layer: 10
   m_Name: PlayerAttack
   m_TagString: Untagged
@@ -381,9 +383,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackView: {fileID: 5715749594416267659}
-  _attackAngle: 100
-  _attackCooldown: 2
+  _attackAngle: 95
+  _attackCooldown: 1.5
+--- !u!114 &5715749594416267659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153653273697702634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea54be3bcdeb2e64ba14265bf017885b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _shootSound: {fileID: 8300000, guid: aa2c78809ec83bc4891d63066860ee29, type: 3}
+  _attackCones: {fileID: 4495760498438621539}
+  _appearingTween:
+    _duration: 0.3
+    _ease: 1
+  _shipCollider: {fileID: 3427630849251422312}
+  _reloadEase: 4
+  _unloadDuration: 0.25
 --- !u!135 &378822387187641448
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -405,25 +426,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5715749594416267659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8153653273697702634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea54be3bcdeb2e64ba14265bf017885b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackCones: {fileID: 4495760498438621539}
-  _appearingTween:
-    _duration: 0.3
-    _ease: 1
-  _shipCollider: {fileID: 3427630849251422312}
-  _reloadEase: 4
-  _unloadDuration: 0.15
 --- !u!1001 &1838326849418885987
 PrefabInstance:
   m_ObjectHideFlags: 0

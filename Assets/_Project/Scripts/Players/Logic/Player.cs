@@ -48,9 +48,6 @@ namespace Project.Players.Logic
 
         public void TakeDamage(int damage)
         {
-            if (IsAlive == false)
-                return;
-
             _currentHealth = Math.Max(_currentHealth - damage, 0);
 
             HealthChanged?.Invoke();

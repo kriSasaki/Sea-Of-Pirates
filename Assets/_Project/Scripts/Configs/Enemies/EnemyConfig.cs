@@ -1,6 +1,7 @@
 using Project.Systems.Data;
 using NaughtyAttributes;
 using UnityEngine;
+using Project.Enemies.View;
 
 namespace Project.Configs.Enemies
 {
@@ -18,7 +19,7 @@ namespace Project.Configs.Enemies
         [SerializeField] private float _attackRange;
         [SerializeField] private float _detectRange;
         [HorizontalLine(2f, EColor.Blue)]
-        [SerializeField] private EnemyShipView _shipView;
+        [SerializeField] private EnemyView _enemyView;
         [SerializeField, Expandable] private EnemyBehaviorConfig _behaviourConfig;
         [SerializeField] private GameResourceAmount _loot;
 
@@ -30,7 +31,7 @@ namespace Project.Configs.Enemies
         public float AttackCooldown => _attackCooldown;
         public float AttackRange => _attackRange;
         public float DetectRange => _detectRange;
-        public EnemyShipView ShipView => _shipView;
+        public EnemyView View => _enemyView;
         public EnemyBehaviorConfig BehaviorConfig => _behaviourConfig;
         public GameResourceAmount Loot => _loot;
     }

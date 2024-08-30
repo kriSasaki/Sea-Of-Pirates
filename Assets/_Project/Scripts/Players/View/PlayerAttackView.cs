@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using Project.Interfaces.Audio;
 using Project.Spawner;
 using Project.Utils.Tweens;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Project.Players.View
         private const float MinProgress = 0f;
         private const float MaxProgress = 1f;
 
+        [SerializeField] private AudioClip _shootSound;
         [SerializeField] private ShipAttackCones _attackCones;
         [SerializeField] private AppearingTransformTween _appearingTween;
         [SerializeField] private Collider _shipCollider;
@@ -19,11 +21,13 @@ namespace Project.Players.View
         [SerializeField] private float _unloadDuration = 0.15f;
 
         private VfxSpawner _vfxSpawner;
+        private IAudioService _audioService;
 
         [Inject]
-        public void Construct(VfxSpawner vfxSpawner)
+        public void Construct(VfxSpawner vfxSpawner, IAudioService audioService)
         {
             _vfxSpawner = vfxSpawner;
+            _audioService = audioService;
             _appearingTween.Initialize(_attackCones.transform);
             _attackCones.gameObject.SetActive(false);
         }
@@ -52,6 +56,8 @@ namespace Project.Players.View
         public void Shoot(Vector3 targetPosition)
         {
             _vfxSpawner.SpawnCannonSmoke(_shipCollider, targetPosition);
+            _audioService.PlaySound(_shootSound);
+
         }
 
         public IEnumerator CannonsLoading(float cooldown)

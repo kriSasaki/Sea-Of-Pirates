@@ -23,5 +23,15 @@ namespace Project.Utils.Extensions
         {
             return new Vector3(x, vector.y, vector.z);
         }
+
+        public static Vector3 SubtractY(this Vector3 vector, float y)
+        {
+            return new Vector3(vector.x, vector.y - y, vector.z);
+        }
+
+        public static Vector3 AddY(this Vector3 vector, float y)
+        {
+            return new Vector3(vector.x, vector.y + y, vector.z);
+        }
     }
 }

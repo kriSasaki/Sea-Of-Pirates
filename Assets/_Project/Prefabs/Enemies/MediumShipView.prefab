@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1333205628139548919}
   - component: {fileID: 1456640750507170166}
   m_Layer: 0
-  m_Name: View
+  m_Name: MediumShipView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895025964455483542}
-  m_Mesh: {fileID: 8571302136649724202, guid: 21bd71cbd3caa0c44938dcc3a6868532, type: 3}
+  m_Mesh: {fileID: -5367830535319256574, guid: a7a7124f12a46b147af73f9629019624, type: 3}
 --- !u!23 &7302029621314066369
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94f6dfccae3ace4cbaefcb7d3e6d89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _verticalOffset: 0.34
   _sinkTween:
     _sinkDeep: 5
     _sinkDuration: 3
@@ -106,6 +107,8 @@ MonoBehaviour:
   _shipSwinger: {fileID: 1456640750507170166}
   _shipMesh: {fileID: 4837104672505128820}
   _sailMesh: {fileID: 5806733922590460351}
+  _shootSound: {fileID: 8300000, guid: aa2c78809ec83bc4891d63066860ee29, type: 3}
+  _hitSound: {fileID: 8300000, guid: b82879f833ef9f742a6c55911eb75769, type: 3}
 --- !u!114 &1456640750507170166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,9 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038a84e81d7d1ef4996b9f97165a82d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waterlineLevel: 0.84
   _timeOffsetMultiplier: 2
   _minWaveFrequency: 1
-  _maxWaveFrequency: 3
+  _maxWaveFrequency: 2
 --- !u!1 &3524105694265295289
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +165,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3524105694265295289}
-  m_Mesh: {fileID: -9151976083251152156, guid: 21bd71cbd3caa0c44938dcc3a6868532, type: 3}
+  m_Mesh: {fileID: -9151976083251152156, guid: a7a7124f12a46b147af73f9629019624, type: 3}
 --- !u!23 &740711210637103581
 MeshRenderer:
   m_ObjectHideFlags: 0

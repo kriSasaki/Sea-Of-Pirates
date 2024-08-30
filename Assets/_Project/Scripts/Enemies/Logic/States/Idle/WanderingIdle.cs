@@ -42,7 +42,6 @@ namespace Project.Enemies.Logic.States.Idle
 
             while (IsValidPosition(newPosition) == false)
             {
-                Debug.Log("Невалидно");
                 newPosition = GetRandomPosition();
             }
 

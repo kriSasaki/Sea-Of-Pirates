@@ -38,7 +38,7 @@ namespace Project.Enemies.Logic.States.Battle
 
         private void Shoot()
         {
-            Enemy.HitPlayer(Player);
+            Enemy.DealDamageAsync(Player).Forget();
             ResetCooldown();
         }
 
