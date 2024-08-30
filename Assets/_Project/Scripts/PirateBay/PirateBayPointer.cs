@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class PirateBayPointer : MonoBehaviour
 {
-    [SerializeField] private Transform _playerTransform; // Ссылка на объект Player
-    [SerializeField] private Camera _camera; // Ссылка на камеру, с которой идет обзор
-    [SerializeField] private Transform _pointerIconTransform; // Ссылка на иконку указателя
+    [SerializeField] private Transform _pointerIconTransform;
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Canvas _pointerCanvas;
-    // Пределы экрана для указателя (в процентах от ширины и высоты экрана)
-    [SerializeField] private float _screenMarginX = 0.1f; // Горизонтальные пределы
-    [SerializeField] private float _screenMarginY = 0.1f; // Вертикальные пределы
+
+    private float _screenMarginX = 0.2f;
+    private float _screenMarginY = 0.2f;
+    private Transform _playerTransform;
+    private Camera _camera;
+
+    private Quaternion[] rotations = new Quaternion[]
+    {
+        Quaternion.Euler(0f, 0f, 90f),
+        Quaternion.Euler(0f, 0f, -90f),
+        Quaternion.Euler(0f, 0f, 180f),
+        Quaternion.Euler(0f, 0f, 0f),
+        Quaternion.identity
+    };
+
+    private void Start()
+    {
+        _camera = Camera.main;
+        _playerTransform = FindObjectOfType<Player>().transform;
+    }
 
     private void Update()
     {
@@ -57,29 +70,19 @@ public class PirateBayPointer : MonoBehaviour
         _pointerIconTransform.rotation = GetIconRotation(planeIndex);
     }
 
-    // Метод для получения необходимой ротации указателя в зависимости от плоскости
     Quaternion GetIconRotation(int planeIndex)
     {
         if (planeIndex < 0 || planeIndex >= rotations.Length)
         {
-            return rotations[4]; // Возвращаем значение по умолчанию, если индекс выходит за пределы
+            return rotations[4];
         }
 
         return rotations[planeIndex];
     }
-    private Quaternion[] rotations = new Quaternion[]
-    {
-    Quaternion.Euler(0f, 0f, 90f),    // вверх
-    Quaternion.Euler(0f, 0f, -90f),   // вниз
-    Quaternion.Euler(0f, 0f, 180f),   // влево
-    Quaternion.Euler(0f, 0f, 0f),     // вправо
-    Quaternion.identity                // по умолчанию (в случае незапланированного индекса)
-    };
+  
     private bool IsVisibleFrom(Camera cam, Renderer renderer)
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
         return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
     }
-
-
 }
