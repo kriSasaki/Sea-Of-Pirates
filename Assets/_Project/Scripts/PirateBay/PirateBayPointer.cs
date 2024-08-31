@@ -1,5 +1,6 @@
+using Project.Players.Logic;
 using UnityEngine;
-
+using Zenject;
 
 public class PirateBayPointer : MonoBehaviour
 {
@@ -20,12 +21,6 @@ public class PirateBayPointer : MonoBehaviour
         Quaternion.Euler(0f, 0f, 0f),
         Quaternion.identity
     };
-
-    private void Start()
-    {
-        _camera = Camera.main;
-        _playerTransform = FindObjectOfType<Player>().transform;
-    }
 
     private void Update()
     {
@@ -70,7 +65,14 @@ public class PirateBayPointer : MonoBehaviour
         _pointerIconTransform.rotation = GetIconRotation(planeIndex);
     }
 
-    Quaternion GetIconRotation(int planeIndex)
+    [Inject]
+    private void Construct(Player player)
+    {
+        _playerTransform = player.transform;
+        _camera = Camera.main;
+    }
+
+    private Quaternion GetIconRotation(int planeIndex)
     {
         if (planeIndex < 0 || planeIndex >= rotations.Length)
         {

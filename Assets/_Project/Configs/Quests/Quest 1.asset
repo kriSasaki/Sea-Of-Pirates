@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _descriptionToken: quests/Level1/quest02
   <ID>k__BackingField: 1
-  <TargetType>k__BackingField: {fileID: 11400000, guid: 5cc56adb66b32cd4eb731575827a2023, type: 2}
+  <TargetType>k__BackingField: {fileID: 11400000, guid: 82b96a39cd676a34fba372e78b1f8d0e, type: 2}
   <TargetAmount>k__BackingField: 6
   <Reward>k__BackingField:
     Resource: {fileID: 11400000, guid: 56bc90269f8ea7c48a14665b81aea9e1, type: 2}

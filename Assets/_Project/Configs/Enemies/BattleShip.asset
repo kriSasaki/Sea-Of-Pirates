@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BattleShip
   m_EditorClassIdentifier: 
   _maxHealth: 89
-  _damage: 15
+  _damage: 20
   _attackCooldown: 3
   _speed: 4
   _rotationSpeed: 46.9
@@ -24,4 +24,4 @@ MonoBehaviour:
   _behaviourConfig: {fileID: 11400000, guid: 0dae694b26a10c04c8732c456914397f, type: 2}
   _loot:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
-    Amount: 5
+    Amount: 25
