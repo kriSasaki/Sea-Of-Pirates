@@ -13,7 +13,7 @@ namespace Project.SDK
         {
             yield return null;
 #if UNITY_WEBGL && !UNITY_EDITOR
-        Agava.YandexGames.YandexGamesSdk.Initialize(LoadScene);
+            yield return Agava.YandexGames.YandexGamesSdk.Initialize(LoadScene);
 #else
             LoadScene();
 #endif
