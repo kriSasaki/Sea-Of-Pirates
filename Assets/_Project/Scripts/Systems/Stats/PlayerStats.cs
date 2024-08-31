@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Project.Interfaces.Data;
 using Project.Interfaces.Stats;
 
-namespace Project.Systems.Stats
+namespace Project.Systems.Data
 {
     public class PlayerStats : IPlayerStats, IUpgradableStats
     {

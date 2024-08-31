@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Project.Configs.GameResources;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 
 namespace Project.Interfaces.Data
 {

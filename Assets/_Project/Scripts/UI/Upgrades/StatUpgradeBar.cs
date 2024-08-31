@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Project.Interfaces.Data;
 using Project.Interfaces.Stats;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using Project.Utils.Extensions;
 using TMPro;
 using UnityEngine;

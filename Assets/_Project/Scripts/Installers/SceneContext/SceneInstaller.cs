@@ -1,7 +1,9 @@
 using Project.Configs.Level;
 using Project.Enemies;
-using Project.Interfaces.Hold;
-using Project.Players.Hold;
+using Project.Enemies.Logic;
+using Project.Interactables;
+using Project.Players.Logic;
+using Project.Players.View;
 using Project.Spawner;
 using Project.Systems.Leaderboard;
 using Project.Systems.Quests;
@@ -21,6 +23,8 @@ namespace Project.Installers.SceneContext
     public class SceneInstaller : MonoInstaller
     {
         [SerializeField] private LevelConfig _levelConfig;
+        [SerializeField] private VfxSpawner _vfxSpawner;
+        [SerializeField] private Enemy _enemyPrefab;
 
         public override void InstallBindings()
         {
@@ -28,16 +32,20 @@ namespace Project.Installers.SceneContext
             BindEnemies();
             BindSystems();
             BindUI();
+            BindInteractables();
             BindPlayer();
         }
+
 
         private void BindConfigs()
         {
             Container.Bind<LevelConfig>().FromInstance(_levelConfig).AsSingle();
+            Container.Bind<VfxSpawner>().FromInstance(_vfxSpawner).AsSingle();
         }
 
         private void BindEnemies()
         {
+            Container.Bind<EnemyFactory>().FromNew().AsSingle().WithArguments(_enemyPrefab);
             Container.Bind<EnemySpawner>().FromComponentsInHierarchy().AsCached();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
         }
@@ -54,12 +62,23 @@ namespace Project.Installers.SceneContext
         {
             Container.Bind<RewardView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<NextLevelWindow>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PlayerDeathWindow>().FromComponentInHierarchy().AsSingle();
+        }
+
+
+        private void BindInteractables()
+        {
+            Container.Bind<PirateBay>().FromComponentInHierarchy().AsSingle();
         }
 
         private void BindPlayer()
         {
             Container.BindInterfacesTo<PlayerHold>().AsSingle();
             Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PlayerView>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PlayerAttack>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<PlayerLootController>().FromNew().AsSingle().NonLazy();
+
         }
 
         private void BindQuestSystem()

@@ -1,4 +1,4 @@
-﻿namespace Project.Systems.Stats
+﻿namespace Project.Systems.Data
 {
     [System.Serializable]
     public enum StatType

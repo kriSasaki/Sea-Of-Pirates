@@ -1,6 +1,6 @@
 ﻿using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using Project.Utils.Extensions;
 using UnityEngine;
 

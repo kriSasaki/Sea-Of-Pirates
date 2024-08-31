@@ -15,8 +15,8 @@ TagManager:
   - Enemies
   - Interactable
   - Obstacles
-  - 
-  - 
+  - EnemieDetector
+  - PlayerDetector
   - 
   - 
   - 

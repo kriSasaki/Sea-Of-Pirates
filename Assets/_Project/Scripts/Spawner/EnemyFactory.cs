@@ -1,21 +1,34 @@
-using Project.Enemies;
+using Project.Configs.Enemies;
+using Project.Enemies.Logic;
+using Project.Enemies.View;
+using Project.Interfaces.Audio;
+using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Spawner
 {
-    [System.Serializable]
     public class EnemyFactory
     {
-        [SerializeField] private Enemy _prefab;
+        private readonly Enemy _prefab;
+        private readonly VfxSpawner _vfxSpawner;
+        private readonly Player _player;
+        private readonly IAudioService _audioService;
 
-        private Enemy _newEnemy;
-
-        public Enemy Create(EnemyConfig enemyConfig, Vector3 position)
+        public EnemyFactory(Enemy prefab, VfxSpawner vfxSpawner, Player player, IAudioService audioService)
         {
-            _newEnemy = Object.Instantiate(_prefab, position, Quaternion.identity);
-            _newEnemy.Initialize(enemyConfig);
+            _prefab = prefab;
+            _vfxSpawner = vfxSpawner;
+            _player = player;
+            _audioService = audioService;
+        }
 
-            return _newEnemy;
+        public Enemy Create(EnemyConfig enemyConfig, Vector3 position, Transform parent = null)
+        {
+            Enemy enemy = Object.Instantiate(_prefab, position, Quaternion.identity, parent);
+            enemy.name = enemyConfig.name;
+            enemy.Initialize(enemyConfig, _vfxSpawner, _player, _audioService);
+
+            return enemy;
         }
     }
 }

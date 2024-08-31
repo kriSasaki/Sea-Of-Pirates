@@ -1,6 +1,6 @@
 ﻿using Project.Configs.UI;
 using Project.Interfaces.Audio;
-using Project.Utils;
+using Project.Utils.Tweens;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -53,7 +53,7 @@ namespace Project.UI
         {
             _windowCanvas.enabled = true;
             _audioService.PlaySound(_openWindowSound);
-            _scaleTween.Run();
+            _scaleTween.RunFrom();
         }
 
         [Inject]

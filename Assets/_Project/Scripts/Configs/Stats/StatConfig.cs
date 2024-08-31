@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Lean.Localization;
 using NaughtyAttributes;
-using Project.Systems.Stats;
+using Project.Systems.Data;
 using Project.Utils;
 using UnityEngine;
 

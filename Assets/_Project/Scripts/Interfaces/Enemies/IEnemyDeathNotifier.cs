@@ -1,5 +1,5 @@
 using System;
-using Project.Enemies;
+using Project.Configs.Enemies;
 
 namespace Project.Interfaces.Enemies
 {

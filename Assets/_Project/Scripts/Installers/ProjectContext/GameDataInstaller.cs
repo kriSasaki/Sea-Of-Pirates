@@ -4,8 +4,6 @@ using Project.Configs.ShopItems;
 using Project.Configs.UI;
 using Project.Interfaces.Data;
 using Project.Systems.Data;
-using Project.Systems.Stats;
-using Project.Systems.Storage;
 using UnityEngine;
 using Zenject;
 
