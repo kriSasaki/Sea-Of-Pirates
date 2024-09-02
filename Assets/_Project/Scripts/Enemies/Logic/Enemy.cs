@@ -18,6 +18,7 @@ namespace Project.Enemies.Logic
         private const float ShootDelay = 0.1f;
 
         [SerializeField] private PlayerDetector _playerDetector;
+        [SerializeField] private AttackRangeView _attackRangeView;
 
         private EnemyConfig _config;
         private BoxCollider _shipCollider;
@@ -37,6 +38,7 @@ namespace Project.Enemies.Logic
 
         public EnemyConfig Config => _config;
         public EnemyMover Mover => _mover;
+        public AttackRangeView AttackRangeView => _attackRangeView;
         public Collider ShipCollider => _shipCollider;
         public PlayerDetector Detector => _playerDetector;
         public Transform Transform => transform;
@@ -51,6 +53,7 @@ namespace Project.Enemies.Logic
             IAudioService audioService)
         {
             SetSpawnPosition();
+
             _shipCollider = GetComponent<BoxCollider>();
             _stateMachine = GetComponent<EnemyStateMachine>();
 
@@ -63,6 +66,7 @@ namespace Project.Enemies.Logic
             SetShipColliderSize();
 
             _view.Initialize(_vfxSpawner, audioService);
+            _attackRangeView.Initialize(_config.AttackRange);
             _playerDetector.Initialize(_config.DetectRange);
             _stateMachine.Initialize(player);
         }
@@ -78,10 +82,10 @@ namespace Project.Enemies.Logic
                 Die();
         }
 
-        public async UniTaskVoid DealDamageAsync (Player player)
+        public async UniTaskVoid DealDamageAsync(Player player)
         {
             _view.Shoot(player.transform.position);
-            await UniTask.Delay(TimeSpan.FromSeconds(ShootDelay),cancellationToken: destroyCancellationToken);
+            await UniTask.Delay(TimeSpan.FromSeconds(ShootDelay), cancellationToken: destroyCancellationToken);
             player.TakeDamage(Damage);
         }
 

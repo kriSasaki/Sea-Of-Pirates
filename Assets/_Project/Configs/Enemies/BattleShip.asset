@@ -18,9 +18,9 @@ MonoBehaviour:
   _speed: 4
   _rotationSpeed: 46.9
   _moveAngleDot: 0.7
-  _attackRange: 25
+  _attackRange: 30
   _detectRange: 45
-  _enemyView: {fileID: 1333205628139548919, guid: cb0bae0291c2a054c9fdfdd467a7c879, type: 3}
+  _enemyView: {fileID: 513053922594630507, guid: 4c3f870efe8e783479e99e407b44842c, type: 3}
   _behaviourConfig: {fileID: 11400000, guid: 0dae694b26a10c04c8732c456914397f, type: 2}
   _loot:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
