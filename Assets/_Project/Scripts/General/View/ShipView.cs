@@ -49,7 +49,7 @@ namespace Project.General.View
 
             Gizmos.DrawLine(
                 transform.position.AddY(_verticalOffset),
-                transform.position.AddY(_verticalOffset) + Vector3.forward * 20);
+                transform.position.AddY(_verticalOffset) + transform.forward * 20);
         }
     }
 }

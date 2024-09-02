@@ -65,7 +65,7 @@ namespace Project.Players.Logic
 
             Quaternion lookRotation = Quaternion.LookRotation(_inputDirection);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.fixedDeltaTime);
         }
 
         private void Move()

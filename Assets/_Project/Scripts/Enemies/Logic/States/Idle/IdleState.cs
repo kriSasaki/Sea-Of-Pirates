@@ -24,7 +24,8 @@ namespace Project.Enemies.Logic.States.Idle
 
         private void OnPlayerDetected()
         {
-            StateMachine.SetState<BattleState>();
+            if (Player.IsAlive)
+                StateMachine.SetState<BattleState>();
         }
 
         public override void Exit()
