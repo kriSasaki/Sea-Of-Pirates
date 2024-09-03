@@ -8,6 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 164608481881519205, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 164608481881519205, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430560345761959386, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430560345761959386, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430560345761959386, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 522191570470324583, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 895025964455483542, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: m_Name
       value: MediumShipView
@@ -27,6 +51,10 @@ PrefabInstance:
     - target: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _verticalOffset
       value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419383982986610553, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_fontSize
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _waterlineLevel
@@ -75,6 +103,14 @@ PrefabInstance:
     - target: {fileID: 2132961712432785312, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148026214602445930, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.9334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148026214602445930, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.4334
       objectReference: {fileID: 0}
     - target: {fileID: 4837104672505128820, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: m_Mesh
