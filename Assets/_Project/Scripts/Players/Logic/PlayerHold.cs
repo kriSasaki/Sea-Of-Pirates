@@ -24,6 +24,7 @@ namespace Project.Players.Logic
         }
 
         public event Action<int> CargoChanged;
+        public event Action Filled;
 
         public int CargoSize => _playerStats.CargoSize;
 
@@ -42,7 +43,10 @@ namespace Project.Players.Logic
             int inHoldCargo = GetResourcesAmount();
 
             if (inHoldCargo == CargoSize)
+            {
+                Filled?.Invoke();
                 return;
+            }
 
             gameResourceAmount.Amount = Mathf.Min(gameResourceAmount.Amount, CargoSize - inHoldCargo);
             _cargo.Add(gameResourceAmount);

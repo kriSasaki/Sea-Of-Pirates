@@ -1,6 +1,8 @@
-﻿using Project.General.View;
+﻿using Project.Enemies.Logic;
+using Project.General.View;
 using Project.Interfaces.Audio;
 using Project.Spawner;
+using Project.Utils.Extensions;
 using UnityEngine;
 
 namespace Project.Enemies.View
@@ -11,16 +13,18 @@ namespace Project.Enemies.View
         [SerializeField] private MeshFilter _sailMesh;
         [SerializeField] private AudioClip _shootSound;
         [SerializeField] private AudioClip _hitSound;
-
+        [SerializeField] private EnemyHudView _hudView;
 
         private VfxSpawner _vfxSpawner;
         private IAudioService _audioService;
 
         public Bounds ShipBounds => _shipMesh.sharedMesh.bounds;
-        public void Initialize(VfxSpawner vfxSpawner, IAudioService audioService)
+
+        public void Initialize(Enemy enemy, VfxSpawner vfxSpawner, IAudioService audioService)
         {
             _vfxSpawner = vfxSpawner;
             _audioService = audioService;
+            _hudView.Initialize(enemy);
         }
 
         public void Shoot(Vector3 targetPosition)
@@ -29,10 +33,21 @@ namespace Project.Enemies.View
             _audioService.PlaySound(_shootSound);
         }
 
-        public void TakeDamage()
+        public void ShowHud()
+        {
+            _hudView.Show();
+        }
+
+        public void HideHud()
+        {
+            _hudView.Hide();
+        }
+
+        public void TakeDamage(int damage)
         {
             _vfxSpawner.SpawnExplosion(transform.position, transform);
             _audioService.PlaySound(_hitSound);
+            _vfxSpawner.ShowDamage(transform.position, damage);
         }
     }
 }

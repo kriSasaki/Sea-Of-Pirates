@@ -6,6 +6,7 @@ namespace Project.Spawner
     {
         [SerializeField] private ParticleSystem _cannonSmokePrefab;
         [SerializeField] private ParticleSystem _explosionPrefab;
+        [SerializeField] private DamagePopup _damagePopupPrefab;
 
         public void SpawnCannonSmoke(Collider shooterCollider, Vector3 targetPosition)
         {
@@ -21,6 +22,13 @@ namespace Project.Spawner
         public void SpawnExplosion(Vector3 atPosition, Transform parent = null)
         {
             Instantiate(_explosionPrefab, atPosition, Quaternion.identity, parent);
+        }
+
+        public void ShowDamage(Vector3 atposition, int damage)
+        {
+            Quaternion rotation = Camera.main.transform.rotation;
+            var damagePopup = Instantiate(_damagePopupPrefab, atposition, rotation);
+            damagePopup.Initialize(damage);
         }
     }
 }

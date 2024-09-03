@@ -31,13 +31,15 @@ namespace Project.Enemies.Logic
         public event Action<IEnemy> Died;
         public event Action Respawned;
         public event Action Damaged;
+        public event Action<int, int> HealthChanged;
 
         public bool IsAlive => _currentHealth > MinimumHealth;
         public int Damage => _config.Damage;
-        public float AttackInterval => _config.AttackCooldown;
+        public float AttackCooldown => _config.AttackCooldown;
 
         public EnemyConfig Config => _config;
         public EnemyMover Mover => _mover;
+        public EnemyView View => _view;
         public AttackRangeView AttackRangeView => _attackRangeView;
         public Collider ShipCollider => _shipCollider;
         public PlayerDetector Detector => _playerDetector;
@@ -46,26 +48,31 @@ namespace Project.Enemies.Logic
         public GameResourceAmount Loot => _config.Loot;
         public Vector3 SpawnPosition { get; private set; }
 
+
+        private void Start()
+        {
+            HealthChanged?.Invoke(_currentHealth, _config.MaxHealth);
+        }
+
         public void Initialize(
             EnemyConfig config,
             VfxSpawner vfxSpawner,
             Player player,
             IAudioService audioService)
         {
-            SetSpawnPosition();
+            _config = config;
+            _vfxSpawner = vfxSpawner;
+            _currentHealth = _config.MaxHealth;
 
             _shipCollider = GetComponent<BoxCollider>();
             _stateMachine = GetComponent<EnemyStateMachine>();
-
-            _config = config;
-            _vfxSpawner = vfxSpawner;
             _mover = new EnemyMover(_config, transform);
             _view = Instantiate(_config.View, transform);
-            _currentHealth = config.MaxHealth;
 
             SetShipColliderSize();
+            SetSpawnPosition();
 
-            _view.Initialize(_vfxSpawner, audioService);
+            _view.Initialize(this, _vfxSpawner, audioService);
             _attackRangeView.Initialize(_config.AttackRange);
             _playerDetector.Initialize(_config.DetectRange);
             _stateMachine.Initialize(player);
@@ -74,9 +81,10 @@ namespace Project.Enemies.Logic
         public void TakeDamage(int damage)
         {
             _currentHealth -= damage;
-            _view.TakeDamage();
+            _view.TakeDamage(damage);
 
             Damaged?.Invoke();
+            HealthChanged?.Invoke(_currentHealth, _config.MaxHealth);
 
             if (!IsAlive)
                 Die();
@@ -105,9 +113,10 @@ namespace Project.Enemies.Logic
             _shipCollider.center = _view.ShipBounds.center;
         }
 
-        private void RestoreHealth()
+        public void RestoreHealth()
         {
             _currentHealth = _config.MaxHealth;
+            HealthChanged?.Invoke(_currentHealth, _config.MaxHealth);
         }
 
         private void SetSpawnPosition()

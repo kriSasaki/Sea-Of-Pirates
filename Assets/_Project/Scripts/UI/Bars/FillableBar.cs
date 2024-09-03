@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Project.UI.Bars
 {
@@ -10,6 +11,8 @@ namespace Project.UI.Bars
         [SerializeField] private Image _filler;
         [SerializeField] private float _fillDuration = 0.1f;
         [SerializeField] private Ease _fillEase = Ease.Linear;
+
+        private Color _originColor;
 
         public void Set(float currentValue, float maxValue)
         {
@@ -35,8 +38,32 @@ namespace Project.UI.Bars
                 .WithCancellation(destroyCancellationToken);
         }
 
+        protected void LerpColor(Color fromColor, float duration)
+        {
+            _filler.color = fromColor;
+            _filler.DOColor(_originColor, duration);
+        }
+
+        protected void WarningLerpColor(Color fromColor, int loops, float loopDuration)
+        {
+            if (_filler.color != _originColor)
+                return;
+
+            _filler.color = fromColor;
+
+            _filler.DOColor(_originColor, loopDuration)
+                .SetLoops(loops)
+                .OnComplete(()=> _filler.color = _originColor);
+        }
+
         protected virtual void OnFill()
         {
+        }
+
+        [Inject]
+        private void Construct()
+        {
+            _originColor = _filler.color;
         }
     }
 }

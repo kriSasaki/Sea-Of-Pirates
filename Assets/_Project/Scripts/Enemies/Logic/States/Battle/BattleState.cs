@@ -7,12 +7,14 @@ namespace Project.Enemies.Logic.States.Battle
     public abstract class BattleState : AliveState
     {
         private AttackRangeView _attackRangeView;
+        private EnemyView _enemyView;
 
         protected override void OnInitialize()
         {
             base.OnInitialize();
 
             _attackRangeView = Enemy.AttackRangeView;
+            _enemyView = Enemy.View;
         }
 
         public override void Enter()
@@ -21,7 +23,7 @@ namespace Project.Enemies.Logic.States.Battle
             Detector.PlayerLost += OnPlayerLost;
             Player.Died += OnPlayerDied;
             _attackRangeView.ShowAttackRange();
-
+            _enemyView.ShowHud();
         }
 
         public override void Exit()
@@ -30,6 +32,7 @@ namespace Project.Enemies.Logic.States.Battle
             Detector.PlayerLost -= OnPlayerLost;
             Player.Died -= OnPlayerDied;
             _attackRangeView.HideAttackRange();
+            _enemyView.HideHud();
         }
 
         private void OnPlayerLost()

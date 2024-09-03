@@ -1,4 +1,5 @@
 ﻿using Project.Interfaces.Hold;
+using System;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -8,12 +9,16 @@ namespace Project.UI.Bars
     public class PlayerHoldBar : FadeableBar
     {
         [SerializeField] private TMP_Text _amountLabel;
+        [SerializeField] private Color _warningColor = Color.red;
+        [SerializeField] private int _warningLoops = 6;
+        [SerializeField] private float _loopDuration = 0.2f;
 
         private IPlayerHold _hold;
 
         private void OnDestroy()
         {
             _hold.CargoChanged -= OnCargoChanged;
+            _hold.Filled -= OnCargoFilled;
         }
 
         [Inject]
@@ -21,6 +26,12 @@ namespace Project.UI.Bars
         {
             _hold = hold;
             _hold.CargoChanged += OnCargoChanged;
+            _hold.Filled += OnCargoFilled;
+        }
+
+        private void OnCargoFilled()
+        {
+           WarningLerpColor(_warningColor, _warningLoops,_loopDuration);
         }
 
         private void OnCargoChanged(int currentCargo)

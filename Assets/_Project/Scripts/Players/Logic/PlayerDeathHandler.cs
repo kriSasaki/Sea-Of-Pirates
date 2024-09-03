@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using Project.Interactables;
 using Project.Interfaces.Audio;
 using Project.Players.View;
+using Project.SDK.Advertisment;
 using Project.UI;
 using UnityEngine;
 using Zenject;
@@ -18,6 +19,7 @@ namespace Project.Players.Logic
         private PlayerDeathWindow _playerDeathWindow;
         private PlayerAttack _playerAttack;
         private IAudioService _audioService;
+        private AdvertismentController _advertisingController;
 
         [Inject]
         private void Construct(
@@ -26,6 +28,7 @@ namespace Project.Players.Logic
             PirateBay pirateBay,
             PlayerDeathWindow playerDeathWindow,
             PlayerAttack playerAttack,
+            AdvertismentController advertismentController,
             IAudioService audioService)
         {
             _player = player;
@@ -33,6 +36,7 @@ namespace Project.Players.Logic
             _pirateBay = pirateBay;
             _playerDeathWindow = playerDeathWindow;
             _playerAttack = playerAttack;
+            _advertisingController = advertismentController;
             _audioService = audioService;
             _player.Died += OnPlayerDied;
         }
@@ -57,6 +61,8 @@ namespace Project.Players.Logic
 
         private void RessurectPlayer()
         {
+            _advertisingController.ShowIntersticialAd();
+
             _player.Heal();
             _player.transform.position = _pirateBay.PlayerRessurectPoint.position;
             _playerView.Ressurect();
