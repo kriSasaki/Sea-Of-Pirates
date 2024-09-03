@@ -1,6 +1,5 @@
 ﻿using Project.Enemies.Logic.States.Idle;
 using Project.Enemies.View;
-using UnityEditor.Build;
 
 namespace Project.Enemies.Logic.States.Battle
 {
