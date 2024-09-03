@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 3448364581226311475}
   - component: {fileID: 2233577906176681091}
   - component: {fileID: 8940842824973604971}
+  - component: {fileID: 5229212777503421465}
   m_Layer: 5
   m_Name: CanvasBayPointer
   m_TagString: Untagged
@@ -159,6 +160,19 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &5229212777503421465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783659866655073301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec42ee6b2fef3314b92a68d0106b287d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pointerIconTransform: {fileID: 2092762359082158605}
 --- !u!1 &6604319541584056362
 GameObject:
   m_ObjectHideFlags: 0
