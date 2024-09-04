@@ -20,6 +20,7 @@ namespace Project.Configs.Enemies
         [SerializeField] private float _detectRange;
         [HorizontalLine(2f, EColor.Blue)]
         [SerializeField] private EnemyView _enemyView;
+        [SerializeField] private bool _isSolidForPlayer = false;
         [SerializeField, Expandable] private EnemyBehaviorConfig _behaviourConfig;
         [SerializeField] private GameResourceAmount _loot;
 
@@ -32,6 +33,7 @@ namespace Project.Configs.Enemies
         public float AttackRange => _attackRange;
         public float DetectRange => _detectRange;
         public EnemyView View => _enemyView;
+        public bool IsSolidForPlayer => _isSolidForPlayer;
         public EnemyBehaviorConfig BehaviorConfig => _behaviourConfig;
         public GameResourceAmount Loot => _loot;
     }

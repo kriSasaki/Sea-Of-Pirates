@@ -69,7 +69,7 @@ namespace Project.Enemies.Logic
             _mover = new EnemyMover(_config, transform);
             _view = Instantiate(_config.View, transform);
 
-            SetShipColliderSize();
+            SetShipCollider(player);
             SetSpawnPosition();
 
             _view.Initialize(this, _vfxSpawner, audioService);
@@ -107,8 +107,13 @@ namespace Project.Enemies.Logic
             Respawned?.Invoke();
         }
 
-        public void SetShipColliderSize()
+        public void SetShipCollider(Player player)
         {
+            if (_config.IsSolidForPlayer)
+            {
+                _shipCollider.includeLayers = 1 << player.PhysicsLayer;
+            }
+
             _shipCollider.size = _view.ShipBounds.size;
             _shipCollider.center = _view.ShipBounds.center;
         }

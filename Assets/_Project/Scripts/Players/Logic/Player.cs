@@ -22,11 +22,17 @@ namespace Project.Players.Logic
         public Vector3 Position => transform.position;
         public int CurrentHealth => _currentHealth;
         public int MaxHealth => _playerStats.MaxHealth;
+        public int PhysicsLayer => gameObject.layer;
         public bool IsAlive => _currentHealth > 0;
 
         private void Start()
         {
             HealthChanged?.Invoke();
+        }
+
+        private void OnDestroy()
+        {
+            _playerStats.StatsUpdated -= OnStatsUpdated;
         }
 
         [Inject]
@@ -35,6 +41,8 @@ namespace Project.Players.Logic
             _playerStats = playerStats;
             _playerHold = playerHold;
             _currentHealth = MaxHealth;
+
+            _playerStats.StatsUpdated += OnStatsUpdated;
         }
 
         public void TakeDamage(int damage)
@@ -60,6 +68,11 @@ namespace Project.Players.Logic
         public void UnloadHold()
         {
             _playerHold.LoadToStorage();
+        }
+
+        private void OnStatsUpdated()
+        {
+            Heal();
         }
     }
 }
