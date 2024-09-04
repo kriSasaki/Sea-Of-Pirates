@@ -72,7 +72,7 @@ namespace Project.PirateBays
         }
 
         [Inject]
-        private void Construct(Player player, PirateBay pirateBay, Canvas pointerCanvas)
+        private void Construct(Player player, PirateBay pirateBay)
         {
             _playerTransform = player.transform;
             _pirateBayTransform = pirateBay.transform;
