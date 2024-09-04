@@ -1,4 +1,5 @@
-﻿using Project.Enemies.Logic;
+﻿using Project.Configs.Level;
+using Project.Enemies.Logic;
 using Project.General.View;
 using Project.Interfaces.Audio;
 using Project.Spawner;
@@ -7,11 +8,13 @@ using UnityEngine;
 
 namespace Project.Enemies.View
 {
+
     public class EnemyView : ShipView
     {
         [SerializeField] private PunchShipTween _punchTween;
         [SerializeField] private MeshFilter _shipMesh;
-        [SerializeField] private MeshFilter _sailMesh;
+        [SerializeField] private MeshRenderer _shipRenderer;
+        [SerializeField] private MeshRenderer _sailsRenderer;
         [SerializeField] private AudioClip _shootSound;
         [SerializeField] private AudioClip _hitSound;
         [SerializeField] private EnemyHudView _hudView;
@@ -22,12 +25,18 @@ namespace Project.Enemies.View
 
         public Bounds ShipBounds => _shipMesh.sharedMesh.bounds;
 
-        public void Initialize(Enemy enemy, VfxSpawner vfxSpawner, IAudioService audioService)
+        public void Initialize(
+            Enemy enemy,
+            VfxSpawner vfxSpawner,
+            IAudioService audioService,
+            LevelConfig levelConfig)
         {
             _vfxSpawner = vfxSpawner;
             _audioService = audioService;
             _hudView.Initialize(enemy);
             _punchTween.Initialize(transform);
+
+            SetRenderers(levelConfig);
         }
 
         public override void TakeDamage(int damage)
@@ -52,6 +61,19 @@ namespace Project.Enemies.View
         public void HideHud()
         {
             _hudView.Hide();
+        }
+
+        private void SetRenderers(LevelConfig levelConfig)
+        {
+            Material levelMaterial = levelConfig.LevelMaterial;
+
+            if (_shipRenderer.material == levelMaterial)
+                return;
+
+            _shipRenderer.material = levelMaterial;
+
+            if (_sailsRenderer != null)
+                _sailsRenderer.material = levelMaterial;
         }
     }
 }

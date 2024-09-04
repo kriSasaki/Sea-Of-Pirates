@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2589898767628538096}
   - component: {fileID: 5707186545652767162}
   - component: {fileID: 5370452518602836140}
+  - component: {fileID: -3401085527455180930}
   m_Layer: 4
-  m_Name: Water
+  m_Name: Sea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,3 +107,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &-3401085527455180930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543353823678248318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9330a21b99bb43e418e1a94cf62195dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waterRenderer: {fileID: 5707186545652767162}

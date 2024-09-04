@@ -25,7 +25,7 @@ namespace Project.Installers.SceneContext
         [SerializeField] private LevelConfig _levelConfig;
         [SerializeField] private VfxSpawner _vfxSpawner;
         [SerializeField] private Enemy _enemyPrefab;
-        [SerializeField] private Player _playerPrefab;
+        //[SerializeField] private Player _playerPrefab;
 
         public override void InstallBindings()
         {

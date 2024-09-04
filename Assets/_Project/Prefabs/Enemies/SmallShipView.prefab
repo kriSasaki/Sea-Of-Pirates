@@ -113,7 +113,8 @@ MonoBehaviour:
     _elacticity: 1
     _ease: 1
   _shipMesh: {fileID: 4837104672505128820}
-  _sailMesh: {fileID: 5806733922590460351}
+  _shipRenderer: {fileID: 7302029621314066369}
+  _sailsRenderer: {fileID: 740711210637103581}
   _shootSound: {fileID: 8300000, guid: aa2c78809ec83bc4891d63066860ee29, type: 3}
   _hitSound: {fileID: 8300000, guid: b82879f833ef9f742a6c55911eb75769, type: 3}
   _hudView: {fileID: 3067092261741233425}

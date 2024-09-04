@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using Project.Configs.Enemies;
+using Project.Configs.Level;
 using Project.Enemies.View;
 using Project.Interfaces.Audio;
 using Project.Interfaces.Enemies;
@@ -58,7 +59,8 @@ namespace Project.Enemies.Logic
             EnemyConfig config,
             VfxSpawner vfxSpawner,
             Player player,
-            IAudioService audioService)
+            IAudioService audioService,
+            LevelConfig levelConfig)
         {
             _config = config;
             _vfxSpawner = vfxSpawner;
@@ -72,7 +74,7 @@ namespace Project.Enemies.Logic
             SetShipCollider(player);
             SetSpawnPosition();
 
-            _view.Initialize(this, _vfxSpawner, audioService);
+            _view.Initialize(this, _vfxSpawner, audioService, levelConfig);
             _attackRangeView.Initialize(_config.AttackRange);
             _playerDetector.Initialize(_config.DetectRange);
             _stateMachine.Initialize(player);
