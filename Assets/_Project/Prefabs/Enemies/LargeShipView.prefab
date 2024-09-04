@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: _verticalOffset
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: _punchTween._force
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: _punchTween._vibrato
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1419383982986610553, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: m_fontSize
       value: 2.3

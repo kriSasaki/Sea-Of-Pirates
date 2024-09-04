@@ -2,15 +2,14 @@
 using Project.Utils.Extensions;
 using Project.Utils.Tweens;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Project.General.View
 {
     public abstract class ShipView : MonoBehaviour
     {
         [SerializeField] private float _verticalOffset = 0.5f;
-        [SerializeField] private SinkTween _sinkTween;
         [SerializeField] private ShipSwinger _shipSwinger;
+        [SerializeField] private SinkTween _sinkTween;
 
         private Vector3 _originLocalPosition;
 
@@ -20,6 +19,8 @@ namespace Project.General.View
             _originLocalPosition = transform.localPosition;
             _sinkTween.Initialize(transform);
         }
+
+        public abstract void TakeDamage(int damage);
 
         public async UniTask DieAsync()
         {

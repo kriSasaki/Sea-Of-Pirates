@@ -15,6 +15,8 @@ namespace Project.Enemies.View
         [SerializeField] private Image _lootIcon;
         [SerializeField] private TMP_Text _lootAmount;
         [SerializeField] private FillableBar _healthBar;
+        [SerializeField] private Color _hitColor = Color.white;
+        [SerializeField] private float _hitDuration = 0.15f;
 
         public void Initialize(Enemy enemy)
         {
@@ -35,6 +37,7 @@ namespace Project.Enemies.View
         private void OnHealthChanged(int currentHealth, int maxHealth)
         {
             _healthBar.Fill(currentHealth, maxHealth);
+            _healthBar.LerpColor(_hitColor, _hitDuration);
         }
 
         public void Show()

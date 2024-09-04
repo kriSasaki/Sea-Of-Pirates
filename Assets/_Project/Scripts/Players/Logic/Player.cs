@@ -1,7 +1,6 @@
-using Project.Interfaces.Audio;
 using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
-using Project.Spawner;
+using Project.Players.View;
 using System;
 using UnityEngine;
 using Zenject;
@@ -10,12 +9,10 @@ namespace Project.Players.Logic
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private AudioClip _audioClip;
+        [SerializeField] private PlayerView _view;
 
         private IPlayerStats _playerStats;
-        private IAudioService _audioService;
         private IPlayerHold _playerHold;
-        private VfxSpawner _vfxSpawner;
 
         private int _currentHealth;
 
@@ -33,16 +30,10 @@ namespace Project.Players.Logic
         }
 
         [Inject]
-        public void Construct(
-            IPlayerStats playerStats,
-            IAudioService audioService,
-            IPlayerHold playerHold,
-            VfxSpawner vfxSpawner)
+        public void Construct(IPlayerStats playerStats, IPlayerHold playerHold)
         {
             _playerStats = playerStats;
-            _audioService = audioService;
             _playerHold = playerHold;
-            _vfxSpawner = vfxSpawner;
             _currentHealth = MaxHealth;
         }
 
@@ -54,7 +45,7 @@ namespace Project.Players.Logic
             _currentHealth = Math.Max(_currentHealth - damage, 0);
 
             HealthChanged?.Invoke();
-            ShowHitEffect();
+            _view.TakeDamage(damage);
 
             if (IsAlive == false)
                 Died?.Invoke();
@@ -69,12 +60,6 @@ namespace Project.Players.Logic
         public void UnloadHold()
         {
             _playerHold.LoadToStorage();
-        }
-
-        private void ShowHitEffect()
-        {
-            _audioService.PlaySound(_audioClip);
-            _vfxSpawner.SpawnExplosion(transform.position, transform);
         }
     }
 }

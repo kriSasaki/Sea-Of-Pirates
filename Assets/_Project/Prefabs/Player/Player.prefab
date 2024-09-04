@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60307aa68c8e5ce4f8c64617b95835ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: b82879f833ef9f742a6c55911eb75769, type: 3}
+  _view: {fileID: 301624018786779958}
 --- !u!114 &5742568367049463457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
     _sinkEase: 28
   _shipSwinger: {fileID: 6536938811106678299}
   _waterTrail: {fileID: 487657544277507433}
+  _hitSound: {fileID: 8300000, guid: aa2c78809ec83bc4891d63066860ee29, type: 3}
 --- !u!114 &6536938811106678299
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -100,12 +100,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _verticalOffset: 0.36
+  _shipSwinger: {fileID: 1456640750507170166}
   _sinkTween:
     _sinkDeep: 5
     _sinkDuration: 3
     _sinkAngle: 90
     _sinkEase: 0
-  _shipSwinger: {fileID: 1456640750507170166}
+  _punchTween:
+    _force: 7
+    _duration: 1.2
+    _vibrato: 3
+    _elacticity: 1
+    _ease: 1
   _shipMesh: {fileID: 4837104672505128820}
   _sailMesh: {fileID: 5806733922590460351}
   _shootSound: {fileID: 8300000, guid: aa2c78809ec83bc4891d63066860ee29, type: 3}
@@ -403,6 +409,8 @@ MonoBehaviour:
   _lootIcon: {fileID: 8080592970746538676}
   _lootAmount: {fileID: 8215156777550201413}
   _healthBar: {fileID: 715409119583500121}
+  _hitColor: {r: 1, g: 1, b: 1, a: 1}
+  _hitDuration: 0.15
 --- !u!114 &715409119583500121
 MonoBehaviour:
   m_ObjectHideFlags: 0
