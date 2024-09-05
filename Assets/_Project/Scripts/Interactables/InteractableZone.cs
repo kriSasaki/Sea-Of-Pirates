@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Project.Interactables
 {
@@ -8,6 +9,8 @@ namespace Project.Interactables
         [SerializeField] private float _triggerZoneRadius = 30f;
         [SerializeField] private Color _gizmosColor = Color.white;
 
+        public SphereCollider TriggerZone => _triggerZone;
+        
         private SphereCollider _triggerZone;
 
         private void Awake()

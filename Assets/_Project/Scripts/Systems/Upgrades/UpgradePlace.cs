@@ -25,7 +25,7 @@ namespace Project.Systems.Upgrades
                 _upgradeSystem.Hide();
             }
         }
-
+ 
         [Inject]
         private void Construct(UpgradeSystem upgradeSystemView)
         {
