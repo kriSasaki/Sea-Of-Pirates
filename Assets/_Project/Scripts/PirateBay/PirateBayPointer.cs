@@ -68,7 +68,7 @@ namespace Project.PirateBays
             screenPosition.x = Mathf.Clamp(screenPosition.x, screenWidth * _screenMarginX, screenWidth * (1 - _screenMarginX));
             screenPosition.y = Mathf.Clamp(screenPosition.y, screenHeight * _screenMarginY, screenHeight * (1 - _screenMarginY));
             _pointerIconTransform.position = Vector3.Lerp(_pointerIconTransform.position, screenPosition, Time.deltaTime * _speedPointerIcon);
-            _pointerIconTransform.rotation = Quaternion.Slerp(_pointerIconTransform.rotation, GetIconRotation(planeIndex), Time.deltaTime * _speedPointerIcon);
+            _pointerIconTransform.rotation = Quaternion.Slerp(_pointerIconTransform.rotation, GetIconRotation(planeIndex), Time.deltaTime * _speedPointerIcon);// ошибка
         }
 
         [Inject]
@@ -83,7 +83,7 @@ namespace Project.PirateBays
         {
             if (planeIndex < 0 || planeIndex >= rotations.Length)
             {
-                return rotations[rotations.Length];
+                return rotations[rotations.Length - 1];//ошибка
             }
             return rotations[planeIndex];
         }
