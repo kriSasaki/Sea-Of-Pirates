@@ -9,6 +9,8 @@ namespace Project.Configs.Level
         [SerializeField, Scene] private string nextLevelScene;
 
         [field:SerializeField] public bool IsLastLevel { get; private set; }
+        [field: SerializeField] public Material LevelMaterial { get; private set; }
+        [field: SerializeField] public Material WaterMaterial { get; private set; }
         public string NextLevel => nextLevelScene;
     }
 }

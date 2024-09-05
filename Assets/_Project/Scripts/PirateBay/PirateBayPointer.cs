@@ -7,15 +7,18 @@ namespace Project.PirateBays
 {
     public class PirateBayPointer : MonoBehaviour
     {
-        [SerializeField] private Transform _pointerIconTransform;
+        [SerializeField] private Transform _pointerTransform;
+
+        [SerializeField, Range(0f, 0.5f)] private float _leftMargin = 0.01f;
+        [SerializeField, Range(0f, 0.5f)] private float _rightMargin = 0.1f;
+        [SerializeField, Range(0f, 0.5f)] private float _topMargin = 0.1f;
+        [SerializeField, Range(0f, 0.5f)] private float _downMargin = 0.01f;
 
         private Canvas _pointerCanvas;
         private Transform _playerTransform;
         private Transform _pirateBayTransform;
         private Camera _camera;
-        private float _screenMarginX = 0.2f;
-        private float _screenMarginY = 0.2f;
-        private float _speedPointerIcon = 10f;
+        private float _pointerSpeed = 10f;
 
         private Quaternion[] rotations = new Quaternion[]
         {
@@ -65,10 +68,14 @@ namespace Project.PirateBays
             Vector3 screenPosition = _camera.WorldToScreenPoint(worldPosition);
             float screenWidth = Screen.width;
             float screenHeight = Screen.height;
-            screenPosition.x = Mathf.Clamp(screenPosition.x, screenWidth * _screenMarginX, screenWidth * (1 - _screenMarginX));
-            screenPosition.y = Mathf.Clamp(screenPosition.y, screenHeight * _screenMarginY, screenHeight * (1 - _screenMarginY));
-            _pointerIconTransform.position = Vector3.Lerp(_pointerIconTransform.position, screenPosition, Time.deltaTime * _speedPointerIcon);
-            _pointerIconTransform.rotation = Quaternion.Slerp(_pointerIconTransform.rotation, GetIconRotation(planeIndex), Time.deltaTime * _speedPointerIcon);
+            screenPosition.x = Mathf.Clamp(screenPosition.x, screenWidth * _leftMargin, screenWidth * (1 - _rightMargin));
+            screenPosition.y = Mathf.Clamp(screenPosition.y, screenHeight * _downMargin, screenHeight * (1 - _topMargin));
+
+            float lerpTime = Time.deltaTime * _pointerSpeed;
+            Vector3 position = Vector3.Lerp(_pointerTransform.position, screenPosition, lerpTime);
+            Quaternion rotation = Quaternion.Slerp(_pointerTransform.rotation, GetIconRotation(planeIndex), lerpTime);
+
+            _pointerTransform.SetPositionAndRotation(position,rotation);
         }
 
         [Inject]
@@ -81,21 +88,15 @@ namespace Project.PirateBays
 
         private Quaternion GetIconRotation(int planeIndex)
         {
-            if (planeIndex < 0 || planeIndex >= rotations.Length)
-            {
-                return rotations[rotations.Length];
-            }
-            return rotations[planeIndex];
+            return rotations[planeIndex % rotations.Length];
         }
 
         private bool IsVisibleFrom(Camera camera, Transform transform)
         {
-            float pirateBaySizeX = 1f;
-            float pirateBaySizeY = 1f;
-            float pirateBaySizeZ = 1f;
 
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
-            Vector3 pirateBaySize = new Vector3(pirateBaySizeX, pirateBaySizeY, pirateBaySizeZ);
+            Vector3 pirateBaySize = Vector3.one;
+
             Bounds bounds = new Bounds(transform.position, pirateBaySize);
 
             return GeometryUtility.TestPlanesAABB(planes, bounds);

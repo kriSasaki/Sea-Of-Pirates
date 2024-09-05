@@ -594,7 +594,6 @@ GameObject:
   - component: {fileID: 8018254645570196009}
   - component: {fileID: 8520623027649184754}
   - component: {fileID: 2580629940013073601}
-  - component: {fileID: 1864108092335612907}
   m_Layer: 8
   m_Name: PirateBay
   m_TagString: Untagged
@@ -695,18 +694,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerRessurectPoint>k__BackingField: {fileID: 2137511364166176026}
---- !u!114 &1864108092335612907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8895037373998079775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec42ee6b2fef3314b92a68d0106b287d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pointerIconTransform: {fileID: 0}
-  _renderer: {fileID: 1698124224199760896}
-  _pointerCanvas: {fileID: 0}

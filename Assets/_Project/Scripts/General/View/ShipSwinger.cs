@@ -34,14 +34,14 @@ namespace Project.General.View
             Gizmos.color = Color.cyan;
             Gizmos.DrawLine(
                 transform.position.WithZeroY(),
-                transform.position.WithZeroY() + Vector3.forward * 20);
+                transform.position.WithZeroY() + transform.forward * 20);
 
 
             Gizmos.color = Color.red;
 
             Gizmos.DrawLine(
                 transform.position.AddY(_waterlineLevel),
-                transform.position.AddY(_waterlineLevel) + Vector3.forward * 20);
+                transform.position.AddY(_waterlineLevel) + transform.forward * 20);
         }
     }
 }
