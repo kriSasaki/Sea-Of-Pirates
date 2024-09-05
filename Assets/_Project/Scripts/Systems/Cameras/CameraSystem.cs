@@ -23,24 +23,12 @@ namespace Project.Systems.Cameras
         }
 
         [Inject]
-        private void Construct(Player player)
+        public void Construct(Player player)
         {
             _player = player;
 
             SetPlayerCamera();
             DisableCamera(_targetCamera);
-        }
-
-        private void SetPlayerCamera()
-        {
-            _playerCamera.Follow = _player.transform;
-            _playerCamera.LookAt = _player.transform;
-        }
-
-        private void SetTargetCamera(Transform target)
-        {
-            _targetCamera.Follow = target;
-            _targetCamera.LookAt = target;
         }
 
         public void GoToTarget(Transform target)
@@ -63,6 +51,18 @@ namespace Project.Systems.Cameras
             await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: destroyCancellationToken);
             GoToPlayer();
             _player.EnableMove();
+        }
+
+        private void SetPlayerCamera()
+        {
+            _playerCamera.Follow = _player.transform;
+            _playerCamera.LookAt = _player.transform;
+        }
+
+        private void SetTargetCamera(Transform target)
+        {
+            _targetCamera.Follow = target;
+            _targetCamera.LookAt = target;
         }
 
         private void EnableCamera(CinemachineVirtualCamera camera)
