@@ -15,4 +15,4 @@ MonoBehaviour:
   nextLevelScene: Level02
   <IsLastLevel>k__BackingField: 0
   <LevelMaterial>k__BackingField: {fileID: 2100000, guid: 5e1235b2e417983469723d36f05de88d, type: 2}
-  <WaterMaterial>k__BackingField: {fileID: 2100000, guid: 287f5c5596df8d94594c370c2a16aac8, type: 2}
+  <WaterMaterial>k__BackingField: {fileID: 2100000, guid: 338f8498d5492f04481517e630b8731f, type: 2}

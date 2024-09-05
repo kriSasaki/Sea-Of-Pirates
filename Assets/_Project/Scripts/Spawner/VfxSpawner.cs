@@ -4,6 +4,8 @@ namespace Project.Spawner
 {
     public class VfxSpawner : MonoBehaviour
     {
+        private readonly Vector3 ExplotionOffset = Vector3.up;
+
         [SerializeField] private ParticleSystem _cannonSmokePrefab;
         [SerializeField] private ParticleSystem _explosionPrefab;
         [SerializeField] private DamagePopup _damagePopupPrefab;
@@ -21,7 +23,7 @@ namespace Project.Spawner
 
         public void SpawnExplosion(Vector3 atPosition, Transform parent = null)
         {
-            Instantiate(_explosionPrefab, atPosition, Quaternion.identity, parent);
+            Instantiate(_explosionPrefab, atPosition + ExplotionOffset, Quaternion.identity, parent);
         }
 
         public void ShowDamage(Vector3 atposition, int damage)
