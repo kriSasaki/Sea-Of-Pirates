@@ -5,6 +5,7 @@ using Project.Interactables;
 using Project.Players.Logic;
 using Project.Players.View;
 using Project.Spawner;
+using Project.Systems.Cameras;
 using Project.Systems.Leaderboard;
 using Project.Systems.Quests;
 using Project.Systems.Shop;
@@ -25,6 +26,7 @@ namespace Project.Installers.SceneContext
         [SerializeField] private LevelConfig _levelConfig;
         [SerializeField] private VfxSpawner _vfxSpawner;
         [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private CameraSystem _cameraSystemPrefab;
         //[SerializeField] private Player _playerPrefab;
 
         public override void InstallBindings()
@@ -59,6 +61,7 @@ namespace Project.Installers.SceneContext
             Container.BindInterfacesAndSelfTo<LeaderboardSystem>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<QuestEnemyMarker>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
+            Container.Bind<CameraSystem>().FromComponentInNewPrefab(_cameraSystemPrefab).AsSingle().NonLazy();
         }
 
         private void BindUI()
@@ -92,7 +95,7 @@ namespace Project.Installers.SceneContext
         {
             Container.BindInterfacesTo<PlayerHold>().AsSingle();
 
-            //Container.Bind(typeof(Player), typeof(PlayerAttack), typeof(PlayerView))
+            //Container.Bind(typeof(Player), typeof(PlayerAttack), typeof(PlayerView), typeof (PlayerMove))
             //    .FromComponentInNewPrefab(_playerPrefab)
             //    .AsSingle();
 

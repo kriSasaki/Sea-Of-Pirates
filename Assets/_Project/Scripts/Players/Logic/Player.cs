@@ -15,6 +15,7 @@ namespace Project.Players.Logic
         private IPlayerHold _playerHold;
 
         private int _currentHealth;
+        private bool _canMove = true;
 
         public event Action HealthChanged;
         public event Action Died;
@@ -24,6 +25,7 @@ namespace Project.Players.Logic
         public int MaxHealth => _playerStats.MaxHealth;
         public int PhysicsLayer => gameObject.layer;
         public bool IsAlive => _currentHealth > 0;
+        public bool CanMove => _canMove;
 
         private void Start()
         {
@@ -68,6 +70,16 @@ namespace Project.Players.Logic
         public void UnloadHold()
         {
             _playerHold.LoadToStorage();
+        }
+
+        public void EnableMove()
+        {
+            _canMove = true;
+        }
+
+        public void DisableMove()
+        {
+            _canMove = false;
         }
 
         private void OnStatsUpdated()

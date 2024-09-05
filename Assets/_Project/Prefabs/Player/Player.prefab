@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRigidbody: {fileID: 3722445594469159487}
-  _rotationSpeed: 113.6
+  _rotationSpeed: 120
   _moveAngleDot: 0.659
 --- !u!114 &3119734213491335052
 MonoBehaviour:
@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2148768d265d70a40b7628e83fb81b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerRigidbody: {fileID: 3722445594469159487}
   _deathSound: {fileID: 8300000, guid: 6c6311809e338bf42adb4ccc974a2ed4, type: 3}
 --- !u!54 &3722445594469159487
 Rigidbody:
@@ -89,7 +90,7 @@ Rigidbody:
   m_GameObject: {fileID: 1298651433288004100}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 2
   m_AngularDrag: 3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -102,9 +103,9 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!136 &3427630849251422312
@@ -262,12 +263,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _verticalOffset: 0.44
+  _shipSwinger: {fileID: 6536938811106678299}
   _sinkTween:
     _sinkDeep: 5.66
     _sinkDuration: 3.82
     _sinkAngle: 90
     _sinkEase: 28
-  _shipSwinger: {fileID: 6536938811106678299}
+  _punchTween:
+    _force: 6
+    _duration: 0.8
+    _vibrato: 3
+    _elacticity: 1
+    _ease: 4
   _waterTrail: {fileID: 487657544277507433}
   _hitSound: {fileID: 8300000, guid: aa2c78809ec83bc4891d63066860ee29, type: 3}
 --- !u!114 &6536938811106678299

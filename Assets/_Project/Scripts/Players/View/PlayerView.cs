@@ -31,6 +31,7 @@ namespace Project.Players.View
         {
             base.OnDie();
             _waterTrail.Stop();
+            _waterTrail.Clear();
         }
 
         protected override void OnRessurect()
