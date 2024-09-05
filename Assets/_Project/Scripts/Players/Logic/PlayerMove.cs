@@ -9,6 +9,8 @@ namespace Project.Players.Logic
 {
     public class PlayerMove : MonoBehaviour
     {
+        private const float MaxDistanceDelta = 0.8f;
+
         [SerializeField] private Rigidbody _playerRigidbody;
         [SerializeField, Range(30f, 120f)] private float _rotationSpeed;
         [SerializeField, Range(0.1f, 0.7f)] private float _moveAngleDot;
@@ -33,7 +35,7 @@ namespace Project.Players.Logic
 
         private void FixedUpdate()
         {
-            if (_player.IsAlive == false)
+            if (_player.IsAlive == false || _player.CanMove == false)
                 return;
 
             Rotate();
@@ -65,21 +67,19 @@ namespace Project.Players.Logic
 
             Quaternion lookRotation = Quaternion.LookRotation(_inputDirection);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.fixedDeltaTime);
         }
 
         private void Move()
         {
-            if (Vector3.Dot(transform.forward, _inputDirection) < _moveAngleDot)
-                return;
-
             Vector3 direction = _inputDirection.magnitude > 1f ? _inputDirection.normalized : _inputDirection;
+
+            if (Vector3.Dot(transform.forward, _inputDirection) < _moveAngleDot)
+                direction = Vector3.zero;
+
             Vector3 velocity = (direction * MovementSpeed);
 
-
-            _playerRigidbody.velocity = velocity;
+            _playerRigidbody.velocity = Vector3.MoveTowards(_playerRigidbody.velocity, velocity, MaxDistanceDelta);
         }
-
-        private void CameraFollow() => _camera.GetComponent<CameraFollow>().Follow(gameObject);
     }
 }

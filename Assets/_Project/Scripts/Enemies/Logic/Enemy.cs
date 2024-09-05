@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using Project.Configs.Enemies;
+using Project.Configs.Level;
 using Project.Enemies.View;
 using Project.Interfaces.Audio;
 using Project.Interfaces.Enemies;
@@ -18,6 +19,7 @@ namespace Project.Enemies.Logic
         private const float ShootDelay = 0.1f;
 
         [SerializeField] private PlayerDetector _playerDetector;
+        [SerializeField] private AttackRangeView _attackRangeView;
 
         private EnemyConfig _config;
         private BoxCollider _shipCollider;
@@ -30,13 +32,16 @@ namespace Project.Enemies.Logic
         public event Action<IEnemy> Died;
         public event Action Respawned;
         public event Action Damaged;
+        public event Action<int, int> HealthChanged;
 
         public bool IsAlive => _currentHealth > MinimumHealth;
         public int Damage => _config.Damage;
-        public float AttackInterval => _config.AttackCooldown;
+        public float AttackCooldown => _config.AttackCooldown;
 
         public EnemyConfig Config => _config;
         public EnemyMover Mover => _mover;
+        public EnemyView View => _view;
+        public AttackRangeView AttackRangeView => _attackRangeView;
         public Collider ShipCollider => _shipCollider;
         public PlayerDetector Detector => _playerDetector;
         public Transform Transform => transform;
@@ -44,25 +49,33 @@ namespace Project.Enemies.Logic
         public GameResourceAmount Loot => _config.Loot;
         public Vector3 SpawnPosition { get; private set; }
 
+
+        private void Start()
+        {
+            HealthChanged?.Invoke(_currentHealth, _config.MaxHealth);
+        }
+
         public void Initialize(
             EnemyConfig config,
             VfxSpawner vfxSpawner,
             Player player,
-            IAudioService audioService)
+            IAudioService audioService,
+            LevelConfig levelConfig)
         {
-            SetSpawnPosition();
-            _shipCollider = GetComponent<BoxCollider>();
-            _stateMachine = GetComponent<EnemyStateMachine>();
-
             _config = config;
             _vfxSpawner = vfxSpawner;
+            _currentHealth = _config.MaxHealth;
+
+            _shipCollider = GetComponent<BoxCollider>();
+            _stateMachine = GetComponent<EnemyStateMachine>();
             _mover = new EnemyMover(_config, transform);
             _view = Instantiate(_config.View, transform);
-            _currentHealth = config.MaxHealth;
 
-            SetShipColliderSize();
+            SetShipCollider(player);
+            SetSpawnPosition();
 
-            _view.Initialize(_vfxSpawner, audioService);
+            _view.Initialize(this, _vfxSpawner, audioService, levelConfig);
+            _attackRangeView.Initialize(_config.AttackRange);
             _playerDetector.Initialize(_config.DetectRange);
             _stateMachine.Initialize(player);
         }
@@ -70,18 +83,19 @@ namespace Project.Enemies.Logic
         public void TakeDamage(int damage)
         {
             _currentHealth -= damage;
-            _view.TakeDamage();
+            _view.TakeDamage(damage);
 
             Damaged?.Invoke();
+            HealthChanged?.Invoke(_currentHealth, _config.MaxHealth);
 
             if (!IsAlive)
                 Die();
         }
 
-        public async UniTaskVoid DealDamageAsync (Player player)
+        public async UniTaskVoid DealDamageAsync(Player player)
         {
             _view.Shoot(player.transform.position);
-            await UniTask.Delay(TimeSpan.FromSeconds(ShootDelay),cancellationToken: destroyCancellationToken);
+            await UniTask.Delay(TimeSpan.FromSeconds(ShootDelay), cancellationToken: destroyCancellationToken);
             player.TakeDamage(Damage);
         }
 
@@ -95,15 +109,21 @@ namespace Project.Enemies.Logic
             Respawned?.Invoke();
         }
 
-        public void SetShipColliderSize()
+        public void SetShipCollider(Player player)
         {
+            if (_config.IsSolidForPlayer)
+            {
+                _shipCollider.includeLayers = 1 << player.PhysicsLayer;
+            }
+
             _shipCollider.size = _view.ShipBounds.size;
             _shipCollider.center = _view.ShipBounds.center;
         }
 
-        private void RestoreHealth()
+        public void RestoreHealth()
         {
             _currentHealth = _config.MaxHealth;
+            HealthChanged?.Invoke(_currentHealth, _config.MaxHealth);
         }
 
         private void SetSpawnPosition()

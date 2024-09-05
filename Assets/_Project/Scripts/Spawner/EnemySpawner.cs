@@ -108,10 +108,13 @@ namespace Project.Spawner
 
         private void OnEnemyDied(IEnemy enemy)
         {
+            IPoolableEnemy poolEnemy = enemy as IPoolableEnemy;
             EnemyDied?.Invoke(_enemyConfig);
 
             if (_isRespawnable)
-                StartCoroutine(Respawning(enemy as IPoolableEnemy));
+                StartCoroutine(Respawning(poolEnemy));
+            else
+                poolEnemy.SinkAsync().Forget();
         }
 
         private IEnumerator Respawning(IPoolableEnemy enemy)

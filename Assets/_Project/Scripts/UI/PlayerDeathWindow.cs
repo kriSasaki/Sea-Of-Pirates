@@ -29,15 +29,15 @@ namespace Project.UI
 
         public void Show(Action onConfirmCallback)
         {
-            _windowCanvas.enabled = true;
-            _audioService.PlaySound(_playerLooseSound);
-            _scaleTween.RunFrom();
-
             _confirmButton.onClick.AddListener(() =>
             {
                 onConfirmCallback();
                 Hide();
             });
+
+            _windowCanvas.enabled = true;
+            _audioService.PlaySound(_playerLooseSound);
+            _scaleTween.RunFrom();
         }
 
         public void Hide()

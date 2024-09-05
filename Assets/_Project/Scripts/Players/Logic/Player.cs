@@ -1,7 +1,6 @@
-using Project.Interfaces.Audio;
 using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
-using Project.Spawner;
+using Project.Players.View;
 using System;
 using UnityEngine;
 using Zenject;
@@ -10,14 +9,13 @@ namespace Project.Players.Logic
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private AudioClip _audioClip;
+        [SerializeField] private PlayerView _view;
 
         private IPlayerStats _playerStats;
-        private IAudioService _audioService;
         private IPlayerHold _playerHold;
-        private VfxSpawner _vfxSpawner;
 
         private int _currentHealth;
+        private bool _canMove = true;
 
         public event Action HealthChanged;
         public event Action Died;
@@ -25,25 +23,28 @@ namespace Project.Players.Logic
         public Vector3 Position => transform.position;
         public int CurrentHealth => _currentHealth;
         public int MaxHealth => _playerStats.MaxHealth;
+        public int PhysicsLayer => gameObject.layer;
         public bool IsAlive => _currentHealth > 0;
+        public bool CanMove => _canMove;
 
         private void Start()
         {
             HealthChanged?.Invoke();
         }
 
+        private void OnDestroy()
+        {
+            _playerStats.StatsUpdated -= OnStatsUpdated;
+        }
+
         [Inject]
-        public void Construct(
-            IPlayerStats playerStats,
-            IAudioService audioService,
-            IPlayerHold playerHold,
-            VfxSpawner vfxSpawner)
+        public void Construct(IPlayerStats playerStats, IPlayerHold playerHold)
         {
             _playerStats = playerStats;
-            _audioService = audioService;
             _playerHold = playerHold;
-            _vfxSpawner = vfxSpawner;
             _currentHealth = MaxHealth;
+
+            _playerStats.StatsUpdated += OnStatsUpdated;
         }
 
         public void TakeDamage(int damage)
@@ -54,7 +55,7 @@ namespace Project.Players.Logic
             _currentHealth = Math.Max(_currentHealth - damage, 0);
 
             HealthChanged?.Invoke();
-            ShowHitEffect();
+            _view.TakeDamage(damage);
 
             if (IsAlive == false)
                 Died?.Invoke();
@@ -71,10 +72,19 @@ namespace Project.Players.Logic
             _playerHold.LoadToStorage();
         }
 
-        private void ShowHitEffect()
+        public void EnableMove()
         {
-            _audioService.PlaySound(_audioClip);
-            _vfxSpawner.SpawnExplosion(transform.position, transform);
+            _canMove = true;
+        }
+
+        public void DisableMove()
+        {
+            _canMove = false;
+        }
+
+        private void OnStatsUpdated()
+        {
+            Heal();
         }
     }
 }

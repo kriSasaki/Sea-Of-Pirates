@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using Project.Spawner;
+using Project.Systems.Cameras;
+using UnityEngine;
 using Zenject;
 
 namespace Project.Systems.Quests
 {
     public class QuestEnemyMarker : IInitializable, IDisposable
     {
+        private const float SpawnerShowDuration = 3f;
+
         private readonly Dictionary<Quest, List<EnemySpawner>> _questEnemySpawners = new();
         private readonly List<EnemySpawner> _spawners;
         private readonly QuestSystem _questSystem;
+        private readonly CameraSystem _cameraSystem;
 
-        public QuestEnemyMarker(List<EnemySpawner> spawners, QuestSystem questSystem)
+        public QuestEnemyMarker(List<EnemySpawner> spawners, QuestSystem questSystem, CameraSystem cameraSystem)
         {
             _spawners = spawners;
             _questSystem = questSystem;
+            _cameraSystem = cameraSystem;
         }
 
         public void Initialize()
@@ -78,6 +84,7 @@ namespace Project.Systems.Quests
             {
                 case QuestState.Taken:
                     MarkQuestEnemies(quest);
+                    ShowQuestSpawner(quest);
                     break;
 
                 case QuestState.Done:
@@ -87,6 +94,13 @@ namespace Project.Systems.Quests
                 default:
                     break;
             }
+        }
+
+        private void ShowQuestSpawner(Quest quest)
+        {
+            Transform questSpawner = _questEnemySpawners[quest].First().transform;
+
+            _cameraSystem.ShowTarget(questSpawner, SpawnerShowDuration).Forget();
         }
     }
 }
