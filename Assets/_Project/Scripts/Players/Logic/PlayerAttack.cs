@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Agava.YandexGames;
 using Project.Interfaces.Audio;
 using Project.Interfaces.Enemies;
 using Project.Interfaces.Stats;
@@ -14,6 +15,8 @@ namespace Project.Players.Logic
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerAttack : MonoBehaviour
     {
+        private const string LeaderboardName = "Leaderboard";
+        private const string SaveNumberEnemysKilled = "SaveNumberEnemysKilled";
         [SerializeField] private PlayerAttackView _attackView;
         [SerializeField] private float _attackAngle = 100;
         [SerializeField] private float _attackCooldown = 2f;
@@ -25,7 +28,7 @@ namespace Project.Players.Logic
         private IPlayerStats _playerStats;
         private Coroutine _battleCoroutine;
         private WaitUntil _hasTargetAwaiter;
-
+        private int _numberEnemiesKilled = 0;
         public event Action<IEnemy> EnemyKilled;
 
         public int Damage => _playerStats.Damage;
@@ -39,6 +42,10 @@ namespace Project.Players.Logic
         private void Start()
         {
             SetAttackZone();
+            if (PlayerPrefs.HasKey(SaveNumberEnemysKilled))
+            {
+                _numberEnemiesKilled = PlayerPrefs.GetInt(SaveNumberEnemysKilled);
+            }
         }
 
         private void OnEnable()
@@ -203,6 +210,13 @@ namespace Project.Players.Logic
         {
             EnemyKilled?.Invoke(enemy);
             UntrackEnemy(enemy);
+
+            if (PlayerAccount.IsAuthorized)
+            {
+                Leaderboard.SetScore(LeaderboardName, _numberEnemiesKilled++);
+                PlayerPrefs.SetInt(SaveNumberEnemysKilled, _numberEnemiesKilled);
+                PlayerPrefs.Save();
+            }
         }
 
         private void OnStatsUpdated()
