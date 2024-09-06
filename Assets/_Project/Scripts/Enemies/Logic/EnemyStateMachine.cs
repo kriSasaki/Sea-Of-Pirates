@@ -2,6 +2,7 @@
 using Project.Enemies.Logic.States;
 using Project.Enemies.Logic.States.Battle;
 using Project.Enemies.Logic.States.Idle;
+using Project.Interfaces.Audio;
 using Project.Players.Logic;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,9 @@ namespace Project.Enemies.Logic
     [RequireComponent(typeof(Enemy))]
     public class EnemyStateMachine : MonoBehaviour
     {
-        //public IdleState _idleState;
-        //public BattleState _battleState;
-        //public DeadState _deadState;
-
         private Player _player;
         private Enemy _enemy;
+        private IAudioService _audioService;
 
         private readonly Dictionary<Type,BaseState> _states = new ();
         private BaseState CurrentState { get; set; }
@@ -32,30 +30,19 @@ namespace Project.Enemies.Logic
             if (CurrentState != null)
                 CurrentState.Exit();
 
-            //Destroy(_idleState);
-            //Destroy(_battleState);
-            //Destroy(_deadState);
-
             foreach (BaseState state in _states.Values)
             {
                 Destroy(state);
             }
         }
 
-        public void Initialize(Player player)
+        public void Initialize(Player player, IAudioService audioService)
         {
             _enemy = GetComponent<Enemy>();
             _player = player;
+            _audioService = audioService;
             EnemyBehaviorConfig config = _enemy.Config.BehaviorConfig;
 
-            //_idleState = Instantiate(config.IdleState);
-            //_battleState = Instantiate(config.BattleState);
-            //_deadState = Instantiate(config.DeadState);
-
-
-            //_idleState.Initialize(_enemy, _player, this);
-            //_battleState.Initialize(_enemy, _player, this);
-            //_deadState.Initialize(_enemy, _player, this);
             RegisterState<IdleState>(config.IdleState);
             RegisterState<BattleState>(config.BattleState);
             RegisterState<DeadState>(config.DeadState);
@@ -68,7 +55,7 @@ namespace Project.Enemies.Logic
             if (!_states.ContainsKey(typeof(T)))
             {
                 T newState = Instantiate(state);
-                newState.Initialize(_enemy, _player, this);
+                newState.Initialize(_enemy, _player, this, _audioService);
 
                 _states.Add(typeof(T), newState);
             }
@@ -99,17 +86,5 @@ namespace Project.Enemies.Logic
             CurrentState = state;
             CurrentState.Enter();
         }
-
-        //public void SetState(BaseState state)
-        //{
-        //    if (CurrentState == state)
-        //        return;
-
-        //    if (CurrentState != null)
-        //        CurrentState.Exit();
-
-        //    CurrentState = state;
-        //    CurrentState.Enter();
-        //}
     }
 }

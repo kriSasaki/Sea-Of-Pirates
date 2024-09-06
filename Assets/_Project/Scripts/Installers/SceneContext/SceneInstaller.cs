@@ -62,6 +62,7 @@ namespace Project.Installers.SceneContext
             Container.BindInterfacesAndSelfTo<QuestEnemyMarker>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
             Container.Bind<CameraSystem>().FromComponentInNewPrefab(_cameraSystemPrefab).AsSingle().NonLazy();
+            //Container.Bind<CameraSystem>().FromComponentInHierarchy().AsSingle();
         }
 
         private void BindUI()

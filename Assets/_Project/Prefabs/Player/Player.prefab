@@ -66,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerRigidbody: {fileID: 3722445594469159487}
   _rotationSpeed: 120
-  _moveAngleDot: 0.659
+  _moveAngleDot: 0.613
 --- !u!114 &3119734213491335052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,10 +127,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 1.89
   m_Height: 15
   m_Direction: 2
-  m_Center: {x: 0, y: 3, z: 0.39}
+  m_Center: {x: 0, y: 1.89, z: 0.39}
 --- !u!1 &4713609338367576247
 GameObject:
   m_ObjectHideFlags: 0

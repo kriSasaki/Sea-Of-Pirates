@@ -1,4 +1,5 @@
 ﻿using Project.Configs.Enemies;
+using Project.Interfaces.Audio;
 using Project.Players.Logic;
 using UnityEngine;
 
@@ -10,12 +11,14 @@ namespace Project.Enemies.Logic.States
         protected Player Player { get; private set; }
         protected EnemyConfig Config { get; private set; }
         protected EnemyStateMachine StateMachine { get; private set; }
+        protected IAudioService AudioService { get; private set; }
 
-        public void Initialize(Enemy enemy, Player player, EnemyStateMachine stateMachine)
+        public void Initialize(Enemy enemy, Player player, EnemyStateMachine stateMachine, IAudioService audioService)
         {
             Enemy = enemy;
             Player = player;
             Config = Enemy.Config;
+            AudioService = audioService;
             StateMachine = stateMachine;
 
             OnInitialize();

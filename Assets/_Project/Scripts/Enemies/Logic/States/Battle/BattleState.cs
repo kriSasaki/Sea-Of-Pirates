@@ -1,5 +1,7 @@
 ﻿using Project.Enemies.Logic.States.Idle;
 using Project.Enemies.View;
+using Project.Players.Logic;
+using UnityEngine;
 
 namespace Project.Enemies.Logic.States.Battle
 {
@@ -8,13 +10,9 @@ namespace Project.Enemies.Logic.States.Battle
         private AttackRangeView _attackRangeView;
         private EnemyView _enemyView;
 
-        protected override void OnInitialize()
-        {
-            base.OnInitialize();
-
-            _attackRangeView = Enemy.AttackRangeView;
-            _enemyView = Enemy.View;
-        }
+        protected Vector3 DirectionToPlayer => Player.Position - Enemy.transform.position;
+        protected Vector3 RightSideDirection => Enemy.transform.right;
+        protected Vector3 LeftSideDirection => -Enemy.transform.right;
 
         public override void Enter()
         {
@@ -32,6 +30,22 @@ namespace Project.Enemies.Logic.States.Battle
             Player.Died -= OnPlayerDied;
             _attackRangeView.HideAttackRange();
             _enemyView.HideHud();
+        }
+
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
+
+            _attackRangeView = Enemy.AttackRangeView;
+            _enemyView = Enemy.View;
+        }
+
+        protected BoardSide GetClosestSide()
+        {
+            float rightDot = Vector3.Dot(RightSideDirection, DirectionToPlayer);
+            float leftDot = Vector3.Dot(LeftSideDirection, DirectionToPlayer);
+
+            return rightDot >= leftDot ? BoardSide.Right : BoardSide.Left;
         }
 
         private void OnPlayerLost()
