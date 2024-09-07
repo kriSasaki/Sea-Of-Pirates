@@ -15,6 +15,7 @@ namespace Project.Systems.Upgrades
             if (other.TryGetComponent(out Player player))
             {
                 _upgradeSystem.Show();
+                OnPlayerEntered();
             }
         }
 
@@ -23,6 +24,7 @@ namespace Project.Systems.Upgrades
             if (other.TryGetComponent(out Player player))
             {
                 _upgradeSystem.Hide();
+                OnPlayerCameOut();
             }
         }
  

@@ -1,14 +1,13 @@
-using System;
 using DG.Tweening;
-using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Interactables
 {
-    public class InteractableZoneVisual : InteractableZone
+    public class InteractableZoneVisual : MonoBehaviour
     {
         private const float MinScale = 0;
 
+        [SerializeField] private InteractableZone _interactableZone;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Color _zoneColor;
         [SerializeField] private float ScaleDuration = 0.5f;
@@ -17,10 +16,22 @@ namespace Project.Interactables
         
         private void Start()
         {
-            _maxScale = TriggerZone.radius;
+            _maxScale = _interactableZone.TriggerZone;
             _spriteRenderer.gameObject.transform.localScale =
                 new Vector3(_maxScale, _maxScale, _maxScale);
             _spriteRenderer.color = _zoneColor;
+        }
+
+        private void OnEnable()
+        {
+            _interactableZone.PlayerEntered += Hide;
+            _interactableZone.PlayerCameOut += Show;
+        }
+
+        private void OnDisable()
+        {
+            _interactableZone.PlayerEntered -= Hide;
+            _interactableZone.PlayerCameOut -= Show;
         }
 
         private void Show()
@@ -31,22 +42,6 @@ namespace Project.Interactables
         private void Hide()
         {
             _spriteRenderer.transform.DOScale(MinScale, ScaleDuration).SetEase(Ease.InOutSine);
-        }
-        
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-               Hide();
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-                Show();
-            }
         }
     }
 }
