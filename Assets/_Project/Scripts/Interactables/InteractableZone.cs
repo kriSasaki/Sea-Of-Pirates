@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Project.Interactables
 {
@@ -8,6 +9,11 @@ namespace Project.Interactables
         [SerializeField] private float _triggerZoneRadius = 30f;
         [SerializeField] private Color _gizmosColor = Color.white;
 
+        public event Action PlayerEntered;
+        public event Action PlayerCameOut;
+        
+        public float TriggerZone => _triggerZoneRadius;
+        
         private SphereCollider _triggerZone;
 
         private void Awake()
@@ -21,6 +27,16 @@ namespace Project.Interactables
         {
             Gizmos.color = _gizmosColor;
             Gizmos.DrawWireSphere(transform.position, _triggerZoneRadius);
+        }
+
+        public void OnPlayerEntered()
+        {
+            PlayerEntered?.Invoke();
+        }
+
+        public void OnPlayerCameOut()
+        {
+            PlayerCameOut?.Invoke();
         }
     }
 }

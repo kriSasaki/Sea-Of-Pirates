@@ -31,6 +31,7 @@ namespace Project.Systems.Quests
             {
                 if (_quest.Status.State != QuestState.Completed)
                     _questView.Show(_quest);
+                OnPlayerEntered();
             }
         }
 
@@ -39,6 +40,7 @@ namespace Project.Systems.Quests
             if (other.TryGetComponent(out Player player))
             {
                 _questView.Hide();
+                OnPlayerCameOut();
             }
         }
 
