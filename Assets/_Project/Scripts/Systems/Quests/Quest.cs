@@ -3,7 +3,6 @@ using Project.Configs.Enemies;
 using Project.Configs.Quests;
 using Project.Interfaces.Enemies;
 using Project.Interfaces.Quests;
-using UnityEngine;
 
 namespace Project.Systems.Quests
 {
@@ -104,9 +103,9 @@ namespace Project.Systems.Quests
             if (enemyType == _config.TargetType)
             {
                 _status.Progress++;
-                StatusChanged?.Invoke(this);
 
                 CheckProgress();
+                StatusChanged?.Invoke(this);
             }
         }
     }

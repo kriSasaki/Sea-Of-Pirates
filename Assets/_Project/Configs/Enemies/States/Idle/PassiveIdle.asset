@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: PassiveIdle
   m_EditorClassIdentifier: 
   _playerDetectionDelay: 2.9
+  _isHealState: 1
+  _healDelay: 5

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: WanderingIdle
   m_EditorClassIdentifier: 
   _playerDetectionDelay: 1
-  _movementRange: 23.1
+  _isHealState: 1
+  _healDelay: 5
+  _movementRange: 25
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 576
