@@ -25,28 +25,30 @@ namespace Project.Interactables
         private GameConfig _gameConfig;
         private LevelConfig _levelConfig;
 
-        private void OnTriggerEnter(Collider other)
+        protected override void OnPlayerEntered(Player player)
         {
-            if (other.TryGetComponent(out Player _))
-            {
-                bool hasMap = _storage.CanSpend(_map, MapAmount);
+            base.OnPlayerEntered(player);
 
-                string windowText = hasMap ?
-                    GetTranslatedText(_avaliablePassToken) :
-                    GetTranslatedText(_unavaliablePassToken);
+            bool hasMap = _storage.CanSpend(_map, MapAmount);
 
-                if (hasMap)
-                    _window.Open(windowText, hasMap, SwitchLevel);
-                else
-                    _window.Open(windowText, hasMap, () => _window.Hide());
-            }
+            string windowText = hasMap ?
+                GetTranslatedText(_avaliablePassToken) :
+                GetTranslatedText(_unavaliablePassToken);
+
+            if (hasMap)
+                _window.Open(windowText, hasMap, SwitchLevel);
+            else
+                _window.Open(windowText, hasMap, () => _window.Hide());
+
         }
 
-        private void OnTriggerExit(Collider other)
+        protected override void OnPlayerExited(Player player)
         {
-            if (other.TryGetComponent(out Player _))
-                _window.Hide();
+            base.OnPlayerExited(player);
+
+            _window.Hide();
         }
+
 
         [Inject]
         private void Construct(

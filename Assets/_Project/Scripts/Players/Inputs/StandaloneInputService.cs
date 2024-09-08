@@ -17,7 +17,7 @@ namespace Project.Players.Inputs
                     targetAxis = UnityAxis();
                 }
 
-                return SmoothTransition(targetAxis);
+                return targetAxis;
             }
         }
 
