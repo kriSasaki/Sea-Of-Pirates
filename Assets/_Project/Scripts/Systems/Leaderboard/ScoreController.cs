@@ -10,6 +10,7 @@ namespace Project.Controllers
     public class ScoreController : IDisposable
     {
         private const string SaveNumberEnemysKilled = "SaveNumberEnemysKilled";
+        
         private ILeaderboardService _leaderboardService;
         private PlayerAttack _playerAttack;
         private int _killsCount = 0;

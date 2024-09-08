@@ -1,4 +1,5 @@
 using Project.Configs.Level;
+using Project.Controllers;
 using Project.Enemies;
 using Project.Enemies.Logic;
 using Project.Interactables;
@@ -62,6 +63,7 @@ namespace Project.Installers.SceneContext
             Container.BindInterfacesAndSelfTo<QuestEnemyMarker>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
             Container.Bind<CameraSystem>().FromComponentInNewPrefab(_cameraSystemPrefab).AsSingle().NonLazy();
+            Container.BindInterfacesTo<ScoreController>().AsSingle().NonLazy();
             //Container.Bind<CameraSystem>().FromComponentInHierarchy().AsSingle();
         }
 
