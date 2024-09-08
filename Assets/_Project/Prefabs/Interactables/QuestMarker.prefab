@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7999098274957874266}
   - component: {fileID: 9217876267018863348}
   - component: {fileID: 987198110874849355}
+  - component: {fileID: 7550750459831895437}
   m_Layer: 0
   m_Name: QuestMarker
   m_TagString: Untagged
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0b0b3a09994a6e94e81dae611cb60c29, type: 2}
+  - {fileID: 2100000, guid: 92a5ee952c2c03b47b46eda4f20e2437, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,4 +116,18 @@ MonoBehaviour:
   _questionMesh: {fileID: -8773546360261545411, guid: b7a4084c2b54e5e4faa2707508365179, type: 3}
   _exclamationMesh: {fileID: 8781086017965844622, guid: 4476a0656c64dff458aa3d07435ed506, type: 3}
   _activeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  _takenColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  _takenColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &7550750459831895437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418309933150609117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ede0252ef7e92459ff5df2a16cd28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angularVelocity: {x: 0, y: 50, z: 0}
+  relativeTo: 0

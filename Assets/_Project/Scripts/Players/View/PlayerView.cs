@@ -1,4 +1,5 @@
-﻿using Project.General.View;
+﻿using Project.Configs.Level;
+using Project.General.View;
 using Project.Interfaces.Audio;
 using Project.Spawner;
 using Project.Utils.Tweens;
@@ -12,6 +13,8 @@ namespace Project.Players.View
         [SerializeField] private PunchShipTween _punchTween;
         [SerializeField] private ParticleSystem _waterTrail;
         [SerializeField] private AudioClip _hitSound;
+        [SerializeField] private MeshRenderer _shipRenderer;
+        [SerializeField] private MeshRenderer _sailsRenderer;
 
         private IAudioService _audioService;
         private VfxSpawner _vfxSpawner;
@@ -41,11 +44,27 @@ namespace Project.Players.View
         }
 
         [Inject]
-        private void Construct(IAudioService audioService, VfxSpawner vfxSpawner)
+        private void Construct(
+            IAudioService audioService,
+            VfxSpawner vfxSpawner,
+            LevelConfig levelConfig)
         {
             _audioService = audioService;
             _vfxSpawner = vfxSpawner;
             _punchTween.Initialize(transform);
+
+            SetRenderers(levelConfig);
+        }
+
+        private void SetRenderers(LevelConfig levelConfig)
+        {
+            Material levelMaterial = levelConfig.LevelMaterial;
+
+            if (_shipRenderer.material == levelMaterial)
+                return;
+
+            _shipRenderer.material = levelMaterial;
+            _sailsRenderer.material = levelMaterial;
         }
     }
 }

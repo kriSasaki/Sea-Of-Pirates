@@ -277,6 +277,8 @@ MonoBehaviour:
     _ease: 4
   _waterTrail: {fileID: 487657544277507433}
   _hitSound: {fileID: 8300000, guid: aa2c78809ec83bc4891d63066860ee29, type: 3}
+  _shipRenderer: {fileID: 4401349661026669237}
+  _sailsRenderer: {fileID: 7342724874733782036}
 --- !u!114 &6536938811106678299
 MonoBehaviour:
   m_ObjectHideFlags: 0
