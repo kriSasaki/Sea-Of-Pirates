@@ -1,16 +1,16 @@
 using Project.Players.Logic;
+using Project.Systems.Upgrades;
 using UnityEngine;
 
 namespace Project.Interactables
 {
     public class ZoneUnload : InteractableZone
     {
-        private void OnTriggerEnter(Collider collider)
+        protected override void OnPlayerEntered(Player player)
         {
-            if (collider.TryGetComponent(out Player player))
-            {
-                player.UnloadHold();
-            }
+            base.OnPlayerEntered(player);
+
+            player.UnloadHold();
         }
     }
 }

@@ -1,4 +1,6 @@
 using DG.Tweening;
+using NaughtyAttributes;
+using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Interactables
@@ -6,42 +8,50 @@ namespace Project.Interactables
     public class InteractableZoneVisual : MonoBehaviour
     {
         private const float MinScale = 0;
+        private const float ScaleMultiplier = 2f;
 
         [SerializeField] private InteractableZone _interactableZone;
-        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [HorizontalLine (3f, EColor.Green)]
+        [SerializeField] private MeshRenderer _zoneRenderer;
         [SerializeField] private Color _zoneColor;
-        [SerializeField] private float ScaleDuration = 0.5f;
+        [SerializeField] private float _scaleDuration = 0.5f;
+        [SerializeField] private Ease _ease = Ease.InOutSine;
 
         private float _maxScale;
-        
+
         private void Start()
         {
-            _maxScale = _interactableZone.TriggerZone;
-            _spriteRenderer.gameObject.transform.localScale =
-                new Vector3(_maxScale, _maxScale, _maxScale);
-            _spriteRenderer.color = _zoneColor;
+            _maxScale = _interactableZone.TriggerZoneRadius * ScaleMultiplier;
+            _zoneRenderer.material.color = _zoneColor;
+            ShowZone();
         }
 
         private void OnEnable()
         {
-            _interactableZone.PlayerEntered += Hide;
-            _interactableZone.PlayerCameOut += Show;
+            _interactableZone.PlayerEntered += OnPlayerEntered;
+            _interactableZone.PlayerExited += OnPlayerExited;
         }
 
         private void OnDisable()
         {
-            _interactableZone.PlayerEntered -= Hide;
-            _interactableZone.PlayerCameOut -= Show;
+            _interactableZone.PlayerEntered -= OnPlayerEntered;
+            _interactableZone.PlayerExited -= OnPlayerExited;
         }
 
-        private void Show()
+        private void ShowZone()
         {
-            _spriteRenderer.transform.DOScale(_maxScale, ScaleDuration).SetEase(Ease.InOutSine);
+            transform.DOScale(_maxScale, _scaleDuration).SetEase(_ease);
         }
 
-        private void Hide()
+        private void HideZone()
         {
-            _spriteRenderer.transform.DOScale(MinScale, ScaleDuration).SetEase(Ease.InOutSine);
+            transform.DOScale(MinScale, _scaleDuration).SetEase(_ease);
         }
+
+        private void OnPlayerEntered(Player player)
+            => HideZone();
+
+        private void OnPlayerExited(Player player)
+            => ShowZone();
     }
 }

@@ -1,4 +1,5 @@
 using Project.Players.Logic;
+using Project.Systems.Upgrades;
 using UnityEngine;
 
 namespace Project.Interactables
@@ -11,6 +12,12 @@ namespace Project.Interactables
             {
                 player.Heal();
             }
+        }
+        protected override void OnPlayerEntered(Player player)
+        {
+            base.OnPlayerEntered(player);
+
+            player.Heal();
         }
     }
 }

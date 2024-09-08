@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 237563071457152157}
   - component: {fileID: 1071155112746485482}
   - component: {fileID: 467418668504690235}
-  - component: {fileID: 8556040471820090245}
+  - component: {fileID: 1704591592218607114}
   m_Layer: 9
   m_Name: Prop_ShipWreck
   m_TagString: Untagged
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8556040471820090245
-BoxCollider:
+--- !u!64 &1704591592218607114
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,9 +103,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 20.44, y: 30.570837, z: 28.8}
-  m_Center: {x: 0.10215759, y: 10.2233515, z: -1.8256183}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 4300000, guid: 72fc8b5dcd1554c4d8910df2726cc2a1, type: 3}
 --- !u!1 &6493853977127255721
 GameObject:
   m_ObjectHideFlags: 0

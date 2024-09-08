@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Players.Logic;
+using System;
 using UnityEngine;
 
 namespace Project.Interactables
@@ -9,11 +10,11 @@ namespace Project.Interactables
         [SerializeField] private float _triggerZoneRadius = 30f;
         [SerializeField] private Color _gizmosColor = Color.white;
 
-        public event Action PlayerEntered;
-        public event Action PlayerCameOut;
-        
-        public float TriggerZone => _triggerZoneRadius;
-        
+        public event Action<Player> PlayerEntered;
+        public event Action<Player> PlayerExited;
+
+        public float TriggerZoneRadius => _triggerZoneRadius;
+
         private SphereCollider _triggerZone;
 
         private void Awake()
@@ -23,20 +24,36 @@ namespace Project.Interactables
             _triggerZone.radius = _triggerZoneRadius;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out Player player))
+            {
+                PlayerEntered?.Invoke(player);
+                OnPlayerEntered(player);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent(out Player player))
+            {
+                PlayerExited?.Invoke(player);
+                OnPlayerExited(player);
+            }
+        }
+
+        protected virtual void OnPlayerEntered(Player player)
+        {
+        }
+
+        protected virtual void OnPlayerExited(Player player)
+        {
+        }
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = _gizmosColor;
             Gizmos.DrawWireSphere(transform.position, _triggerZoneRadius);
-        }
-
-        public void OnPlayerEntered()
-        {
-            PlayerEntered?.Invoke();
-        }
-
-        public void OnPlayerCameOut()
-        {
-            PlayerCameOut?.Invoke();
         }
     }
 }

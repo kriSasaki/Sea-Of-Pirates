@@ -12,9 +12,6 @@ namespace Project.Enemies.Logic.States.Battle
         private float _timeToAttack;
 
         private float HalfAttackAngle => _attackAngle / 2f;
-        private Vector3 DirectionToPlayer => Player.Position - Enemy.transform.position;
-        private Vector3 RightSideDirection => Enemy.transform.right;
-        private Vector3 LeftSideDirection => -Enemy.transform.right;
 
         public override void Enter()
         {
@@ -45,14 +42,6 @@ namespace Project.Enemies.Logic.States.Battle
         private void ResetCooldown()
         {
             _timeToAttack = Config.AttackCooldown;
-        }
-
-        private BoardSide GetClosestSide()
-        {
-            float rightDot = Vector3.Dot(RightSideDirection, DirectionToPlayer);
-            float leftDot = Vector3.Dot(LeftSideDirection, DirectionToPlayer);
-
-            return rightDot >= leftDot ? BoardSide.Right : BoardSide.Left;
         }
 
         private bool CanAttackPlayer()

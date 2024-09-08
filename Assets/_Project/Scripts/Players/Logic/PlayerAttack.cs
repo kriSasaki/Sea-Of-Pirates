@@ -15,8 +15,6 @@ namespace Project.Players.Logic
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerAttack : MonoBehaviour
     {
-        private const string LeaderboardName = "Leaderboard";
-        private const string SaveNumberEnemysKilled = "SaveNumberEnemysKilled";
         [SerializeField] private PlayerAttackView _attackView;
         [SerializeField] private float _attackAngle = 100;
         [SerializeField] private float _attackCooldown = 2f;
@@ -42,10 +40,6 @@ namespace Project.Players.Logic
         private void Start()
         {
             SetAttackZone();
-            if (PlayerPrefs.HasKey(SaveNumberEnemysKilled))
-            {
-                _numberEnemiesKilled = PlayerPrefs.GetInt(SaveNumberEnemysKilled);
-            }
         }
 
         private void OnEnable()
@@ -166,7 +160,6 @@ namespace Project.Players.Logic
                     enemy.TakeDamage(Damage);
                 }
 
-
                 yield return _attackView.CannonsUnloading();
             }
 
@@ -210,13 +203,6 @@ namespace Project.Players.Logic
         {
             EnemyKilled?.Invoke(enemy);
             UntrackEnemy(enemy);
-
-            if (PlayerAccount.IsAuthorized)
-            {
-                Leaderboard.SetScore(LeaderboardName, _numberEnemiesKilled++);
-                PlayerPrefs.SetInt(SaveNumberEnemysKilled, _numberEnemiesKilled);
-                PlayerPrefs.Save();
-            }
         }
 
         private void OnStatsUpdated()

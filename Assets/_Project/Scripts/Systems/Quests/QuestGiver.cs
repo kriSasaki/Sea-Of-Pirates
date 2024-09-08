@@ -25,25 +25,6 @@ namespace Project.Systems.Quests
         public int QuestID => _questConfig.ID;
         public Quest Quest => _quest;
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-                if (_quest.Status.State != QuestState.Completed)
-                    _questView.Show(_quest);
-                OnPlayerEntered();
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.TryGetComponent(out Player player))
-            {
-                _questView.Hide();
-                OnPlayerCameOut();
-            }
-        }
-
         private void OnDestroy()
         {
             _quest.StatusChanged -= OnQuestStatusChanged;
@@ -67,6 +48,23 @@ namespace Project.Systems.Quests
             _questMarker.SetMarkerVisual(status.State);
 
             _quest.StatusChanged += OnQuestStatusChanged;
+
+            if (_quest.Status.State == QuestState.Completed)
+                RemoveZoneView();
+        }
+
+        protected override void OnPlayerEntered(Player player)
+        {
+            base.OnPlayerEntered(player);
+
+            if (_quest.Status.State != QuestState.Completed)
+                _questView.Show(_quest);
+        }
+
+        protected override void OnPlayerExited(Player player)
+        {
+            base.OnPlayerExited(player);
+            _questView.Hide();
         }
 
         private void OnQuestStatusChanged(Quest quest)
@@ -75,11 +73,23 @@ namespace Project.Systems.Quests
             {
                 _playerStorage.AddResource(_questConfig.Reward);
                 _questView.Hide();
+
+                RemoveZoneView();
             }
 
             _questMarker.SetMarkerVisual(quest.Status.State);
 
             QuestStatusChanged?.Invoke(QuestID, quest.Status);
+        }
+
+        private void RemoveZoneView()
+        {
+            var zoneView = GetComponentInChildren<InteractableZoneVisual>();
+
+            if (zoneView != null)
+            {
+                Destroy(zoneView.gameObject);
+            }
         }
     }
 }

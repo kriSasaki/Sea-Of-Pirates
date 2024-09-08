@@ -1,6 +1,5 @@
 using Project.Players.Logic;
 using Project.Systems.Cameras;
-using UnityEngine;
 using Zenject;
 
 namespace Project.Interactables
@@ -9,16 +8,18 @@ namespace Project.Interactables
     {
         private CameraSystem _cameraSystem;
 
-        private void OnTriggerEnter(Collider other)
+        protected override void OnPlayerEntered(Player player)
         {
-            if (other.TryGetComponent(out Player _))
-                _cameraSystem.GoToTarget(transform);
+            base.OnPlayerEntered(player);
+
+            _cameraSystem.GoToTarget(transform);
         }
 
-        private void OnTriggerExit(Collider other)
+        protected override void OnPlayerExited(Player player)
         {
-            if (other.TryGetComponent(out Player _))
-                _cameraSystem.GoToPlayer();
+            base.OnPlayerExited(player);
+
+            _cameraSystem.GoToPlayer();
         }
 
         [Inject]

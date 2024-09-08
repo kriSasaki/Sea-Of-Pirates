@@ -1,6 +1,5 @@
 using System;
 using Project.Interfaces.Stats;
-using Project.Players.CamaraLogic;
 using Project.Utils.Extensions;
 using UnityEngine;
 using Zenject;
@@ -67,7 +66,7 @@ namespace Project.Players.Logic
 
             Quaternion lookRotation = Quaternion.LookRotation(_inputDirection);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
         }
 
         private void Move()

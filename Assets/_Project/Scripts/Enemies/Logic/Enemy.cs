@@ -77,7 +77,7 @@ namespace Project.Enemies.Logic
             _view.Initialize(this, _vfxSpawner, audioService, levelConfig);
             _attackRangeView.Initialize(_config.AttackRange);
             _playerDetector.Initialize(_config.DetectRange);
-            _stateMachine.Initialize(player);
+            _stateMachine.Initialize(player, audioService);
         }
 
         public void TakeDamage(int damage)
@@ -102,6 +102,8 @@ namespace Project.Enemies.Logic
         public void Respawn(Vector3 atPosition)
         {
             gameObject.SetActive(true);
+            _shipCollider.enabled = true;
+
             transform.position = atPosition;
             SetSpawnPosition();
             RestoreHealth();
@@ -134,6 +136,7 @@ namespace Project.Enemies.Logic
         private void Die()
         {
             Died?.Invoke(this);
+            _shipCollider.enabled = false;
         }
 
         private void Deactivate()

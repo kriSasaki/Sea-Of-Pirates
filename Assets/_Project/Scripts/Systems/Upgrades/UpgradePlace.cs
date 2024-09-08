@@ -1,5 +1,6 @@
 ﻿using Project.Interactables;
 using Project.Players.Logic;
+using Project.Systems.Cameras;
 using UnityEngine;
 using Zenject;
 
@@ -10,22 +11,18 @@ namespace Project.Systems.Upgrades
     {
         private UpgradeSystem _upgradeSystem;
 
-        private void OnTriggerEnter(Collider other)
+        protected override void OnPlayerEntered(Player player)
         {
-            if (other.TryGetComponent(out Player player))
-            {
-                _upgradeSystem.Show();
-                OnPlayerEntered();
-            }
+            base.OnPlayerEntered(player);
+
+            _upgradeSystem.Show();
         }
 
-        private void OnTriggerExit(Collider other)
+        protected override void OnPlayerExited(Player player)
         {
-            if (other.TryGetComponent(out Player player))
-            {
-                _upgradeSystem.Hide();
-                OnPlayerCameOut();
-            }
+            base.OnPlayerExited(player);
+
+            _upgradeSystem.Hide();
         }
  
         [Inject]
