@@ -8,7 +8,8 @@ using Zenject;
 
 namespace Project.Systems.Quests
 {
-    public class QuestEnemyHandler : IInitializable, IDisposable
+    public class QuestEnemyHandler : IDisposable
+
     {
         private const float SpawnerShowDuration = 3f;
 

@@ -1,34 +1,74 @@
 using Cinemachine;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using Project.Players.Logic;
 using Project.Spawner;
+using Project.Systems.Cameras;
 using Project.Systems.Quests;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Infrastructure
 {
     public class StartLevelHandler : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera _openingCamera;
-        [SerializeField] private CinemachineBrain _brain;
-        [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private GameObject _canvasJoystick;
-        [SerializeField] private GameObject _canvasPonter;
+        private const float MinAlpha = 0f;
+        private const float MaxAlpha = 1f;
+
+        [SerializeField] private CanvasGroup _uiCanvasGroup;
+        [SerializeField] private float _unfadeCanvasDuration = 0.5f;
+        [SerializeField] private GameObject _joystickCanvas;
+        [SerializeField] private GameObject _pointerCanvas;
 
         private List<BaseEnemySpawner> _enemySpawners;
         private QuestEnemyHandler _questEnemyHandler;
+        private Player _player;
+        private CameraSystem _cameraSystem;
+
+        [Inject]
+        public void Construct(
+            List<BaseEnemySpawner> enemySpawners,
+            QuestEnemyHandler questEnemyHandler,
+            Player player,
+            CameraSystem cameraSystem)
+        {
+            _enemySpawners = enemySpawners;
+            _questEnemyHandler = questEnemyHandler;
+            _player = player;
+            _cameraSystem = cameraSystem;
+        }
 
         private async UniTaskVoid Start()
         {
-            _canvasGroup.alpha = 0f;
-            _canvasJoystick.SetActive(false);
-            _canvasPonter.SetActive(false);
-            await UniTask.Delay(2000);
-            _openingCamera.gameObject.SetActive(false);
-            await UniTask.WaitUntil(()=>_brain.IsBlending == false);
-            _canvasGroup.alpha = 1f;
-            _canvasJoystick.SetActive(true);
-            _canvasPonter.SetActive(true);
+            _player.DisableMove();
+            _uiCanvasGroup.alpha = MinAlpha;
+            _joystickCanvas.SetActive(false);
+            _pointerCanvas.SetActive(false);
+
+            await _cameraSystem.ShowOpeningAsync();
+
+            _player.EnableMove();
+            _pointerCanvas.SetActive(true);
+            _joystickCanvas.SetActive(true);
+
+            await _uiCanvasGroup.DOFade(MaxAlpha, _unfadeCanvasDuration);
+
+            PrepareSpawners();
+            InitializeQuestEnemies();
+        }
+
+        private void InitializeQuestEnemies()
+        {
+            _questEnemyHandler.Initialize();
+        }
+
+        private void PrepareSpawners()
+        {
+            foreach (var spawner in _enemySpawners)
+            {
+                spawner.Prepare();
+            }
         }
     }
 }

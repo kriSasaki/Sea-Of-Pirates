@@ -1,3 +1,4 @@
+using Cinemachine;
 using Project.Configs.Level;
 using Project.Controllers;
 using Project.Enemies;
@@ -27,8 +28,7 @@ namespace Project.Installers.SceneContext
         [SerializeField] private LevelConfig _levelConfig;
         [SerializeField] private VfxSpawner _vfxSpawner;
         [SerializeField] private Enemy _enemyPrefab;
-        [SerializeField] private CameraSystem _cameraSystemPrefab;
-        //[SerializeField] private Player _playerPrefab;
+       //[SerializeField] private Player _playerPrefab;
 
         public override void InstallBindings()
         {
@@ -48,7 +48,7 @@ namespace Project.Installers.SceneContext
 
         private void BindSpawners()
         {
-            Container.Bind<VfxSpawner>().FromInstance(_vfxSpawner).AsSingle();
+            Container.Bind<VfxSpawner>().FromComponentInNewPrefab(_vfxSpawner).AsSingle();
             Container.Bind<EnemyFactory>().FromNew().AsSingle().WithArguments(_enemyPrefab);
             Container.Bind<BaseEnemySpawner>().FromComponentsInHierarchy().AsCached();
             Container.Bind<ShopItemFactory>().AsSingle();
@@ -56,15 +56,16 @@ namespace Project.Installers.SceneContext
 
         private void BindSystems()
         {
+            Container.Bind<CinemachineBrain>().FromComponentInHierarchy().AsSingle();
+
             Container.BindInterfacesAndSelfTo<QuestSystem>().FromNew().AsSingle();
             Container.BindInterfacesAndSelfTo<ShopSystem>().FromNew().AsSingle().NonLazy();
             Container.Bind<UpgradeSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<LeaderboardSystem>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<QuestEnemyHandler>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
-            Container.Bind<CameraSystem>().FromComponentInNewPrefab(_cameraSystemPrefab).AsSingle().NonLazy();
             Container.BindInterfacesTo<ScoreController>().AsSingle().NonLazy();
-            //Container.Bind<CameraSystem>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<CameraSystem>().FromComponentInHierarchy().AsSingle();
         }
 
         private void BindUI()

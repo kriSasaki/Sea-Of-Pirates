@@ -18,6 +18,6 @@ public class DamagePopup : MonoBehaviour
         transform.DOScale(_maxScale, _duration)
             .SetEase(_ease)
             .SetLoops(2, LoopType.Yoyo)
-            .OnComplete(() => Destroy(gameObject));
+            .OnComplete(() => gameObject.SetActive(false));
     }
 }

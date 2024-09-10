@@ -29,7 +29,7 @@ namespace Project.Spawner
         {
             _respawnCooldown = new WaitForSeconds(_respawnDelay);
 
-            Prepare();
+            //Prepare();
         }
 
         protected override void OnEnemyDied(IEnemy enemy)

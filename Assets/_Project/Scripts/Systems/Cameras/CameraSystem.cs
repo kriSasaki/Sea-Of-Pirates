@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
 using Project.Players.Logic;
@@ -9,39 +10,48 @@ namespace Project.Systems.Cameras
 {
     public class CameraSystem : MonoBehaviour
     {
-        private const int MaxPriority = 10;
-        private const int MinPriority = 0;
-
+        [SerializeField] private float _openingViewDuration = 2f;
         [SerializeField] private CinemachineVirtualCamera _playerCamera;
         [SerializeField] private CinemachineVirtualCamera _targetCamera;
+        [SerializeField] private CinemachineVirtualCamera _openingCamera;
 
+        private List<CinemachineVirtualCamera> _cameras;
+        private CinemachineBrain _brain;
         private Player _player;
 
-        private void Start()
-        {
-            GoToPlayer();
-        }
-
         [Inject]
-        public void Construct(Player player)
+        public void Construct(Player player, CinemachineBrain brain)
         {
             _player = player;
+            _brain = brain;
+
+            _cameras = new List<CinemachineVirtualCamera>()
+            {
+                _playerCamera,
+                _targetCamera,
+                _openingCamera,
+            };
 
             SetPlayerCamera();
-            DisableCamera(_targetCamera);
+            EnableCamera(_openingCamera);
+        }
+
+        public async UniTask ShowOpeningAsync()
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(_openingViewDuration));
+            GoToPlayer();
+            await UniTask.WaitUntil(() => _brain.IsBlending == false);
         }
 
         public void GoToTarget(Transform target)
         {
             SetTargetCamera(target);
             EnableCamera(_targetCamera);
-            DisableCamera(_playerCamera);
         }
 
         public void GoToPlayer()
         {
             EnableCamera(_playerCamera);
-            DisableCamera(_targetCamera);
         }
 
         public async UniTaskVoid ShowTarget(Transform target, float duration)
@@ -67,12 +77,13 @@ namespace Project.Systems.Cameras
 
         private void EnableCamera(CinemachineVirtualCamera camera)
         {
-            camera.Priority = MaxPriority;
-        }
-
-        private void DisableCamera(CinemachineVirtualCamera camera)
-        {
-            camera.Priority = MinPriority;
+            foreach (var virtualCamera in _cameras)
+            {
+                if (virtualCamera == camera)
+                    virtualCamera.gameObject.SetActive(true);
+                else
+                    virtualCamera.gameObject.SetActive(false);
+            }
         }
     }
 }
