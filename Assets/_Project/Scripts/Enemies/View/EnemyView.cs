@@ -42,7 +42,7 @@ namespace Project.Enemies.View
         {
             _vfxSpawner.SpawnExplosion(transform.position, transform);
             _audioService.PlaySound(_hitSound);
-            _vfxSpawner.ShowDamage(transform.position, damage);
+            _vfxSpawner.SpawnDamagePopup(transform.position, damage);
             _punchTween.Punch();
         }
 

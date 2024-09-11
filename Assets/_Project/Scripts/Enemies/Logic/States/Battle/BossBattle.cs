@@ -22,7 +22,6 @@ namespace Project.Enemies.Logic.States.Battle
         [SerializeField] float _volleyRange = 15f;
         [SerializeField] float _volleyInterval= 2f;
         [HorizontalLine(3f, EColor.Blue)]
-        [SerializeField] private Projectile _projectilePrefab;
         [SerializeField] float _projectileRadius = 4f;
         [SerializeField] float _projectileExplodeDelay = 4f;
         [SerializeField] int _projectilesAmount = 10;
@@ -100,9 +99,9 @@ namespace Project.Enemies.Logic.States.Battle
 
             foreach (Vector3 position in projectilePositions)
             {
-                Projectile projectile = Instantiate(_projectilePrefab, position, Quaternion.identity);
+                Projectile projectile = Enemy.VfxSpawner.SpawnProjectile(position);
 
-                projectile.InitializeAsync(
+                projectile.ShootAsync(
                     _projectileRadius,
                     _projectileExplodeDelay,
                     playerMask,
