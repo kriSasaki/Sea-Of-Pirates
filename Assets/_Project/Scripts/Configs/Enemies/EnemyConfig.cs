@@ -38,5 +38,6 @@ namespace Project.Configs.Enemies
         public bool IsSolidForPlayer => _isSolidForPlayer;
         public EnemyBehaviorConfig BehaviorConfig => _behaviourConfig;
         public GameResourceAmount Loot => _loot;
+        public Sprite Icon => _enemyView.Icon;
     }
 }
