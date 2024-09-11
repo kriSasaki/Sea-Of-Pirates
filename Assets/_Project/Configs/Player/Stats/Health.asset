@@ -19,13 +19,13 @@ MonoBehaviour:
   _secondaryCost:
     _resource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
     <MinCost>k__BackingField: 5
-    <MaxCost>k__BackingField: 100
-    _firstApplicationLevel: 30
-    _applicationInterval: 10
+    <MaxCost>k__BackingField: 500
+    _firstApplicationLevel: 20
+    _applicationInterval: 5
   _nameToken: stat/Health/name
   _descriptionToken: stat/Health/desc
   <StatType>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: 21300000, guid: 13d2d91a845ae584baf199a690a19cd7, type: 3}
   <MinValue>k__BackingField: 20
-  <MaxValue>k__BackingField: 500
+  <MaxValue>k__BackingField: 600
   <MaxLevel>k__BackingField: 100
