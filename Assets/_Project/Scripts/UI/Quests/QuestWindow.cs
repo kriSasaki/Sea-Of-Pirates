@@ -1,4 +1,5 @@
 ﻿using Project.Interfaces.Quests;
+using Project.Systems.Quests;
 using Project.UI.Bars;
 using Project.Utils.Extensions;
 using TMPro;
@@ -22,7 +23,11 @@ namespace Project.UI.Quests
 
             _confirmButton.onClick.AddListener(() => OnButtonClicked(quest));
 
-            _decription.text = quest.Config.Description;
+            if (quest.Status.State != QuestState.Done)
+                _decription.text = quest.Config.Description;
+            else
+                _decription.text = quest.Config.CompleteMessage;
+
             _rewardAmount.text = quest.Config.Reward.Amount.ToNumericalString();
             _rewardImage.sprite = quest.Config.Reward.Resource.Sprite;
 

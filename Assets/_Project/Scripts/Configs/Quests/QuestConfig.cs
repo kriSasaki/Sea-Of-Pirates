@@ -8,6 +8,8 @@ namespace Project.Configs.Quests
     [CreateAssetMenu(fileName = "Quest", menuName = "Configs/Quest")]
     public class QuestConfig : ScriptableObject
     {
+        private const string CompleteMessageToken = "quests/CompleteMessage";
+
         [SerializeField, LeanTranslationName] private string _descriptionToken;
 
         [field: SerializeField] public EnemyConfig TargetType { get; private set; }
@@ -16,5 +18,6 @@ namespace Project.Configs.Quests
 
         public string ID => name;
         public string Description => LeanLocalization.GetTranslationText(_descriptionToken);
+        public string CompleteMessage => LeanLocalization.GetTranslationText(CompleteMessageToken);
     }
 }

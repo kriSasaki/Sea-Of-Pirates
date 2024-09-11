@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cd9d98eeb1706418aa7d10d6421b54, type: 3}
   m_Name: Level_03_BossQuest
   m_EditorClassIdentifier: 
-  _descriptionToken: quests/Level1/quest02
+  _descriptionToken: quests/Level3/quest_Boss
   <TargetType>k__BackingField: {fileID: 11400000, guid: e0e0f6b26edfd5c4c9a86c4a25690ad1, type: 2}
   <TargetAmount>k__BackingField: 1
   <Reward>k__BackingField:

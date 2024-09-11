@@ -33,6 +33,13 @@ namespace Project.Systems.Data
             UpdateStatsValues();
         }
 
+        public void SetStatValue(StatType type, int value)
+        {
+            _stats[type].SetLevel(value);
+            UpdateStatsValues();
+        }
+
+
         public int GetStatValue(StatType type)
         {
             return _stats[type].GetValue();

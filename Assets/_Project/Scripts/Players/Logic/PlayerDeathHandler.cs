@@ -11,7 +11,6 @@ namespace Project.Players.Logic
 {
     public class PlayerDeathHandler : MonoBehaviour
     {
-        [SerializeField] private Rigidbody _playerRigidbody;
         [SerializeField] private AudioClip _deathSound;
 
         private Player _player;
@@ -63,7 +62,7 @@ namespace Project.Players.Logic
         private void RessurectPlayer()
         {
             _advertisingController.ShowIntersticialAd();
-            _playerRigidbody.MovePosition(_pirateBay.PlayerRessurectPoint.position);
+            _player.SetPosition(_pirateBay.PlayerRessurectPoint.position);
 
             _player.Heal();
             _playerView.Ressurect();

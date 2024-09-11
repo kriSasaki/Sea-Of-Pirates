@@ -113,6 +113,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 2.5910034
       objectReference: {fileID: 0}
+    - target: {fileID: 1132447024364069098, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_text
+      value: "\u041C\u0435\u0441\u0442\u043E"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298170767805608328, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_text
+      value: "\u0410\u0433\u0430"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439557484725865588, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_text
+      value: "\u0414\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430
+        \u0442\u0430\u0431\u043B\u0438\u0446\u044B \u043B\u0438\u0434\u0435\u0440\u043E\u0432
+        \u043D\u0443\u0436\u043D\u043E \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F"
+      objectReference: {fileID: 0}
     - target: {fileID: 2194032166924891914, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -193,6 +207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2265472857624949924, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_text
+      value: "\u0410\u0433\u0430"
+      objectReference: {fileID: 0}
     - target: {fileID: 2628078283432115205, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: _resource
       value: 
@@ -213,6 +231,18 @@ PrefabInstance:
       propertyPath: _resource
       value: 
       objectReference: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
+    - target: {fileID: 6924685006460552595, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_text
+      value: "\u0410\u0433\u0430"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945067801985389115, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_text
+      value: "\u0418\u0433\u0440\u043E\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220186361304654363, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

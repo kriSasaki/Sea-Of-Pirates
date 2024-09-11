@@ -107,6 +107,7 @@ namespace Project.Installers.SceneContext
             Container.Bind<PlayerView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerAttack>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<PlayerLootController>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesTo<PlayerSpawner>().FromNew().AsSingle().NonLazy();
         }
     }
 }

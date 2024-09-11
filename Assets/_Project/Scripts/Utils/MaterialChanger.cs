@@ -5,15 +5,13 @@ using Zenject;
 
 public class MaterialChanger : MonoBehaviour
 {
-    [SerializeField] private Transform _transform;
+    [InfoBox ("Только для смены материалов в Editor")]
     [SerializeField] private Material _material;
 
     private void Awake()
     {
-        _transform = transform;
-        ChangeMaterial(_transform);
+        ChangeMaterial(transform);
     }
-
 
     [Inject]
     private void Construct(LevelConfig config)
@@ -39,9 +37,9 @@ public class MaterialChanger : MonoBehaviour
     [Button]
     private void ReplaceMaterial()
     {
-        if (_material == null || _transform == null)
+        if (_material == null || transform == null)
             return;
 
-        ChangeMaterial(_transform);
+        ChangeMaterial(transform);
     }
 }

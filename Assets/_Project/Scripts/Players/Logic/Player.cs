@@ -7,12 +7,14 @@ using Zenject;
 
 namespace Project.Players.Logic
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private PlayerView _view;
 
         private IPlayerStats _playerStats;
         private IPlayerHold _playerHold;
+        private Rigidbody _rigidbody;
 
         private int _currentHealth;
         private bool _canMove = true;
@@ -43,6 +45,7 @@ namespace Project.Players.Logic
             _playerStats = playerStats;
             _playerHold = playerHold;
             _currentHealth = MaxHealth;
+            _rigidbody = GetComponent<Rigidbody>();
 
             _playerStats.StatsUpdated += OnStatsUpdated;
         }
@@ -80,6 +83,11 @@ namespace Project.Players.Logic
         public void DisableMove()
         {
             _canMove = false;
+        }
+
+        public void SetPosition(Vector3 at)
+        {
+            _rigidbody.MovePosition(at);
         }
 
         private void OnStatsUpdated()

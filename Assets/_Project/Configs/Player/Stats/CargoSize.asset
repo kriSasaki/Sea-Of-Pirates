@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _primaryCost:
     _resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    <MinCost>k__BackingField: 40
+    <MinCost>k__BackingField: 30
     <MaxCost>k__BackingField: 800
   _secondaryCost:
     _resource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}

@@ -79,7 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2148768d265d70a40b7628e83fb81b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerRigidbody: {fileID: 3722445594469159487}
   _deathSound: {fileID: 8300000, guid: 6c6311809e338bf42adb4ccc974a2ed4, type: 3}
 --- !u!54 &3722445594469159487
 Rigidbody:
@@ -458,7 +457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5545427435009838451, guid: d17141729674a9a41a463ca060bccee1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.79
+      value: -5.83
       objectReference: {fileID: 0}
     - target: {fileID: 5545427435009838451, guid: d17141729674a9a41a463ca060bccee1, type: 3}
       propertyPath: m_LocalRotation.w

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04cd9d98eeb1706418aa7d10d6421b54, type: 3}
-  m_Name: BossQuest_Tutorial
+  m_Name: Level_03_Quest_01
   m_EditorClassIdentifier: 
-  _descriptionToken: quests/Tutorial/quest_Boss
-  <TargetType>k__BackingField: {fileID: 11400000, guid: 3da53bbea24a61542aec992538119a1b, type: 2}
+  _descriptionToken: quests/Level3/quest_01
+  <TargetType>k__BackingField: {fileID: 11400000, guid: 02b459862d725b34cbdd9e22c425f2b2, type: 2}
   <TargetAmount>k__BackingField: 1
   <Reward>k__BackingField:
-    Resource: {fileID: 11400000, guid: 56bc90269f8ea7c48a14665b81aea9e1, type: 2}
+    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     Amount: 1
