@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Project.Configs.Enemies;
 using Project.Interfaces.Enemies;
 using Project.Systems.Quests;
@@ -22,6 +23,8 @@ namespace Project.Spawner
         private EnemyFactory _enemyFactory;
 
         public event Action<EnemyConfig> EnemyDied;
+
+        protected bool HasAliveEnemies => _enemies.Any(e => e.IsAlive);
 
         public EnemyConfig EnemyType => _enemyConfig;
 

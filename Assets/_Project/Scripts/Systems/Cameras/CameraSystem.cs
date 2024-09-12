@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
+using Project.Configs.Game;
 using Project.Players.Logic;
 using UnityEngine;
 using Zenject;
@@ -18,6 +19,8 @@ namespace Project.Systems.Cameras
         private List<CinemachineVirtualCamera> _cameras;
         private CinemachineBrain _brain;
         private Player _player;
+        private CinemachineTransposer _targetCameraTransposer;
+        private Vector3 _followOffset;
 
         [Inject]
         public void Construct(Player player, CinemachineBrain brain)
@@ -32,6 +35,9 @@ namespace Project.Systems.Cameras
                 _openingCamera,
             };
 
+            _targetCameraTransposer = _targetCamera.GetCinemachineComponent<CinemachineTransposer>();
+            _followOffset = _targetCameraTransposer.m_FollowOffset;
+
             SetPlayerCamera();
             EnableCamera(_openingCamera);
         }
@@ -43,8 +49,10 @@ namespace Project.Systems.Cameras
             await UniTask.WaitUntil(() => _brain.IsBlending == false);
         }
 
-        public void GoToTarget(Transform target)
+        public void GoToTarget(Transform target, CameraFollowOffset cameraFollowOffset = null )
         {
+            _targetCameraTransposer.m_FollowOffset = cameraFollowOffset == null ? _followOffset : cameraFollowOffset.Value; 
+
             SetTargetCamera(target);
             EnableCamera(_targetCamera);
         }

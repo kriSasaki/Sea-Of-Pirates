@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2296155566317972175, guid: f39181febb3028742b3a849a5f58033a, type: 3}
+      propertyPath: _bossSpawner
+      value: 
+      objectReference: {fileID: 3203546240083801509}
     - target: {fileID: 6195163189750506804, guid: f39181febb3028742b3a849a5f58033a, type: 3}
       propertyPath: m_Name
       value: BossZone
