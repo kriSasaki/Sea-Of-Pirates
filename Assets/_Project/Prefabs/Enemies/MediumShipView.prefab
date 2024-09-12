@@ -49,6 +49,10 @@ PrefabInstance:
       value: MediumShipView
       objectReference: {fileID: 0}
     - target: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 39ce27fc2de1f974e8e551f57bf31bf0, type: 3}
+    - target: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _shipMesh
       value: 
       objectReference: {fileID: 8630969869801132236}
