@@ -512,7 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffd805f9c310af40b4870671b1a5d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transform: {fileID: 0}
   _material: {fileID: 0}
 --- !u!1 &3260328135050344817
 GameObject:
@@ -1140,7 +1139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baba344b249ed264a96a4c069721afd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerZoneRadius: 22.58
+  _triggerZoneRadius: 27.87
   _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
   <PlayerRessurectPoint>k__BackingField: {fileID: 2137511364166176026}
 --- !u!1001 &2191662783829343238
