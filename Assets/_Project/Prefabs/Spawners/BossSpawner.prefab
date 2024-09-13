@@ -49,7 +49,7 @@ MonoBehaviour:
   _enemyConfig: {fileID: 11400000, guid: fd48ddf442b009f40a3b9fd17450453c, type: 2}
   _obstaclesMask:
     serializedVersion: 2
-    m_Bits: 704
+    m_Bits: 576
   _spawnRadius: 2
 --- !u!1001 &2466751234216633301
 PrefabInstance:

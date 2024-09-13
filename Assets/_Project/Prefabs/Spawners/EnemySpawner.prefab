@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdda2da70dfe994f80027dc77b16238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _questMark: {fileID: 4071860422916454508, guid: bb342cac5972b83479c439456bbd4403, type: 3}
   _enemyConfig: {fileID: 11400000, guid: 5cc56adb66b32cd4eb731575827a2023, type: 2}
-  _isRespawnable: 1
-  _maxEnemies: 10
-  _spawnRadius: 0
-  _respawnDelay: 5
   _obstaclesMask:
     serializedVersion: 2
-    m_Bits: 704
-  _questMark: {fileID: 4071860422916454508, guid: bb342cac5972b83479c439456bbd4403, type: 3}
+    m_Bits: 576
+  _spawnRadius: 0
+  _maxEnemies: 10
+  _isRespawnable: 1
+  _respawnDelay: 5
