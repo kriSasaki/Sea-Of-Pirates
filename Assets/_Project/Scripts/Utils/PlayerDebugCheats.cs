@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using Project.Interactables;
 using Project.Players.Logic;
 using Project.Systems.Data;
+using Project.UI;
 using UnityEngine;
 using Zenject;
 
@@ -22,6 +23,7 @@ namespace Project.Utils
         private PlayerStats _playerStats;
         private Player _player;
         private PirateBay _pirateBay;
+        private UiCanvas _uiCanvas;
 
         private void Start()
         {
@@ -35,11 +37,13 @@ namespace Project.Utils
         private void Construct(
             PlayerStats playerStats,
             Player player,
-            PirateBay pirateBay)
+            PirateBay pirateBay,
+            UiCanvas uiCanvas)
         {
             _playerStats = playerStats;
             _player = player;
             _pirateBay = pirateBay;
+            _uiCanvas = uiCanvas;
         }
 
         [Button(enabledMode: EButtonEnableMode.Playmode)]
@@ -57,6 +61,12 @@ namespace Project.Utils
         private void MoveToPirateBay()
         {
             _player.SetPosition(_pirateBay.PlayerRessurectPoint.position);
+        }
+
+        [Button(enabledMode: EButtonEnableMode.Playmode)]
+        private void ToggleUi()
+        {
+            _uiCanvas.gameObject.SetActive(!_uiCanvas.isActiveAndEnabled);
         }
     }
 }

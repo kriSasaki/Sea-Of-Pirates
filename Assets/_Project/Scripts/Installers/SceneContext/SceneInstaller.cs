@@ -28,7 +28,8 @@ namespace Project.Installers.SceneContext
         [SerializeField] private LevelConfig _levelConfig;
         [SerializeField] private VfxSpawner _vfxSpawner;
         [SerializeField] private Enemy _enemyPrefab;
-       //[SerializeField] private Player _playerPrefab;
+
+        public LevelConfig LevelConfig => _levelConfig;
 
         public override void InstallBindings()
         {
@@ -86,6 +87,8 @@ namespace Project.Installers.SceneContext
             Container.Bind<RewardView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<NextLevelWindow>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerDeathWindow>().FromComponentInHierarchy().AsSingle();
+
+            Container.Bind<UiCanvas>().FromComponentInHierarchy().AsSingle();
         }
 
 
@@ -99,15 +102,11 @@ namespace Project.Installers.SceneContext
         {
             Container.BindInterfacesTo<PlayerHold>().AsSingle();
 
-            //Container.Bind(typeof(Player), typeof(PlayerAttack), typeof(PlayerView), typeof (PlayerMove))
-            //    .FromComponentInNewPrefab(_playerPrefab)
-            //    .AsSingle();
-
             Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerAttack>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<PlayerLootController>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesTo<PlayerSpawner>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<PlayerSpawner>().FromNew().AsSingle().NonLazy();
         }
     }
 }

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerZoneRadius: 14
-  _gizmosColor: {r: 1, g: 0.57920235, b: 0, a: 0.70980394}
+  _gizmosColor: {r: 1, g: 0.57920235, b: 0, a: 1}
 --- !u!1 &8516229486170637729
 GameObject:
   m_ObjectHideFlags: 0

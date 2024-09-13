@@ -1,3 +1,4 @@
+using Project.Interfaces.Audio;
 using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
 using Project.Players.View;
@@ -11,9 +12,11 @@ namespace Project.Players.Logic
     public class Player : MonoBehaviour
     {
         [SerializeField] private PlayerView _view;
+        [SerializeField] private AudioClip _healSound;
 
         private IPlayerStats _playerStats;
         private IPlayerHold _playerHold;
+        private IAudioService _audioService;
         private Rigidbody _rigidbody;
 
         private int _currentHealth;
@@ -40,10 +43,14 @@ namespace Project.Players.Logic
         }
 
         [Inject]
-        public void Construct(IPlayerStats playerStats, IPlayerHold playerHold)
+        public void Construct(
+            IPlayerStats playerStats,
+            IPlayerHold playerHold,
+            IAudioService audioService)
         {
             _playerStats = playerStats;
             _playerHold = playerHold;
+            _audioService = audioService;
             _currentHealth = MaxHealth;
             _rigidbody = GetComponent<Rigidbody>();
 
@@ -66,7 +73,11 @@ namespace Project.Players.Logic
 
         public void Heal()
         {
+            if (_currentHealth != MaxHealth)
+                _audioService.PlaySound(_healSound);
+
             _currentHealth = MaxHealth;
+
             HealthChanged?.Invoke();
         }
 

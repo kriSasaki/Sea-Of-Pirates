@@ -2227,6 +2227,7 @@ GameObject:
   - component: {fileID: 6950124983107962938}
   - component: {fileID: 8879132138713267879}
   - component: {fileID: 1651225189058208227}
+  - component: {fileID: 6227046908826916722}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2340,6 +2341,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6227046908826916722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5114792643148455598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2dc862da091f2419bd3835bb5e6311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 1651225189058208227}
 --- !u!1 &5402417728734308224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,6 +3167,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4254235703234783810, guid: 999818adb1c3d854585419796fd8547a, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4705331542640345462, guid: 999818adb1c3d854585419796fd8547a, type: 3}
       propertyPath: m_Name
       value: UpgradeWindow
@@ -3259,6 +3277,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3802684469655564421}
     m_Modifications:
+    - target: {fileID: 489341555247263561, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
+      propertyPath: _resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
     - target: {fileID: 3567496325625555119, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3603,6 +3625,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3802684469655564421}
     m_Modifications:
+    - target: {fileID: 489341555247263561, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
+      propertyPath: _resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     - target: {fileID: 3567496325625555119, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3709,6 +3735,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3802684469655564421}
     m_Modifications:
+    - target: {fileID: 489341555247263561, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
+      propertyPath: _resource
+      value: 
+      objectReference: {fileID: 11400000, guid: fafe75ba118b0f242bea3954811fa573, type: 2}
     - target: {fileID: 3567496325625555119, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3815,6 +3845,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3802684469655564421}
     m_Modifications:
+    - target: {fileID: 489341555247263561, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
+      propertyPath: _resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
     - target: {fileID: 3567496325625555119, guid: 3f2abc409114fb64dba9b6ee967b5c58, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4448,6 +4482,14 @@ PrefabInstance:
     - target: {fileID: 1824825933396929220, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085836833440236920, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
+      propertyPath: m_fontSize
+      value: 67.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441869992288504658, guid: 4a1611a72defd184a9f607ba53e266ae, type: 3}
+      propertyPath: m_fontSize
+      value: 64.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

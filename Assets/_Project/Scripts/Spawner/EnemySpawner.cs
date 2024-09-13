@@ -28,8 +28,6 @@ namespace Project.Spawner
         private void Construct(EnemyFactory enemyFactory)
         {
             _respawnCooldown = new WaitForSeconds(_respawnDelay);
-
-            //Prepare();
         }
 
         protected override void OnEnemyDied(IEnemy enemy)

@@ -27,6 +27,7 @@ namespace Project.Players.View
         {
             _audioService.PlaySound(_hitSound);
             _vfxSpawner.SpawnExplosion(transform.position, transform);
+            _vfxSpawner.SpawnDamagePopup(transform.position, damage);
             _punchTween.Punch();
         }
 

@@ -4,6 +4,6 @@ namespace Project.Interfaces.Data
 {
     public interface ILevelDataService
     {
-        LevelData GetLevelData();
+        LevelData GetLevelData(string levelName);
     }
 }

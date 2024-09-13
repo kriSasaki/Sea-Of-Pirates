@@ -41,13 +41,13 @@ namespace Project.Systems.Data
             Save();
         }
 
-        public LevelData GetLevelData()
+        public LevelData GetLevelData(string levelName)
         {
-            LevelData leveldata = _gameData.Levels.FirstOrDefault(l=> l.LevelName == CurrentLevel);
+            LevelData leveldata = _gameData.Levels.FirstOrDefault(l=> l.LevelName == levelName);
 
             if (leveldata == null)
             {
-                leveldata = new LevelData(CurrentLevel);
+                leveldata = new LevelData(levelName);
 
                 _gameData.Levels.Add(leveldata);
             }

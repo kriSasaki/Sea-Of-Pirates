@@ -8,14 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MinorZone
-  m_Shader: {fileID: 10800, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 0d949f33aae55df4d92d64ec31581556, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _ALPHABLEND_ON
   - _CELPRIMARYMODE_SINGLE
-  - _EMISSION
   - _TEXTUREBLENDINGMODE_ADD
   - _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 0
@@ -61,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9384b82c39c1e6a42b2ec6035e4f5918, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0275a6ca4ec23044fb32c9860579a1df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

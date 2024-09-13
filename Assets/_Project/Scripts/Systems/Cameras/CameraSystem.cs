@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
 using Project.Configs.Game;
@@ -11,6 +12,7 @@ namespace Project.Systems.Cameras
 {
     public class CameraSystem : MonoBehaviour
     {
+        [SerializeField] private bool _isOpeningShows = true;
         [SerializeField] private float _openingViewDuration = 2f;
         [SerializeField] private CinemachineVirtualCamera _playerCamera;
         [SerializeField] private CinemachineVirtualCamera _targetCamera;
@@ -39,19 +41,29 @@ namespace Project.Systems.Cameras
             _followOffset = _targetCameraTransposer.m_FollowOffset;
 
             SetPlayerCamera();
-            EnableCamera(_openingCamera);
+
+            if (_isOpeningShows)
+                EnableCamera(_openingCamera);
+            else
+                GoToPlayer();
         }
 
-        public async UniTask ShowOpeningAsync()
+        public async UniTask ShowOpeningAsync(CancellationToken cts)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(_openingViewDuration));
+            if (_isOpeningShows == false)
+            {
+                await UniTask.NextFrame(cancellationToken: cts);
+                return;
+            }
+
+            await UniTask.Delay(TimeSpan.FromSeconds(_openingViewDuration), cancellationToken: cts);
             GoToPlayer();
-            await UniTask.WaitUntil(() => _brain.IsBlending == false);
+            await UniTask.WaitUntil(() => _brain.IsBlending == false, cancellationToken: cts);
         }
 
-        public void GoToTarget(Transform target, CameraFollowOffset cameraFollowOffset = null )
+        public void GoToTarget(Transform target, CameraFollowOffset cameraFollowOffset = null)
         {
-            _targetCameraTransposer.m_FollowOffset = cameraFollowOffset == null ? _followOffset : cameraFollowOffset.Value; 
+            _targetCameraTransposer.m_FollowOffset = cameraFollowOffset == null ? _followOffset : cameraFollowOffset.Value;
 
             SetTargetCamera(target);
             EnableCamera(_targetCamera);

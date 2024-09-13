@@ -13,6 +13,8 @@ namespace Project.Spawner
 {
     public abstract class BaseEnemySpawner : MonoBehaviour
     {
+        private const float BoundsMultiplier = 1.5f;
+
         [SerializeField] private QuestEnemyMark _questMark;
         [SerializeField] private EnemyConfig _enemyConfig;
         [SerializeField] private LayerMask _obstaclesMask;
@@ -82,7 +84,7 @@ namespace Project.Spawner
             Vector3 position = GetRandomSpawnPosition();
             Bounds shipBounds = _enemyConfig.View.ShipBounds;
 
-            while (Physics.CheckBox(position, shipBounds.extents, Quaternion.identity, _obstaclesMask))
+            while (Physics.CheckBox(position, shipBounds.extents * BoundsMultiplier, Quaternion.identity, _obstaclesMask))
             {
                 position = GetRandomSpawnPosition();
             }
