@@ -8,14 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MinorZone
-  m_Shader: {fileID: 10800, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 0d949f33aae55df4d92d64ec31581556, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _ALPHABLEND_ON
   - _CELPRIMARYMODE_SINGLE
-  - _EMISSION
   - _TEXTUREBLENDINGMODE_ADD
   - _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 0
@@ -61,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 76cb4841c5c4ba94683effa3a9ca4633, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0275a6ca4ec23044fb32c9860579a1df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -180,7 +179,7 @@ Material:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _CautionColor: {r: 1, g: 1, b: 1, a: 1}
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
-    - _Color: {r: 0, g: 1.3042235, b: 2.519016, a: 1}
+    - _Color: {r: 0, g: 0.38780576, b: 0.74901956, a: 0.7882353}
     - _Color1: {r: 1, g: 0.5, b: 0.5, a: 1}
     - _Color2: {r: 0.48490566, g: 0.48490566, b: 1, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}

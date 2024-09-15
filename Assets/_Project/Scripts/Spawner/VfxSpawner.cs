@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Project.Enemies.View;
+using Project.Interfaces.Audio;
+using UnityEngine;
+using Zenject;
 
 namespace Project.Spawner
 {
@@ -9,6 +12,24 @@ namespace Project.Spawner
         [SerializeField] private ParticleSystem _cannonSmokePrefab;
         [SerializeField] private ParticleSystem _explosionPrefab;
         [SerializeField] private DamagePopup _damagePopupPrefab;
+        [SerializeField] private Projectile _projectilePrefab;
+
+        private VFXPool<ParticleSystem> _smokePool;
+        private VFXPool<ParticleSystem> _explosionPool;
+        private VFXPool<DamagePopup> _damagePopupPool;
+        private VFXPool<Projectile> _projectilePool;
+
+        private IAudioService _audioService;
+
+        [Inject]
+        private void Construct(IAudioService audioService)
+        {
+            _smokePool = new VFXPool<ParticleSystem>(_cannonSmokePrefab);
+            _explosionPool = new VFXPool<ParticleSystem>(_explosionPrefab);
+            _damagePopupPool = new VFXPool<DamagePopup>(_damagePopupPrefab);
+            _projectilePool = new VFXPool<Projectile>(_projectilePrefab);
+            _audioService = audioService;
+        }
 
         public void SpawnCannonSmoke(Collider shooterCollider, Vector3 targetPosition)
         {
@@ -18,19 +39,34 @@ namespace Project.Spawner
 
         public void SpawnCannonSmoke(Vector3 from, Vector3 towards)
         {
-            Instantiate(_cannonSmokePrefab, from, Quaternion.LookRotation(towards - from));
+            var smoke = _smokePool.Get();
+            smoke.transform.SetPositionAndRotation(from, Quaternion.LookRotation(towards - from));
+            smoke.Play();
         }
 
         public void SpawnExplosion(Vector3 atPosition, Transform parent = null)
         {
-            Instantiate(_explosionPrefab, atPosition + ExplotionOffset, Quaternion.identity, parent);
+            var explotion = _explosionPool.Get();
+            explotion.transform.SetPositionAndRotation(atPosition + ExplotionOffset, Quaternion.identity);
+            explotion.transform.SetParent(parent);
+            explotion.Play();
         }
 
-        public void ShowDamage(Vector3 atposition, int damage)
+        public void SpawnDamagePopup(Vector3 atposition, int damage)
         {
             Quaternion rotation = Camera.main.transform.rotation;
-            var damagePopup = Instantiate(_damagePopupPrefab, atposition, rotation);
+            var damagePopup = _damagePopupPool.Get();
+            damagePopup.transform.SetPositionAndRotation(atposition, rotation);
             damagePopup.Initialize(damage);
+        }
+
+        public Projectile SpawnProjectile(Vector3 at)
+        {
+            var projectile = _projectilePool.Get();
+            projectile.Initialize(_audioService);
+            projectile.transform.SetPositionAndRotation(at, Quaternion.identity);
+
+            return projectile;
         }
     }
 }

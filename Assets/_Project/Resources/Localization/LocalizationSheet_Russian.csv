@@ -11,8 +11,20 @@ stat/Damage/desc,Наносимый врагам Урон
 stat/Hold/desc,Грузоподъемность корабля
 stat/AttackRange/desc,Дальность стрельбы корабля
 stat/Cannons/desc,Количество орудий на корабле
-quests/Level1/quest01,Затопи вшивую шлюпку
-quests/Level1/quest02,Нужно больше весел!
+quests/Tutorial/quest_Boss,Впиши сообщения для квеста
+quests/Level1/quest_01,Затопи вшивую шлюпку
+quests/Level1/quest_02,Нужно больше весел!
+quests/Level1/quest_03,Нужно больше весел!
+quests/Level1/quest_Boss,Неподалеку встал имперский фрегат. Он портит весь бизнес. Затопи его! Я в долгу не останусь!
+quests/Level2/quest_01,Впиши сообщения для квеста
+quests/Level2/quest_02,Впиши сообщения для квеста
+quests/Level2/quest_03,Впиши сообщения для квеста
+quests/Level2/quest_Boss,Впиши сообщения для квеста
+quests/Level3/quest_01,Впиши сообщения для квеста
+quests/Level3/quest_02,Впиши сообщения для квеста
+quests/Level3/quest_03,Впиши сообщения для квеста
+quests/Level3/quest_Boss,Впиши сообщения для квеста
+quests/CompleteMessage,Теперь я могу спать спокойно! Вот твоя награда. Берешь?
 quests/ProgressLabel,Потоплено
 quests/OK,Ага
 Interactables/UpgradePlace,Пристань
@@ -22,6 +34,7 @@ UI/ConfirmWindow/button,Подтвердить
 UI/ConfirmWindow/header,Подтвердить покупку?
 UI/Shop/GameItemHeader,РЕСУРСЫ
 UI/Shop/InAppItemHeader,ПРЕДЛОЖЕНИЯ
+UI/Death,Ваша лодка пошла ко дну... Угнать новый корабль?
 Anonymous,Аноним
 Leaderboard/Name,Игрок
 Leaderboard/Rank,Место
@@ -31,3 +44,8 @@ Leaderboard/AuthorizationButton,Авторизоваться
 UI/NextLevel/CanPass,Теперь мы можем спокойно пройти через рифы. Хотите отправиться дальше?
 UI/NextLevel/CanNotPass,Впереди опасные рифы! Без карты сразу же разобъемся! Возвращайтесь с картой.
 UI/NextLevel/EndGame,Поздравляем вас с прохождением игры! Приплывайте к нас в следующих обновлениях!
+Tutorial/Movement,Используй кнопки WSAD для передвижения
+Tutorial/Movement(1),"Управляйте своим кораблем
+Tutorial/PirateBay,Наполни трюмы награбленым и отнеси всё в бухту
+Tutorial/Attack,Твой корабль будет атаковать ближайшую цель
+Tutorial/NextLevel,Это знак перехода на следующий уровень

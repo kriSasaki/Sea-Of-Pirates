@@ -8,6 +8,7 @@ namespace Project.Systems.Data
         public List<GameResourceData> StorageData = new List<GameResourceData>();
         public List<PlayerStatData> PlayerStatsLevels = new List<PlayerStatData>();
         public List<QuestData> Quests = new List<QuestData>();
+        public List<LevelData> Levels = new List<LevelData>();
 
         public bool IsAddActive = true;
         public string CurrentScene;

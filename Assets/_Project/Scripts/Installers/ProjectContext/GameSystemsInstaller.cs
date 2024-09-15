@@ -9,7 +9,7 @@ namespace Project.Installers.ProjectContext
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<PlayerStats>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerStats>().AsSingle();
             Container.BindInterfacesTo<PlayerStorage>().AsSingle();
 
             BindInput();

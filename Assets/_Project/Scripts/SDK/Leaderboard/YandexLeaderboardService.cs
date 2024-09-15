@@ -17,12 +17,12 @@ namespace Project.SDK.Leaderboard
         {
             if (!IsPlayerAuthorized)
                 return;
-
-            Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-            {
-                if (result == null || result.score < score)
-                    Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
-            });
+            Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
+            //Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
+            //{
+            //    if (result == null || result.score < score)
+            //        Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
+            //});
         }
 
         public void AuthorizePlayer()

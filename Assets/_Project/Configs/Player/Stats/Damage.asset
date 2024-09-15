@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _primaryCost:
     _resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    <MinCost>k__BackingField: 20
-    <MaxCost>k__BackingField: 600
+    <MinCost>k__BackingField: 30
+    <MaxCost>k__BackingField: 1000
   _secondaryCost:
     _resource: {fileID: 11400000, guid: fafe75ba118b0f242bea3954811fa573, type: 2}
-    <MinCost>k__BackingField: 5
-    <MaxCost>k__BackingField: 100
-    _firstApplicationLevel: 30
-    _applicationInterval: 10
+    <MinCost>k__BackingField: 20
+    <MaxCost>k__BackingField: 500
+    _firstApplicationLevel: 20
+    _applicationInterval: 5
   _nameToken: stat/Damage/name
   _descriptionToken: stat/Damage/desc
   <StatType>k__BackingField: 1

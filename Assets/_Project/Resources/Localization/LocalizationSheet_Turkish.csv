@@ -11,8 +11,20 @@ stat/Damage/desc,Düşmanlara verilen hasar
 stat/Hold/desc,Geminin taşıma kapasitesi
 stat/AttackRange/desc,Gemi atış menzili
 stat/Cannons/desc,Gemideki silah sayısı
-quests/Level1/quest01,Berbat tekneyi batır
-quests/Level1/quest02,Daha fazla eğlenceye ihtiyacınız var!
+quests/Tutorial/quest_Boss,Görev için mesajları girin
+quests/Level1/quest_01,Berbat tekneyi batır
+quests/Level1/quest_02,Daha fazla eğlenceye ihtiyacınız var!
+quests/Level1/quest_03,Daha fazla eğlenceye ihtiyacınız var!
+quests/Level1/quest_Boss,Yakınlarda bir imparatorluk firkateyni duruyordu. Bütün işi mahvediyor. Su bas! Borçlu olmayacağım!
+quests/Level2/quest_01,Görev için mesajları girin
+quests/Level2/quest_02,Görev için mesajları girin
+quests/Level2/quest_03,Görev için mesajları girin
+quests/Level2/quest_Boss,Görev için mesajları girin
+quests/Level3/quest_01,Görev için mesajları girin
+quests/Level3/quest_02,Görev için mesajları girin
+quests/Level3/quest_03,Görev için mesajları girin
+quests/Level3/quest_Boss,Görev için mesajları girin
+quests/CompleteMessage,Artık huzur içinde uyuyabilirim! İşte ödülünüz. Alır mısın?
 quests/ProgressLabel,Batık
 quests/OK,Evet
 Interactables/UpgradePlace,Marina
@@ -22,6 +34,7 @@ UI/ConfirmWindow/button,Onaylamak
 UI/ConfirmWindow/header,Satın alma onaylansın mı?
 UI/Shop/GameItemHeader,KAYNAKLAR
 UI/Shop/InAppItemHeader,TEKLİFLER
+UI/Death,Tekneniz battı... Yeni bir gemi mi çaldınız?
 Anonymous,Anonim
 Leaderboard/Name,Oyuncu
 Leaderboard/Rank,Rütbe
@@ -31,3 +44,8 @@ Leaderboard/AuthorizationButton,Giriş yapmak
 UI/NextLevel/CanPass,Artık resiflerden güvenle geçebiliriz. Daha ileri gitmek ister misin?
 UI/NextLevel/CanNotPass, we'll be overwhelmed right away! Come back with the map."
 UI/NextLevel/EndGame,Oyunu tamamladığınız için tebrikler! Bir sonraki güncellemelerde bize katılın!
+Tutorial/Movement,Dolaşmak için WSAD düğmelerini kullanın
+Tutorial/Movement(1),Control your ship by simply moving your finger across the display.
+Tutorial/PirateBay,Ambarları ganimetlerle doldurun ve hepsini körfeze götürün
+Tutorial/Attack,Geminiz en yakın hedefe saldıracak
+Tutorial/NextLevel,Bu bir sonraki seviyeye geçmenin bir işaretidir

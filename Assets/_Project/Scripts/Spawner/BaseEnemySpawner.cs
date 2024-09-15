@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Project.Configs.Enemies;
 using Project.Interfaces.Enemies;
 using Project.Systems.Quests;
@@ -12,6 +13,9 @@ namespace Project.Spawner
 {
     public abstract class BaseEnemySpawner : MonoBehaviour
     {
+        private const float BoundsMultiplier = 1.5f;
+        private const int MaxTries = 10;
+
         [SerializeField] private QuestEnemyMark _questMark;
         [SerializeField] private EnemyConfig _enemyConfig;
         [SerializeField] private LayerMask _obstaclesMask;
@@ -22,6 +26,8 @@ namespace Project.Spawner
         private EnemyFactory _enemyFactory;
 
         public event Action<EnemyConfig> EnemyDied;
+
+        protected bool HasAliveEnemies => _enemies.Any(e => e.IsAlive);
 
         public EnemyConfig EnemyType => _enemyConfig;
 
@@ -79,8 +85,13 @@ namespace Project.Spawner
             Vector3 position = GetRandomSpawnPosition();
             Bounds shipBounds = _enemyConfig.View.ShipBounds;
 
-            while (Physics.CheckBox(position, shipBounds.extents, Quaternion.identity, _obstaclesMask))
+            for (int i = 0; i < MaxTries; i++)
             {
+                bool hasObstacles = Physics.CheckBox(position, shipBounds.extents, Quaternion.identity, _obstaclesMask);
+
+                if (hasObstacles == false)
+                    break;
+
                 position = GetRandomSpawnPosition();
             }
 

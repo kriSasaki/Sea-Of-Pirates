@@ -23,7 +23,7 @@ public class StatConfig : ScriptableObject
     public string Name => LeanLocalization.GetTranslationText(_nameToken);
     public string Description => LeanLocalization.GetTranslationText(_descriptionToken);
 
-    public int MinLevel => 0;
+    public int MinLevel => 1;
 
     public int GetValue(int level)
     {
@@ -32,16 +32,14 @@ public class StatConfig : ScriptableObject
 
     public List<GameResourceAmount> GetUpgradePrice(int currentLevel)
     {
-        int nextLevel = currentLevel + 1;
-
         List<GameResourceAmount> price = new()
         {
-            _primaryCost.GetCost(this, nextLevel)
+            _primaryCost.GetCost(this, currentLevel)
         };
 
-        if (_secondaryCost.IsApplicable(nextLevel))
+        if (_secondaryCost.IsApplicable(currentLevel))
         {
-            price.Add(_secondaryCost.GetCost(this, nextLevel));
+            price.Add(_secondaryCost.GetCost(this, currentLevel));
         }
 
         return price;

@@ -7,6 +7,7 @@ using Project.Interfaces.Audio;
 using Project.Interfaces.Enemies;
 using Project.Players.Logic;
 using Project.Spawner;
+using Project.Systems.Audio;
 using Project.Systems.Data;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace Project.Enemies.Logic
         private VfxSpawner _vfxSpawner;
         private EnemyMover _mover;
         private EnemyStateMachine _stateMachine;
+        private IAudioService _audioService;
         private int _currentHealth;
 
         public event Action<IEnemy> Died;
@@ -45,6 +47,7 @@ namespace Project.Enemies.Logic
         public Collider ShipCollider => _shipCollider;
         public PlayerDetector Detector => _playerDetector;
         public Transform Transform => transform;
+        public VfxSpawner VfxSpawner => _vfxSpawner;
         public Vector3 Position => transform.position;
         public GameResourceAmount Loot => _config.Loot;
         public Vector3 SpawnPosition { get; private set; }
@@ -64,6 +67,7 @@ namespace Project.Enemies.Logic
         {
             _config = config;
             _vfxSpawner = vfxSpawner;
+            _audioService = audioService;
             _currentHealth = _config.MaxHealth;
 
             _shipCollider = GetComponent<BoxCollider>();
@@ -74,10 +78,10 @@ namespace Project.Enemies.Logic
             SetShipCollider(player);
             SetSpawnPosition();
 
-            _view.Initialize(this, _vfxSpawner, audioService, levelConfig);
+            _view.Initialize(this, _vfxSpawner, _audioService, levelConfig);
             _attackRangeView.Initialize(_config.AttackRange);
             _playerDetector.Initialize(_config.DetectRange);
-            _stateMachine.Initialize(player, audioService);
+            _stateMachine.Initialize(player, _audioService);
         }
 
         public void TakeDamage(int damage)

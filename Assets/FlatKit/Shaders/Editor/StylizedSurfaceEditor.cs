@@ -153,7 +153,7 @@ public class StylizedSurfaceEditor : UnityEditor.ShaderGUI {
             if (_target.IsKeywordEnabled("_CELPRIMARYMODE_STEPS") && displayName.Contains("[LAST_PROP_STEPS]")) {
                 EditorGUILayout.HelpBox(
                     "This mode creates a step texture that control the light/shadow transition. To use:\n" +
-                    "1. InitializeAsync the number of steps (e.g. 3 means three steps between lit and shaded regions), \n" +
+                    "1. ShootAsync the number of steps (e.g. 3 means three steps between lit and shaded regions), \n" +
                     "2. Save the steps as a texture - 'Save Ramp Texture' button",
                     MessageType.Info);
                 int currentNumSteps = _target.GetInt("_CelNumSteps");
@@ -168,7 +168,7 @@ public class StylizedSurfaceEditor : UnityEditor.ShaderGUI {
             if (_target.IsKeywordEnabled("_CELPRIMARYMODE_CURVE") && displayName.Contains("[LAST_PROP_CURVE]")) {
                 EditorGUILayout.HelpBox(
                     "This mode uses arbitrary curves to control the light/shadow transition. How to use:\n" +
-                    "1. InitializeAsync shading curve (generally from 0.0 to 1.0)\n" +
+                    "1. ShootAsync shading curve (generally from 0.0 to 1.0)\n" +
                     "2. [Optional] Save the curve preset\n" +
                     "3. Save the curve as a texture.",
                     MessageType.Info);
