@@ -1,4 +1,6 @@
+
 using UnityEngine;
+
 namespace Project.Players.Inputs
 {
     public class StandaloneInputService : InputService
@@ -16,15 +18,12 @@ namespace Project.Players.Inputs
                     targetAxis = UnityAxis();
                 }
 
-                return SmoothTransition(targetAxis);
+                return targetAxis;
             }
         }
 
-     
-        public override bool IsMovingForward => Input.GetKey(KeyCode.W);
-
         private static Vector2 UnityAxis() =>
-            new Vector2(Input.GetAxis("Horizontal"), 0);
+            new Vector2(UnityEngine.Input.GetAxis("Horizontal"), UnityEngine.Input.GetAxis("Vertical"));
 
         private Vector2 SmoothTransition(Vector2 targetAxis)
         {
