@@ -14,9 +14,10 @@ namespace Project.SDK.InApp
         {
             Billing.PurchaseProduct(itemID, (purchaseProductResponse) =>
             {
+                onPurchaseCallback();
+
                 Billing.ConsumeProduct(purchaseProductResponse.purchaseData.purchaseToken, () =>
                 {
-                    onPurchaseCallback();
                 });
             });
         }

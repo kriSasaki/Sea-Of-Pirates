@@ -1212,6 +1212,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 821021179583059524, guid: 0b3260c6b2a005b4b8b8a2b77e714ade, type: 3}
+      propertyPath: _offerInterval
+      value: 294
+      objectReference: {fileID: 0}
     - target: {fileID: 3007814758741759429, guid: 0b3260c6b2a005b4b8b8a2b77e714ade, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2148,6 +2152,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2542614903010231758, guid: 4996b4cd1c23eb94cb4a8b1f516df239, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8895037373998079775, guid: 4996b4cd1c23eb94cb4a8b1f516df239, type: 3}
       propertyPath: m_Name
       value: PirateBay
@@ -2789,7 +2797,7 @@ GameObject:
   - component: {fileID: 2771469709268899690}
   - component: {fileID: 3178138082892015032}
   m_Layer: 8
-  m_Name: QuestGiver
+  m_Name: BossQuest
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
