@@ -87,36 +87,36 @@ Material:
     - _DstBlend: 0
     - _EmissionScaleUI: 0
     - _FlatRimEdgeSmoothness: 1
-    - _FlatRimLightAlign: 0.157
-    - _FlatRimSize: 0
+    - _FlatRimLightAlign: 0
+    - _FlatRimSize: 0.06
     - _FlatSpecularEdgeSmoothness: 1
-    - _FlatSpecularSize: 0.229
-    - _Flatness: 0.91
-    - _FlatnessExtra: 0.995
+    - _FlatSpecularSize: 0.499
+    - _Flatness: 0.658
+    - _FlatnessExtra: 0.919
     - _GlossMapScale: 1
     - _Glossiness: 0.1
     - _GlossyReflections: 1
     - _GradientAngle: 0
     - _GradientCenterX: 0
-    - _GradientCenterY: 0
+    - _GradientCenterY: -0.11
     - _GradientEnabled: 0
-    - _GradientSize: 0.1
+    - _GradientSize: 0.65
     - _LightContribution: 0.272
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineDepthOffset: 1
-    - _OutlineWidth: 1
+    - _OutlineDepthOffset: 0
+    - _OutlineWidth: 0
     - _OverrideLightmapDir: 0
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _RimEnabled: 1
-    - _SelfShadingSize: 0.666
-    - _SelfShadingSizeExtra: 0.417
-    - _ShadowEdgeSize: 0.46
-    - _ShadowEdgeSizeExtra: 0.441
+    - _SelfShadingSize: 0.397
+    - _SelfShadingSizeExtra: 0.44
+    - _ShadowEdgeSize: 0.5
+    - _ShadowEdgeSizeExtra: 0.401
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 0
     - _SpecularHighlights: 1
@@ -131,12 +131,12 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.754717, g: 0.6080795, b: 0.508366, a: 1}
-    - _ColorDim: {r: 1, g: 0.9803319, b: 0.86226416, a: 1}
+    - _Color: {r: 1, g: 0.9308557, b: 0.84339625, a: 1}
+    - _ColorDim: {r: 0.6037736, g: 0.39139742, b: 0.22442149, a: 1}
     - _ColorDimCurve: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDimExtra: {r: 0.41509432, g: 0.17593826, b: 0.040726222, a: 1}
     - _ColorDimSteps: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorGradient: {r: 3.2111175, g: 1.6631702, b: 0, a: 0}
+    - _ColorGradient: {r: 5.5501213, g: 4.5068374, b: 0.17802238, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 0.9485294, g: 0.8084626, b: 0.5579585, a: 1}
     - _FlatRimColor: {r: 3.0161197, g: 1.874939, b: 0.09674326, a: 1}
