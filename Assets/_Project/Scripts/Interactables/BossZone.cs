@@ -1,31 +1,32 @@
+using Project.Interfaces.Audio;
 using Project.Players.Logic;
-using Project.Systems.Cameras;
+using Project.Spawner;
+using UnityEngine;
 using Zenject;
 
 namespace Project.Interactables
 {
-    public class BossZone : InteractableZone
+    public class BossZone : CameraViewZone
     {
-        private CameraSystem _cameraSystem;
+        [SerializeField] private BossSpawner _bossSpawner;
+        [SerializeField] private AudioClip _enterZoneSound;
+
+        private IAudioService _audioService;
 
         protected override void OnPlayerEntered(Player player)
         {
             base.OnPlayerEntered(player);
 
-            _cameraSystem.GoToTarget(transform);
-        }
-
-        protected override void OnPlayerExited(Player player)
-        {
-            base.OnPlayerExited(player);
-
-            _cameraSystem.GoToPlayer();
+            if (_bossSpawner.IsBossSpawned)
+            {
+                _audioService.PlaySound(_enterZoneSound);
+            }
         }
 
         [Inject]
-        public void Construct(CameraSystem transitionService)
+        public void Construct(IAudioService audioService)
         {
-            _cameraSystem = transitionService;
+            _audioService = audioService;
         }
     }
 }

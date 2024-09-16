@@ -47,3 +47,4 @@ MonoBehaviour:
   _cannonSmokePrefab: {fileID: 198885388380882704, guid: 88bc40157a5437d49b7bdf6a880f255e, type: 3}
   _explosionPrefab: {fileID: 198885388380882704, guid: 52ec409f5f908c847bc32defc9e5949a, type: 3}
   _damagePopupPrefab: {fileID: 1782275528785405488, guid: 9032f59dd3ef2b14082bebbb2e09baa2, type: 3}
+  _projectilePrefab: {fileID: 2789891042505930356, guid: a4a360d091622804e8b2311db78cd08b, type: 3}

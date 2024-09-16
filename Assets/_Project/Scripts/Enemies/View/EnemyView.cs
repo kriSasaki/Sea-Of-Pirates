@@ -1,4 +1,5 @@
-﻿using Project.Configs.Level;
+﻿using NaughtyAttributes;
+using Project.Configs.Level;
 using Project.Enemies.Logic;
 using Project.General.View;
 using Project.Interfaces.Audio;
@@ -17,11 +18,12 @@ namespace Project.Enemies.View
         [SerializeField] private AudioClip _shootSound;
         [SerializeField] private AudioClip _hitSound;
         [SerializeField] private EnemyHudView _hudView;
-
+        [SerializeField, ShowAssetPreview] private Sprite _icon;
 
         private VfxSpawner _vfxSpawner;
         private IAudioService _audioService;
 
+        public Sprite Icon => _icon;
         public Bounds ShipBounds => _shipMesh.sharedMesh.bounds;
 
         public void Initialize(
@@ -42,7 +44,7 @@ namespace Project.Enemies.View
         {
             _vfxSpawner.SpawnExplosion(transform.position, transform);
             _audioService.PlaySound(_hitSound);
-            _vfxSpawner.ShowDamage(transform.position, damage);
+            _vfxSpawner.SpawnDamagePopup(transform.position, damage);
             _punchTween.Punch();
         }
 

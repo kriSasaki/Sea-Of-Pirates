@@ -1,24 +1,25 @@
 using NaughtyAttributes;
 using Project.Configs.Level;
+using Project.Installers.SceneContext;
 using UnityEngine;
 using Zenject;
 
 public class MaterialChanger : MonoBehaviour
 {
-    [SerializeField] private Transform _transform;
-    [SerializeField] private Material _material;
+    private Material _material;
+    private LevelConfig _levelConfig;
 
     private void Awake()
     {
-        _transform = transform;
-        ChangeMaterial(_transform);
-    }
+        _material = _levelConfig.LevelMaterial;
 
+        ChangeMaterial(transform);
+    }
 
     [Inject]
     private void Construct(LevelConfig config)
     {
-        _material = config.LevelMaterial;
+        _levelConfig = config;
     }
 
     private void ChangeMaterial(Transform transform)
@@ -39,9 +40,12 @@ public class MaterialChanger : MonoBehaviour
     [Button]
     private void ReplaceMaterial()
     {
-        if (_material == null || _transform == null)
-            return;
+        var sceneInstaller = FindAnyObjectByType<SceneInstaller>();
 
-        ChangeMaterial(_transform);
+        if (sceneInstaller != null)
+        {
+            _material = sceneInstaller.LevelConfig.LevelMaterial;
+            ChangeMaterial(transform);
+        }
     }
 }

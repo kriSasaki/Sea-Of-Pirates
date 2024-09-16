@@ -5,9 +5,9 @@ namespace Project.Spawner
 {
     public class BossSpawner : BaseEnemySpawner
     {
-        //[HorizontalLine(3f, EColor.Blue)]
-        
-       public override void Prepare()
+        public bool IsBossSpawned => HasAliveEnemies;
+
+        public override void Prepare()
         {
         }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Configs.Game
 {
-    [CreateAssetMenu(fileName = "GameConfig", menuName = "Configs/GameCongif")]
+    [CreateAssetMenu(fileName = "GameConfig", menuName = "Configs/GameConfig")]
     public class GameConfig : ScriptableObject
     {
         [SerializeField, Scene] private string _loadingScene;

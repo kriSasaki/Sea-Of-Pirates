@@ -56,6 +56,9 @@ namespace Project.Players.Logic
 
         public void LoadToStorage()
         {
+            if (IsEmpty)
+                return;
+
             _playerStorage.AddResource(_cargo);
             _cargo.Clear();
 

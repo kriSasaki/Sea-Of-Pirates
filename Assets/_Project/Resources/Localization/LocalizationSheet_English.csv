@@ -11,8 +11,20 @@ stat/Damage/desc,Damage dealt to enemies
 stat/Hold/desc,Ship's carrying capacity
 stat/AttackRange/desc,Ship firing range
 stat/Cannons/desc,Cannons amount on the ship
-quests/Level1/quest01,Sink the lousy boat
-quests/Level1/quest02,Need more fun!
+quests/Tutorial/quest_Boss,Enter messages for the quest
+quests/Level1/quest_01,Sink the lousy boat
+quests/Level1/quest_02,Need more fun!
+quests/Level1/quest_03,Need more fun!
+quests/Level1/quest_Boss,An imperial frigate stood nearby. He ruins the whole business. Flood it! I won't be in debt!
+quests/Level2/quest_01,Enter messages for the quest
+quests/Level2/quest_02,Enter messages for the quest
+quests/Level2/quest_03,Enter messages for the quest
+quests/Level2/quest_Boss,Enter messages for the quest
+quests/Level3/quest_01,Enter messages for the quest
+quests/Level3/quest_02,Enter messages for the quest
+quests/Level3/quest_03,Enter messages for the quest
+quests/Level3/quest_Boss,Enter messages for the quest
+quests/CompleteMessage,Now I can sleep peacefully! Here is your reward. Do you take it?
 quests/ProgressLabel,Sunk
 quests/OK,OK
 Interactables/UpgradePlace,Marina
@@ -22,6 +34,7 @@ UI/ConfirmWindow/button,Confirm
 UI/ConfirmWindow/header,Confirm purchase?
 UI/Shop/GameItemHeader,RESOURCES
 UI/Shop/InAppItemHeader,OFFERS
+UI/Death,Your boat has sunk... Steal a new ship?
 Anonymous,Anonymous
 Leaderboard/Name,Player
 Leaderboard/Rank,Rank
@@ -31,3 +44,8 @@ Leaderboard/AuthorizationButton,Login
 UI/NextLevel/CanPass,Now we can safely pass through the reefs. Want to go further?
 UI/NextLevel/CanNotPass,"Dangerous reefs ahead! Without a map
 UI/NextLevel/EndGame,Congratulations on completing the game! Come join us in the next updates!
+Tutorial/Movement,Use WSAD buttons to move around
+Tutorial/Movement(1), просто двигая пальцем по дисплею."
+Tutorial/PirateBay,Fill the holds with the loot and take it all to the bay
+Tutorial/Attack,Your ship will attack the nearest target
+Tutorial/NextLevel,This is a sign of moving to the next level

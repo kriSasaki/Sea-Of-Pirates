@@ -45,6 +45,10 @@ PrefabInstance:
       value: RaftView
       objectReference: {fileID: 0}
     - target: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a0675882bd881344b0a8e6e5f4082c0, type: 3}
+    - target: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _sailMesh
       value: 
       objectReference: {fileID: 0}

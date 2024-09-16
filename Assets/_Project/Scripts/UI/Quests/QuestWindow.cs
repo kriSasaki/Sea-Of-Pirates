@@ -1,4 +1,5 @@
 ﻿using Project.Interfaces.Quests;
+using Project.Systems.Quests;
 using Project.UI.Bars;
 using Project.Utils.Extensions;
 using TMPro;
@@ -9,8 +10,9 @@ namespace Project.UI.Quests
 {
     public class QuestWindow : UiWindow
     {
-        [SerializeField] private TMP_Text _decription;
+        [SerializeField] private TMP_Text _description;
         [SerializeField] private Image _rewardImage;
+        [SerializeField] private Image _targetImage;
         [SerializeField] private TMP_Text _rewardAmount;
         [SerializeField] private TMP_Text _progressValue;
         [SerializeField] private FillableBar _progressBar;
@@ -22,9 +24,14 @@ namespace Project.UI.Quests
 
             _confirmButton.onClick.AddListener(() => OnButtonClicked(quest));
 
-            _decription.text = quest.Config.Description;
+            if (quest.Status.State != QuestState.Done)
+                _description.text = quest.Config.Description;
+            else
+                _description.text = quest.Config.CompleteMessage;
+
             _rewardAmount.text = quest.Config.Reward.Amount.ToNumericalString();
             _rewardImage.sprite = quest.Config.Reward.Resource.Sprite;
+            _targetImage.sprite = quest.Config.TargetType.Icon;
 
             int currentProgress = quest.Status.Progress;
             int targetProgress = quest.Config.TargetAmount;

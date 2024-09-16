@@ -9,14 +9,15 @@ namespace Project.Configs.Enemies
     public class EnemyConfig : ScriptableObject
     {
         [SerializeField, Min(1)] private int _maxHealth;
-        [SerializeField, Min(0)] private int _damage;
-        [SerializeField, Min(0.1f)] private float _attackCooldown;
+        [SerializeField] private bool _canDealDamage = false;
+        [SerializeField,ShowIf(nameof(_canDealDamage)) , Min(0)] private int _damage = 0;
+        [SerializeField, ShowIf(nameof(_canDealDamage)), Min(0.1f)] private float _attackCooldown;
         [HorizontalLine(2f, EColor.Blue)]
         [SerializeField, Min(0.1f)] private float _speed;
         [SerializeField, Range(30f, 100f)] private float _rotationSpeed;
         [SerializeField, Range(0.1f, 0.8f)] private float _moveAngleDot = 0.7f;
         [HorizontalLine(2f, EColor.Blue)]
-        [SerializeField] private float _attackRange;
+        [SerializeField, ShowIf(nameof(_canDealDamage))] private float _attackRange;
         [SerializeField] private float _detectRange;
         [HorizontalLine(2f, EColor.Blue)]
         [SerializeField] private EnemyView _enemyView;
@@ -32,9 +33,11 @@ namespace Project.Configs.Enemies
         public float AttackCooldown => _attackCooldown;
         public float AttackRange => _attackRange;
         public float DetectRange => _detectRange;
+        public bool CanDealDamage => _canDealDamage;
         public EnemyView View => _enemyView;
         public bool IsSolidForPlayer => _isSolidForPlayer;
         public EnemyBehaviorConfig BehaviorConfig => _behaviourConfig;
         public GameResourceAmount Loot => _loot;
+        public Sprite Icon => _enemyView.Icon;
     }
 }

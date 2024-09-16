@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: InteractableZone_Mat
-  m_Shader: {fileID: 10800, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 0d949f33aae55df4d92d64ec31581556, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3871d87570e336a419d82166a41c11e3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 19f4ae80a588d3146a424963effd49be, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -87,6 +87,7 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _AlphaClip: 0
+    - _AnimationSpeed: 0.5
     - _Arc: 0.7361111
     - _Blend: 0
     - _BlendOp: 0
@@ -101,7 +102,7 @@ Material:
     - _ColorMask: 15
     - _ColorMode: 0
     - _Cull: 2
-    - _Cutoff: 0.131
+    - _Cutoff: 0.363
     - _DepthMaxDistance: 1
     - _DetailNormalMapScale: 1
     - _DistortionBlend: 0.5
@@ -145,6 +146,8 @@ Material:
     - _QueueOffset: 0
     - _Rim: 1
     - _RimEnabled: 0
+    - _Roll: 0.2
+    - _Scale: 0.8
     - _SelfShadingSize: 0.726
     - _SelfShadingSizeExtra: 0.6
     - _ShadowEdgeSize: 0.05
@@ -173,16 +176,17 @@ Material:
     - _UnityShadowSharpness: 1
     - _UseUIAlphaClip: 0
     - _VertexColorsEnabled: 0
+    - _Yaw: 0.2
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _CautionColor: {r: 1, g: 1, b: 1, a: 1}
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
-    - _Color: {r: 0, g: 1.3042235, b: 2.519016, a: 1}
+    - _Color: {r: 0, g: 1, b: 0.9435611, a: 1}
     - _Color1: {r: 1, g: 0.5, b: 0.5, a: 1}
     - _Color2: {r: 0.48490566, g: 0.48490566, b: 1, a: 1}
-    - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
+    - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _ColorDim: {r: 1, g: 0.61970055, b: 0, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}

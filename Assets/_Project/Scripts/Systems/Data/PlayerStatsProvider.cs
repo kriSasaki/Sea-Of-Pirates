@@ -63,7 +63,7 @@ namespace Project.Systems.Data
 
             foreach (StatType statType in Enum.GetValues(typeof(StatType)).Cast<StatType>())
             {
-                statsLevels.Add(statType, 0);
+                statsLevels.Add(statType, 1);
             }
             foreach (PlayerStatData statData in _statsData.StatsLevels)
             {

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Project.Configs.Game;
+using Project.Configs.Level;
 using Project.Interfaces.Data;
 using UnityEngine;
 
@@ -9,7 +11,8 @@ namespace Project.Systems.Data
         IPlayerStatsData,
         IQuestsData,
         IAdvertismentData,
-        ILevelSceneService
+        ILevelSceneService,
+        ILevelDataService
     {
         private const string SaveKey = nameof(SaveKey);
 
@@ -36,6 +39,20 @@ namespace Project.Systems.Data
         {
             _gameData.CurrentScene = levelName;
             Save();
+        }
+
+        public LevelData GetLevelData(string levelName)
+        {
+            LevelData leveldata = _gameData.Levels.FirstOrDefault(l=> l.LevelName == levelName);
+
+            if (leveldata == null)
+            {
+                leveldata = new LevelData(levelName);
+
+                _gameData.Levels.Add(leveldata);
+            }
+
+            return leveldata;
         }
 
         public void Save()
