@@ -11,7 +11,7 @@ stat/Damage/desc,Damage dealt to enemies
 stat/Hold/desc,Ship's carrying capacity
 stat/AttackRange/desc,Ship firing range
 stat/Cannons/desc,Cannons amount on the ship
-quests/Tutorial/quest_Boss,Enter messages for the quest
+quests/Tutorial/quest_Boss,There's a villain in our waters! Help me deal with it. 
 quests/Level1/quest_01,Sink the lousy boat
 quests/Level1/quest_02,Need more fun!
 quests/Level1/quest_03,Need more fun!
@@ -44,8 +44,8 @@ Leaderboard/AuthorizationButton,Login
 UI/NextLevel/CanPass,Now we can safely pass through the reefs. Want to go further?
 UI/NextLevel/CanNotPass,"Dangerous reefs ahead! Without a map
 UI/NextLevel/EndGame,Congratulations on completing the game! Come join us in the next updates!
-Tutorial/MoveTip,Use WSAD buttons to move around
-Tutorial/MoveTipMobile,Control your ship simply by moving your finger across the display.
+Tutorial/MoveTip,To swim press WASD
+Tutorial/MoveTipMobile,To swim move your finger across the display
 Tutorial/PirateBay,Hand over your loot and upgrade your ship in the bay
 Tutorial/Attack,Booty! Swim closer! Your team will do everything themselves!
 Tutorial/NextLevel,It's worth looking for a map from the locals...

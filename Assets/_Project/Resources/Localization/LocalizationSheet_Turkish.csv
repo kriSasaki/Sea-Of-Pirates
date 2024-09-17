@@ -11,7 +11,7 @@ stat/Damage/desc,Düşmanlara verilen hasar
 stat/Hold/desc,Geminin taşıma kapasitesi
 stat/AttackRange/desc,Gemi atış menzili
 stat/Cannons/desc,Gemideki silah sayısı
-quests/Tutorial/quest_Boss,Görev için mesajları girin
+quests/Tutorial/quest_Boss,Sularımızda bir kötü adam var! Bununla başa çıkmama yardım et. 
 quests/Level1/quest_01,Berbat tekneyi batır
 quests/Level1/quest_02,Daha fazla eğlenceye ihtiyacınız var!
 quests/Level1/quest_03,Daha fazla eğlenceye ihtiyacınız var!
@@ -44,8 +44,8 @@ Leaderboard/AuthorizationButton,Giriş yapmak
 UI/NextLevel/CanPass,Artık resiflerden güvenle geçebiliriz. Daha ileri gitmek ister misin?
 UI/NextLevel/CanNotPass, we'll be overwhelmed right away! Come back with the map."
 UI/NextLevel/EndGame,Oyunu tamamladığınız için tebrikler! Bir sonraki güncellemelerde bize katılın!
-Tutorial/MoveTip,Dolaşmak için WSAD düğmelerini kullanın
-Tutorial/MoveTipMobile,Parmağınızı ekranda hareket ettirerek geminizi kontrol edin.
+Tutorial/MoveTip,Yüzmek için WASD'ye basın
+Tutorial/MoveTipMobile,Yüzmek için parmağınızı ekran üzerinde hareket ettirin
 Tutorial/PirateBay,Ganimetinizi teslim edin ve körfezdeki geminizi yükseltin
 Tutorial/Attack,Ganimet! Daha yakın yüzün! Ekibiniz her şeyi kendisi yapacak!
 Tutorial/NextLevel,Yerel halktan bir harita aramaya değer...

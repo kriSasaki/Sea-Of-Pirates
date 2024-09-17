@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 301624018786779958}
+  _healSound: {fileID: 8300000, guid: c879cb15799960344bf801ff3e9f16d5, type: 3}
 --- !u!114 &5742568367049463457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +444,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3752899164081436785}
     m_Modifications:
+    - target: {fileID: 2253925669792630282, guid: d17141729674a9a41a463ca060bccee1, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881313846134058150, guid: d17141729674a9a41a463ca060bccee1, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3295728388460024211, guid: d17141729674a9a41a463ca060bccee1, type: 3}
       propertyPath: m_Name
       value: WaterTrail

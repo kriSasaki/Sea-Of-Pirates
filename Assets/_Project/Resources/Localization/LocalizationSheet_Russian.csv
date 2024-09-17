@@ -11,7 +11,7 @@ stat/Damage/desc,Наносимый врагам Урон
 stat/Hold/desc,Грузоподъемность корабля
 stat/AttackRange/desc,Дальность стрельбы корабля
 stat/Cannons/desc,Количество орудий на корабле
-quests/Tutorial/quest_Boss,Впиши сообщения для квеста
+quests/Tutorial/quest_Boss,В наших водах завелся негодяй! Помоги справиться с ним. 
 quests/Level1/quest_01,Затопи вшивую шлюпку
 quests/Level1/quest_02,Нужно больше весел!
 quests/Level1/quest_03,Нужно больше весел!
@@ -44,8 +44,8 @@ Leaderboard/AuthorizationButton,Авторизоваться
 UI/NextLevel/CanPass,Теперь мы можем спокойно пройти через рифы. Хотите отправиться дальше?
 UI/NextLevel/CanNotPass,Впереди опасные рифы! Без карты сразу же разобъемся! Возвращайтесь с картой.
 UI/NextLevel/EndGame,Поздравляем вас с прохождением игры! Приплывайте к нас в следующих обновлениях!
-Tutorial/MoveTip,Используй кнопки WSAD для передвижения
-Tutorial/MoveTipMobile,Управляйте своим кораблем просто двигая пальцем по дисплею.
+Tutorial/MoveTip,Чтобы плыть жми ЦФЫВ
+Tutorial/MoveTipMobile,Чтобы плыть двигай пальцем по дисплею
 Tutorial/PirateBay,Сдай награбленное и обнови корабль в бухте
 Tutorial/Attack,Добыча! Подплывай ближе! Твоя команда все сделает сама!
 Tutorial/NextLevel,Стоит поискать карту у местных...
