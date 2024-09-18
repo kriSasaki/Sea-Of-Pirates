@@ -17,7 +17,6 @@ public class CameraLook : MonoBehaviour
     private void LateUpdate()
     {
         Quaternion rotation = _camera.transform.rotation;
-        Vector3 rot = rotation.eulerAngles.WithX(transform.rotation.eulerAngles.x);
         transform.rotation = rotation;
     }
 }

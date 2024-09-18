@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   _loadingScene: LoadingScene
-  _firstLevelScene: Level_01
+  _firstLevelScene: Tutorial
   <EarnResourceSound>k__BackingField: {fileID: 8300000, guid: 2fe1d9e973744bb43bb5121009e2e3ac, type: 3}
   <QuestDoneSound>k__BackingField: {fileID: 8300000, guid: 262e8cd8a55950542989ccf82c12895d, type: 3}

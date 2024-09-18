@@ -17,7 +17,7 @@ namespace Project.Interactables
 
         private SphereCollider _triggerZone;
 
-        private void Awake()
+        protected void Awake()
         {
             _triggerZone = GetComponent<SphereCollider>();
             _triggerZone.isTrigger = true;

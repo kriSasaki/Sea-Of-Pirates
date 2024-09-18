@@ -70,7 +70,7 @@ ModelImporter:
     useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
-    normalSmoothAngle: 30
+    normalSmoothAngle: 5
     normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 0
@@ -90,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 3.5
+    globalScale: 350
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

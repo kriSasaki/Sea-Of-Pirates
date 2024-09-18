@@ -15,7 +15,7 @@ namespace Project.Utils
         [HorizontalLine(3f, EColor.Orange)]
         [SerializeField, Range(1, 100)] private int _healthLevel;
         [SerializeField, Range(1, 100)] private int _damageLevel;
-        [SerializeField, Range(1, 30)] private int _speedLevel;
+        [SerializeField, Range(1, 45)] private int _speedLevel;
         [SerializeField, Range(1, 100)] private int _cargoLevel;
         [SerializeField, Range(1, 50)] private int _attackRangeLevel;
         [SerializeField, Range(1, 10)] private int _cannonsLevel;
