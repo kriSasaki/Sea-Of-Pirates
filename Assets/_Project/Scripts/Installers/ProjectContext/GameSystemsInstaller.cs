@@ -17,14 +17,16 @@ namespace Project.Installers.ProjectContext
 
         private void BindInput()
         {
-            if (Agava.WebUtility.Device.IsMobile)
-            {
-                Container.Bind<IInputService>().To<MobileInputService>().FromNew().AsSingle();
-            }
-            else
-            {
-                Container.Bind<IInputService>().To<StandaloneInputService>().FromNew().AsSingle();
-            }
+            Container.Bind<IInputService>().To<InputService>().FromNew().AsSingle();
+
+            //if (Agava.WebUtility.Device.IsMobile)
+            //{
+            //    Container.Bind<IInputService>().To<MobileInputService>().FromNew().AsSingle();
+            //}
+            //else
+            //{
+            //    Container.Bind<IInputService>().To<StandaloneInputService>().FromNew().AsSingle();
+            //}
         }
     }
 }

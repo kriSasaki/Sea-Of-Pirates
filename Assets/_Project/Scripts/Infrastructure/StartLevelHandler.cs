@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using Project.Interfaces.SDK;
 using Project.Players.Logic;
 using Project.Spawner;
@@ -15,7 +14,6 @@ namespace Project.Infrastructure
     public class StartLevelHandler : MonoBehaviour
     {
         [SerializeField] private float _unfadeCanvasDuration = 0.5f;
-        [SerializeField] private GameObject _joystickCanvas;
         [SerializeField] private GameObject _pointerCanvas;
 
         private List<BaseEnemySpawner> _enemySpawners;
@@ -25,6 +23,7 @@ namespace Project.Infrastructure
         private CameraSystem _cameraSystem;
         private UiCanvas _uiCanvas;
         private IGameReadyService _gameReadyService;
+        private JoystickCanvas _joystickCanvas;
 
         [Inject]
         public void Construct(
@@ -34,7 +33,8 @@ namespace Project.Infrastructure
             PlayerSpawner playerSpawner,
             CameraSystem cameraSystem,
             UiCanvas uiCanvas,
-            IGameReadyService gameReadyService)
+            IGameReadyService gameReadyService,
+            JoystickCanvas joystickCanvas = null)
         {
             _enemySpawners = enemySpawners;
             _questEnemyHandler = questEnemyHandler;
@@ -43,6 +43,7 @@ namespace Project.Infrastructure
             _cameraSystem = cameraSystem;
             _uiCanvas = uiCanvas;
             _gameReadyService = gameReadyService;
+            _joystickCanvas = joystickCanvas;
         }
 
         private async UniTaskVoid Start()
@@ -80,7 +81,7 @@ namespace Project.Infrastructure
         private void EnableUi()
         {
             if (_joystickCanvas != null)
-                _joystickCanvas.SetActive(true);
+                _joystickCanvas.Enable();
 
             if (_pointerCanvas != null)
                 _pointerCanvas.SetActive(true);
@@ -91,7 +92,7 @@ namespace Project.Infrastructure
             _uiCanvas.Disable();
 
             if (_joystickCanvas != null)
-                _joystickCanvas.SetActive(false);
+                _joystickCanvas.Disabe();
 
             if (_pointerCanvas != null)
                 _pointerCanvas.SetActive(false);
