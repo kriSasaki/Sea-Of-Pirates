@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 301624018786779958}
+  _healSound: {fileID: 0}
 --- !u!114 &5742568367049463457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +68,7 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 3722445594469159487}
   _rotationSpeed: 120
   _moveAngleDot: 0.613
+  _reverseMoveMultiplier: 0.121
 --- !u!114 &3119734213491335052
 MonoBehaviour:
   m_ObjectHideFlags: 0

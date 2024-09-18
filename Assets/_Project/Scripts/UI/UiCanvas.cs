@@ -1,7 +1,5 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
@@ -17,16 +15,19 @@ namespace Project.UI
         public void Enable()
         {
             _canvasGroup.alpha = MaxAlpha;
+            _canvasGroup.interactable = true;
         }
 
         public void Disable()
         {
             _canvasGroup.alpha = MinAlpha;
+            _canvasGroup.interactable = false;
         }
 
         public async UniTask EnableAsync(float duration, CancellationToken token)
         {
             await _canvasGroup.DOFade(MaxAlpha, duration).WithCancellation(token);
+            Enable();
         }
     }
 }
