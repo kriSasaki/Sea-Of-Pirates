@@ -18,6 +18,7 @@ using Project.UI.Quests;
 using Project.UI.Reward;
 using Project.UI.Shop;
 using Project.UI.Upgrades;
+using SimpleInputNamespace;
 using UnityEngine;
 using Zenject;
 
@@ -25,9 +26,12 @@ namespace Project.Installers.SceneContext
 {
     public class SceneInstaller : MonoInstaller
     {
+        [SerializeField] private bool _isMobile = false;
+
         [SerializeField] private LevelConfig _levelConfig;
         [SerializeField] private VfxSpawner _vfxSpawner;
         [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private JoystickCanvas _joystickCanvas;
 
         public LevelConfig LevelConfig => _levelConfig;
 
@@ -58,6 +62,7 @@ namespace Project.Installers.SceneContext
         private void BindSystems()
         {
             Container.Bind<CinemachineBrain>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<Joystick>().FromComponentsInHierarchy().AsSingle();
 
             Container.BindInterfacesAndSelfTo<QuestSystem>().FromNew().AsSingle();
             Container.BindInterfacesAndSelfTo<ShopSystem>().FromNew().AsSingle().NonLazy();
@@ -100,13 +105,37 @@ namespace Project.Installers.SceneContext
 
         private void BindPlayer()
         {
-            Container.BindInterfacesTo<PlayerHold>().AsSingle();
+            BindMoveHandler();
 
+            Container.BindInterfacesTo<PlayerHold>().AsSingle();
             Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerAttack>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<PlayerLootController>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerSpawner>().FromNew().AsSingle().NonLazy();
+        }
+
+        private void BindMoveHandler()
+        {
+            if (_isMobile)
+            {
+                Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
+                Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
+            }
+            else
+            {
+                Container.Bind<MoveHandler>().To<DesktopMoveHandler>().FromNew().AsSingle();
+            }
+
+            //if (Agava.WebUtility.Device.IsMobile)
+            //{
+            //    Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
+            //    Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
+            //}
+            //else
+            //{
+            //    Container.Bind<MoveHandler>().To<DesktopMoveHandler>().FromNew().AsSingle();
+            //}
         }
     }
 }

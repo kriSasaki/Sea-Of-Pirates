@@ -8,6 +8,10 @@ namespace Project.Utils.Extensions
         {
             return new Vector3(vector.x, 0f, vector.z);
         }
+        public static Vector3 WithZeroX(this Vector3 vector)
+        {
+            return new Vector3(0f, vector.y, vector.z);
+        }
 
         public static Vector3 WithY(this Vector3 vector, float y)
         {
