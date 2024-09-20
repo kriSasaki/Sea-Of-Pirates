@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9d6b4a3b1b0cb4cb55208902e4bd93, type: 3}
   m_Name: Gold_Small
   m_EditorClassIdentifier: 
-  <Item>k__BackingField:
-    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 5000
   <Price>k__BackingField:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
     Amount: 25
+  <Item>k__BackingField:
+    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
+    Amount: 5000
