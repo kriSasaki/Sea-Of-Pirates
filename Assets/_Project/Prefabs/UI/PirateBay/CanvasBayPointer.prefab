@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pointerTransform: {fileID: 2092762359082158605}
   _leftMargin: 0.01
-  _rightMargin: 0.1
+  _rightMargin: 0.12
   _topMargin: 0.1
   _downMargin: 0.01
 --- !u!1 &6604319541584056362
