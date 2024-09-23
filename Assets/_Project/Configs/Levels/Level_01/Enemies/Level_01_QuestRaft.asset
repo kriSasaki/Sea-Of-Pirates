@@ -17,8 +17,8 @@ MonoBehaviour:
   _damage: 0
   _attackCooldown: 5
   _speed: 3
-  _rotationSpeed: 42.2
-  _moveAngleDot: 0.652
+  _rotationSpeed: 35.4
+  _moveAngleDot: 0.574
   _attackRange: 0
   _detectRange: 25
   _enemyView: {fileID: 138012087150548504, guid: 271d73b0452866d4b929cdb5202b021c, type: 3}
