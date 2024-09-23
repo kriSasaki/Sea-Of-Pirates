@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038a84e81d7d1ef4996b9f97165a82d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waterlineLevel: 0.95
+  _waterlineLevel: 1.08
   _timeOffsetMultiplier: 2
   _minWaveFrequency: 2
   _maxWaveFrequency: 3

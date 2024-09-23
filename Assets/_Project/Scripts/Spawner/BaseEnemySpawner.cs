@@ -87,7 +87,7 @@ namespace Project.Spawner
 
             for (int i = 0; i < MaxTries; i++)
             {
-                bool hasObstacles = Physics.CheckBox(position, shipBounds.extents, Quaternion.identity, _obstaclesMask);
+                bool hasObstacles = Physics.CheckBox(position, shipBounds.extents * BoundsMultiplier, Quaternion.identity, _obstaclesMask);
 
                 if (hasObstacles == false)
                     break;

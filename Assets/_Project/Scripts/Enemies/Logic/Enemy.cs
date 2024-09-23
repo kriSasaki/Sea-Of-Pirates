@@ -71,6 +71,7 @@ namespace Project.Enemies.Logic
             _vfxSpawner = vfxSpawner;
             _audioService = audioService;
             _currentHealth = _config.MaxHealth;
+            SetSpawnPosition();
 
             _shipCollider = GetComponent<BoxCollider>();
             _stateMachine = GetComponent<EnemyStateMachine>();
@@ -78,7 +79,6 @@ namespace Project.Enemies.Logic
             _view = Instantiate(_config.View, transform);
 
             SetShipCollider(player);
-            SetSpawnPosition();
 
             _view.Initialize(this, _vfxSpawner, _audioService, levelConfig);
             _attackRangeView.Initialize(_config.AttackRange);

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Level_01_Quest_03
   m_EditorClassIdentifier: 
   _descriptionToken: quests/Level1/quest_03
-  <TargetType>k__BackingField: {fileID: 11400000, guid: 0f78005a3d4686647ad3b365215143f6, type: 2}
-  <TargetAmount>k__BackingField: 1
+  <TargetType>k__BackingField: {fileID: 11400000, guid: 66155a4af7562004b9d62822154e6f77, type: 2}
+  <TargetAmount>k__BackingField: 35
   <Reward>k__BackingField:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 1
+    Amount: 800

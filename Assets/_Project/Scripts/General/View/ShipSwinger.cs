@@ -15,18 +15,19 @@ namespace Project.General.View
         private float _waveFrequency = 1f;
         private float _waterlineOffset;
 
-        private void Start()
+
+        private void Update()
+        {
+            transform.localPosition = _initialPosition + _waterlineOffset * Mathf.Sin((Time.time + _timeOffset) * _waveFrequency) * Vector3.down;
+        }
+
+        public void Initialize()
         {
             _waterlineOffset = (_waterlineLevel + transform.localPosition.y) / 2;
             _initialPosition = transform.localPosition.SubtractY(_waterlineOffset);
 
             _timeOffset = Random.value * _timeOffsetMultiplier;
             _waveFrequency = Random.Range(_minWaveFrequency, _maxWaveFrequency);
-        }
-
-        private void Update()
-        {
-            transform.localPosition = _initialPosition + _waterlineOffset * Mathf.Sin((Time.time + _timeOffset) * _waveFrequency) * Vector3.down;
         }
 
         private void OnDrawGizmosSelected()

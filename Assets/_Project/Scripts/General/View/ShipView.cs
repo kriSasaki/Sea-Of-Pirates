@@ -18,6 +18,7 @@ namespace Project.General.View
             transform.localPosition = transform.localPosition.AddY(-_verticalOffset);
             _originLocalPosition = transform.localPosition;
             _sinkTween.Initialize(transform);
+            _shipSwinger.Initialize();
         }
 
         public abstract void TakeDamage(int damage);

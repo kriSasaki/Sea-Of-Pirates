@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
-  m_Name: Level_01_Medium
+  m_Name: Level_01_MediumBonusLoneWolf
   m_EditorClassIdentifier: 
-  _maxHealth: 90
+  _maxHealth: 138
   _canDealDamage: 1
-  _damage: 7
+  _damage: 32
   _attackCooldown: 1.5
   _speed: 6
-  _rotationSpeed: 43
+  _rotationSpeed: 58.3
   _moveAngleDot: 0.71
   _attackRange: 20
-  _detectRange: 30
+  _detectRange: 35
   _enemyView: {fileID: 2767456718062045007, guid: 047ba29f609587a4494a880d4b974ea5, type: 3}
   _isSolidForPlayer: 1
   _behaviourConfig: {fileID: 11400000, guid: 98916230757ca924190e0bd3a8a911ad, type: 2}
   _loot:
-    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 100
+    Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
+    Amount: 5
