@@ -8,6 +8,11 @@ namespace Project.Utils
     {
         [SerializeField] private MeshRenderer _waterRenderer;
 
+        private readonly int _offsetProperty = Shader.PropertyToID("_SurfaceDistortion");
+        private readonly float _timeMultiplier = 0.002f;
+
+        private Material _material;
+
         [Inject]
         private void Construct(LevelConfig levelConfig)
         {
@@ -15,6 +20,15 @@ namespace Project.Utils
                 return;
 
             _waterRenderer.material = levelConfig.WaterMaterial;
+            _material = _waterRenderer.material;
+        }
+
+        private void Update()
+        {
+            float offsetX = Mathf.Repeat(Time.time * _timeMultiplier, 1f);
+            Vector2 offset = new Vector2(offsetX, 0f);
+
+            _material.SetTextureOffset(_offsetProperty, offset);
         }
     }
 }

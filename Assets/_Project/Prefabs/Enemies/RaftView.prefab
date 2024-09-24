@@ -70,11 +70,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _waterlineLevel
-      value: 0.44
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _maxWaveFrequency
-      value: 3.59
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: _minWaveFrequency
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
+      propertyPath: _timeOffsetMultiplier
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2132961712432785312, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: m_LocalPosition.x

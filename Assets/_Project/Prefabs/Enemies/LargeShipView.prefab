@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _waterlineLevel
-      value: 2.1
+      value: 2.55
       objectReference: {fileID: 0}
     - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _maxWaveFrequency
