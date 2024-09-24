@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3119734213491335052}
   - component: {fileID: 3722445594469159487}
   - component: {fileID: 3427630849251422312}
+  - component: {fileID: 5813010965591055887}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -68,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRigidbody: {fileID: 3722445594469159487}
+  _animator: {fileID: 5813010965591055887}
   _rotationSpeed: 90
   _moveAngleDot: 0.55
   _reverseMoveMultiplier: 0.2
@@ -136,6 +138,27 @@ CapsuleCollider:
   m_Height: 15
   m_Direction: 2
   m_Center: {x: 0, y: 1.89, z: 0.39}
+--- !u!95 &5813010965591055887
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298651433288004100}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6b111f25f1828c42a9244aa39408bff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4713609338367576247
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +273,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2343363347959202804}
   m_Father: {fileID: 3752899164081436785}

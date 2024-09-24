@@ -12,9 +12,12 @@ namespace Project.Players.Logic
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private Rigidbody _playerRigidbody;
+        [SerializeField] private Animator _animator;
         [SerializeField, Range(30f, 120f)] private float _rotationSpeed;
         [SerializeField, Range(0.1f, 0.7f)] private float _moveAngleDot;
         [SerializeField, Range(0.1f,1f)] private float _reverseMoveMultiplier;
+
+        private readonly int _hash = Animator.StringToHash("ForwardSpeed");
 
         private IPlayerStats _playerStats;
         private Player _player;
@@ -24,6 +27,9 @@ namespace Project.Players.Logic
         public float RotationSpeed => _rotationSpeed;
         public float MoveAngleDot => _moveAngleDot;
         public float ReverseMoveMultiplier => _reverseMoveMultiplier;
+        public Animator Animator => _animator;
+        public int Hash => _hash;
+
 
         private void Update()
         {

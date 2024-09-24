@@ -16,6 +16,7 @@ namespace Project.Players.Logic
         public override void ReadInput()
         {
             _input = InputService.Axis;
+            PlayerMove.Animator.SetFloat(PlayerMove.Hash, _input.y);
         }
 
         public override void Rotate()
