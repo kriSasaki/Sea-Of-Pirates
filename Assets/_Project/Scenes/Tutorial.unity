@@ -8000,7 +8000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3683243696000880406, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
       propertyPath: _isMobile
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3683243696000880406, guid: 5c2a31acb04f5ef4b98ddabe058c5e48, type: 3}
       propertyPath: _levelConfig
@@ -36731,6 +36731,10 @@ PrefabInstance:
       propertyPath: _enemyConfig
       value: 
       objectReference: {fileID: 11400000, guid: 3da53bbea24a61542aec992538119a1b, type: 2}
+    - target: {fileID: 4460319001273567514, guid: b0fc33bedc2eb4c429fcb740a4300a35, type: 3}
+      propertyPath: _followOffset
+      value: 
+      objectReference: {fileID: 11400000, guid: 46f8c3219bb57ea4787a1d82207f9b58, type: 2}
     - target: {fileID: 4460319001273567514, guid: b0fc33bedc2eb4c429fcb740a4300a35, type: 3}
       propertyPath: _triggerZoneRadius
       value: 40

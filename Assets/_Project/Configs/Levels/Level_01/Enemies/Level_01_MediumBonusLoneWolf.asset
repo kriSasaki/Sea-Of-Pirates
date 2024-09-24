@@ -21,7 +21,7 @@ MonoBehaviour:
   _moveAngleDot: 0.71
   _attackRange: 20
   _detectRange: 35
-  _enemyView: {fileID: 2767456718062045007, guid: 047ba29f609587a4494a880d4b974ea5, type: 3}
+  _enemyView: {fileID: 109266931523258178, guid: 72613408426b8a34d9b503b2fcdd8012, type: 3}
   _isSolidForPlayer: 1
   _behaviourConfig: {fileID: 11400000, guid: 98916230757ca924190e0bd3a8a911ad, type: 2}
   _loot:
