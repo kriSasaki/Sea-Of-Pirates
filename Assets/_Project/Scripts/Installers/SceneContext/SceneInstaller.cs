@@ -117,7 +117,7 @@ namespace Project.Installers.SceneContext
         private void BindMoveHandler()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            if (Agava.WebUtility.Device.IsMobile)
+            if (Agava.WebUtility.Device.IsMobile || SystemInfo.deviceType == DeviceType.Handheld)
             {
                 Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
                 Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
