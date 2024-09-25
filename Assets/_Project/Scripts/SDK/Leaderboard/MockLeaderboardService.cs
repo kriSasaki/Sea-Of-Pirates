@@ -6,14 +6,14 @@ namespace Project.SDK.Leaderboard
 {
     public class MockLeaderboardService : ILeaderboardService
     {
-        public bool IsPlayerAuthorized { get; private set; } = false; 
+        public bool IsPlayerAuthorized { get; private set; } = false;
 
         public void AuthorizePlayer()
         {
             IsPlayerAuthorized = true;
         }
 
-        public void LoadPlayers(Action<List<LeaderboardPlayer>> onLoadCallback)
+        public void LoadPlayers(Action<List<LeaderboardPlayer>, int> onLoadCallback)
         {
             List<LeaderboardPlayer> players = new()
             {
@@ -26,7 +26,7 @@ namespace Project.SDK.Leaderboard
                 new LeaderboardPlayer(7, null, 2),
             };
 
-            onLoadCallback( players );
+            onLoadCallback(players, 1);
         }
 
         public void SetPlayerScore(int score)
