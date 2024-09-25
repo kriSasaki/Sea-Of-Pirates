@@ -9,6 +9,7 @@ using Zenject;
 
 namespace Project.Players.Logic
 {
+    [RequireComponent(typeof(Animator))]
     public class PlayerMove : MonoBehaviour
     {
         [SerializeField] private Rigidbody _playerRigidbody;
@@ -17,7 +18,7 @@ namespace Project.Players.Logic
         [SerializeField, Range(0.1f, 0.7f)] private float _moveAngleDot;
         [SerializeField, Range(0.1f,1f)] private float _reverseMoveMultiplier;
 
-        private readonly int _hash = Animator.StringToHash("ForwardSpeed");
+        private readonly int _forwardValueHash = Animator.StringToHash("ForwardValue");
 
         private IPlayerStats _playerStats;
         private Player _player;
@@ -27,9 +28,6 @@ namespace Project.Players.Logic
         public float RotationSpeed => _rotationSpeed;
         public float MoveAngleDot => _moveAngleDot;
         public float ReverseMoveMultiplier => _reverseMoveMultiplier;
-        public Animator Animator => _animator;
-        public int Hash => _hash;
-
 
         private void Update()
         {
@@ -54,8 +52,14 @@ namespace Project.Players.Logic
             _playerStats = playerStats;
             _player = player;
             _moveHandler = moveHandler;
+            _animator = GetComponent<Animator>();
 
             _moveHandler.Initialize(_playerRigidbody,this);
+        }
+
+        public void SetForwardValue(float value)
+        {
+            _animator.SetFloat(_forwardValueHash, value);
         }
     }
 }

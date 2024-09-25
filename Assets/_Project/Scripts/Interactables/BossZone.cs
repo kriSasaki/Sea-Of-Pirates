@@ -1,4 +1,5 @@
 using Ami.BroAudio;
+using Project.Configs.Game;
 using Project.Interfaces.Audio;
 using Project.Players.Logic;
 using Project.Spawner;
@@ -10,9 +11,9 @@ namespace Project.Interactables
     public class BossZone : CameraViewZone
     {
         [SerializeField] private BossSpawner _bossSpawner;
-        [SerializeField] private SoundID _enterZoneSound;
 
         private IAudioService _audioService;
+        private GameConfig _gameConfig;
 
         protected override void OnPlayerEntered(Player player)
         {
@@ -20,14 +21,26 @@ namespace Project.Interactables
 
             if (_bossSpawner.IsBossSpawned)
             {
-                _audioService.PlaySound(_enterZoneSound);
+                _audioService.PlaySound(_gameConfig.BossZoneSound);
+                _audioService.PlayMusic(_gameConfig.BattleMusic);
+            }
+        }
+
+        protected override void OnPlayerExited(Player player)
+        {
+            base.OnPlayerExited(player);
+
+            if (_bossSpawner.IsBossSpawned)
+            {
+                _audioService.PlayMusic(_gameConfig.MainMusic);
             }
         }
 
         [Inject]
-        public void Construct(IAudioService audioService)
+        public void Construct(IAudioService audioService, GameConfig gameConfig)
         {
             _audioService = audioService;
+            _gameConfig = gameConfig;
         }
     }
 }

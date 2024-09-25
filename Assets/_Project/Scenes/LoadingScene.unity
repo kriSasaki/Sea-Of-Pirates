@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ede0252ef7e92459ff5df2a16cd28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularVelocity: {x: 0, y: 0, z: 120}
+  angularVelocity: {x: 0, y: 0, z: -120}
   relativeTo: 1
 --- !u!114 &616627882
 MonoBehaviour:

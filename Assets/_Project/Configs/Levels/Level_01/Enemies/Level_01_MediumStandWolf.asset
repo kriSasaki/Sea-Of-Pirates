@@ -17,7 +17,7 @@ MonoBehaviour:
   _damage: 6
   _attackCooldown: 1
   _speed: 6
-  _rotationSpeed: 49.2
+  _rotationSpeed: 48
   _moveAngleDot: 0.608
   _attackRange: 20
   _detectRange: 30

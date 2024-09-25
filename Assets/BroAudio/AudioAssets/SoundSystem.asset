@@ -13,29 +13,56 @@ MonoBehaviour:
   m_Name: SoundSystem
   m_EditorClassIdentifier: 
   Entities:
-  - <Name>k__BackingField: Quest_Done
-    <ID>k__BackingField: 1073741835
+  - <Name>k__BackingField: MainMusic
+    <ID>k__BackingField: 268435458
     MulticlipsPlayMode: 0
     Clips:
-    - AudioClip: {fileID: 8300000, guid: 262e8cd8a55950542989ccf82c12895d, type: 3}
-      Volume: 0.8514364
+    - AudioClip: {fileID: 8300000, guid: 28e9f0b3271b63344b331ee7877094aa, type: 3}
+      Volume: 0.45
       Delay: 0
       StartPosition: 0
       EndPosition: 0
-      FadeIn: 0.003
-      FadeOut: 0.205
+      FadeIn: 0
+      FadeOut: 0
       Weight: 0
-    <MasterVolume>k__BackingField: 1
-    <Loop>k__BackingField: 0
+    <MasterVolume>k__BackingField: 0.9
+    <Loop>k__BackingField: 1
     <SeamlessLoop>k__BackingField: 0
-    <TransitionTime>k__BackingField: 0
+    <TransitionTime>k__BackingField: 1
     <SpatialSetting>k__BackingField: {fileID: 0}
     <Priority>k__BackingField: 128
     <Pitch>k__BackingField: 1
     <PitchRandomRange>k__BackingField: 0
     <VolumeRandomRange>k__BackingField: 0
     <RandomFlags>k__BackingField: 0
-    SeamlessTransitionType: 0
+    SeamlessTransitionType: 1
+    TransitionTempo:
+      BPM: 0
+      Beats: 0
+    SnapToFullVolume: 0
+  - <Name>k__BackingField: BattleMusic
+    <ID>k__BackingField: 268435459
+    MulticlipsPlayMode: 0
+    Clips:
+    - AudioClip: {fileID: 8300000, guid: 28e9f0b3271b63344b331ee7877094aa, type: 3}
+      Volume: 0.45
+      Delay: 0
+      StartPosition: 0
+      EndPosition: 0
+      FadeIn: 0
+      FadeOut: 0
+      Weight: 0
+    <MasterVolume>k__BackingField: 0.9
+    <Loop>k__BackingField: 1
+    <SeamlessLoop>k__BackingField: 0
+    <TransitionTime>k__BackingField: 1
+    <SpatialSetting>k__BackingField: {fileID: 0}
+    <Priority>k__BackingField: 128
+    <Pitch>k__BackingField: 1
+    <PitchRandomRange>k__BackingField: 0
+    <VolumeRandomRange>k__BackingField: 0
+    <RandomFlags>k__BackingField: 0
+    SeamlessTransitionType: 1
     TransitionTempo:
       BPM: 0
       Beats: 0
@@ -63,33 +90,6 @@ MonoBehaviour:
     <VolumeRandomRange>k__BackingField: 0
     <RandomFlags>k__BackingField: 0
     SeamlessTransitionType: 0
-    TransitionTempo:
-      BPM: 0
-      Beats: 0
-    SnapToFullVolume: 0
-  - <Name>k__BackingField: OST
-    <ID>k__BackingField: 268435458
-    MulticlipsPlayMode: 0
-    Clips:
-    - AudioClip: {fileID: 8300000, guid: 28e9f0b3271b63344b331ee7877094aa, type: 3}
-      Volume: 0.45
-      Delay: 0
-      StartPosition: 0
-      EndPosition: 0
-      FadeIn: 0
-      FadeOut: 0
-      Weight: 0
-    <MasterVolume>k__BackingField: 0.9
-    <Loop>k__BackingField: 1
-    <SeamlessLoop>k__BackingField: 0
-    <TransitionTime>k__BackingField: 1
-    <SpatialSetting>k__BackingField: {fileID: 0}
-    <Priority>k__BackingField: 128
-    <Pitch>k__BackingField: 1
-    <PitchRandomRange>k__BackingField: 0
-    <VolumeRandomRange>k__BackingField: 0
-    <RandomFlags>k__BackingField: 0
-    SeamlessTransitionType: 1
     TransitionTempo:
       BPM: 0
       Beats: 0
@@ -144,6 +144,33 @@ MonoBehaviour:
     <VolumeRandomRange>k__BackingField: 0
     <RandomFlags>k__BackingField: 0
     SeamlessTransitionType: 1
+    TransitionTempo:
+      BPM: 0
+      Beats: 0
+    SnapToFullVolume: 0
+  - <Name>k__BackingField: Quest_Done
+    <ID>k__BackingField: 1073741835
+    MulticlipsPlayMode: 0
+    Clips:
+    - AudioClip: {fileID: 8300000, guid: 262e8cd8a55950542989ccf82c12895d, type: 3}
+      Volume: 0.8514364
+      Delay: 0
+      StartPosition: 0
+      EndPosition: 0
+      FadeIn: 0.003
+      FadeOut: 0.205
+      Weight: 0
+    <MasterVolume>k__BackingField: 1
+    <Loop>k__BackingField: 0
+    <SeamlessLoop>k__BackingField: 0
+    <TransitionTime>k__BackingField: 0
+    <SpatialSetting>k__BackingField: {fileID: 0}
+    <Priority>k__BackingField: 128
+    <Pitch>k__BackingField: 1
+    <PitchRandomRange>k__BackingField: 0
+    <VolumeRandomRange>k__BackingField: 0
+    <RandomFlags>k__BackingField: 0
+    SeamlessTransitionType: 0
     TransitionTempo:
       BPM: 0
       Beats: 0
@@ -284,7 +311,7 @@ MonoBehaviour:
       FadeIn: 0
       FadeOut: 0.169
       Weight: 0
-    <MasterVolume>k__BackingField: 0.92
+    <MasterVolume>k__BackingField: 0.9
     <Loop>k__BackingField: 0
     <SeamlessLoop>k__BackingField: 0
     <TransitionTime>k__BackingField: 1
@@ -327,7 +354,7 @@ MonoBehaviour:
       FadeIn: 0
       FadeOut: 0.113
       Weight: 1
-    <MasterVolume>k__BackingField: 1
+    <MasterVolume>k__BackingField: 0.9
     <Loop>k__BackingField: 0
     <SeamlessLoop>k__BackingField: 0
     <TransitionTime>k__BackingField: 1
@@ -346,7 +373,7 @@ MonoBehaviour:
     <ID>k__BackingField: 1073741842
     MulticlipsPlayMode: 2
     Clips:
-    - AudioClip: {fileID: 8300000, guid: c8b8492c238499c47ad2c01b63877029, type: 3}
+    - AudioClip: {fileID: 8300000, guid: e46a0da62ae176e4f85a431cd4f6fb29, type: 3}
       Volume: 1
       Delay: 0
       StartPosition: 0
@@ -354,7 +381,7 @@ MonoBehaviour:
       FadeIn: 0
       FadeOut: 0
       Weight: 0
-    - AudioClip: {fileID: 8300000, guid: be4a9a02c21d10045805bcd0e4e84f76, type: 3}
+    - AudioClip: {fileID: 8300000, guid: 5feb82def4966a8478f0cea57d19187b, type: 3}
       Volume: 1
       Delay: 0
       StartPosition: 0

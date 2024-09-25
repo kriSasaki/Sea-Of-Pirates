@@ -15,7 +15,9 @@ namespace Project.Configs.Game
 
         [field: SerializeField] public SoundID EarnResourceSound { get; private set; }
         [field: SerializeField] public SoundID QuestDoneSound { get; private set; }
+        [field: SerializeField] public SoundID BossZoneSound { get; private set; }
         [field: SerializeField] public SoundID MainMusic { get; private set; }
+        [field: SerializeField] public SoundID BattleMusic { get; private set; }
         [field: SerializeField] public SoundID Ambience { get; private set; }
     }
 }

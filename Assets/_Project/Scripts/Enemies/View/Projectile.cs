@@ -5,17 +5,16 @@ using DG.Tweening;
 using Project.Interfaces.Audio;
 using UnityEngine;
 
-
 namespace Project.Enemies.View
 {
     public class Projectile : MonoBehaviour
     {
+        private const float ScaleMiltiplier = 2f;
+        private const float VisualRadiusOffset = 0.2f;
+
         [SerializeField] private ParticleSystem _splashParticles;
         [SerializeField] private MeshRenderer _projectileRenderer;
         [SerializeField] private SoundID _splashSound;
-
-        private const float ScaleMiltiplier = 2f;
-        private const float VisualRadiusOffset = 0.2f;
 
         private IAudioService _audioService;
 
@@ -43,6 +42,7 @@ namespace Project.Enemies.View
                 
                 _splashParticles.Play();
                 _audioService.PlaySound(_splashSound);
+
                 await UniTask.WaitUntil (() => _splashParticles.isPlaying == false);
             }
 

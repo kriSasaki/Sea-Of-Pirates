@@ -20,8 +20,14 @@ MonoBehaviour:
   <QuestDoneSound>k__BackingField:
     ID: 1073741835
     _sourceAsset: {fileID: 11400000, guid: d8461718e4685f542acc5958b8995085, type: 2}
+  <BossZoneSound>k__BackingField:
+    ID: 1073741837
+    _sourceAsset: {fileID: 11400000, guid: d8461718e4685f542acc5958b8995085, type: 2}
   <MainMusic>k__BackingField:
     ID: 268435458
+    _sourceAsset: {fileID: 11400000, guid: d8461718e4685f542acc5958b8995085, type: 2}
+  <BattleMusic>k__BackingField:
+    ID: 268435459
     _sourceAsset: {fileID: 11400000, guid: d8461718e4685f542acc5958b8995085, type: 2}
   <Ambience>k__BackingField:
     ID: 805306370
