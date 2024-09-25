@@ -6,19 +6,22 @@ namespace Project.Utils
 {
     public class Sea : MonoBehaviour
     {
+        private const float MaxOffsetValue = 1f;
+
         [SerializeField] private MeshRenderer _waterRenderer;
 
         private readonly int _offsetProperty = Shader.PropertyToID("_SurfaceDistortion");
         private readonly float _timeMultiplier = 0.002f;
 
         private Material _material;
+        private float _offsetValue;
 
-        private void Update()
+       private void Update()
         {
-            float offsetX = Mathf.Repeat(Time.time * _timeMultiplier, 1f);
-            Vector2 offset = new Vector2(offsetX, 0f);
+            _offsetValue = Mathf.Repeat(_offsetValue + Time.deltaTime * _timeMultiplier, MaxOffsetValue);
+            Vector2 distortionOffset = new Vector2(_offsetValue, -_offsetValue);
 
-            _material.SetTextureOffset(_offsetProperty, offset);
+            _material.SetTextureOffset(_offsetProperty, distortionOffset);
         }
 
         [Inject]
