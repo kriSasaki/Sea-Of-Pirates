@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456640750507170166, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: _waterlineLevel
-      value: 0.52
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 2132961712432785312, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
       propertyPath: m_LocalPosition.x

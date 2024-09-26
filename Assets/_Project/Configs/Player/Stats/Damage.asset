@@ -15,7 +15,7 @@ MonoBehaviour:
   _primaryCost:
     _resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     <MinCost>k__BackingField: 30
-    <MaxCost>k__BackingField: 1000
+    <MaxCost>k__BackingField: 1300
   _secondaryCost:
     _resource: {fileID: 11400000, guid: fafe75ba118b0f242bea3954811fa573, type: 2}
     <MinCost>k__BackingField: 20

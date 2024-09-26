@@ -12,18 +12,18 @@ stat/Hold/desc,Ship's carrying capacity
 stat/AttackRange/desc,Ship firing range
 stat/Cannons/desc,Cannons amount on the ship
 quests/Tutorial/quest_Boss,There's a villain in our waters! Help me deal with it. 
-quests/Level1/quest_01,Sink the lousy boat
-quests/Level1/quest_02,Need more fun!
-quests/Level1/quest_03,Need more fun!
+quests/Level1/quest_01,I have a large order for oars. And a frigate sank nearby. And people escape on boats... With oars... Do you understand?
+quests/Level1/quest_02,Lovers of wild recreation are blocking our trade routes with their rafts.  We will gladly pay for a couple of holes in their transport!
+quests/Level1/quest_03,The damned aristocrats on the neighboring islands are always having fun on their yachts! That would intimidate them. With a fatal outcome...
 quests/Level1/quest_Boss,An imperial frigate stood nearby. He ruins the whole business. Flood it! I won't be in debt!
 quests/Level2/quest_01,Enter messages for the quest
 quests/Level2/quest_02,Enter messages for the quest
 quests/Level2/quest_03,Enter messages for the quest
 quests/Level2/quest_Boss,Enter messages for the quest
-quests/Level3/quest_01,Enter messages for the quest
-quests/Level3/quest_02,Enter messages for the quest
-quests/Level3/quest_03,Enter messages for the quest
-quests/Level3/quest_Boss,Enter messages for the quest
+quests/Level3/quest_01,Destroy the Imperial boats before they reach the shore
+quests/Level3/quest_02,Sink the rafts of our enemies!
+quests/Level3/quest_03,Send the ships of the empire to the bottom!
+quests/Level3/quest_Boss,Sink the empire frigate that kills you
 quests/CompleteMessage,Now I can sleep peacefully! Here is your reward. Do you take it?
 quests/ProgressLabel,Sunk
 quests/OK,OK

@@ -12,18 +12,18 @@ stat/Hold/desc,Geminin taşıma kapasitesi
 stat/AttackRange/desc,Gemi atış menzili
 stat/Cannons/desc,Gemideki silah sayısı
 quests/Tutorial/quest_Boss,Sularımızda bir kötü adam var! Bununla başa çıkmama yardım et. 
-quests/Level1/quest_01,Berbat tekneyi batır
-quests/Level1/quest_02,Daha fazla eğlenceye ihtiyacınız var!
-quests/Level1/quest_03,Daha fazla eğlenceye ihtiyacınız var!
+quests/Level1/quest_01,Kürekler için büyük bir siparişim var. Ve yakınlarda bir firkateyn battı. Ve insanlar kayıklarla kaçıyorlar... Küreklerle... Anlıyor musun?
+quests/Level1/quest_02,"Vahşi eğlenceyi sevenler
+quests/Level1/quest_03,Komşu adalardaki kahrolası zenginler her zaman yatlarında eğleniyor! Bu onları korkuturdu. Ölümcül bir sonuçla...
 quests/Level1/quest_Boss,Yakınlarda bir imparatorluk firkateyni duruyordu. Bütün işi mahvediyor. Su bas! Borçlu olmayacağım!
 quests/Level2/quest_01,Görev için mesajları girin
 quests/Level2/quest_02,Görev için mesajları girin
 quests/Level2/quest_03,Görev için mesajları girin
 quests/Level2/quest_Boss,Görev için mesajları girin
-quests/Level3/quest_01,Görev için mesajları girin
-quests/Level3/quest_02,Görev için mesajları girin
-quests/Level3/quest_03,Görev için mesajları girin
-quests/Level3/quest_Boss,Görev için mesajları girin
+quests/Level3/quest_01,İmparatorluk teknelerini kıyıya ulaşmadan yok edin
+quests/Level3/quest_02,Düşmanlarımızın sallarını batırın!
+quests/Level3/quest_03,İmparatorluğun gemilerini dibe gönderin!
+quests/Level3/quest_Boss,Seni öldüren imparatorluk firkateynini batır
 quests/CompleteMessage,Artık huzur içinde uyuyabilirim! İşte ödülünüz. Alır mısın?
 quests/ProgressLabel,Batık
 quests/OK,Evet
@@ -31,7 +31,7 @@ Interactables/UpgradePlace,Marina
 Misc/thousandToken,k
 Misc/millionToken,m
 UI/ConfirmWindow/button,Onaylamak
-UI/ConfirmWindow/header,Satın alma onaylansın mı?
+UI/ConfirmWindow/header,Satın alma işlemi onaylansın mı?
 UI/Shop/GameItemHeader,KAYNAKLAR
 UI/Shop/InAppItemHeader,TEKLİFLER
 UI/Death,Tekneniz battı... Yeni bir gemi mi çaldınız?

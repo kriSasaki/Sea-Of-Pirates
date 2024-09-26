@@ -27,5 +27,5 @@ MonoBehaviour:
   <StatType>k__BackingField: 2
   <Sprite>k__BackingField: {fileID: 21300000, guid: fe85b21cb021fa440b77d159e860bce7, type: 3}
   <MinValue>k__BackingField: 50
-  <MaxValue>k__BackingField: 1500
+  <MaxValue>k__BackingField: 1000
   <MaxLevel>k__BackingField: 100

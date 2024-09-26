@@ -30,7 +30,7 @@ namespace Project.Enemies.Logic.States.Idle
         {
             base.Update();
 
-            if (Position == _targetPosition)
+            if (Vector3.SqrMagnitude(_targetPosition - Position) < 0.001f)
                 SetTargetPosition();
 
             Enemy.Mover.Move(_targetPosition);
@@ -39,7 +39,6 @@ namespace Project.Enemies.Logic.States.Idle
         private void SetTargetPosition()
         {
             Vector3 newPosition = GetRandomPosition();
-
 
             while (IsValidPosition(newPosition) == false)
             {
@@ -69,7 +68,7 @@ namespace Project.Enemies.Logic.States.Idle
 
         private Vector3 GetRandomPosition()
         {
-            return (Random.insideUnitSphere * _movementRange + SpawnPosition).WithY(Position.y);
+            return (Random.insideUnitSphere * _movementRange + SpawnPosition).WithZeroY();
         }
     }
 }

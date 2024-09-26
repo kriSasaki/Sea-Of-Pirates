@@ -19,6 +19,7 @@ using Project.UI.Reward;
 using Project.UI.Shop;
 using Project.UI.Upgrades;
 using SimpleInputNamespace;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -117,7 +118,7 @@ namespace Project.Installers.SceneContext
         private void BindMoveHandler()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            if (Agava.WebUtility.Device.IsMobile)
+            if (Agava.WebUtility.Device.IsMobile || IsIPad())
             {
                 Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
                 Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
@@ -125,6 +126,11 @@ namespace Project.Installers.SceneContext
             else
             {
                 Container.Bind<MoveHandler>().To<DesktopMoveHandler>().FromNew().AsSingle();
+            };
+
+            bool IsIPad()
+            {
+                return SystemInfo.deviceModel.StartsWith("iPad", StringComparison.Ordinal);
             }
 #else
             if (_isMobile)

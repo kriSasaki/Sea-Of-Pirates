@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactableZone: {fileID: 8293988074944398116}
   _zoneRenderer: {fileID: 3577551152820932269}
-  _zoneColor: {r: 0.98039216, g: 0.4526895, b: 0, a: 1}
+  _zoneColor: {r: 0.98039216, g: 0.632515, b: 0, a: 1}
   _scaleDuration: 0.7
   _ease: 28
 --- !u!1 &7375420403332672475
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerZoneRadius: 14
-  _gizmosColor: {r: 1, g: 0.57920235, b: 0, a: 1}
+  _gizmosColor: {r: 1, g: 0.66968703, b: 0, a: 1}
 --- !u!1 &8516229486170637729
 GameObject:
   m_ObjectHideFlags: 0

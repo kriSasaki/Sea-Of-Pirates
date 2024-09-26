@@ -51,9 +51,9 @@ namespace Project.Systems.Leaderboard
             }
         }
 
-        private void OpenLeaderboard(List<LeaderboardPlayer> players)
+        private void OpenLeaderboard(List<LeaderboardPlayer> players, int playerRank)
         {
-            _leaderboardWindow.OpenLeaderboardPanel(players);
+            _leaderboardWindow.OpenLeaderboardPanel(players, playerRank);
         }
     }
 }

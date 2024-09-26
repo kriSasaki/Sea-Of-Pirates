@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 1527755165468626086}
   _leaderboardElementPrefab: {fileID: 5904346860804778819, guid: ded67110d8557eb4a988da6532c651d0, type: 3}
+  _playerColor: {r: 0, g: 0.5849056, b: 0, a: 1}
 --- !u!114 &8169816898055229555
 MonoBehaviour:
   m_ObjectHideFlags: 0

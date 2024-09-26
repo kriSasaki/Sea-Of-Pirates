@@ -48,7 +48,7 @@ MonoBehaviour:
   _enemyConfig: {fileID: 11400000, guid: 5cc56adb66b32cd4eb731575827a2023, type: 2}
   _obstaclesMask:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 704
   _spawnRadius: 0
   _maxEnemies: 10
   _isRespawnable: 1
