@@ -27,3 +27,4 @@ MonoBehaviour:
   _loot:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     Amount: 80
+  _optionalMaterial: {fileID: 0}
