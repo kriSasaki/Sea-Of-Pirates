@@ -24,6 +24,8 @@ namespace Project.Configs.Enemies
         [SerializeField] private bool _isSolidForPlayer = false;
         [SerializeField, Expandable] private EnemyBehaviorConfig _behaviourConfig;
         [SerializeField] private GameResourceAmount _loot;
+        [HorizontalLine(2f, EColor.Blue)]
+        [SerializeField] private Material _optionalMaterial;
 
         public int MaxHealth => _maxHealth;
         public float Speed => _speed;
@@ -39,5 +41,6 @@ namespace Project.Configs.Enemies
         public EnemyBehaviorConfig BehaviorConfig => _behaviourConfig;
         public GameResourceAmount Loot => _loot;
         public Sprite Icon => _enemyView.Icon;
+        public Material OptionalMaterial => _optionalMaterial;
     }
 }

@@ -38,7 +38,7 @@ namespace Project.Enemies.View
             _hudView.Initialize(enemy);
             _punchTween.Initialize(transform);
 
-            SetRenderers(levelConfig);
+            SetRenderers(enemy, levelConfig);
         }
 
         public override void TakeDamage(int damage)
@@ -65,14 +65,17 @@ namespace Project.Enemies.View
             _hudView.Hide();
         }
 
-        private void SetRenderers(LevelConfig levelConfig)
+        private void SetRenderers(Enemy enemy, LevelConfig levelConfig)
         {
-            Material levelMaterial = levelConfig.LevelMaterial;
+            Material material = levelConfig.LevelMaterial;
 
-            if (_shipRenderer.material == levelMaterial)
+            if (enemy.Config.OptionalMaterial != null)
+                material = enemy.Config.OptionalMaterial;
+
+            if (_shipRenderer.material == material)
                 return;
 
-            _shipRenderer.material = levelMaterial;
+            _shipRenderer.material = material;
         }
     }
 }
