@@ -132,9 +132,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDim: {r: 0.9056604, g: 0.8127187, b: 0.5245995, a: 1}
+    - _ColorDim: {r: 0.7830189, g: 0.4928291, b: 0.18836774, a: 1}
     - _ColorDimCurve: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDimExtra: {r: 0.12645069, g: 0.20767105, b: 0.3018868, a: 1}
+    - _ColorDimExtra: {r: 0.13069598, g: 0.21498756, b: 0.31132078, a: 1}
     - _ColorDimSteps: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
     - _ColorGradient: {r: 0, g: 0.36731017, b: 0.6037736, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}

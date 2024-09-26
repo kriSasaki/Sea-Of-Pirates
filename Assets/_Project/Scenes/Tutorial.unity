@@ -36737,7 +36737,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 46f8c3219bb57ea4787a1d82207f9b58, type: 2}
     - target: {fileID: 4460319001273567514, guid: b0fc33bedc2eb4c429fcb740a4300a35, type: 3}
       propertyPath: _triggerZoneRadius
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6297248264014575848, guid: b0fc33bedc2eb4c429fcb740a4300a35, type: 3}
       propertyPath: m_LocalPosition.x

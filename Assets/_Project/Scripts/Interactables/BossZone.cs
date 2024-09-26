@@ -30,10 +30,7 @@ namespace Project.Interactables
         {
             base.OnPlayerExited(player);
 
-            if (_bossSpawner.IsBossSpawned)
-            {
-                _audioService.PlayMusic(_gameConfig.MainMusic);
-            }
+            _audioService.PlayMusic(_gameConfig.MainMusic);
         }
 
         [Inject]
