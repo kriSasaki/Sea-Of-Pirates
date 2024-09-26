@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rewardType: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
   _minRewardAmount: 5
-  _offerDuration: 25
-  _offerInterval: 60
+  _offerDuration: 10
+  _offerInterval: 180

@@ -15,5 +15,14 @@ namespace Project.UI.Leaderboard
             _playerRank.text = rank.ToString();
             _playerScore.text = score.ToString();
         }
+
+        public void Initialize(string name, int rank, int score, Color textColor)
+        {
+            _playerName.color = textColor;
+            _playerRank.color = textColor;
+            _playerScore.color = textColor;
+
+            Initialize(name, rank, score);
+        }
     }
 }

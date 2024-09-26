@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AddRemoval
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 34335353301825a4f91f16e5892ef319, type: 3}
-  <ID>k__BackingField: AddRemoval
+  <ID>k__BackingField: ADREMOVAL

@@ -5,6 +5,9 @@ namespace Project.Players.Logic
 {
     public class MobileMoveHandler : MoveHandler
     {
+        private const float IdleValue = 0f;
+        private const float ForwardValue = 1f;
+
         private readonly Camera _camera;
 
         private Vector3 _inputDirection;
@@ -21,6 +24,9 @@ namespace Project.Players.Logic
         public override void ReadInput()
         {
             _inputDirection = _camera.transform.TransformDirection(InputService.Axis).WithZeroY();
+
+            if (_inputDirection == Vector3.zero)
+                PlayerMove.SetForwardValue(IdleValue);
         }
 
         public override void Rotate()
@@ -34,14 +40,14 @@ namespace Project.Players.Logic
 
         public override void Move()
         {
-
             if (Vector3.Dot(Transform.forward, _inputDirection) < MoveAngleDot)
                 return;
-            Vector3 direction = _inputDirection.magnitude > 1f ? _inputDirection.normalized : _inputDirection;
 
+            Vector3 direction = _inputDirection.magnitude > 1f ? _inputDirection.normalized : _inputDirection;
             Vector3 velocity = (direction * MovementSpeed);
 
             Rigidbody.velocity = Vector3.MoveTowards(Rigidbody.velocity, velocity, MaxDistanceDelta);
+            PlayerMove.SetForwardValue(ForwardValue);
         }
     }
 }

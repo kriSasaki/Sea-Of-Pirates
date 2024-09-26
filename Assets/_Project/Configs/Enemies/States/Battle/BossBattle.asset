@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossBattle
   m_EditorClassIdentifier: 
   _attackAngle: 50
-  _attackPhaseDuration: 9.46
+  _attackPhaseDuration: 9
   _phaseSwitchDuration: 1
   _volleyPhaseDuration: 10
   _volleyRange: 20

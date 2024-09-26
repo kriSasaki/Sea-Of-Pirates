@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Aggressive
   m_EditorClassIdentifier: 
   <IdleState>k__BackingField: {fileID: 11400000, guid: bd06e22496d696646a1f8ea032308c64, type: 2}
-  <BattleState>k__BackingField: {fileID: 11400000, guid: c5f6206024a54f94b881450e844457e2, type: 2}
+  <BattleState>k__BackingField: {fileID: 11400000, guid: 76869c49094b1fe42ac84bb82f55b816, type: 2}
   <DeadState>k__BackingField: {fileID: 11400000, guid: ac7740977c3d54840b6763d64e0d1c3e, type: 2}

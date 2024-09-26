@@ -14,6 +14,8 @@ namespace Project.Systems.Reward
 {
     public class RewardController : MonoBehaviour
     {
+        private const int RewardAmountDivider = 2;
+
         [SerializeField] private GameResource _rewardType;
         [SerializeField] private int _minRewardAmount = 5;
         [SerializeField, Range(10f, 60f)] private float _offerDuration;
@@ -77,6 +79,8 @@ namespace Project.Systems.Reward
 
                 rewardAmount += price.Where(p => p.Resource == _rewardType).Sum(res => res.Amount);
             }
+
+            rewardAmount /= RewardAmountDivider;
 
             return Mathf.Max(_minRewardAmount, rewardAmount);
         }

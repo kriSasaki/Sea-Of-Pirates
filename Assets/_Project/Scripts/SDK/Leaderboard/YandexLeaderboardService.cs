@@ -17,12 +17,8 @@ namespace Project.SDK.Leaderboard
         {
             if (!IsPlayerAuthorized)
                 return;
+
             Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
-            //Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
-            //{
-            //    if (result == null || result.score < score)
-            //        Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
-            //});
         }
 
         public void AuthorizePlayer()
@@ -30,12 +26,16 @@ namespace Project.SDK.Leaderboard
             PlayerAccount.Authorize();
         }
 
-        public void LoadPlayers(Action<List<LeaderboardPlayer>> onLoadCallback)
+        public void LoadPlayers(Action<List<LeaderboardPlayer>, int> onLoadCallback)
         {
             if (!IsPlayerAuthorized)
                 return;
 
             _leaderboardPlayers.Clear();
+
+            int playerRank = 0;
+
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, (result) => playerRank = result.rank);
 
             Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, (result) =>
             {
@@ -48,7 +48,7 @@ namespace Project.SDK.Leaderboard
                     _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
                 }
 
-                onLoadCallback(_leaderboardPlayers);
+                onLoadCallback(_leaderboardPlayers, playerRank);
             });
         }
     }

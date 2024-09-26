@@ -1,4 +1,7 @@
-﻿using Project.Configs.UI;
+﻿using Ami.BroAudio;
+using Project.Configs.Game;
+using Project.Configs.UI;
+using Project.Interfaces.Audio;
 using Project.Systems.Shop.Items;
 using System;
 using System.Collections.Generic;
@@ -18,16 +21,27 @@ namespace Project.UI.Shop
         private readonly List<ShopItemSlot> _itemSlots = new();
 
         private UiConfigs _uiConfigs;
+        private GameConfig _gameConfig;
+        private IAudioService _audioService;
 
         [Inject]
-        public void Construct(UiConfigs uiConfigs)
+        public void Construct(UiConfigs uiConfigs,GameConfig gameConfig, IAudioService audioService)
         {
             _uiConfigs = uiConfigs;
+            _gameConfig = gameConfig;
+            _audioService = audioService;
         }
 
         public void Open()
         {
             Show();
+        }
+
+        public override void Hide()
+        {
+            base.Hide();
+
+            _audioService.PlayMusic(_gameConfig.MainMusic);
         }
 
         public void CreateItemSlot(GameItem item, Action onBuyCallback)

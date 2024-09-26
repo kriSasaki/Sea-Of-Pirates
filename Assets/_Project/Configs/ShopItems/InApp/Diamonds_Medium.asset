@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Diamonds_Medium
   m_EditorClassIdentifier: 
   _sprite: {fileID: 21300000, guid: 7309564cc2b218140bd48bd628eeb643, type: 3}
-  <ID>k__BackingField: ADD500
+  <ID>k__BackingField: ADD300
   <Item>k__BackingField:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
     Amount: 300

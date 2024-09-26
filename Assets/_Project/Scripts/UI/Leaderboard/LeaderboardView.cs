@@ -10,10 +10,11 @@ namespace Project.UI.Leaderboard
 
         [SerializeField] private Transform _container;
         [SerializeField] private LeaderboardElement _leaderboardElementPrefab;
+        [SerializeField] private Color _playerColor = Color.green;
 
         private List<LeaderboardElement> _spawnedElements = new();
 
-        public void ConstructLeaderboard(List<LeaderboardPlayer> leaderboardPlayers)
+        public void ConstructLeaderboard(List<LeaderboardPlayer> leaderboardPlayers, int playerRank)
         {
             ClearLeaderboard();
 
@@ -25,12 +26,15 @@ namespace Project.UI.Leaderboard
                     playerName = Lean.Localization.LeanLocalization.GetTranslationText(AnonymousName);
 
                 LeaderboardElement leaderboardElementInstance = Instantiate(_leaderboardElementPrefab, _container);
-                leaderboardElementInstance.Initialize(playerName, player.Rank, player.Score);
+
+                if (player.Rank == playerRank)
+                    leaderboardElementInstance.Initialize(playerName, player.Rank, player.Score, _playerColor);
+                else
+                    leaderboardElementInstance.Initialize(playerName, player.Rank, player.Score);
 
                 _spawnedElements.Add(leaderboardElementInstance);
             }
         }
-
         private void ClearLeaderboard()
         {
             foreach (var element in _spawnedElements)

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805e509c5fd97cf4ca69213a91132f41, type: 3}
+  m_Name: AggressiveChase
+  m_EditorClassIdentifier: 
+  <IdleState>k__BackingField: {fileID: 11400000, guid: bd06e22496d696646a1f8ea032308c64, type: 2}
+  <BattleState>k__BackingField: {fileID: 11400000, guid: c5f6206024a54f94b881450e844457e2, type: 2}
+  <DeadState>k__BackingField: {fileID: 11400000, guid: ac7740977c3d54840b6763d64e0d1c3e, type: 2}
