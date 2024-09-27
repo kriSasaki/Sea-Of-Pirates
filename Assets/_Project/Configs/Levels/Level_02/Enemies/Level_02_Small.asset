@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_02_Small
   m_EditorClassIdentifier: 
-  _maxHealth: 300
+  _maxHealth: 250
   _canDealDamage: 0
   _damage: 0
   _attackCooldown: 5
@@ -27,3 +27,4 @@ MonoBehaviour:
   _loot:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
     Amount: 120
+  _optionalMaterial: {fileID: 0}
