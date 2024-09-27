@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_03_Small
   m_EditorClassIdentifier: 
-  _maxHealth: 200
+  _maxHealth: 270
   _canDealDamage: 0
   _damage: 0
   _attackCooldown: 5

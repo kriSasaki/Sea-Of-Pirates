@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_03_Boat
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 210
   _canDealDamage: 0
   _damage: 0
   _attackCooldown: 10
-  _speed: 2
+  _speed: 20
   _rotationSpeed: 37.8
   _moveAngleDot: 0.65
   _attackRange: 0
