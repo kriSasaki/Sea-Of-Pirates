@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_02_Medium
   m_EditorClassIdentifier: 
-  _maxHealth: 200
+  _maxHealth: 600
   _canDealDamage: 1
   _damage: 20
   _attackCooldown: 1
@@ -26,4 +26,4 @@ MonoBehaviour:
   _behaviourConfig: {fileID: 11400000, guid: cdf535ecb4a96794db17185fc592f0b8, type: 2}
   _loot:
     Resource: {fileID: 11400000, guid: fafe75ba118b0f242bea3954811fa573, type: 2}
-    Amount: 100
+    Amount: 5
