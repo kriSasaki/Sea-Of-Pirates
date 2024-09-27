@@ -28605,10 +28605,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island_01 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3703193268844645652, guid: 8076a0b88e3cda44f99c5f59fd284188, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 123
-      objectReference: {fileID: 0}
     - target: {fileID: 5843364358053708430, guid: 8076a0b88e3cda44f99c5f59fd284188, type: 3}
       propertyPath: m_LocalPosition.x
       value: -77.100006
@@ -34040,7 +34036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7932845097995784971, guid: 01b119b6f8bef374fb4660d7ae183886, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 123
+      value: 122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38604,10 +38600,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island_03
       objectReference: {fileID: 0}
-    - target: {fileID: 6256956880094656194, guid: aa6b4160e82a3a74391353ca3637fde1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 123
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41141,7 +41133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889868198416084267, guid: 294e17a05e96d444a8e36c8653873c38, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 123
+      value: 122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62491,7 +62483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7525956355546249186, guid: 97501909e72236d4b946cccfec519b3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 123
+      value: 122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
