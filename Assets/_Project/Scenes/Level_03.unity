@@ -7920,6 +7920,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2314348940716220439, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: _cargoLevel
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314348940716220439, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: _speedLevel
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314348940716220439, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: _damageLevel
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314348940716220439, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: _healthLevel
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314348940716220439, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: _cannonsLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314348940716220439, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: _setStatsOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314348940716220439, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: _attackRangeLevel
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6382983180099997168, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.53743
@@ -7967,6 +7995,10 @@ PrefabInstance:
     - target: {fileID: 6518791034197961247, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518791034197961247, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
