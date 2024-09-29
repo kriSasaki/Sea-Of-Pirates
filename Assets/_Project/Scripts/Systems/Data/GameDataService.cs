@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Project.Configs.Game;
-using Project.Configs.Level;
 using Project.Interfaces.Data;
 using UnityEngine;
 
@@ -12,7 +11,8 @@ namespace Project.Systems.Data
         IQuestsData,
         IAdvertismentData,
         ILevelSceneService,
-        ILevelDataService
+        ILevelDataService,
+        IScoreService
     {
         private const string SaveKey = nameof(SaveKey);
 
@@ -43,7 +43,7 @@ namespace Project.Systems.Data
 
         public LevelData GetLevelData(string levelName)
         {
-            LevelData leveldata = _gameData.Levels.FirstOrDefault(l=> l.LevelName == levelName);
+            LevelData leveldata = _gameData.Levels.FirstOrDefault(l => l.LevelName == levelName);
 
             if (leveldata == null)
             {
@@ -61,6 +61,17 @@ namespace Project.Systems.Data
 
             PlayerPrefs.SetString(SaveKey, json);
             PlayerPrefs.Save();
+        }
+
+        public int GetScore()
+        {
+            return _gameData.Score;
+        }
+
+        public void SetScore(int score)
+        {
+            _gameData.Score = score;
+            Save();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Project.Systems.Data
 
         public bool IsAddActive = true;
         public string CurrentScene;
+        public int Score = 0;
 
         public GameData(string sceneName) 
         {

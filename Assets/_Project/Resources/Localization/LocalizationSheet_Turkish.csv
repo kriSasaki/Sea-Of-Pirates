@@ -16,14 +16,14 @@ quests/Level1/quest_01,Kürekler için büyük bir siparişim var. Ve yakınlard
 quests/Level1/quest_02,"Vahşi eğlenceyi sevenler
 quests/Level1/quest_03,Komşu adalardaki kahrolası zenginler her zaman yatlarında eğleniyor! Bu onları korkuturdu. Ölümcül bir sonuçla...
 quests/Level1/quest_Boss,Yakınlarda bir imparatorluk firkateyni duruyordu. Bütün işi mahvediyor. Su bas! Borçlu olmayacağım!
-quests/Level2/quest_01,Görev için mesajları girin
-quests/Level2/quest_02,Görev için mesajları girin
-quests/Level2/quest_03,Görev için mesajları girin
-quests/Level2/quest_Boss,Görev için mesajları girin
-quests/Level3/quest_01,İmparatorluk teknelerini kıyıya ulaşmadan yok edin
+quests/Level2/quest_01,Bir kaçak avcı çetesi tüm anlaşmaları hiçe sayarak sularımızda balık tutuyor. Bütün körfezi yok etmeden teknelerini batırın. Bunun için sana iyi bir miktar vereceğim!
+quests/Level2/quest_02,Komşu bir ticaret şirketinin rakipleri bölgemizde iş yapmaya cesaret etti. Göreviniz bu küstah insanları uzaklaştırmak. Onlara zor anlar yaşatın!
+quests/Level2/quest_03,Kaçakçılar teknelerinde balıkçıları korkutuyor ve avlarını bozuyor. Eğer onların gemilerini batırırsanız balıkçılara işlerini geri verirsiniz ve ben de sizi cömertçe ödüllendiririm. Üstlenmeye hazır mısın?
+quests/Level2/quest_Boss, I will reward you generously!"
+quests/Level3/quest_01,İmparatorluk teknelerini yok edin! Ta ki kıyıya ulaşana kadar!
 quests/Level3/quest_02,Düşmanlarımızın sallarını batırın!
 quests/Level3/quest_03,İmparatorluğun gemilerini dibe gönderin!
-quests/Level3/quest_Boss,Seni öldüren imparatorluk firkateynini batır
+quests/Level3/quest_Boss,İmparatorluğun seni arayan firkateynini batır
 quests/CompleteMessage,Artık huzur içinde uyuyabilirim! İşte ödülünüz. Alır mısın?
 quests/ProgressLabel,Batık
 quests/OK,Evet
@@ -31,7 +31,7 @@ Interactables/UpgradePlace,Marina
 Misc/thousandToken,k
 Misc/millionToken,m
 UI/ConfirmWindow/button,Onaylamak
-UI/ConfirmWindow/header,Satın alma işlemi onaylansın mı?
+UI/ConfirmWindow/header,Satın alma onaylansın mı?
 UI/Shop/GameItemHeader,KAYNAKLAR
 UI/Shop/InAppItemHeader,TEKLİFLER
 UI/Death,Tekneniz battı... Yeni bir gemi mi çaldınız?
@@ -42,12 +42,12 @@ Leaderboard/Score,Batık
 Leaderboard/AuthorizationText,Skor tablosunu görebilmek için giriş yapmalısınız
 Leaderboard/AuthorizationButton,Giriş yapmak
 UI/NextLevel/CanPass,Artık resiflerden güvenle geçebiliriz. Daha ileri gitmek ister misin?
-UI/NextLevel/CanNotPass, we'll be overwhelmed right away! Come back with the map."
+UI/NextLevel/CanNotPass,Tehlikeli resifler ileride! Harita olmazsa hemen bunalıma gireriz! Haritayla geri gelin.
 UI/NextLevel/EndGame,Oyunu tamamladığınız için tebrikler! Bir sonraki güncellemelerde bize katılın!
 Tutorial/MoveTip,Yüzmek için WASD'ye basın
 Tutorial/MoveTipMobile,Yüzmek için parmağınızı ekran üzerinde hareket ettirin
 Tutorial/PirateBay,Ganimetinizi teslim edin ve körfezdeki geminizi yükseltin
 Tutorial/Attack,Ganimet! Daha yakın yüzün! Ekibiniz her şeyi kendisi yapacak!
-Tutorial/NextLevel,Yerel halktan bir harita aramaya değer...
+Tutorial/NextLevel,Yerlilerden bir harita aramaya değer...
 Tutorial/HoldTip,Burada ganimetinizi teslim edebilirsiniz
 Tutorial/HealTip,Burada gemiyi onarabilirsiniz
