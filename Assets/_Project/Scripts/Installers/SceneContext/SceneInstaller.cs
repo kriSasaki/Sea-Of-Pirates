@@ -21,6 +21,7 @@ using Project.UI.Upgrades;
 using SimpleInputNamespace;
 using UnityEngine;
 using Zenject;
+using static UnityEngine.AudioSettings;
 
 namespace Project.Installers.SceneContext
 {
@@ -117,7 +118,7 @@ namespace Project.Installers.SceneContext
         private void BindMoveHandler()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            if (Agava.WebUtility.Device.IsMobile)
+            if (Agava.WebUtility.Device.IsMobile || IsIPad())
             {
                 Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
                 Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
@@ -129,7 +130,7 @@ namespace Project.Installers.SceneContext
 
             bool IsIPad()
             {
-                return Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform; 
+                return WebGLBrowserCheck.IsMobileBrowser(); ; 
             }
 #else
             if (_isMobile)

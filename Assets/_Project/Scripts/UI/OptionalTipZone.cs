@@ -9,7 +9,7 @@ namespace Project.Interactables
 
         protected override void ShowTip()
         {
-            if (Agava.WebUtility.Device.IsMobile)
+            if (Agava.WebUtility.Device.IsMobile || WebGLBrowserCheck.IsMobileBrowser())
             {
                 Typewriter.ShowText(GetTipMessage(_mobileTipToken));
             }
