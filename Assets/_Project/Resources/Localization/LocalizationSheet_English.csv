@@ -16,14 +16,14 @@ quests/Level1/quest_01,I have a large order for oars. And a frigate sank nearby.
 quests/Level1/quest_02,Lovers of wild recreation are blocking our trade routes with their rafts.  We will gladly pay for a couple of holes in their transport!
 quests/Level1/quest_03,The damned aristocrats on the neighboring islands are always having fun on their yachts! That would intimidate them. With a fatal outcome...
 quests/Level1/quest_Boss,An imperial frigate stood nearby. He ruins the whole business. Flood it! I won't be in debt!
-quests/Level2/quest_01,Enter messages for the quest
-quests/Level2/quest_02,Enter messages for the quest
-quests/Level2/quest_03,Enter messages for the quest
-quests/Level2/quest_Boss,Enter messages for the quest
-quests/Level3/quest_01,Destroy the Imperial boats before they reach the shore
+quests/Level2/quest_01,A gang of poachers is fishing in our waters in defiance of all treaties. Sink their boats before they destroy the entire bay. For this I will give you a good sum!
+quests/Level2/quest_02,Competitors from a neighboring trading company dared to do business in our territory. Your task is to drive away these insolent people. Give them a hard time!
+quests/Level2/quest_03,Smugglers in their boats scare fishermen and spoil their catch. If you sink their ships you will give the fishermen their jobs back and I will reward you generously. Ready to take it on?
+quests/Level2/quest_Boss,"Heavy fog shrouds the bay at night. This ship is terrorizing the entire coast. Interferes with trade and frightens sailors. If you can send him to the bottom
+quests/Level3/quest_01,Destroy the Imperial boats! Until they reached the shore!
 quests/Level3/quest_02,Sink the rafts of our enemies!
 quests/Level3/quest_03,Send the ships of the empire to the bottom!
-quests/Level3/quest_Boss,Sink the empire frigate that kills you
+quests/Level3/quest_Boss,Sink the empire's frigate looking for you
 quests/CompleteMessage,Now I can sleep peacefully! Here is your reward. Do you take it?
 quests/ProgressLabel,Sunk
 quests/OK,OK
@@ -42,7 +42,7 @@ Leaderboard/Score,Sunk
 Leaderboard/AuthorizationText,You must be logged in to view the leaderboard
 Leaderboard/AuthorizationButton,Login
 UI/NextLevel/CanPass,Now we can safely pass through the reefs. Want to go further?
-UI/NextLevel/CanNotPass,"Dangerous reefs ahead! Without a map
+UI/NextLevel/CanNotPass,Dangerous reefs ahead! Without a map we'll be overwhelmed right away! Come back with the map.
 UI/NextLevel/EndGame,Congratulations on completing the game! Come join us in the next updates!
 Tutorial/MoveTip,To swim press WASD
 Tutorial/MoveTipMobile,To swim move your finger across the display

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_02_Boss
   m_EditorClassIdentifier: 
-  _maxHealth: 400
+  _maxHealth: 1000
   _canDealDamage: 1
   _damage: 60
-  _attackCooldown: 2
+  _attackCooldown: 1.5
   _speed: 2
   _rotationSpeed: 37.6
   _moveAngleDot: 0.7
-  _attackRange: 20
+  _attackRange: 35
   _detectRange: 50
   _enemyView: {fileID: 513053922594630507, guid: 4c3f870efe8e783479e99e407b44842c, type: 3}
   _isSolidForPlayer: 1
@@ -27,3 +27,4 @@ MonoBehaviour:
   _loot:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
     Amount: 15
+  _optionalMaterial: {fileID: 2100000, guid: b7ae7374c02bd024fb2db1115a87f23a, type: 2}

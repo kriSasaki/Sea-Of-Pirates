@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
-  m_Name: Level_02_Medium
+  m_Name: Level_02_DrakkarWood
   m_EditorClassIdentifier: 
-  _maxHealth: 120
+  _maxHealth: 300
   _canDealDamage: 1
   _damage: 20
-  _attackCooldown: 1.5
+  _attackCooldown: 1.4
   _speed: 6
-  _rotationSpeed: 43
+  _rotationSpeed: 58.3
   _moveAngleDot: 0.71
-  _attackRange: 20
-  _detectRange: 30
-  _enemyView: {fileID: 2767456718062045007, guid: 047ba29f609587a4494a880d4b974ea5, type: 3}
+  _attackRange: 30
+  _detectRange: 40
+  _enemyView: {fileID: 109266931523258178, guid: 72613408426b8a34d9b503b2fcdd8012, type: 3}
   _isSolidForPlayer: 1
-  _behaviourConfig: {fileID: 11400000, guid: cdf535ecb4a96794db17185fc592f0b8, type: 2}
+  _behaviourConfig: {fileID: 11400000, guid: 98916230757ca924190e0bd3a8a911ad, type: 2}
   _loot:
-    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 250
+    Resource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
+    Amount: 10
+  _optionalMaterial: {fileID: 0}
