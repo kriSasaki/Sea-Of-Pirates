@@ -16,11 +16,11 @@ MonoBehaviour:
   _canDealDamage: 0
   _damage: 0
   _attackCooldown: 10
-  _speed: 20
+  _speed: 5
   _rotationSpeed: 37.8
-  _moveAngleDot: 0.65
+  _moveAngleDot: 0.792
   _attackRange: 0
-  _detectRange: 20
+  _detectRange: 25
   _enemyView: {fileID: 8285614790035377558, guid: 35d67c5e786386744bc5fe5eabdb24a9, type: 3}
   _isSolidForPlayer: 0
   _behaviourConfig: {fileID: 11400000, guid: 6ff9ccca0b64f654e99bf35a570efa27, type: 2}

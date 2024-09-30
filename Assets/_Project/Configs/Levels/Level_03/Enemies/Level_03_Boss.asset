@@ -17,14 +17,14 @@ MonoBehaviour:
   _damage: 220
   _attackCooldown: 2
   _speed: 2
-  _rotationSpeed: 37.6
+  _rotationSpeed: 45
   _moveAngleDot: 0.7
-  _attackRange: 25
-  _detectRange: 30
+  _attackRange: 35
+  _detectRange: 50
   _enemyView: {fileID: 513053922594630507, guid: 4c3f870efe8e783479e99e407b44842c, type: 3}
   _isSolidForPlayer: 1
-  _behaviourConfig: {fileID: 11400000, guid: 0dae694b26a10c04c8732c456914397f, type: 2}
+  _behaviourConfig: {fileID: 11400000, guid: 4acc604b8ae2ebb4b8573e916120c495, type: 2}
   _loot:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
-    Amount: 25
+    Amount: 5
   _optionalMaterial: {fileID: 0}
