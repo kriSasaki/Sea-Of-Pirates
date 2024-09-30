@@ -26,5 +26,5 @@ MonoBehaviour:
   _behaviourConfig: {fileID: 11400000, guid: 6ff9ccca0b64f654e99bf35a570efa27, type: 2}
   _loot:
     Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 3
+    Amount: 10
   _optionalMaterial: {fileID: 0}
