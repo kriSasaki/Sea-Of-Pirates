@@ -35,20 +35,23 @@ namespace Project.SDK.Leaderboard
 
             int playerRank = 0;
 
-            Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, (result) => playerRank = result.rank);
-
-            Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, (result) =>
+            Agava.YandexGames.Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
             {
-                foreach (var entry in result.entries)
+                playerRank = result.rank;
+
+                Agava.YandexGames.Leaderboard.GetEntries(LeaderboardName, (result) =>
                 {
-                    int rank = entry.rank;
-                    int score = entry.score;
-                    string name = entry.player.publicName;
+                    foreach (var entry in result.entries)
+                    {
+                        int rank = entry.rank;
+                        int score = entry.score;
+                        string name = entry.player.publicName;
 
-                    _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
-                }
+                        _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
+                    }
 
-                onLoadCallback(_leaderboardPlayers, playerRank);
+                    onLoadCallback(_leaderboardPlayers, playerRank);
+                });
             });
         }
     }
