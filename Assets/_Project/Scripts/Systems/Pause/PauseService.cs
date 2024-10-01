@@ -15,14 +15,14 @@ namespace Project.Systems.Pause
 
         public void Pause()
         {
-            _audioService.PauseAudio();
-            Time.timeScale = 0f;
+            //_audioService.PauseAudio();
+            //Time.timeScale = 0f;
         }
 
         public void Unpause()
         {
-            _audioService.UnpauseAudio();
-            Time.timeScale = 1f;
+            //_audioService.UnpauseAudio();
+            //Time.timeScale = 1f;
         }
     }
 }

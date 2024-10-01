@@ -19,7 +19,7 @@ namespace Project.Installers.ProjectContext
             Container.Bind<LeanLocalization>().FromComponentInNewPrefab(_localizationPrefab).AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<BroAudioService>().AsSingle();
-            Container.Bind<PauseService>().FromNew().AsSingle();
+            //Container.Bind<PauseService>().FromNew().AsSingle();
 
             BindSDK();
 

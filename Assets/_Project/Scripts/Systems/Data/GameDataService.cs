@@ -3,6 +3,7 @@ using System.Linq;
 using Project.Configs.Game;
 using Project.Interfaces.Data;
 using UnityEngine;
+using YG;
 
 namespace Project.Systems.Data
 {
@@ -20,7 +21,7 @@ namespace Project.Systems.Data
 
         public GameDataService(GameConfig config)
         {
-            GameData data = JsonUtility.FromJson<GameData>(PlayerPrefs.GetString(SaveKey, null));
+            GameData data = YandexGame.savesData.GameData;
 
             _gameData = data ?? new GameData(config.FirstLevelScene);
         }
@@ -59,8 +60,12 @@ namespace Project.Systems.Data
         {
             string json = JsonUtility.ToJson(_gameData);
 
-            PlayerPrefs.SetString(SaveKey, json);
-            PlayerPrefs.Save();
+            YandexGame.savesData.GameData = _gameData;
+
+            YandexGame.SaveProgress();
+
+            //PlayerPrefs.SetString(SaveKey, json);
+            //PlayerPrefs.Save();
         }
 
         public int GetScore()

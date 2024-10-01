@@ -1,4 +1,5 @@
 ﻿using Project.Interfaces.SDK;
+using YG;
 
 namespace Project.SDK
 {
@@ -11,7 +12,7 @@ namespace Project.SDK
             if (_isCalled)
                 return;
 
-            Agava.YandexGames.YandexGamesSdk.GameReady();
+            YandexGame.GameReadyAPI();
             _isCalled = true;
         }
     }

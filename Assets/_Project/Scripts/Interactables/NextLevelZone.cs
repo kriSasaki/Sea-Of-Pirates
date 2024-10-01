@@ -7,6 +7,7 @@ using Project.Players.Logic;
 using Project.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 using Zenject;
 
 namespace Project.Interactables
@@ -76,6 +77,7 @@ namespace Project.Interactables
             _storage.TrySpendResource(_map, MapAmount);
             _levelSceneService.UpdateCurrentLevel(_levelConfig.NextLevel);
             DG.Tweening.DOTween.KillAll();
+            YandexGame.GameplayStop();
             SceneManager.LoadScene(_gameConfig.LoadingScene);
         }
 

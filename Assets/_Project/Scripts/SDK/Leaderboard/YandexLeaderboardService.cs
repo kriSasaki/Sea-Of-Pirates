@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Agava.YandexGames;
 using Project.Interfaces.SDK;
+using YG;
 
 namespace Project.SDK.Leaderboard
 {
@@ -18,7 +19,7 @@ namespace Project.SDK.Leaderboard
             if (!IsPlayerAuthorized)
                 return;
 
-            Agava.YandexGames.Leaderboard.SetScore(LeaderboardName, score);
+            YandexGame.NewLeaderboardScores(LeaderboardName, score);
         }
 
         public void AuthorizePlayer()

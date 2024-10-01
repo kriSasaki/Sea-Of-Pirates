@@ -9,6 +9,7 @@ using Project.Systems.Quests;
 using Project.UI;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 using Zenject;
 
 namespace Project.Infrastructure
@@ -68,6 +69,7 @@ namespace Project.Infrastructure
             EnableUi();
 
             _gameReadyService.Call();
+            YandexGame.GameplayStart();
 
             await _uiCanvas.EnableAsync(_unfadeCanvasDuration, destroyCancellationToken);
 
