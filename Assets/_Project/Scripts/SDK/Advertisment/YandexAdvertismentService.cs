@@ -36,6 +36,6 @@ namespace Project.SDK.Advertisment
             => YandexGame.StickyAdActivity(false);
 
         public override void ShowSticky()
-            => YandexGame.StickyAdActivity(false);
+            => YandexGame.StickyAdActivity(true);
     }
 }

@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 5846369596027180030}
   - component: {fileID: 5311312728979842706}
   - component: {fileID: 1723547282977649663}
+  - component: {fileID: 6768392328741628239}
   m_Layer: 5
   m_Name: LeaderboardPanel
   m_TagString: Untagged
@@ -302,6 +303,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.5
+--- !u!114 &6768392328741628239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263141409517360675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423e13a42d313f948a13bcedae13febe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameLB: Leaderboard
+  maxQuantityPlayers: 20
+  quantityTop: 4
+  quantityAround: 5
+  updateLBMethod: 1
+  entriesText: {fileID: 0}
+  advanced: 1
+  rootSpawnPlayersData: {fileID: 1527755165468626086}
+  playerDataPrefab: {fileID: 8916872008366151180, guid: ded67110d8557eb4a988da6532c651d0, type: 3}
+  playerPhoto: 0
+  isHiddenPlayerPhoto: {fileID: 0}
+  timeTypeConvert: 0
+  decimalSize: 1
+  onUpdateData:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2761463151485004438
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +343,6 @@ GameObject:
   - component: {fileID: 6689810700755773173}
   - component: {fileID: 5627787893576322757}
   - component: {fileID: 8086973160512463810}
-  - component: {fileID: 1250373507190907416}
   - component: {fileID: 8169816898055229555}
   - component: {fileID: 7214267274703453062}
   - component: {fileID: 2339761542437810173}
@@ -395,25 +423,10 @@ MonoBehaviour:
     _scale: 0
     _duration: 0.3
     _ease: 27
-  _leaderboardView: {fileID: 1250373507190907416}
+  _leaderboardView: {fileID: 0}
   _leaderboardPanel: {fileID: 5846369596027180030}
   _authorizationPanel: {fileID: 1034002375341080629}
   _authorizationButton: {fileID: 6572167448120217867}
---- !u!114 &1250373507190907416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2761463151485004438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68cc782abc5a47a0b7f2cc91531c133d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _container: {fileID: 1527755165468626086}
-  _leaderboardElementPrefab: {fileID: 5904346860804778819, guid: ded67110d8557eb4a988da6532c651d0, type: 3}
-  _playerColor: {r: 0, g: 0.5849056, b: 0, a: 1}
 --- !u!114 &8169816898055229555
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ namespace Project.UI.Leaderboard
 {
     public class LeaderboardWindow : UiWindow
     {
-        [SerializeField] private LeaderboardView _leaderboardView;
+        //[SerializeField] private LeaderboardView _leaderboardView;
         [SerializeField] private RectTransform _leaderboardPanel;
         [SerializeField] private RectTransform _authorizationPanel;
         [SerializeField] private Button _authorizationButton;
@@ -29,9 +29,15 @@ namespace Project.UI.Leaderboard
             _authorizationButton.onClick.RemoveListener(OnAuthorizationClicked);
         }
 
-        public void OpenLeaderboardPanel(List<LeaderboardPlayer> leaderboardPlayers, int playerRank)
+        //public void OpenLeaderboardPanel(List<LeaderboardPlayer> leaderboardPlayers, int playerRank)
+        //{
+        //    _leaderboardView.ConstructLeaderboard(leaderboardPlayers, playerRank);
+        //    _leaderboardPanel.gameObject.SetActive(true);
+        //    base.Show();
+        //}
+
+        public void OpenLeaderboardPanel()
         {
-            _leaderboardView.ConstructLeaderboard(leaderboardPlayers, playerRank);
             _leaderboardPanel.gameObject.SetActive(true);
             base.Show();
         }

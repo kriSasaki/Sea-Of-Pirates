@@ -31,14 +31,14 @@ namespace Project.Installers.ProjectContext
         {
 #if !UNITY_EDITOR && UNITY_WEBGL
             Container.Bind<IBillingService>().To<YandexBillingService>().FromNew().AsSingle();
+#else
             Container.Bind<ILeaderboardService>().To<YandexLeaderboardService>().FromNew().AsSingle();
             Container.Bind<IAdvertismentService>().To<YandexAdvertismentService>().FromNew().AsSingle();
             Container.Bind<IGameReadyService>().To<GameReadyService>().FromNew().AsSingle();
-#else
             Container.Bind<IBillingService>().To<MockBillingService>().FromNew().AsSingle();
-            Container.Bind<ILeaderboardService>().To<MockLeaderboardService>().FromNew().AsSingle();
-            Container.Bind<IAdvertismentService>().To<MockAdvertismentService>().FromNew().AsSingle();
-            Container.Bind<IGameReadyService>().To<MockGameReadyService>().FromNew().AsSingle();
+            //Container.Bind<ILeaderboardService>().To<MockLeaderboardService>().FromNew().AsSingle();
+            //Container.Bind<IAdvertismentService>().To<MockAdvertismentService>().FromNew().AsSingle();
+            //Container.Bind<IGameReadyService>().To<MockGameReadyService>().FromNew().AsSingle();
 #endif
         }
     }

@@ -1,0 +1,54 @@
+{
+    "idSave": 14,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        false,
+        false
+    ],
+    "GameData": {
+        "StorageData": [
+            {
+                "ID": "Gold",
+                "Value": 11
+            },
+            {
+                "ID": "Wood",
+                "Value": 0
+            },
+            {
+                "ID": "Iron",
+                "Value": 0
+            },
+            {
+                "ID": "Diamonds",
+                "Value": 0
+            },
+            {
+                "ID": "Map",
+                "Value": 0
+            }
+        ],
+        "PlayerStatsLevels": [],
+        "Quests": [
+            {
+                "ID": "BossQuest_Tutorial",
+                "State": 4,
+                "Progress": 1
+            }
+        ],
+        "Levels": [
+            {
+                "_levelName": "Tutorial",
+                "_isReachedPirateBay": true
+            }
+        ],
+        "IsAddActive": true,
+        "CurrentScene": "Level_01",
+        "Score": 6
+    }
+}

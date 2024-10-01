@@ -43,7 +43,8 @@ namespace Project.Systems.Leaderboard
         {
             if (_leaderboardService.IsPlayerAuthorized)
             {
-                _leaderboardService.LoadPlayers(OpenLeaderboard);
+                //_leaderboardService.LoadPlayers(OpenLeaderboard);
+                _leaderboardWindow.OpenLeaderboardPanel();
             }
             else
             {
@@ -51,9 +52,9 @@ namespace Project.Systems.Leaderboard
             }
         }
 
-        private void OpenLeaderboard(List<LeaderboardPlayer> players, int playerRank)
-        {
-            _leaderboardWindow.OpenLeaderboardPanel(players, playerRank);
-        }
+        //private void OpenLeaderboard(List<LeaderboardPlayer> players, int playerRank)
+        //{
+        //    _leaderboardWindow.OpenLeaderboardPanel(players, playerRank);
+        //}
     }
 }

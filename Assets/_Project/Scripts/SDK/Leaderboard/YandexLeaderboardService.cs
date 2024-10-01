@@ -12,7 +12,7 @@ namespace Project.SDK.Leaderboard
 
         private readonly List<LeaderboardPlayer> _leaderboardPlayers = new();
 
-        public bool IsPlayerAuthorized => PlayerAccount.IsAuthorized;
+        public bool IsPlayerAuthorized => YandexGame.auth;
 
         public void SetPlayerScore(int score)
         {
@@ -24,7 +24,8 @@ namespace Project.SDK.Leaderboard
 
         public void AuthorizePlayer()
         {
-            PlayerAccount.Authorize();
+            YandexGame.RequestAuth();
+            //PlayerAccount.Authorize();
         }
 
         public void LoadPlayers(Action<List<LeaderboardPlayer>, int> onLoadCallback)
