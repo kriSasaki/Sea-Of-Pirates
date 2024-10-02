@@ -50,7 +50,7 @@ namespace Project.Systems.Leaderboard
         {
             await UniTask.WaitUntil(() => YandexGame.auth == true, cancellationToken: _leaderboardWindow.destroyCancellationToken);
             YandexGame.LoadProgress();
-            await UniTask.Delay(3000);
+            //await UniTask.Delay(3000);
             SceneManager.LoadScene(_gameConfig.LoadingScene);
         }
 
