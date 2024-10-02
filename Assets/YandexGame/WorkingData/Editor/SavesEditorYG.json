@@ -1,5 +1,5 @@
 {
-    "idSave": 136,
+    "idSave": 187,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -7,14 +7,9 @@
         "StorageData": [],
         "PlayerStatsLevels": [],
         "Quests": [],
-        "Levels": [
-            {
-                "_levelName": "Level_01",
-                "_isReachedPirateBay": false
-            }
-        ],
-        "IsAddActive": true,
+        "Levels": [],
+        "IsAddHided": false,
         "CurrentScene": "Tutorial",
-        "Score": 3
+        "Score": 0
     }
 }

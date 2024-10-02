@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using Project.Configs.Game;
 using Project.Interfaces.SDK;
-using Project.SDK.Leaderboard;
 using Project.UI.Leaderboard;
+using UnityEngine.SceneManagement;
+using YG;
 using Zenject;
 
 namespace Project.Systems.Leaderboard
@@ -11,15 +13,18 @@ namespace Project.Systems.Leaderboard
     {
         private readonly LeaderboardWindow _leaderboardWindow;
         private readonly LeaderboardButton _leaderboardButton;
+        private readonly GameConfig _gameConfig;
         private readonly ILeaderboardService _leaderboardService;
 
         public LeaderboardSystem(
             LeaderboardWindow leaderboardWindow,
             LeaderboardButton leaderboardButton,
+            GameConfig gameConfig,
             ILeaderboardService leaderboardService)
         {
             _leaderboardWindow = leaderboardWindow;
             _leaderboardButton = leaderboardButton;
+            _gameConfig = gameConfig;
             _leaderboardService = leaderboardService;
         }
 
@@ -37,6 +42,16 @@ namespace Project.Systems.Leaderboard
         private void OnAuthorizationRequested()
         {
             _leaderboardService.AuthorizePlayer();
+
+            OnAuth().Forget();
+        }
+
+        async UniTaskVoid OnAuth()
+        {
+            await UniTask.WaitUntil(() => YandexGame.auth == true, cancellationToken: _leaderboardWindow.destroyCancellationToken);
+            YandexGame.LoadProgress();
+            await UniTask.Delay(3000);
+            SceneManager.LoadScene(_gameConfig.LoadingScene);
         }
 
         private void OnLeaderboardButtonCLicked()

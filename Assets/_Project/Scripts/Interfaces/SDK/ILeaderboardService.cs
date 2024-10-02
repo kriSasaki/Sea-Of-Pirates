@@ -8,7 +8,6 @@ namespace Project.Interfaces.SDK
     {
         bool IsPlayerAuthorized { get; }
         void AuthorizePlayer();
-        //void LoadPlayers(Action<List<LeaderboardPlayer>, int> onLoadCallback);
         void SetPlayerScore(int score);
     }
 }

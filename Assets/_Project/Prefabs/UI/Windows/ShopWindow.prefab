@@ -751,7 +751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39, y: -29}
+  m_AnchoredPosition: {x: -19, y: -18}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &4614526508968449006
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 49e9d80c282308940aac16a32ab8eb88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72924d2b03a61c84489f91da40483245, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1187,6 +1187,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3185383736975908611}
     m_Modifications:
+    - target: {fileID: 27316537022281376, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
+      propertyPath: m_fontSize
+      value: 63.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 458862264253721758, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
+      propertyPath: m_fontSize
+      value: 79.35
+      objectReference: {fileID: 0}
     - target: {fileID: 488086258891805768, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1211,6 +1219,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 958172346611039058, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
+      propertyPath: m_fontSize
+      value: 49
+      objectReference: {fileID: 0}
     - target: {fileID: 2477741200924950773, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1283,10 +1295,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4614555336841847591, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 72924d2b03a61c84489f91da40483245, type: 3}
     - target: {fileID: 5050343047099946744, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 187662a1a9cc5174b8111c15908f9715, type: 3}
+    - target: {fileID: 5690652543736604902, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690652543736604902, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39
+      objectReference: {fileID: 0}
     - target: {fileID: 7804081556409939129, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_Name
       value: ConfirmWindow

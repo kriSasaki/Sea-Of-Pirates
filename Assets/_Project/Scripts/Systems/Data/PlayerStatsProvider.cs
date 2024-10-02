@@ -22,11 +22,6 @@ namespace Project.Systems.Data
 
         public Dictionary<StatType, PlayerStat> LoadStats()
         {
-            if (_stats != null)
-            {
-                return _stats;
-            }
-
             _stats = new();
             Dictionary<StatType, int> statsLevels = GetStatsLevels();
 

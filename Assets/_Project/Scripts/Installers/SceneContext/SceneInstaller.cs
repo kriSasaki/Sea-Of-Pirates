@@ -8,9 +8,11 @@ using Project.Players.Logic;
 using Project.Players.View;
 using Project.Spawner;
 using Project.Systems.Cameras;
+using Project.Systems.Data;
 using Project.Systems.Leaderboard;
 using Project.Systems.Quests;
 using Project.Systems.Shop;
+using Project.Systems.Storage;
 using Project.Systems.Upgrades;
 using Project.UI;
 using Project.UI.Leaderboard;
@@ -106,6 +108,9 @@ namespace Project.Installers.SceneContext
 
         private void BindPlayer()
         {
+            Container.BindInterfacesAndSelfTo<PlayerStats>().AsSingle();
+            Container.BindInterfacesTo<PlayerStorage>().AsSingle();
+
             BindMoveHandler();
 
             Container.BindInterfacesTo<PlayerHold>().AsSingle();
