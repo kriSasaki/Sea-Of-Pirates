@@ -5,6 +5,7 @@ using Project.Configs.Level;
 using Project.Interfaces.Data;
 using Project.Players.Logic;
 using Project.UI;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -15,6 +16,7 @@ namespace Project.Interactables
     public class NextLevelZone : InteractableZone
     {
         private const int MapAmount = 1;
+        private const string LevelMetricID = "level";
 
         [SerializeField] private GameResource _map;
         [SerializeField, LeanTranslationName] private string _avaliablePassToken;
@@ -78,12 +80,24 @@ namespace Project.Interactables
             _levelSceneService.UpdateCurrentLevel(_levelConfig.NextLevel);
             DG.Tweening.DOTween.KillAll();
             YandexGame.GameplayStop();
+            SendMetrica(_levelConfig.name);
+
             SceneManager.LoadScene(_gameConfig.LoadingScene);
         }
 
         private string GetTranslatedText(string token)
         {
             return LeanLocalization.GetTranslationText(token);
+        }
+
+        private void SendMetrica(string name)
+        {
+            var eventParams = new Dictionary<string, string>
+            {
+                {LevelMetricID, name }
+            };
+
+            YandexMetrica.Send(LevelMetricID, eventParams);
         }
     }
 }

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: ItemsSheet
   m_EditorClassIdentifier: 
   _gameItems:
-  - {fileID: 11400000, guid: cce698bdf928ce34697aabed3bd24797, type: 2}
   - {fileID: 11400000, guid: 654c2cc985ce56145b280c7d12727524, type: 2}
   - {fileID: 11400000, guid: 6d8d916ddb2d86d43a4a45f9983e638b, type: 2}
   - {fileID: 11400000, guid: 1970f88d9fce55a4296b835baac88485, type: 2}

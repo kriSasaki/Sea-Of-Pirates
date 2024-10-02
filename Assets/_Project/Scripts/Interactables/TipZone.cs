@@ -12,8 +12,8 @@ namespace Project.Interactables
         [SerializeField, LeanTranslationName] private string _tipToken;
         [SerializeField] private TypewriterByCharacter _typewriter;
 
-        protected string TipToken => _tipToken;
         protected TypewriterByCharacter Typewriter => _typewriter;
+        protected string TipToken => _tipToken;
 
         private void Start()
         {

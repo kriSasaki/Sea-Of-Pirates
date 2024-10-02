@@ -6,12 +6,14 @@ using Project.Players.View;
 using Project.SDK.Advertisment;
 using Project.UI;
 using UnityEngine;
+using YG;
 using Zenject;
 
 namespace Project.Players.Logic
 {
     public class PlayerDeathHandler : MonoBehaviour
     {
+        private const string DeadMetricID = "dead";
         [SerializeField] private SoundID _deathSound;
 
         private Player _player;
@@ -48,6 +50,7 @@ namespace Project.Players.Logic
         private void OnPlayerDied()
         {
             Die().Forget();
+            YandexMetrica.Send(DeadMetricID);
         }
 
         private async UniTaskVoid Die()

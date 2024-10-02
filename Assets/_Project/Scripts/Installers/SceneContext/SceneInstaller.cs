@@ -119,7 +119,7 @@ namespace Project.Installers.SceneContext
         private void BindMoveHandler()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            if (YandexGame.EnvironmentData.isMobile || YandexGame.EnvironmentData.isTablet)
+            if (YandexGame.EnvironmentData.isMobile || YandexGame.EnvironmentData.isTablet || IsIPad())
             {
                 Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
                 Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
@@ -131,7 +131,7 @@ namespace Project.Installers.SceneContext
 
             bool IsIPad()
             {
-                return WebGLBrowserCheck.IsMobileBrowser(); ; 
+                return WebGLBrowserCheck.IsMobileBrowser();
             }
 #else
             if (_isMobile)

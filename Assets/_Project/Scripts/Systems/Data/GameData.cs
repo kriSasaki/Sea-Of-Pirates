@@ -10,7 +10,7 @@ namespace Project.Systems.Data
         public List<QuestData> Quests = new List<QuestData>();
         public List<LevelData> Levels = new List<LevelData>();
 
-        public bool IsAddActive = true;
+        public bool IsAddHided = false;
         public string CurrentScene;
         public int Score = 0;
 

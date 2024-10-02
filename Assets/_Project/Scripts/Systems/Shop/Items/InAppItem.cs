@@ -1,15 +1,22 @@
-﻿using Agava.YandexGames;
-using Project.Configs.ShopItems;
+﻿using Project.Configs.ShopItems;
 using UnityEngine;
+using YG;
+using YG.Utils.Pay;
 
 namespace Project.Systems.Shop.Items
 {
     public abstract class InAppItem : ShopItem
     {
-        private readonly CatalogProduct _product;
+        private readonly Purchase _product;
 
-        protected InAppItem(InAppItemConfig config, CatalogProduct product)
-            : base(config)
+        //protected InAppItem(InAppItemConfig config, CatalogProduct product)
+        //    : base(config)
+        //{
+        //    _product = product;
+        //}
+
+        protected InAppItem(InAppItemConfig config, Purchase product)
+    : base(config)
         {
             _product = product;
         }

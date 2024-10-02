@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Agava.YandexGames;
 using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
 using Project.SDK.Advertisment;
 using Project.Systems.Shop.Items;
+using YG;
+using YG.Utils.Pay;
 
 namespace Project.Systems.Shop
 {
@@ -27,7 +28,7 @@ namespace Project.Systems.Shop
             throw new NotImplementedException();
         }
 
-        public InAppItem Create(InAppItemConfig config, CatalogProduct product)
+        public InAppItem Create(InAppItemConfig config, Purchase product)
         {
             if (config is InAppResourceItemConfig resourceConfig)
                 return new InAppResourceItem(_playerStorage, resourceConfig, product);
@@ -41,7 +42,7 @@ namespace Project.Systems.Shop
             throw new NotImplementedException();
         }
 
-        private List<InAppItem> CreateBundle(BundleItemConfig bundleConfig, CatalogProduct itemData)
+        private List<InAppItem> CreateBundle(BundleItemConfig bundleConfig, Purchase itemData)
         {
             List<InAppItem> _items = new List<InAppItem>();
 

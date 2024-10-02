@@ -2,6 +2,6 @@
 {
     public interface IAdvertismentStatus
     {
-        bool IsAdActive { get; }
+        bool IsAdHided { get; }
     }
 }

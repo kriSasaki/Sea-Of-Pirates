@@ -1,11 +1,10 @@
-﻿using Agava.YandexGames;
-using System;
+﻿using System;
+using YG.Utils.Pay;
 
 namespace Project.SDK.InApp
 {
     public interface IBillingService
     {
-        void LoadProductCatalog(Action<CatalogProduct[]> onLoadCallback);
-        void HandlePurchase(string id, Action onPurchaseCallback);
+        void LoadProductCatalog(Action<Purchase[]> onLoadCallback);
     }
 }

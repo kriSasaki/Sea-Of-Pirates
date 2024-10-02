@@ -13,13 +13,13 @@ stat/AttackRange/desc,Gemi atış menzili
 stat/Cannons/desc,Gemideki silah sayısı
 quests/Tutorial/quest_Boss,Sularımızda bir kötü adam var! Bununla başa çıkmama yardım et. 
 quests/Level1/quest_01,Kürekler için büyük bir siparişim var. Ve yakınlarda bir firkateyn battı. Ve insanlar kayıklarla kaçıyorlar... Küreklerle... Anlıyor musun?
-quests/Level1/quest_02,"Vahşi eğlenceyi sevenler
+quests/Level1/quest_02,Vahşi eğlenceyi sevenler sallarıyla ticaret yollarımızı kapatıyor.  Nakliyelerindeki birkaç deliğin bedelini memnuniyetle ödeyeceğiz!
 quests/Level1/quest_03,Komşu adalardaki kahrolası zenginler her zaman yatlarında eğleniyor! Bu onları korkuturdu. Ölümcül bir sonuçla...
 quests/Level1/quest_Boss,Yakınlarda bir imparatorluk firkateyni duruyordu. Bütün işi mahvediyor. Su bas! Borçlu olmayacağım!
 quests/Level2/quest_01,Bir kaçak avcı çetesi tüm anlaşmaları hiçe sayarak sularımızda balık tutuyor. Bütün körfezi yok etmeden teknelerini batırın. Bunun için sana iyi bir miktar vereceğim!
 quests/Level2/quest_02,Komşu bir ticaret şirketinin rakipleri bölgemizde iş yapmaya cesaret etti. Göreviniz bu küstah insanları uzaklaştırmak. Onlara zor anlar yaşatın!
 quests/Level2/quest_03,Kaçakçılar teknelerinde balıkçıları korkutuyor ve avlarını bozuyor. Eğer onların gemilerini batırırsanız balıkçılara işlerini geri verirsiniz ve ben de sizi cömertçe ödüllendiririm. Üstlenmeye hazır mısın?
-quests/Level2/quest_Boss, I will reward you generously!"
+quests/Level2/quest_Boss,Geceleri körfezi yoğun sis kaplıyor. Bu gemi tüm sahili terörize ediyor. Ticarete müdahale eder ve denizcileri korkutur. Eğer onu dibe gönderebilirsen seni cömertçe ödüllendireceğim!
 quests/Level3/quest_01,İmparatorluk teknelerini yok edin! Ta ki kıyıya ulaşana kadar!
 quests/Level3/quest_02,Düşmanlarımızın sallarını batırın!
 quests/Level3/quest_03,İmparatorluğun gemilerini dibe gönderin!
@@ -31,7 +31,7 @@ Interactables/UpgradePlace,Marina
 Misc/thousandToken,k
 Misc/millionToken,m
 UI/ConfirmWindow/button,Onaylamak
-UI/ConfirmWindow/header,Satın alma onaylansın mı?
+UI/ConfirmWindow/header,Satın alma işlemi onaylansın mı?
 UI/Shop/GameItemHeader,KAYNAKLAR
 UI/Shop/InAppItemHeader,TEKLİFLER
 UI/Death,Tekneniz battı... Yeni bir gemi mi çaldınız?

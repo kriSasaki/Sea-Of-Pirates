@@ -33,6 +33,14 @@ namespace Project.Utils
             }
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.P)) 
+            {
+                PlayerPrefsReseter.ResetPlayerPrefs();
+            }
+        }
+
         [Inject]
         private void Construct(
             PlayerStats playerStats,

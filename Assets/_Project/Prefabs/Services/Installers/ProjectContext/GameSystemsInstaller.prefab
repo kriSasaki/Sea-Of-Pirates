@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610aa6665f567f241979140f468e692a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _yandexPrefab: {fileID: 2211564899198745196, guid: caf9732433f4dc044845763962493607, type: 3}

@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0, g: 0.9308177, b: 0.9811321, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.14509805, g: 0.7921569, b: 0.6627451, a: 1}
   m_FogMode: 1
   m_FogDensity: 1
-  m_LinearFogStart: 174.7
-  m_LinearFogEnd: 575.2
+  m_LinearFogStart: 150
+  m_LinearFogEnd: 390
   m_AmbientSkyColor: {r: 0.7921569, g: 0.98039216, b: 0.9529412, a: 1}
   m_AmbientEquatorColor: {r: 0.8528302, g: 0.9891394, b: 1, a: 1}
   m_AmbientGroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -809,50 +809,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6106457114956136631, guid: 8e9db27a44d51ea41902bc18337f7b4f, type: 3}
   m_PrefabInstance: {fileID: 1795775099}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &245906452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 245906454}
-  - component: {fileID: 245906453}
-  m_Layer: 0
-  m_Name: Reseter
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &245906453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245906452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e16b95474c5c443a4260c086ae732d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &245906454
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245906452}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -148.2, y: 5.69217, z: 25.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &250824016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 522175100800544812, guid: a40355c049d57a24381aefce5a42ee40, type: 3}
@@ -2904,7 +2860,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 821021179583059524, guid: 0b3260c6b2a005b4b8b8a2b77e714ade, type: 3}
       propertyPath: _offerInterval
-      value: 294
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3007814758741759429, guid: 0b3260c6b2a005b4b8b8a2b77e714ade, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4841,7 +4797,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 390
   field of view: 48.3
   orthographic: 0
   orthographic size: 5
@@ -10284,6 +10240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerDebugCheat
       objectReference: {fileID: 0}
+    - target: {fileID: 6518791034197961247, guid: 09ade0e9235ba8f4cbb2c891029bc577, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10908,6 +10868,10 @@ PrefabInstance:
       propertyPath: m_Priority
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1157625038312070846, guid: abed4f6b21c624a4eb1c44b42b06a793, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 280
+      objectReference: {fileID: 0}
     - target: {fileID: 2764210502375845476, guid: abed4f6b21c624a4eb1c44b42b06a793, type: 3}
       propertyPath: m_Name
       value: TargetCamera
@@ -11057,7 +11021,7 @@ MonoBehaviour:
     FieldOfView: 48.3
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 390
     Dutch: -18
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -11137,6 +11101,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1378183467}
+    - target: {fileID: 601295406903958631, guid: bf8acfdbdb0c8f64998e91d9cc15a855, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4534127655920043887, guid: bf8acfdbdb0c8f64998e91d9cc15a855, type: 3}
       propertyPath: m_Name
       value: PlayerCamera
@@ -11239,4 +11207,3 @@ SceneRoots:
   - {fileID: 1823801750}
   - {fileID: 2076092338}
   - {fileID: 2028479828}
-  - {fileID: 245906454}

@@ -1,25 +1,14 @@
-﻿using Agava.YandexGames;
-using System;
+﻿using System;
+using YG;
+using YG.Utils.Pay;
 
 namespace Project.SDK.InApp
 {
     public class YandexBillingService : IBillingService
     {
-        public void LoadProductCatalog(Action<CatalogProduct[]> onLoadCallback)
+        public void LoadProductCatalog(Action<Purchase[]> onLoadCallback)
         {
-            Billing.GetProductCatalog(productCatalogRespose => onLoadCallback(productCatalogRespose.products));
-        }
-
-        public void HandlePurchase(string itemID, Action onPurchaseCallback)
-        {
-            Billing.PurchaseProduct(itemID, (purchaseProductResponse) =>
-            {
-                onPurchaseCallback();
-
-                Billing.ConsumeProduct(purchaseProductResponse.purchaseData.purchaseToken, () =>
-                {
-                });
-            });
+            onLoadCallback(YandexGame.purchases);
         }
     }
 }
