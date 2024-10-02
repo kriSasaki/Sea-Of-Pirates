@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_03_Small
   m_EditorClassIdentifier: 
-  _maxHealth: 270
+  _maxHealth: 360
   _canDealDamage: 0
   _damage: 0
   _attackCooldown: 5
@@ -20,7 +20,7 @@ MonoBehaviour:
   _rotationSpeed: 67.6
   _moveAngleDot: 0.621
   _attackRange: 0
-  _detectRange: 20
+  _detectRange: 25
   _enemyView: {fileID: 1333205628139548919, guid: 9187880d1d82dd146ae63b6d252fad82, type: 3}
   _isSolidForPlayer: 0
   _behaviourConfig: {fileID: 11400000, guid: 6ff9ccca0b64f654e99bf35a570efa27, type: 2}

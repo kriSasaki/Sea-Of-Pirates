@@ -1,35 +1,25 @@
 using Project.Interfaces.SDK;
-using Project.Systems.Pause;
 using System;
+using YG;
 
 namespace Project.SDK.Advertisment
 {
     public class YandexAdvertismentService : AdvertismentService, IAdvertismentService
     {
-        public YandexAdvertismentService(PauseService pauseService)
-            : base(pauseService)
-        {
-        }
-
         public override void ShowInterstitialAd()
         {
-            Agava.YandexGames.InterstitialAd.Show(OpenAd, OnCloseInterstitial);
-
-            void OnCloseInterstitial(bool wasShown)
-            {
-                CloseAd();
-            }
+            YandexGame.FullscreenShow();
         }
 
-        public override void ShowRewardAd(Action onRewardedCallback)
+        public override void ShowRewardAd(int rewardAmount)
         {
-            Agava.YandexGames.VideoAd.Show(OpenAd, () => onRewardedCallback(), CloseAd);
+            YandexGame.RewVideoShow(rewardAmount);
         }
 
         public override void HideSticky()
-            => Agava.YandexGames.StickyAd.Hide();
+            => YandexGame.StickyAdActivity(false);
 
         public override void ShowSticky()
-            => Agava.YandexGames.StickyAd.Show();
+            => YandexGame.StickyAdActivity(true);
     }
 }

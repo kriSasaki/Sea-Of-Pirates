@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Project.Interfaces.SDK;
+﻿using Project.Interfaces.SDK;
 
 namespace Project.SDK.Leaderboard
 {
@@ -11,22 +9,6 @@ namespace Project.SDK.Leaderboard
         public void AuthorizePlayer()
         {
             IsPlayerAuthorized = true;
-        }
-
-        public void LoadPlayers(Action<List<LeaderboardPlayer>, int> onLoadCallback)
-        {
-            List<LeaderboardPlayer> players = new()
-            {
-                new LeaderboardPlayer(1, "Barlogdao",100),
-                new LeaderboardPlayer(2, "ArturTeterur", 300),
-                new LeaderboardPlayer(3, "kriSasaki", 9999),
-                new LeaderboardPlayer(4, null, 5),
-                new LeaderboardPlayer(5, null, 4),
-                new LeaderboardPlayer(6, null, 3),
-                new LeaderboardPlayer(7, null, 2),
-            };
-
-            onLoadCallback(players, 1);
         }
 
         public void SetPlayerScore(int score)

@@ -1,5 +1,6 @@
 using Lean.Localization;
 using UnityEngine;
+using YG;
 
 namespace Project.SDK
 {
@@ -22,7 +23,7 @@ namespace Project.SDK
         private void ChangeLanguage()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            string languageCode = Agava.YandexGames.YandexGamesSdk.Environment.i18n.lang;
+            string languageCode = YandexGame.EnvironmentData.language;
 #else
             string languageCode = Russian;
 #endif

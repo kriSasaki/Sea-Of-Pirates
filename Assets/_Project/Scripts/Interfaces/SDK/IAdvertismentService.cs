@@ -7,7 +7,7 @@ namespace Project.Interfaces.SDK
         bool IsAdsPlaying { get; }
 
         void ShowInterstitialAd();
-        void ShowRewardAd(Action onRewardedCallback);
+        void ShowRewardAd(int rewardAmount);
         void ShowSticky();
         void HideSticky();
     }

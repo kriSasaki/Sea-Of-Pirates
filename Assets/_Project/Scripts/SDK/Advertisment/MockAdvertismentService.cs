@@ -1,31 +1,24 @@
 ﻿using System;
 using Project.Interfaces.SDK;
-using Project.Systems.Pause;
 using UnityEngine;
 
 namespace Project.SDK.Advertisment
 {
     public class MockAdvertismentService : AdvertismentService, IAdvertismentService
     {
-        public MockAdvertismentService(PauseService pauseService)
-            : base(pauseService)
-        {
-        }
-
         public override void ShowInterstitialAd()
         {
             Debug.Log("Interstitial Shown");
         }
 
-        public override void ShowRewardAd(Action onRewardedCallback)
+        public override void ShowRewardAd(int rewardAmount)
         {
-            onRewardedCallback();
+            Debug.Log("Reward" + rewardAmount + "Get");
         }
 
         public override void ShowSticky()
         {
             Debug.Log("Sticky Shown");
-
         }
 
         public override void HideSticky()

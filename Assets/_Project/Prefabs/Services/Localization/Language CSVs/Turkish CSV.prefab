@@ -48,4 +48,132 @@ MonoBehaviour:
   Format: 1
   Language: Turkish
   Cache: 0
-  entries: []
+  entries:
+  - Name: token
+    Text: tr
+  - Name: stat/Health/name
+    Text: Kuvvet
+  - Name: stat/Speed/name
+    Text: "H\u0131z"
+  - Name: stat/Damage/name
+    Text: "G\xFC\xE7"
+  - Name: stat/Hold/name
+    Text: Tutmak
+  - Name: stat/AttackRange/name
+    Text: Menzil
+  - Name: stat/Cannons/name
+    Text: Silahlar
+  - Name: stat/Health/desc
+    Text: "Geminin sa\u011Fl\u0131k rezervi"
+  - Name: stat/Speed/desc
+    Text: "Gemi h\u0131z\u0131"
+  - Name: stat/Damage/desc
+    Text: "D\xFC\u015Fmanlara verilen hasar"
+  - Name: stat/Hold/desc
+    Text: "Geminin ta\u015F\u0131ma kapasitesi"
+  - Name: stat/AttackRange/desc
+    Text: "Gemi at\u0131\u015F menzili"
+  - Name: stat/Cannons/desc
+    Text: "Gemideki silah say\u0131s\u0131"
+  - Name: quests/Tutorial/quest_Boss
+    Text: "Sular\u0131m\u0131zda bir k\xF6t\xFC adam var! Bununla ba\u015Fa \xE7\u0131kmama
+      yard\u0131m et. "
+  - Name: quests/Level1/quest_01
+    Text: "K\xFCrekler i\xE7in b\xFCy\xFCk bir sipari\u015Fim var. Ve yak\u0131nlarda
+      bir firkateyn batt\u0131. Ve insanlar kay\u0131klarla ka\xE7\u0131yorlar...
+      K\xFCreklerle... Anl\u0131yor musun?"
+  - Name: quests/Level1/quest_02
+    Text: "Vah\u015Fi e\u011Flenceyi sevenler sallar\u0131yla ticaret yollar\u0131m\u0131z\u0131
+      kapat\u0131yor.  Nakliyelerindeki birka\xE7 deli\u011Fin bedelini memnuniyetle
+      \xF6deyece\u011Fiz!"
+  - Name: quests/Level1/quest_03
+    Text: "Kom\u015Fu adalardaki kahrolas\u0131 zenginler her zaman yatlar\u0131nda
+      e\u011Fleniyor! Bu onlar\u0131 korkuturdu. \xD6l\xFCmc\xFCl bir sonu\xE7la..."
+  - Name: quests/Level1/quest_Boss
+    Text: "Yak\u0131nlarda bir imparatorluk firkateyni duruyordu. B\xFCt\xFCn i\u015Fi
+      mahvediyor. Su bas! Bor\xE7lu olmayaca\u011F\u0131m!"
+  - Name: quests/Level2/quest_01
+    Text: "Bir ka\xE7ak avc\u0131 \xE7etesi t\xFCm anla\u015Fmalar\u0131 hi\xE7e
+      sayarak sular\u0131m\u0131zda bal\u0131k tutuyor. B\xFCt\xFCn k\xF6rfezi yok
+      etmeden teknelerini bat\u0131r\u0131n. Bunun i\xE7in sana iyi bir miktar verece\u011Fim!"
+  - Name: quests/Level2/quest_02
+    Text: "Kom\u015Fu bir ticaret \u015Firketinin rakipleri b\xF6lgemizde i\u015F
+      yapmaya cesaret etti. G\xF6reviniz bu k\xFCstah insanlar\u0131 uzakla\u015Ft\u0131rmak.
+      Onlara zor anlar ya\u015Fat\u0131n!"
+  - Name: quests/Level2/quest_03
+    Text: "Ka\xE7ak\xE7\u0131lar teknelerinde bal\u0131k\xE7\u0131lar\u0131 korkutuyor
+      ve avlar\u0131n\u0131 bozuyor. E\u011Fer onlar\u0131n gemilerini bat\u0131r\u0131rsan\u0131z
+      bal\u0131k\xE7\u0131lara i\u015Flerini geri verirsiniz ve ben de sizi c\xF6mert\xE7e
+      \xF6d\xFCllendiririm. \xDCstlenmeye haz\u0131r m\u0131s\u0131n?"
+  - Name: quests/Level2/quest_Boss
+    Text: "Geceleri k\xF6rfezi yo\u011Fun sis kapl\u0131yor. Bu gemi t\xFCm sahili
+      ter\xF6rize ediyor. Ticarete m\xFCdahale eder ve denizcileri korkutur. E\u011Fer
+      onu dibe g\xF6nderebilirsen seni c\xF6mert\xE7e \xF6d\xFCllendirece\u011Fim!"
+  - Name: quests/Level3/quest_01
+    Text: "\u0130mparatorluk teknelerini yok edin! Ta ki k\u0131y\u0131ya ula\u015Fana
+      kadar!"
+  - Name: quests/Level3/quest_02
+    Text: "D\xFC\u015Fmanlar\u0131m\u0131z\u0131n sallar\u0131n\u0131 bat\u0131r\u0131n!"
+  - Name: quests/Level3/quest_03
+    Text: "\u0130mparatorlu\u011Fun gemilerini dibe g\xF6nderin!"
+  - Name: quests/Level3/quest_Boss
+    Text: "\u0130mparatorlu\u011Fun seni arayan firkateynini bat\u0131r"
+  - Name: quests/CompleteMessage
+    Text: "Art\u0131k huzur i\xE7inde uyuyabilirim! \u0130\u015Fte \xF6d\xFCl\xFCn\xFCz.
+      Al\u0131r m\u0131s\u0131n?"
+  - Name: quests/ProgressLabel
+    Text: "Bat\u0131k"
+  - Name: quests/OK
+    Text: Evet
+  - Name: Interactables/UpgradePlace
+    Text: Marina
+  - Name: Misc/thousandToken
+    Text: k
+  - Name: Misc/millionToken
+    Text: m
+  - Name: UI/ConfirmWindow/button
+    Text: Onaylamak
+  - Name: UI/ConfirmWindow/header
+    Text: "Sat\u0131n alma i\u015Flemi onaylans\u0131n m\u0131?"
+  - Name: UI/Shop/GameItemHeader
+    Text: KAYNAKLAR
+  - Name: UI/Shop/InAppItemHeader
+    Text: "TEKL\u0130FLER"
+  - Name: UI/Death
+    Text: "Tekneniz batt\u0131... Yeni bir gemi mi \xE7ald\u0131n\u0131z?"
+  - Name: Anonymous
+    Text: Anonim
+  - Name: Leaderboard/Name
+    Text: Oyuncu
+  - Name: Leaderboard/Rank
+    Text: "R\xFCtbe"
+  - Name: Leaderboard/Score
+    Text: "Bat\u0131k"
+  - Name: Leaderboard/AuthorizationText
+    Text: "Skor tablosunu g\xF6rebilmek i\xE7in giri\u015F yapmal\u0131s\u0131n\u0131z"
+  - Name: Leaderboard/AuthorizationButton
+    Text: "Giri\u015F yapmak"
+  - Name: UI/NextLevel/CanPass
+    Text: "Art\u0131k resiflerden g\xFCvenle ge\xE7ebiliriz. Daha ileri gitmek ister
+      misin?"
+  - Name: UI/NextLevel/CanNotPass
+    Text: "Tehlikeli resifler ileride! Harita olmazsa hemen bunal\u0131ma gireriz!
+      Haritayla geri gelin."
+  - Name: UI/NextLevel/EndGame
+    Text: "Oyunu tamamlad\u0131\u011F\u0131n\u0131z i\xE7in tebrikler! Bir sonraki
+      g\xFCncellemelerde bize kat\u0131l\u0131n!"
+  - Name: Tutorial/MoveTip
+    Text: "Y\xFCzmek i\xE7in WASD'ye bas\u0131n"
+  - Name: Tutorial/MoveTipMobile
+    Text: "Y\xFCzmek i\xE7in parma\u011F\u0131n\u0131z\u0131 ekran \xFCzerinde hareket
+      ettirin"
+  - Name: Tutorial/PirateBay
+    Text: "Ganimetinizi teslim edin ve k\xF6rfezdeki geminizi y\xFCkseltin"
+  - Name: Tutorial/Attack
+    Text: "Ganimet! Daha yak\u0131n y\xFCz\xFCn! Ekibiniz her \u015Feyi kendisi yapacak!"
+  - Name: Tutorial/NextLevel
+    Text: "Yerlilerden bir harita aramaya de\u011Fer..."
+  - Name: Tutorial/HoldTip
+    Text: Burada ganimetinizi teslim edebilirsiniz
+  - Name: Tutorial/HealTip
+    Text: Burada gemiyi onarabilirsiniz

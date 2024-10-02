@@ -1,8 +1,9 @@
-﻿using Agava.YandexGames;
-using Project.Configs.ShopItems;
+﻿using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
 using Project.Systems.Data;
 using Project.Utils.Extensions;
+using YG;
+using YG.Utils.Pay;
 
 namespace Project.Systems.Shop.Items
 {
@@ -14,7 +15,7 @@ namespace Project.Systems.Shop.Items
         public InAppResourceItem(
             IPlayerStorage playerStorage,
             InAppResourceItemConfig config,
-            CatalogProduct itemData)
+            Purchase itemData)
             : base(config, itemData)
         {
             _playerStorage = playerStorage;

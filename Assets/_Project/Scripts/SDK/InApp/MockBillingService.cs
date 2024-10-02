@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Agava.YandexGames;
 using Project.Configs.ShopItems;
+using YG.Utils.Pay;
 
 namespace Project.SDK.InApp
 {
@@ -14,13 +14,13 @@ namespace Project.SDK.InApp
             _shopItemsConfigs = shopItemsConfigs;
         }
 
-        public void LoadProductCatalog(Action<CatalogProduct[]> onLoadCallback)
+        public void LoadProductCatalog(Action<Purchase[]> onLoadCallback)
         {
-            List<CatalogProduct> products = new List<CatalogProduct>();
+            List<Purchase> products = new List<Purchase>();
 
             foreach (var config in _shopItemsConfigs.InAppItemsConfigs)
             {
-                products.Add(new CatalogProduct() { id = config.ID, price = "4 YAN" });
+                products.Add(new Purchase() { id = config.ID, price = "4 YAN" });
             }
 
             onLoadCallback(products.ToArray());

@@ -1,6 +1,7 @@
-﻿using Agava.YandexGames;
-using Project.Configs.ShopItems;
+﻿using Project.Configs.ShopItems;
 using Project.SDK.Advertisment;
+using YG;
+using YG.Utils.Pay;
 
 namespace Project.Systems.Shop.Items
 {
@@ -11,13 +12,13 @@ namespace Project.Systems.Shop.Items
         public AddRemovalItem(
             AdvertismentController advertismentController,
             AddRemovalConfig config,
-            CatalogProduct itemData)
+            Purchase itemData)
             : base(config, itemData)
         {
             _advertismentController = advertismentController;
         }
 
-        public override bool IsAvaliable => _advertismentController.IsAddActive;
+        public override bool IsAvaliable => _advertismentController.IsAddHided == false;
 
         public override string AmountText => string.Empty;
 

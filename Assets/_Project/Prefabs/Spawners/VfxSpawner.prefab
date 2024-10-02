@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6892411ed8e5c4595fe365b81f6534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cannonSmokePrefab: {fileID: 198885388380882704, guid: 88bc40157a5437d49b7bdf6a880f255e, type: 3}
-  _explosionPrefab: {fileID: 198885388380882704, guid: 52ec409f5f908c847bc32defc9e5949a, type: 3}
+  _cannonSmokePrefab: {fileID: 198885388380882704, guid: 8b5cd535bfdba5d44a7dc986d71cd42e, type: 3}
+  _explosionPrefab: {fileID: 198885388380882704, guid: 19f31ec52138c164fba4f9225d5ec337, type: 3}
   _damagePopupPrefab: {fileID: 1782275528785405488, guid: 9032f59dd3ef2b14082bebbb2e09baa2, type: 3}
   _projectilePrefab: {fileID: 2789891042505930356, guid: a4a360d091622804e8b2311db78cd08b, type: 3}

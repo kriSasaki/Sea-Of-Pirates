@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DTT.Utils.Extensions;
 using Project.Configs.Game;
 using Project.Interfaces.Data;
-using UnityEngine;
+using YG;
 
 namespace Project.Systems.Data
 {
@@ -20,9 +21,14 @@ namespace Project.Systems.Data
 
         public GameDataService(GameConfig config)
         {
-            GameData data = JsonUtility.FromJson<GameData>(PlayerPrefs.GetString(SaveKey, null));
+            GameData data = YandexGame.savesData.GameData;
 
             _gameData = data ?? new GameData(config.FirstLevelScene);
+
+            if (_gameData.CurrentScene.IsNullOrEmpty())
+            {
+                _gameData.CurrentScene = config.FirstLevelScene;
+            }
         }
 
         public List<GameResourceData> Storage => _gameData.StorageData;
@@ -33,7 +39,7 @@ namespace Project.Systems.Data
 
         public string CurrentLevel => _gameData.CurrentScene;
 
-        public bool IsAdActive { get => _gameData.IsAddActive; set => _gameData.IsAddActive = value; }
+        public bool IsAdHided { get => _gameData.IsAddHided; set => _gameData.IsAddHided = value; }
 
         public void UpdateCurrentLevel(string levelName)
         {
@@ -57,10 +63,9 @@ namespace Project.Systems.Data
 
         public void Save()
         {
-            string json = JsonUtility.ToJson(_gameData);
+            YandexGame.savesData.GameData = _gameData;
 
-            PlayerPrefs.SetString(SaveKey, json);
-            PlayerPrefs.Save();
+            YandexGame.SaveProgress();
         }
 
         public int GetScore()

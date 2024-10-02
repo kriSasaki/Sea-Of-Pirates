@@ -1,16 +1,16 @@
-using NaughtyAttributes;
 using UnityEngine;
+using YG;
 
 namespace Project.Utils
 {
-    [ExecuteInEditMode]
-    public class PlayerPrefsReseter : MonoBehaviour
+    public static class PlayerPrefsReseter
     {
-        [Button("Reset Player Prefs")]
-        public void ResetPlayerPrefs()
+        public static void ResetPlayerPrefs()
         {
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
+            YandexGame.ResetSaveProgress();
+            YandexGame.SaveProgress();
 
             Debug.Log("Player Prefs is reseted");
         }

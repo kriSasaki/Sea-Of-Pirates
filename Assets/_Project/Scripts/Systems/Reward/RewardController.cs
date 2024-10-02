@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using Project.Configs.GameResources;
@@ -8,6 +9,7 @@ using Project.Interfaces.Stats;
 using Project.Systems.Data;
 using Project.UI.Reward;
 using UnityEngine;
+using YG;
 using Zenject;
 
 namespace Project.Systems.Reward
@@ -27,6 +29,18 @@ namespace Project.Systems.Reward
         private IAdvertismentService _advertismentService;
         private RewardView _rewardView;
 
+
+        private void Start()
+        {
+            OfferRewardAsync().Forget();
+        }
+
+        private void OnDestroy()
+        {
+            YandexGame.RewardVideoEvent -= AddReward;
+
+        }
+
         [Inject]
         public void Construct(
             StatsSheet statSheet,
@@ -40,11 +54,8 @@ namespace Project.Systems.Reward
             _playerStorage = playerStorage;
             _advertismentService = advertismentService;
             _rewardView = rewardView;
-        }
 
-        private void Start()
-        {
-            OfferRewardAsync().Forget();
+            YandexGame.RewardVideoEvent += AddReward;
         }
 
         private async UniTaskVoid OfferRewardAsync()
@@ -87,7 +98,7 @@ namespace Project.Systems.Reward
 
         private void OnRewardRequested(int rewardAmount)
         {
-            _advertismentService.ShowRewardAd(() => AddReward(rewardAmount));
+            _advertismentService.ShowRewardAd(rewardAmount);
         }
 
         private void OnOfferExpired()

@@ -2,6 +2,7 @@ using System.Collections;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 namespace Project.SDK
 {
@@ -11,12 +12,9 @@ namespace Project.SDK
 
         private IEnumerator Start()
         {
-            yield return null;
-#if UNITY_WEBGL && !UNITY_EDITOR
-            yield return Agava.YandexGames.YandexGamesSdk.Initialize(LoadScene);
-#else
+            yield return new WaitUntil(() => YandexGame.SDKEnabled == true);
+
             LoadScene();
-#endif
         }
 
         private void LoadScene()

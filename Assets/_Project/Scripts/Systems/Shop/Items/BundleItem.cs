@@ -1,6 +1,7 @@
-﻿using Agava.YandexGames;
-using Project.Configs.ShopItems;
+﻿using Project.Configs.ShopItems;
 using System.Collections.Generic;
+using YG;
+using YG.Utils.Pay;
 
 namespace Project.Systems.Shop.Items
 {
@@ -11,7 +12,7 @@ namespace Project.Systems.Shop.Items
         public BundleItem(
             List<InAppItem> items,
             BundleItemConfig config,
-            CatalogProduct itemData)
+            Purchase itemData)
             : base(config, itemData)
         {
             _items = items;

@@ -16,5 +16,5 @@ MonoBehaviour:
   <TargetType>k__BackingField: {fileID: 11400000, guid: 14c01101053e07f43ab2b8ccc219552f, type: 2}
   <TargetAmount>k__BackingField: 35
   <Reward>k__BackingField:
-    Resource: {fileID: 11400000, guid: 53778cdfafa69734abac07d7db216335, type: 2}
-    Amount: 50
+    Resource: {fileID: 11400000, guid: fafe75ba118b0f242bea3954811fa573, type: 2}
+    Amount: 100

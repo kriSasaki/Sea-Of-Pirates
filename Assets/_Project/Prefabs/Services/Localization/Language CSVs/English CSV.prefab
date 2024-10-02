@@ -48,4 +48,123 @@ MonoBehaviour:
   Format: 1
   Language: English
   Cache: 0
-  entries: []
+  entries:
+  - Name: token
+    Text: en
+  - Name: stat/Health/name
+    Text: Durability
+  - Name: stat/Speed/name
+    Text: Speed
+  - Name: stat/Damage/name
+    Text: Power
+  - Name: stat/Hold/name
+    Text: Hold
+  - Name: stat/AttackRange/name
+    Text: Range
+  - Name: stat/Cannons/name
+    Text: Cannons
+  - Name: stat/Health/desc
+    Text: Ship's health
+  - Name: stat/Speed/desc
+    Text: Ship speed
+  - Name: stat/Damage/desc
+    Text: Damage dealt to enemies
+  - Name: stat/Hold/desc
+    Text: Ship's carrying capacity
+  - Name: stat/AttackRange/desc
+    Text: Ship firing range
+  - Name: stat/Cannons/desc
+    Text: Cannons amount on the ship
+  - Name: quests/Tutorial/quest_Boss
+    Text: 'There''s a villain in our waters! Help me deal with it. '
+  - Name: quests/Level1/quest_01
+    Text: I have a large order for oars. And a frigate sank nearby. And people escape
+      on boats... With oars... Do you understand?
+  - Name: quests/Level1/quest_02
+    Text: Lovers of wild recreation are blocking our trade routes with their rafts. 
+      We will gladly pay for a couple of holes in their transport!
+  - Name: quests/Level1/quest_03
+    Text: The damned aristocrats on the neighboring islands are always having fun
+      on their yachts! That would intimidate them. With a fatal outcome...
+  - Name: quests/Level1/quest_Boss
+    Text: An imperial frigate stood nearby. He ruins the whole business. Flood it!
+      I won't be in debt!
+  - Name: quests/Level2/quest_01
+    Text: A gang of poachers is fishing in our waters in defiance of all treaties.
+      Sink their boats before they destroy the entire bay. For this I will give you
+      a good sum!
+  - Name: quests/Level2/quest_02
+    Text: Competitors from a neighboring trading company dared to do business in
+      our territory. Your task is to drive away these insolent people. Give them
+      a hard time!
+  - Name: quests/Level2/quest_03
+    Text: Smugglers in their boats scare fishermen and spoil their catch. If you
+      sink their ships you will give the fishermen their jobs back and I will reward
+      you generously. Ready to take it on?
+  - Name: quests/Level2/quest_Boss
+    Text: Heavy fog shrouds the bay at night. This ship is terrorizing the entire
+      coast. Interferes with trade and frightens sailors. If you can send him to
+      the bottom I will reward you generously!
+  - Name: quests/Level3/quest_01
+    Text: Destroy the Imperial boats!
+  - Name: quests/Level3/quest_02
+    Text: Sink the rafts of our enemies!
+  - Name: quests/Level3/quest_03
+    Text: Send the ships of the empire to the bottom!
+  - Name: quests/Level3/quest_Boss
+    Text: Sink the empire's frigate looking for you
+  - Name: quests/CompleteMessage
+    Text: Now I can sleep peacefully! Here is your reward. Do you take it?
+  - Name: quests/ProgressLabel
+    Text: Sunk
+  - Name: quests/OK
+    Text: OK
+  - Name: Interactables/UpgradePlace
+    Text: Marina
+  - Name: Misc/thousandToken
+    Text: k
+  - Name: Misc/millionToken
+    Text: m
+  - Name: UI/ConfirmWindow/button
+    Text: Confirm
+  - Name: UI/ConfirmWindow/header
+    Text: Confirm purchase?
+  - Name: UI/Shop/GameItemHeader
+    Text: RESOURCES
+  - Name: UI/Shop/InAppItemHeader
+    Text: OFFERS
+  - Name: UI/Death
+    Text: Your boat has sunk... Steal a new ship?
+  - Name: Anonymous
+    Text: Anonymous
+  - Name: Leaderboard/Name
+    Text: Player
+  - Name: Leaderboard/Rank
+    Text: Rank
+  - Name: Leaderboard/Score
+    Text: Sunk
+  - Name: Leaderboard/AuthorizationText
+    Text: You must be logged in to view the leaderboard
+  - Name: Leaderboard/AuthorizationButton
+    Text: Login
+  - Name: UI/NextLevel/CanPass
+    Text: Now we can safely pass through the reefs. Want to go further?
+  - Name: UI/NextLevel/CanNotPass
+    Text: Dangerous reefs ahead! Without a map we'll be overwhelmed right away! Come
+      back with the map.
+  - Name: UI/NextLevel/EndGame
+    Text: Congratulations on completing the game! Come join us in the next updates!
+  - Name: Tutorial/MoveTip
+    Text: To swim press WASD
+  - Name: Tutorial/MoveTipMobile
+    Text: To swim move your finger across the display
+  - Name: Tutorial/PirateBay
+    Text: Hand over your loot and upgrade your ship in the bay
+  - Name: Tutorial/Attack
+    Text: Booty! Swim closer! Your team will do everything themselves!
+  - Name: Tutorial/NextLevel
+    Text: It's worth looking for a map from the locals...
+  - Name: Tutorial/HoldTip
+    Text: Here you can hand over your loot
+  - Name: Tutorial/HealTip
+    Text: Here you can patch up the ship

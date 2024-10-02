@@ -20,7 +20,9 @@ using Project.UI.Shop;
 using Project.UI.Upgrades;
 using SimpleInputNamespace;
 using UnityEngine;
+using YG;
 using Zenject;
+
 
 namespace Project.Installers.SceneContext
 {
@@ -117,7 +119,7 @@ namespace Project.Installers.SceneContext
         private void BindMoveHandler()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            if (Agava.WebUtility.Device.IsMobile)
+            if (YandexGame.EnvironmentData.isMobile || YandexGame.EnvironmentData.isTablet || IsIPad())
             {
                 Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
                 Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
@@ -129,7 +131,7 @@ namespace Project.Installers.SceneContext
 
             bool IsIPad()
             {
-                return Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform; 
+                return WebGLBrowserCheck.IsMobileBrowser();
             }
 #else
             if (_isMobile)

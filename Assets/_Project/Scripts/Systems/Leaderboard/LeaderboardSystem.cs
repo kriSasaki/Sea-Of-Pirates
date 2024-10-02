@@ -43,17 +43,12 @@ namespace Project.Systems.Leaderboard
         {
             if (_leaderboardService.IsPlayerAuthorized)
             {
-                _leaderboardService.LoadPlayers(OpenLeaderboard);
+                _leaderboardWindow.OpenLeaderboardPanel();
             }
             else
             {
                 _leaderboardWindow.OpenAuthorizationPanel();
             }
-        }
-
-        private void OpenLeaderboard(List<LeaderboardPlayer> players, int playerRank)
-        {
-            _leaderboardWindow.OpenLeaderboardPanel(players, playerRank);
         }
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_03_Raft_Wood
   m_EditorClassIdentifier: 
-  _maxHealth: 240
+  _maxHealth: 180
   _canDealDamage: 0
   _damage: 0
   _attackCooldown: 5
@@ -20,11 +20,11 @@ MonoBehaviour:
   _rotationSpeed: 42.2
   _moveAngleDot: 0.652
   _attackRange: 0
-  _detectRange: 20
-  _enemyView: {fileID: 138012087150548504, guid: 271d73b0452866d4b929cdb5202b021c, type: 3}
+  _detectRange: 25
+  _enemyView: {fileID: 109266931523258178, guid: 72613408426b8a34d9b503b2fcdd8012, type: 3}
   _isSolidForPlayer: 0
   _behaviourConfig: {fileID: 11400000, guid: 6ff9ccca0b64f654e99bf35a570efa27, type: 2}
   _loot:
     Resource: {fileID: 11400000, guid: 6eaba16e32f520944a83ac31759ef141, type: 2}
-    Amount: 4
+    Amount: 5
   _optionalMaterial: {fileID: 0}

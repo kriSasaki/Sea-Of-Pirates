@@ -19,8 +19,8 @@ quests/Level1/quest_Boss,An imperial frigate stood nearby. He ruins the whole bu
 quests/Level2/quest_01,A gang of poachers is fishing in our waters in defiance of all treaties. Sink their boats before they destroy the entire bay. For this I will give you a good sum!
 quests/Level2/quest_02,Competitors from a neighboring trading company dared to do business in our territory. Your task is to drive away these insolent people. Give them a hard time!
 quests/Level2/quest_03,Smugglers in their boats scare fishermen and spoil their catch. If you sink their ships you will give the fishermen their jobs back and I will reward you generously. Ready to take it on?
-quests/Level2/quest_Boss,"Heavy fog shrouds the bay at night. This ship is terrorizing the entire coast. Interferes with trade and frightens sailors. If you can send him to the bottom
-quests/Level3/quest_01,Destroy the Imperial boats! Until they reached the shore!
+quests/Level2/quest_Boss,Heavy fog shrouds the bay at night. This ship is terrorizing the entire coast. Interferes with trade and frightens sailors. If you can send him to the bottom I will reward you generously!
+quests/Level3/quest_01,Destroy the Imperial boats!
 quests/Level3/quest_02,Sink the rafts of our enemies!
 quests/Level3/quest_03,Send the ships of the empire to the bottom!
 quests/Level3/quest_Boss,Sink the empire's frigate looking for you
