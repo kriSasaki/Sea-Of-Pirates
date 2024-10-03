@@ -43,14 +43,15 @@ namespace Project.Systems.Leaderboard
         {
             _leaderboardService.AuthorizePlayer();
 
-            OnAuth().Forget();
+            ReloadSaveAsync().Forget();
         }
 
-        async UniTaskVoid OnAuth()
+        private async UniTaskVoid ReloadSaveAsync()
         {
             await UniTask.WaitUntil(() => YandexGame.auth == true, cancellationToken: _leaderboardWindow.destroyCancellationToken);
             YandexGame.LoadProgress();
-            //await UniTask.Delay(3000);
+            _leaderboardWindow.OpenLoadingPlaceholder();
+            await UniTask.Delay(3000, cancellationToken: _leaderboardWindow.destroyCancellationToken);
             SceneManager.LoadScene(_gameConfig.LoadingScene);
         }
 

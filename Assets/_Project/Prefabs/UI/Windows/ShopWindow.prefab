@@ -479,6 +479,7 @@ MonoBehaviour:
   _confirmWindow: {fileID: 6337316104227475803}
   _gameItemsLayout: {fileID: 365751395288671637}
   _inAppItemsLayout: {fileID: 8370281648234536197}
+  _inAppHeader: {fileID: 2628739065729431340}
 --- !u!222 &7734710546099667962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -882,7 +883,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6401472821389681007}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &1428028190731330195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,11 +1190,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 27316537022281376, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_fontSize
-      value: 63.95
+      value: 63.6
       objectReference: {fileID: 0}
     - target: {fileID: 458862264253721758, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_fontSize
-      value: 79.35
+      value: 78.7
       objectReference: {fileID: 0}
     - target: {fileID: 488086258891805768, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1221,7 +1222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 958172346611039058, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_fontSize
-      value: 49
+      value: 48.8
       objectReference: {fileID: 0}
     - target: {fileID: 2477741200924950773, guid: b0726511088a48a43aacd48c6bc4202d, type: 3}
       propertyPath: m_AnchorMax.y

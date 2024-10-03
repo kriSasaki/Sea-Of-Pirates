@@ -73,6 +73,10 @@ PrefabInstance:
       value: House_Tiny7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 980b673438f2eaa4a99d35285782958c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 980b673438f2eaa4a99d35285782958c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 122
       objectReference: {fileID: 0}

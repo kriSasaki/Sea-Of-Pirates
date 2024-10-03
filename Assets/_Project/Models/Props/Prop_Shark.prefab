@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3843355984154136150}
   - component: {fileID: 990355099362354067}
   - component: {fileID: 4401110045259778062}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

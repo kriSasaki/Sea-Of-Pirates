@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2301014666571749234}
   - component: {fileID: 947546890895205170}
   - component: {fileID: 1627901306540830906}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3350869405100437270}
   - component: {fileID: 1499128864349663715}
   - component: {fileID: 4853823171756309975}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SM_Bld_Cuba_Roof_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 1671560833231782639}
   - component: {fileID: 4234665846719503936}
   - component: {fileID: 4872114889053172683}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

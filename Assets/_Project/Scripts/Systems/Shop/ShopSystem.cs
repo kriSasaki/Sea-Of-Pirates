@@ -16,7 +16,7 @@ namespace Project.Systems.Shop
     {
         private readonly IPlayerStorage _playerStorage;
         private readonly IBillingService _billingService;
-        private readonly ShopItemFactory _shopItemfactory;
+        private readonly ShopItemFactory _shopItemFactory;
         private readonly ShopItemsConfigs _shopItemsConfigs;
         private readonly ShopWindow _shopWindow;
         private readonly ShopButton _shopButton;
@@ -28,17 +28,17 @@ namespace Project.Systems.Shop
         public ShopSystem(
             IPlayerStorage playerStorage,
             IBillingService billingService,
-            ShopItemFactory shopItemfactory,
+            ShopItemFactory shopItemFactory,
             ShopItemsConfigs shopItemsConfigs,
             ShopWindow shopWindow,
-            ShopButton shopButtom)
+            ShopButton shopButton)
         {
             _playerStorage = playerStorage;
             _billingService = billingService;
-            _shopItemfactory = shopItemfactory;
+            _shopItemFactory = shopItemFactory;
             _shopItemsConfigs = shopItemsConfigs;
             _shopWindow = shopWindow;
-            _shopButton = shopButtom;
+            _shopButton = shopButton;
 
             YandexGame.PurchaseSuccessEvent += OnBuyInApp;
         }
@@ -62,7 +62,15 @@ namespace Project.Systems.Shop
         private void LoadShopItems()
         {
             LoadGameItems();
-            SetInAppItems();
+
+            if (YandexGame.auth == true)
+            {
+                SetInAppItems();
+            }
+            else
+            {
+                _shopWindow.HideInAppHeader();
+            }
 
             _isItemsLoaded = true;
         }
@@ -71,7 +79,7 @@ namespace Project.Systems.Shop
         {
             foreach (GameItemConfig config in _shopItemsConfigs.GameItemsConfigs)
             {
-                GameItem item = _shopItemfactory.Create(config);
+                GameItem item = _shopItemFactory.Create(config);
                 _shopWindow.CreateItemSlot(item, () => BuyItem(item));
             }
         }
@@ -85,7 +93,7 @@ namespace Project.Systems.Shop
                 if (itemData == null)
                     continue;
 
-                InAppItem item = _shopItemfactory.Create(config, itemData);
+                InAppItem item = _shopItemFactory.Create(config, itemData);
                 _inAppCatalogue.Add(item.ID, item);
             }
 

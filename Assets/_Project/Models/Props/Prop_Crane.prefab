@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1245565290365815651}
   - component: {fileID: 5977483808043922049}
   - component: {fileID: 3283773156249984011}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_Crane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

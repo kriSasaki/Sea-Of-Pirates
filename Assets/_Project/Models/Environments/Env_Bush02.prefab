@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3585764154762995662}
   - component: {fileID: 6209955649511146861}
   - component: {fileID: 6371931417166490953}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Env_Bush02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

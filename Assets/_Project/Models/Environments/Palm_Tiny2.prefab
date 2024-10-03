@@ -73,6 +73,10 @@ PrefabInstance:
       value: Palm_Tiny2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 943a369ab57c5cc449d890d21d82b685, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 943a369ab57c5cc449d890d21d82b685, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 122
       objectReference: {fileID: 0}

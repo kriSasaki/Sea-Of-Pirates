@@ -17,6 +17,7 @@ namespace Project.UI.Shop
         [SerializeField] private ConfirmWindow _confirmWindow;
         [SerializeField] private LayoutGroup _gameItemsLayout;
         [SerializeField] private LayoutGroup _inAppItemsLayout;
+        [SerializeField] private RectTransform _inAppHeader;
 
         private readonly List<ShopItemSlot> _itemSlots = new();
 
@@ -42,6 +43,11 @@ namespace Project.UI.Shop
             base.Hide();
 
             _audioService.PlayMusic(_gameConfig.MainMusic);
+        }
+
+        public void HideInAppHeader()
+        {
+            _inAppHeader.gameObject.SetActive(false);
         }
 
         public void CreateItemSlot(GameItem item, Action onBuyCallback)
