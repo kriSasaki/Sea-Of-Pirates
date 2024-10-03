@@ -18,10 +18,6 @@ namespace Project.Systems.Data
 
         public Dictionary<string, QuestStatus> LoadQuests()
         {
-            if (_quests != null)
-            {
-                return _quests;
-            }
 
             _quests = new Dictionary<string, QuestStatus>();
 

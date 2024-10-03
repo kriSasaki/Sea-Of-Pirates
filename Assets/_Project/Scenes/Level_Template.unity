@@ -333,50 +333,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1823801750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &245906452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 245906454}
-  - component: {fileID: 245906453}
-  m_Layer: 0
-  m_Name: Reseter
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &245906453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245906452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e16b95474c5c443a4260c086ae732d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &245906454
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245906452}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -148.2, y: 5.69217, z: 25.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &296827019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -865,6 +821,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5203064189268252663, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203064189268252663, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203064189268252663, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1010,6 +974,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7258256220306377703, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258256220306377703, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258256220306377703, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7258256220306377703, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
@@ -2762,5 +2734,4 @@ SceneRoots:
   - {fileID: 109370854}
   - {fileID: 1823801750}
   - {fileID: 2076092338}
-  - {fileID: 245906454}
   - {fileID: 2028479828}

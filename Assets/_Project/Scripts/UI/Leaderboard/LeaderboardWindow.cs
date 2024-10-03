@@ -12,6 +12,7 @@ namespace Project.UI.Leaderboard
         [SerializeField] private RectTransform _leaderboardPanel;
         [SerializeField] private RectTransform _authorizationPanel;
         [SerializeField] private Button _authorizationButton;
+        [SerializeField] private RectTransform _loadingPlaceHolder;
 
         public event Action AuthorizationRequested;
 
@@ -40,6 +41,12 @@ namespace Project.UI.Leaderboard
             base.Show();
         }
 
+        public void OpenLoadingPlaceholder()
+        {
+            _loadingPlaceHolder.gameObject.SetActive(true);
+            base.Show();
+        }
+
         public override void Hide()
         {
             base.Hide();
@@ -52,5 +59,6 @@ namespace Project.UI.Leaderboard
             AuthorizationRequested?.Invoke();
             Hide();
         }
+
     }
 }

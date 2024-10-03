@@ -73,6 +73,10 @@ PrefabInstance:
       value: Tree_Tiny2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d27a0304322232142be065f40bd9ed75, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d27a0304322232142be065f40bd9ed75, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 122
       objectReference: {fileID: 0}

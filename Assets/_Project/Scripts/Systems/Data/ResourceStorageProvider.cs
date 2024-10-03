@@ -20,10 +20,6 @@ namespace Project.Systems.Data
 
         public Dictionary<GameResource, int> LoadStorage()
         {
-            if (_storage != null)
-            {
-                return _storage;
-            }
             _storage = new Dictionary<GameResource, int>();
 
             foreach (GameResource resource in _resourcesSheet.GameResources)

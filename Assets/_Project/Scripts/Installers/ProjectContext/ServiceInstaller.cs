@@ -20,8 +20,6 @@ namespace Project.Installers.ProjectContext
             Container.BindInterfacesAndSelfTo<BroAudioService>().AsSingle();
 
             BindSDK();
-
-            Container.Bind<AdvertismentController>().AsSingle();
         }
 
         private void BindSDK()

@@ -9,18 +9,18 @@ public class MaterialChanger : MonoBehaviour
     private Material _material;
     private LevelConfig _levelConfig;
 
-    //private void Awake()
-    //{
-    //    _material = _levelConfig.LevelMaterial;
+    private void Awake()
+    {
+        _material = _levelConfig.LevelMaterial;
 
-    //    ChangeMaterial(transform);
-    //}
+        ChangeMaterial(transform);
+    }
 
-    //[Inject]
-    //private void Construct(LevelConfig config)
-    //{
-    //    _levelConfig = config;
-    //}
+    [Inject]
+    private void Construct(LevelConfig config)
+    {
+        _levelConfig = config;
+    }
 
     private void ChangeMaterial(Transform transform)
     {

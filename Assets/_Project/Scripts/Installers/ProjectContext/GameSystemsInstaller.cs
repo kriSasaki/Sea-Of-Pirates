@@ -17,8 +17,7 @@ namespace Project.Installers.ProjectContext
             Container.Bind<YandexGame>().FromComponentInNewPrefab(_yandexPrefab).AsSingle().NonLazy();
 #endif
 
-            Container.BindInterfacesAndSelfTo<PlayerStats>().AsSingle();
-            Container.BindInterfacesTo<PlayerStorage>().AsSingle();
+
 
             BindInput();
         }

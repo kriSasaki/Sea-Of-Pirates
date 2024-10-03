@@ -21,13 +21,18 @@ namespace Project.Systems.Data
 
         public GameDataService(GameConfig config)
         {
-            GameData data = YandexGame.savesData.GameData;
+            _gameData = YandexGame.savesData.GameData;
 
-            _gameData = data ?? new GameData(config.FirstLevelScene);
+            if (_gameData == null )
+            {
+                _gameData = YandexGame.savesData.GameData = new GameData(config.FirstLevelScene);
+                Save();
+            }
 
             if (_gameData.CurrentScene.IsNullOrEmpty())
             {
                 _gameData.CurrentScene = config.FirstLevelScene;
+                Save();
             }
         }
 
@@ -63,7 +68,7 @@ namespace Project.Systems.Data
 
         public void Save()
         {
-            YandexGame.savesData.GameData = _gameData;
+            //YandexGame.savesData.GameData = _gameData;
 
             YandexGame.SaveProgress();
         }
