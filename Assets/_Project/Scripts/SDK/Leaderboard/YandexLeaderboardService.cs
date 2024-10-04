@@ -18,10 +18,5 @@ namespace Project.SDK.Leaderboard
 
             YandexGame.NewLeaderboardScores(LeaderboardName, score);
         }
-
-        public void AuthorizePlayer()
-        {
-            YandexGame.AuthDialog();
-        }
     }
 }

@@ -72,6 +72,7 @@ namespace Project.Installers.SceneContext
             Container.BindInterfacesAndSelfTo<ShopSystem>().FromNew().AsSingle().NonLazy();
             Container.Bind<UpgradeSystem>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<LeaderboardSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesTo<AuthorizationHandler>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<QuestEnemyHandler>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
             Container.Bind<CameraSystem>().FromComponentInHierarchy().AsSingle();

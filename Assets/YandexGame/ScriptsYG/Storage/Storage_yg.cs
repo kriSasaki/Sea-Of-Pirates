@@ -12,6 +12,7 @@ namespace YG
     {
         public static SavesYG savesData = new SavesYG();
         public static Action onResetProgress;
+        public static Action ProgressLoaded;
 
         private enum DataState { Exist, NotExist, Broken };
         private static bool isResetProgress;
@@ -135,7 +136,9 @@ namespace YG
                 onResetProgress?.Invoke();
                 GetDataInvoke();
             }
+            ProgressLoaded?.Invoke();
         }
+
         public static void ResetSaveProgress() => Instance._ResetSaveProgress();
 
         public void _SaveProgress()
@@ -214,10 +217,12 @@ namespace YG
                 {
                     if (cloudDataState == DataState.Broken)
                         Message("Load Cloud Broken! But we tried to restore and load cloud saves. Local saves are disabled.");
-                    else Message("Load Cloud Complete! Local saves are disabled.");
+                    else Message("Load Cloud Complete! Local saves are disabled. Вот тут вот");
 
                     savesData = cloudData;
                 }
+                    ProgressLoaded?.Invoke();
+
                 return;
             }
 
@@ -245,22 +250,26 @@ namespace YG
                 {
                     Message($"Load Cloud Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
                     savesData = cloudData;
+                    ProgressLoaded?.Invoke();
                 }
                 else
                 {
                     Message($"Load Local Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
                     savesData = localData;
+                    ProgressLoaded?.Invoke();
                 }
             }
             else if (cloudDataState == DataState.Exist)
             {
                 savesData = cloudData;
                 Message("Load Cloud Complete! Local Data - " + localDataState);
+                ProgressLoaded?.Invoke();
             }
             else if (localDataState == DataState.Exist)
             {
                 savesData = localData;
                 Message("Load Local Complete! Cloud Data - " + cloudDataState);
+                ProgressLoaded?.Invoke();
             }
             else if (cloudDataState == DataState.Broken ||
                 (cloudDataState == DataState.Broken && localDataState == DataState.Broken))
@@ -274,6 +283,7 @@ namespace YG
                 savesData = JsonUtility.FromJson<SavesYG>(data);
 #endif
                 Message("Cloud Saves Partially Restored!");
+                ProgressLoaded?.Invoke();
             }
             else if (localDataState == DataState.Broken)
             {
@@ -286,6 +296,7 @@ namespace YG
                 savesData = JsonUtility.FromJson<SavesYG>(LocalStorage.GetKey("savesData"));
 #endif
                 Message("Local Saves Partially Restored!");
+                ProgressLoaded?.Invoke();
             }
             else
             {

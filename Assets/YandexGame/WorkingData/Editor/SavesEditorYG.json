@@ -1,5 +1,5 @@
 {
-    "idSave": 263,
+    "idSave": 265,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -57,6 +57,11 @@
                 "ID": "Level_01_BossQuest",
                 "State": 1,
                 "Progress": 0
+            },
+            {
+                "ID": "BossQuest_Tutorial",
+                "State": 1,
+                "Progress": 0
             }
         ],
         "Levels": [
@@ -66,11 +71,11 @@
             },
             {
                 "_levelName": "Tutorial",
-                "_isReachedPirateBay": false
+                "_isReachedPirateBay": true
             }
         ],
         "IsAddHided": false,
         "CurrentScene": "Tutorial",
-        "Score": 8
+        "Score": 9
     }
 }

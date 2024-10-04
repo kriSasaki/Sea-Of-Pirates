@@ -3,6 +3,7 @@ using System.Linq;
 using DTT.Utils.Extensions;
 using Project.Configs.Game;
 using Project.Interfaces.Data;
+using UnityEngine;
 using YG;
 
 namespace Project.Systems.Data
@@ -17,50 +18,48 @@ namespace Project.Systems.Data
     {
         private const string SaveKey = nameof(SaveKey);
 
-        private readonly GameData _gameData;
+        private GameData GameData => YandexGame.savesData.GameData;
 
         public GameDataService(GameConfig config)
         {
-            _gameData = YandexGame.savesData.GameData;
-
-            if (_gameData == null )
+            if (GameData == null)
             {
-                _gameData = YandexGame.savesData.GameData = new GameData(config.FirstLevelScene);
+                YandexGame.savesData.GameData = new GameData(config.FirstLevelScene);
                 Save();
             }
 
-            if (_gameData.CurrentScene.IsNullOrEmpty())
+            if (GameData.CurrentScene.IsNullOrEmpty())
             {
-                _gameData.CurrentScene = config.FirstLevelScene;
+                GameData.CurrentScene = config.FirstLevelScene;
                 Save();
             }
         }
 
-        public List<GameResourceData> Storage => _gameData.StorageData;
+        public List<GameResourceData> Storage => GameData.StorageData;
 
-        public List<PlayerStatData> StatsLevels => _gameData.PlayerStatsLevels;
+        public List<PlayerStatData> StatsLevels => GameData.PlayerStatsLevels;
 
-        public List<QuestData> Quests => _gameData.Quests;
+        public List<QuestData> Quests => GameData.Quests;
 
-        public string CurrentLevel => _gameData.CurrentScene;
+        public string CurrentLevel => GameData.CurrentScene;
 
-        public bool IsAdHided { get => _gameData.IsAddHided; set => _gameData.IsAddHided = value; }
+        public bool IsAdHided { get => GameData.IsAddHided; set => GameData.IsAddHided = value; }
 
         public void UpdateCurrentLevel(string levelName)
         {
-            _gameData.CurrentScene = levelName;
+            GameData.CurrentScene = levelName;
             Save();
         }
 
         public LevelData GetLevelData(string levelName)
         {
-            LevelData leveldata = _gameData.Levels.FirstOrDefault(l => l.LevelName == levelName);
+            LevelData leveldata = GameData.Levels.FirstOrDefault(l => l.LevelName == levelName);
 
             if (leveldata == null)
             {
                 leveldata = new LevelData(levelName);
 
-                _gameData.Levels.Add(leveldata);
+                GameData.Levels.Add(leveldata);
             }
 
             return leveldata;
@@ -68,19 +67,17 @@ namespace Project.Systems.Data
 
         public void Save()
         {
-            //YandexGame.savesData.GameData = _gameData;
-
             YandexGame.SaveProgress();
         }
 
         public int GetScore()
         {
-            return _gameData.Score;
+            return GameData.Score;
         }
 
         public void SetScore(int score)
         {
-            _gameData.Score = score;
+            GameData.Score = score;
             Save();
         }
     }

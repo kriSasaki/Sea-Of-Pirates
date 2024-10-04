@@ -48,8 +48,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 3683243696000880406}
-  _installerPrefabs:
-  - {fileID: 2471564267178690394, guid: fa122065a9209594f9bb28f5c8da399d, type: 3}
+  _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
     m_PersistentCalls:

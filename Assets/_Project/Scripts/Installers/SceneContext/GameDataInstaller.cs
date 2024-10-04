@@ -10,11 +10,11 @@ namespace Project.Installers.SceneContext
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<GameDataService>().AsSingle().NonLazy();
-            Container.Bind<IResourceStorageProvider>().To<ResourceStorageProvider>().AsSingle();
-            Container.Bind<IPlayerStatsProvider>().To<PlayerStatsProvider>().AsSingle();
-            Container.Bind<IQuestsProvider>().To<QuestsProvider>().AsSingle();
+            Container.Bind<IResourceStorageProvider>().To<ResourceStorageProvider>().AsSingle().NonLazy();
+            Container.Bind<IPlayerStatsProvider>().To<PlayerStatsProvider>().AsSingle().NonLazy();
+            Container.Bind<IQuestsProvider>().To<QuestsProvider>().AsSingle().NonLazy();
 
-            Container.Bind<AdvertismentController>().AsSingle();
+            Container.Bind<AdvertismentController>().AsSingle().NonLazy();
         }
     }
 }

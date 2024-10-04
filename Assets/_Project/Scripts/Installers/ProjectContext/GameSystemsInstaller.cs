@@ -16,9 +16,6 @@ namespace Project.Installers.ProjectContext
 #if UNITY_EDITOR
             Container.Bind<YandexGame>().FromComponentInNewPrefab(_yandexPrefab).AsSingle().NonLazy();
 #endif
-
-
-
             BindInput();
         }
 
