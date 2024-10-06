@@ -3,11 +3,9 @@ using Cysharp.Threading.Tasks;
 using DTT.Utils.Extensions;
 using Project.Configs.Game;
 using Project.Interfaces.Data;
-using Project.Systems.Data;
 using Project.UI.Leaderboard;
 using UnityEngine.SceneManagement;
 using YG;
-using YG.Insides;
 using Zenject;
 
 namespace Project.Systems.Leaderboard
@@ -51,6 +49,7 @@ namespace Project.Systems.Leaderboard
             YandexGame.ProgressLoaded += OnProgressLoaded;
             YandexGame.LoadProgress();
             _leaderboardWindow.OpenLoadingPlaceholder();
+            YandexGame.GameplayStop();
         }
 
         private void OnProgressLoaded()

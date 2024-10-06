@@ -2,18 +2,17 @@ using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
 using Project.Interactables;
 using Project.Interfaces.Audio;
+using Project.Interfaces.SDK;
 using Project.Players.View;
 using Project.SDK.Advertisment;
 using Project.UI;
 using UnityEngine;
-using YG;
 using Zenject;
 
 namespace Project.Players.Logic
 {
     public class PlayerDeathHandler : MonoBehaviour
     {
-        private const string DeadMetricID = "dead";
         [SerializeField] private SoundID _deathSound;
 
         private Player _player;
@@ -22,6 +21,7 @@ namespace Project.Players.Logic
         private PlayerDeathWindow _playerDeathWindow;
         private PlayerAttack _playerAttack;
         private IAudioService _audioService;
+        private IMetricaService _metricaService;
         private AdvertismentController _advertisingController;
 
         [Inject]
@@ -32,6 +32,7 @@ namespace Project.Players.Logic
             PlayerDeathWindow playerDeathWindow,
             PlayerAttack playerAttack,
             AdvertismentController advertismentController,
+            IMetricaService metricaService,
             IAudioService audioService)
         {
             _player = player;
@@ -40,7 +41,9 @@ namespace Project.Players.Logic
             _playerDeathWindow = playerDeathWindow;
             _playerAttack = playerAttack;
             _advertisingController = advertismentController;
+            _metricaService = metricaService;
             _audioService = audioService;
+
             _player.Died += OnPlayerDied;
         }
 
@@ -50,7 +53,7 @@ namespace Project.Players.Logic
         private void OnPlayerDied()
         {
             Die().Forget();
-            YandexMetrica.Send(DeadMetricID);
+            _metricaService.SendPlayerDieEvent();
         }
 
         private async UniTaskVoid Die()

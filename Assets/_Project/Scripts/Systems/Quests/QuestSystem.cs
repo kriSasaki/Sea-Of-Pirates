@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using Ami.BroAudio;
 using Project.Configs.Game;
 using Project.Interfaces.Audio;
 using Project.Interfaces.Data;
-using UnityEngine;
-using YG;
+using Project.Interfaces.SDK;
 using Zenject;
 
 namespace Project.Systems.Quests
 {
     public class QuestSystem : IDisposable, IInitializable
     {
-        private const string QuestMetricID = "quest";
-
         private readonly IQuestsProvider _questsProvider;
         private readonly IAudioService _audioService;
+        private readonly IMetricaService _metricaService;
         private readonly List<QuestGiver> _questGivers;
         private readonly SoundID _questDoneSound;
 
@@ -25,11 +22,13 @@ namespace Project.Systems.Quests
             List<QuestGiver> questGivers,
             IQuestsProvider questsProvider,
             IAudioService audioService,
+            IMetricaService metricaService,
             GameConfig config)
         {
             _questsProvider = questsProvider;
             _questGivers = questGivers;
             _audioService = audioService;
+            _metricaService = metricaService;
             _questDoneSound = config.QuestDoneSound;
         }
 
@@ -70,18 +69,8 @@ namespace Project.Systems.Quests
             if (status.State == QuestState.Done)
             {
                 _audioService.PlaySound(_questDoneSound);
-                SendMetrica(id);
+                _metricaService.SendQuestDoneEvent(id);
             }
-        }
-
-        private void SendMetrica(string questID)
-        {
-            var eventParams = new Dictionary<string, string>
-            {
-                {QuestMetricID, questID }
-            };
-
-            YandexMetrica.Send(QuestMetricID, eventParams);
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "idSave": 265,
+    "idSave": 307,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -7,7 +7,7 @@
         "StorageData": [
             {
                 "ID": "Gold",
-                "Value": 3000
+                "Value": 2987
             },
             {
                 "ID": "Wood",
@@ -19,7 +19,7 @@
             },
             {
                 "ID": "Diamonds",
-                "Value": 250
+                "Value": 260
             },
             {
                 "ID": "Map",
@@ -45,7 +45,7 @@
             },
             {
                 "StatType": 4,
-                "Level": 1
+                "Level": 2
             },
             {
                 "StatType": 5,
@@ -55,13 +55,13 @@
         "Quests": [
             {
                 "ID": "Level_01_BossQuest",
-                "State": 1,
-                "Progress": 0
+                "State": 4,
+                "Progress": 1
             },
             {
                 "ID": "BossQuest_Tutorial",
-                "State": 1,
-                "Progress": 0
+                "State": 4,
+                "Progress": 1
             }
         ],
         "Levels": [
@@ -72,10 +72,14 @@
             {
                 "_levelName": "Tutorial",
                 "_isReachedPirateBay": true
+            },
+            {
+                "_levelName": "Level_02",
+                "_isReachedPirateBay": false
             }
         ],
         "IsAddHided": false,
-        "CurrentScene": "Tutorial",
-        "Score": 9
+        "CurrentScene": "Level_02",
+        "Score": 34
     }
 }

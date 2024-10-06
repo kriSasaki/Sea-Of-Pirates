@@ -28,6 +28,7 @@ namespace Project.Installers.ProjectContext
             Container.Bind<IAdvertismentService>().To<YandexAdvertismentService>().FromNew().AsSingle();
             Container.Bind<IGameReadyService>().To<GameReadyService>().FromNew().AsSingle();
             Container.Bind<IBillingService>().To<YandexBillingService>().FromNew().AsSingle();
+            Container.Bind<IMetricaService>().To<MetricaService>().FromNew().AsSingle();
         }
     }
 }

@@ -3,6 +3,7 @@ using Project.Configs.Game;
 using Project.Configs.GameResources;
 using Project.Configs.Level;
 using Project.Interfaces.Data;
+using Project.Interfaces.SDK;
 using Project.Players.Logic;
 using Project.UI;
 using System.Collections.Generic;
@@ -16,7 +17,6 @@ namespace Project.Interactables
     public class NextLevelZone : InteractableZone
     {
         private const int MapAmount = 1;
-        private const string LevelMetricID = "level";
 
         [SerializeField] private GameResource _map;
         [SerializeField, LeanTranslationName] private string _avaliablePassToken;
@@ -24,6 +24,7 @@ namespace Project.Interactables
 
         private IPlayerStorage _storage;
         private ILevelSceneService _levelSceneService;
+        private IMetricaService _metricaService;
         private NextLevelWindow _window;
         private GameConfig _gameConfig;
         private LevelConfig _levelConfig;
@@ -59,13 +60,15 @@ namespace Project.Interactables
             ILevelSceneService levelSceneService,
             NextLevelWindow window,
             GameConfig gameConfig,
-            LevelConfig levelConfig)
+            LevelConfig levelConfig,
+            IMetricaService metricaService)
         {
             _storage = storage;
             _levelSceneService = levelSceneService;
             _window = window;
             _gameConfig = gameConfig;
             _levelConfig = levelConfig;
+            _metricaService = metricaService;
         }
 
         private void SwitchLevel()
@@ -80,7 +83,7 @@ namespace Project.Interactables
             _levelSceneService.UpdateCurrentLevel(_levelConfig.NextLevel);
             DG.Tweening.DOTween.KillAll();
             YandexGame.GameplayStop();
-            SendMetrica(_levelConfig.name);
+            _metricaService.SendLevelFinishedEvent(_levelConfig.name);
 
             SceneManager.LoadScene(_gameConfig.LoadingScene);
         }
@@ -88,16 +91,6 @@ namespace Project.Interactables
         private string GetTranslatedText(string token)
         {
             return LeanLocalization.GetTranslationText(token);
-        }
-
-        private void SendMetrica(string name)
-        {
-            var eventParams = new Dictionary<string, string>
-            {
-                {LevelMetricID, name }
-            };
-
-            YandexMetrica.Send(LevelMetricID, eventParams);
         }
     }
 }
