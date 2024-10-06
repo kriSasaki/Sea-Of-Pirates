@@ -6,11 +6,6 @@ namespace Project.SDK.Leaderboard
     {
         public bool IsPlayerAuthorized { get; private set; } = false;
 
-        public void AuthorizePlayer()
-        {
-            IsPlayerAuthorized = true;
-        }
-
         public void SetPlayerScore(int score)
         {
 

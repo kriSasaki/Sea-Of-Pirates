@@ -1630,6 +1630,7 @@ GameObject:
   - component: {fileID: 2207900187917970088}
   - component: {fileID: 5669451567483870127}
   - component: {fileID: 6315507789861638491}
+  - component: {fileID: 676259972477566489}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1767,6 +1768,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationName: PlaceHolder
   FallbackText: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u0445..."
+--- !u!114 &676259972477566489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8909044118079183885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u0445..."
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 0
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 11400000, guid: da82d0b1d3a92914c9211b5372afef8c, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: 9e7217218d0ac644eb26909fbecddb5f, type: 2}
+  useDefaultStyleSheet: 1
+  styleSheet: {fileID: 0}
+  databaseActions: {fileID: 11400000, guid: 95e41791193393d4cb6813221278908b, type: 2}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags:
+  - wiggle
+  defaultTagsMode: 0
 --- !u!1 &9079862776443246255
 GameObject:
   m_ObjectHideFlags: 0

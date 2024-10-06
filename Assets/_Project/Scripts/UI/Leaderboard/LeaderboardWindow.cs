@@ -1,7 +1,7 @@
-using Project.SDK.Leaderboard;
-using Project.UI;
 using System;
 using System.Collections.Generic;
+using Project.SDK.Leaderboard;
+using Project.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
