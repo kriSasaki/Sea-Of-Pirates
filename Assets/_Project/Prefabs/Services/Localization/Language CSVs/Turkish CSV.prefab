@@ -177,3 +177,7 @@ MonoBehaviour:
     Text: Burada ganimetinizi teslim edebilirsiniz
   - Name: Tutorial/HealTip
     Text: Burada gemiyi onarabilirsiniz
+  - Name: PlaceHolder
+    Text: "Veri G\xFCncelleme"
+  - Name: LevelToken
+    Text: Seviye

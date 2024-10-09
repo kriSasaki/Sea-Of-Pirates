@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Lean.Localization;
 using Project.Interfaces.Data;
 using Project.Interfaces.Stats;
 using Project.Systems.Data;
@@ -12,7 +13,7 @@ namespace Project.UI.Upgrades
 {
     public class StatUpgradeBar : MonoBehaviour
     {
-        private const string LevelToken = "Уровень";
+        private const string LevelToken = "LevelToken";
 
         [SerializeField] private Image _statIcon;
 
@@ -36,6 +37,7 @@ namespace Project.UI.Upgrades
 
         public event Action StatUpgraded;
 
+        private string LevelLabel => LeanLocalization.GetTranslationText(LevelToken);
         private int CurrentStatLevel => _stats.GetStatLevel(_statType);
 
         private void OnEnable()
@@ -80,7 +82,7 @@ namespace Project.UI.Upgrades
 
         private void SetLevelProgress(int currentLevel)
         {
-            _levelProgress.text = $"{LevelToken}: {currentLevel} / {_config.MaxLevel}";
+            _levelProgress.text = $"{LevelLabel}: {currentLevel} / {_config.MaxLevel}";
         }
 
         private void SetStatValues(int currentLevel, int nextLevel)
