@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using DTT.Utils.Extensions;
 using Project.Configs.Game;
 using Project.Interfaces.Data;
@@ -16,7 +17,9 @@ namespace Project.Systems.Data
         ILevelDataService,
         IScoreService
     {
+        private const int SaveDelay = 1000;
         private const string SaveKey = nameof(SaveKey);
+        private bool _isSaving = false;
 
         private GameData GameData => YandexGame.savesData.GameData;
 
@@ -67,7 +70,10 @@ namespace Project.Systems.Data
 
         public void Save()
         {
-            YandexGame.SaveProgress();
+            if (_isSaving)
+                return;
+
+            SaveAsync().Forget();
         }
 
         public int GetScore()
@@ -79,6 +85,14 @@ namespace Project.Systems.Data
         {
             GameData.Score = score;
             Save();
+        }
+
+        private async UniTaskVoid SaveAsync()
+        {
+            _isSaving = true;
+            await UniTask.Delay(SaveDelay, cancellationToken: YandexGame.Instance.destroyCancellationToken);
+            YandexGame.SaveProgress();
+            _isSaving = false;
         }
     }
 }

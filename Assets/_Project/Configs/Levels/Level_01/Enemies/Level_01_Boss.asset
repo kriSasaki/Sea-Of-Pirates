@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14018ed8f6600c34abaefbd8ef24915d, type: 3}
   m_Name: Level_01_Boss
   m_EditorClassIdentifier: 
-  _maxHealth: 500
+  _maxHealth: 600
   _canDealDamage: 1
   _damage: 65
   _attackCooldown: 2
@@ -27,3 +27,4 @@ MonoBehaviour:
   _loot:
     Resource: {fileID: 11400000, guid: 36598d3309838d443b2867da3967022f, type: 2}
     Amount: 5
+  _optionalMaterial: {fileID: 0}

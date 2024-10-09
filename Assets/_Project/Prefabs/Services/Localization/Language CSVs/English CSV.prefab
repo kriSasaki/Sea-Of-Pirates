@@ -168,3 +168,7 @@ MonoBehaviour:
     Text: Here you can hand over your loot
   - Name: Tutorial/HealTip
     Text: Here you can patch up the ship
+  - Name: PlaceHolder
+    Text: Data Update
+  - Name: LevelToken
+    Text: Level
