@@ -67,7 +67,6 @@ namespace Project.Infrastructure
 
             _player.EnableMove();
             EnableUi();
-
             _gameReadyService.Call();
             YandexGame.GameplayStart();
 
@@ -77,6 +76,7 @@ namespace Project.Infrastructure
             InitializeQuestEnemies();
 
             await UniTask.WaitUntil(() => Input.anyKey);
+
             _audioService.PlayMusic(_gameConfig.MainMusic);
         }
 

@@ -1,6 +1,6 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using System.Threading;
 using UnityEngine;
 
 namespace Project.Utils.Tweens
@@ -34,7 +34,9 @@ namespace Project.Utils.Tweens
 
         public async UniTask DissapearAsync(CancellationToken cts)
         {
-            await _rectTransform.DOAnchorPos(_hidedAnchorPosition, _duration).SetEase(_ease).ToUniTask(cancellationToken: cts);
+            await _rectTransform.DOAnchorPos(_hidedAnchorPosition, _duration)
+                .SetEase(_ease)
+                .ToUniTask(cancellationToken: cts);
         }
     }
 }

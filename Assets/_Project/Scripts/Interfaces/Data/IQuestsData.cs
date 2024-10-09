@@ -1,5 +1,5 @@
-﻿using Project.Systems.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Project.Systems.Data;
 
 namespace Project.Interfaces.Data
 {

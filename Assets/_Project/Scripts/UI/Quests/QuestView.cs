@@ -1,6 +1,5 @@
 ﻿using Project.Interfaces.Quests;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Project.UI.Quests
 {

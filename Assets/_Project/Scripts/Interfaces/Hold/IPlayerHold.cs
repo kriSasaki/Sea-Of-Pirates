@@ -1,5 +1,5 @@
-using Project.Systems.Data;
 using System;
+using Project.Systems.Data;
 
 namespace Project.Interfaces.Hold
 {
@@ -12,7 +12,6 @@ namespace Project.Interfaces.Hold
         public int CargoSize { get; }
 
         void AddResource(GameResourceAmount gameResourceAmount);
-
         void LoadToStorage();
     }
 }

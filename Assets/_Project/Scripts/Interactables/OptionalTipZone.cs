@@ -1,6 +1,6 @@
 ﻿using Lean.Localization;
+using Project.Utils;
 using UnityEngine;
-using YG;
 
 namespace Project.Interactables
 {
@@ -10,7 +10,7 @@ namespace Project.Interactables
 
         protected override void ShowTip()
         {
-            if (IsMobile())
+            if (MobileDetector.IsMobile())
             {
                 Typewriter.ShowText(GetTipMessage(_mobileTipToken));
             }
@@ -18,11 +18,6 @@ namespace Project.Interactables
             {
                 Typewriter.ShowText(GetTipMessage(TipToken));
             }
-        }
-
-        private bool IsMobile()
-        {
-            return YandexGame.EnvironmentData.isMobile || YandexGame.EnvironmentData.isTablet || WebGLBrowserCheck.IsMobileBrowser();
         }
     }
 }

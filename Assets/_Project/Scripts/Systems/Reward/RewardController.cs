@@ -29,7 +29,6 @@ namespace Project.Systems.Reward
         private IAdvertismentService _advertismentService;
         private RewardView _rewardView;
 
-
         private void Start()
         {
             OfferRewardAsync().Forget();
@@ -38,7 +37,6 @@ namespace Project.Systems.Reward
         private void OnDestroy()
         {
             YandexGame.RewardVideoEvent -= AddReward;
-
         }
 
         [Inject]
@@ -61,6 +59,7 @@ namespace Project.Systems.Reward
         private async UniTaskVoid OfferRewardAsync()
         {
             await UniTask.WaitForSeconds(_offerInterval, cancellationToken: destroyCancellationToken);
+
             ShowRewardOffer();
         }
 

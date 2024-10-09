@@ -1,7 +1,7 @@
-﻿using Project.Configs.UI;
+﻿using System;
+using Project.Configs.UI;
 using Project.Interfaces.Audio;
 using Project.Utils.Tweens;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

@@ -1,9 +1,8 @@
 using Project.Interfaces.Data;
-using Project.SDK.Advertisment;
 using Project.Systems.Data;
 using Zenject;
 
-namespace Project.Installers.SceneContext
+namespace Project.Installers.ProjectContext
 {
     public class GameDataInstaller : MonoInstaller
     {
@@ -13,8 +12,6 @@ namespace Project.Installers.SceneContext
             Container.Bind<IResourceStorageProvider>().To<ResourceStorageProvider>().AsSingle().NonLazy();
             Container.Bind<IPlayerStatsProvider>().To<PlayerStatsProvider>().AsSingle().NonLazy();
             Container.Bind<IQuestsProvider>().To<QuestsProvider>().AsSingle().NonLazy();
-
-            Container.Bind<AdvertismentController>().AsSingle().NonLazy();
         }
     }
 }

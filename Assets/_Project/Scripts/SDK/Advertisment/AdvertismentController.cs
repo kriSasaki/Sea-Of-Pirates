@@ -12,6 +12,7 @@ namespace Project.SDK.Advertisment
         {
             _addData = addData;
             _advertismentService = advertismentService;
+
             HandleAd();
         }
 

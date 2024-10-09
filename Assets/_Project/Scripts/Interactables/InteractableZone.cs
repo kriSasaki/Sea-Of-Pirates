@@ -1,5 +1,5 @@
-﻿using Project.Players.Logic;
-using System;
+﻿using System;
+using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Interactables
@@ -10,12 +10,12 @@ namespace Project.Interactables
         [SerializeField] private float _triggerZoneRadius = 30f;
         [SerializeField] private Color _gizmosColor = Color.white;
 
+        private SphereCollider _triggerZone;
+
         public event Action<Player> PlayerEntered;
         public event Action<Player> PlayerExited;
 
         public float TriggerZoneRadius => _triggerZoneRadius;
-
-        private SphereCollider _triggerZone;
 
         protected void Awake()
         {

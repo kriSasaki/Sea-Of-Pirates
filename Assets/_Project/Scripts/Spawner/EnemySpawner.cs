@@ -24,12 +24,6 @@ namespace Project.Spawner
             }
         }
 
-        [Inject]
-        private void Construct(EnemyFactory enemyFactory)
-        {
-            _respawnCooldown = new WaitForSeconds(_respawnDelay);
-        }
-
         protected override void OnEnemyDied(IEnemy enemy)
         {
             base.OnEnemyDied(enemy);
@@ -40,6 +34,12 @@ namespace Project.Spawner
                 StartCoroutine(Respawning(poolEnemy));
             else
                 poolEnemy.SinkAsync().Forget();
+        }
+
+        [Inject]
+        private void Construct(EnemyFactory enemyFactory)
+        {
+            _respawnCooldown = new WaitForSeconds(_respawnDelay);
         }
 
         private IEnumerator Respawning(IPoolableEnemy enemy)

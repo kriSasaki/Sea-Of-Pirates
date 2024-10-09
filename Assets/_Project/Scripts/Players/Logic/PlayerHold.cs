@@ -27,7 +27,6 @@ namespace Project.Players.Logic
         public event Action Filled;
 
         public int CargoSize => _playerStats.CargoSize;
-
         public bool IsEmpty => _cargo.Count == 0;
 
         public void Initialize()

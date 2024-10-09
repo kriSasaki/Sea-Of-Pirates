@@ -12,13 +12,6 @@ namespace Project.Enemies.Logic.States.Battle
 
         private float AttackRange => Config.AttackRange;
 
-        protected override void OnInitialize()
-        {
-            base.OnInitialize();
-
-            StateMachine.RegisterState(_attackState);
-        }
-
         public override void Update()
         {
             base.Update();
@@ -30,6 +23,7 @@ namespace Project.Enemies.Logic.States.Battle
             if (distanceFromSpawn >= _maxDistanceFromSpawn)
             {
                 StateMachine.SetState<IdleState>();
+
                 return;
             }
 
@@ -39,6 +33,13 @@ namespace Project.Enemies.Logic.States.Battle
             {
                 StateMachine.SetState<AttackBattle>();
             }
+        }
+
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
+
+            StateMachine.RegisterState(_attackState);
         }
     }
 }

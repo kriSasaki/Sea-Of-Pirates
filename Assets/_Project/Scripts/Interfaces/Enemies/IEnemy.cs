@@ -1,6 +1,6 @@
+using System;
 using Project.Configs.Enemies;
 using Project.Systems.Data;
-using System;
 using UnityEngine;
 
 namespace Project.Interfaces.Enemies

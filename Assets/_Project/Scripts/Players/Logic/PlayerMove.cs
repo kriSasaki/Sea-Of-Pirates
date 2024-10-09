@@ -1,9 +1,6 @@
 using System;
 using Project.Interfaces.Stats;
-using Project.Players.Inputs;
-using SimpleInputNamespace;
 using UnityEngine;
-using UnityEngine.XR;
 using Zenject;
 
 
@@ -46,6 +43,11 @@ namespace Project.Players.Logic
             _moveHandler.Move();
         }
 
+        public void SetForwardValue(float value)
+        {
+            _animator.SetFloat(_forwardValueHash, value);
+        }
+
         [Inject]
         private void Construct(IPlayerStats playerStats, Player player, MoveHandler moveHandler)
         {
@@ -55,11 +57,6 @@ namespace Project.Players.Logic
             _animator = GetComponent<Animator>();
 
             _moveHandler.Initialize(_playerRigidbody,this);
-        }
-
-        public void SetForwardValue(float value)
-        {
-            _animator.SetFloat(_forwardValueHash, value);
         }
     }
 }

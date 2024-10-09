@@ -20,7 +20,6 @@ namespace Project.Players.Logic
 
         private float MoveAngleDot => PlayerMove.MoveAngleDot;
 
-
         public override void ReadInput()
         {
             _inputDirection = _camera.transform.TransformDirection(InputService.Axis).WithZeroY();
@@ -35,7 +34,9 @@ namespace Project.Players.Logic
                 return;
 
             Quaternion lookRotation = Quaternion.LookRotation(_inputDirection);
-            Rigidbody.rotation = Quaternion.RotateTowards(Rigidbody.rotation, lookRotation, RotationSpeed * Time.deltaTime);
+            var rotation = Quaternion.RotateTowards(Rigidbody.rotation, lookRotation, RotationSpeed * Time.deltaTime);
+
+            Rigidbody.rotation = rotation;
         }
 
         public override void Move()

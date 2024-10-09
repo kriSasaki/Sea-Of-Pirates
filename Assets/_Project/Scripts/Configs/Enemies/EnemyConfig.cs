@@ -1,7 +1,7 @@
-using Project.Systems.Data;
 using NaughtyAttributes;
-using UnityEngine;
 using Project.Enemies.View;
+using Project.Systems.Data;
+using UnityEngine;
 
 namespace Project.Configs.Enemies
 {

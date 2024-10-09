@@ -13,6 +13,7 @@ namespace Project.UI.Upgrades
 {
     public class StatUpgradeBar : MonoBehaviour
     {
+        private const int One = 1;
         private const string LevelToken = "LevelToken";
 
         [SerializeField] private Image _statIcon;
@@ -65,9 +66,9 @@ namespace Project.UI.Upgrades
             _statName.text = _config.Name;
             _statDescription.text = _config.Description;
 
-            int nextLevel = CurrentStatLevel + 1;
+            int nextStatLevel = CurrentStatLevel + One;
             
-            SetStatValues(CurrentStatLevel, nextLevel);
+            SetStatValues(CurrentStatLevel, nextStatLevel);
             SetLevelProgress(CurrentStatLevel);
             CheckUpgradePrice();
         }
@@ -123,9 +124,11 @@ namespace Project.UI.Upgrades
                 }
 
                 GameResourceAmount upgradeCost = upgradePrice[i];
-
+                Sprite resourceSprite = upgradeCost.Resource.Sprite;
+                string resourceAmount = upgradeCost.Amount.ToNumericalString();
                 bool canSpend = _playerStorage.CanSpend(upgradeCost);
-                _upgradePriceView[i].Set(upgradeCost.Resource.Sprite, upgradeCost.Amount.ToNumericalString(), canSpend);
+
+                _upgradePriceView[i].Set(resourceSprite, resourceAmount, canSpend);
             }
         }
 

@@ -58,7 +58,6 @@ namespace Project.Players.View
         {
             _vfxSpawner.SpawnCannonSmoke(_shipCollider, targetPosition);
             _audioService.PlaySound(_shootSound);
-
         }
 
         public IEnumerator CannonsLoading(float cooldown)

@@ -1,6 +1,5 @@
 ﻿using Project.Configs.ShopItems;
 using UnityEngine;
-using YG;
 using YG.Utils.Pay;
 
 namespace Project.Systems.Shop.Items
@@ -9,14 +8,8 @@ namespace Project.Systems.Shop.Items
     {
         private readonly Purchase _product;
 
-        //protected InAppItem(InAppItemConfig config, CatalogProduct product)
-        //    : base(config)
-        //{
-        //    _product = product;
-        //}
-
         protected InAppItem(InAppItemConfig config, Purchase product)
-    : base(config)
+            : base(config)
         {
             _product = product;
         }

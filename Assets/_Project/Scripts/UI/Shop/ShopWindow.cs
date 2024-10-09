@@ -1,10 +1,9 @@
-﻿using Ami.BroAudio;
+﻿using System;
+using System.Collections.Generic;
 using Project.Configs.Game;
 using Project.Configs.UI;
 using Project.Interfaces.Audio;
 using Project.Systems.Shop.Items;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -26,7 +25,7 @@ namespace Project.UI.Shop
         private IAudioService _audioService;
 
         [Inject]
-        public void Construct(UiConfigs uiConfigs,GameConfig gameConfig, IAudioService audioService)
+        public void Construct(UiConfigs uiConfigs, GameConfig gameConfig, IAudioService audioService)
         {
             _uiConfigs = uiConfigs;
             _gameConfig = gameConfig;
@@ -66,10 +65,7 @@ namespace Project.UI.Shop
         {
             ShopItemSlot itemSlot = Instantiate(_itemSlotPrefab, _inAppItemsLayout.transform);
 
-            itemSlot.Initialize(
-                item,
-                () => OnItemSelected(item, onBuyCallback),
-                _uiConfigs.InApptemViewColor);
+            itemSlot.Initialize(item, () => OnItemSelected(item, onBuyCallback), _uiConfigs.InApptemViewColor);
 
             _itemSlots.Add(itemSlot);
         }

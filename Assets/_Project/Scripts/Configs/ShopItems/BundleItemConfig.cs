@@ -7,6 +7,7 @@ namespace Project.Configs.ShopItems
     public class BundleItemConfig : InAppItemConfig
     {
         [SerializeField] private List<InAppItemConfig> _items;
+
         public IReadOnlyList<InAppItemConfig> Items => _items;
     }
 }

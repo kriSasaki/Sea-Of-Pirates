@@ -1,5 +1,5 @@
-﻿using Project.Systems.Quests;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Project.Systems.Quests;
 
 namespace Project.Interfaces.Data
 {

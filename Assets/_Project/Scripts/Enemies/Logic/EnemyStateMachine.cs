@@ -1,11 +1,11 @@
-﻿using Project.Configs.Enemies;
+﻿using System;
+using System.Collections.Generic;
+using Project.Configs.Enemies;
 using Project.Enemies.Logic.States;
 using Project.Enemies.Logic.States.Battle;
 using Project.Enemies.Logic.States.Idle;
 using Project.Interfaces.Audio;
 using Project.Players.Logic;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Project.Enemies.Logic
@@ -13,11 +13,12 @@ namespace Project.Enemies.Logic
     [RequireComponent(typeof(Enemy))]
     public class EnemyStateMachine : MonoBehaviour
     {
+        private readonly Dictionary<Type,BaseState> _states = new ();
+
         private Player _player;
         private Enemy _enemy;
         private IAudioService _audioService;
 
-        private readonly Dictionary<Type,BaseState> _states = new ();
         private BaseState CurrentState { get; set; }
 
         private void Update()

@@ -127,7 +127,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6398689962041114192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a82c89cfae961840b4ac6cd10bebb77, type: 3}
+  m_Script: {fileID: 11500000, guid: c4180a6d44c484c43910bca41032cef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _splashParticles: {fileID: 4431309705165833667}
@@ -1237,7 +1237,7 @@ ParticleSystem:
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 0
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:

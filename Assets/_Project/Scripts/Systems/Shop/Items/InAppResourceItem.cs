@@ -2,7 +2,6 @@
 using Project.Interfaces.Data;
 using Project.Systems.Data;
 using Project.Utils.Extensions;
-using YG;
 using YG.Utils.Pay;
 
 namespace Project.Systems.Shop.Items
@@ -12,10 +11,7 @@ namespace Project.Systems.Shop.Items
         private readonly IPlayerStorage _playerStorage;
         private readonly InAppResourceItemConfig _config;
 
-        public InAppResourceItem(
-            IPlayerStorage playerStorage,
-            InAppResourceItemConfig config,
-            Purchase itemData)
+        public InAppResourceItem(IPlayerStorage playerStorage, InAppResourceItemConfig config, Purchase itemData)
             : base(config, itemData)
         {
             _playerStorage = playerStorage;
@@ -23,7 +19,6 @@ namespace Project.Systems.Shop.Items
         }
 
         public GameResourceAmount Item => _config.Item;
-
         public override string AmountText => Item.Amount.ToNumericalString();
 
         public override void Get()

@@ -1,5 +1,4 @@
-﻿using Project.Utils;
-using Zenject;
+﻿using Zenject;
 
 namespace Project.UI.Quests
 {

@@ -1,5 +1,5 @@
-using Project.Players.Logic;
 using System;
+using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Interactables

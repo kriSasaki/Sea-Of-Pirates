@@ -10,7 +10,7 @@ namespace Project.Systems.Leaderboard
 {
     public class ScoreController : MonoBehaviour
     {
-        private readonly WaitForSeconds _delayTime = new(2f);
+        private readonly WaitForSeconds _delayTime = new WaitForSeconds(2f);
 
         private ILeaderboardService _leaderboardService;
         private IScoreService _scoreService;

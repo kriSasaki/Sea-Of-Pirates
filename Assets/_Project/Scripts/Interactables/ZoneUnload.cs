@@ -1,6 +1,4 @@
 using Project.Players.Logic;
-using Project.Systems.Upgrades;
-using UnityEngine;
 
 namespace Project.Interactables
 {

@@ -16,6 +16,7 @@ namespace Project.Players.Logic
         public override void ReadInput()
         {
             _input = InputService.Axis;
+
             PlayerMove.SetForwardValue(_input.y);
         }
 
@@ -25,7 +26,6 @@ namespace Project.Players.Logic
                 return;
 
             float rotationY = _input.x * RotationSpeed;
-
             Quaternion deltaRotation = Quaternion.Euler(Vector3.zero.WithY(rotationY) * Time.deltaTime);
 
             Rigidbody.MoveRotation(Rigidbody.rotation * deltaRotation);
@@ -34,7 +34,6 @@ namespace Project.Players.Logic
         public override void Move()
         {
             float speed = _input.y >= 0f ? MovementSpeed : MovementSpeed * PlayerMove.ReverseMoveMultiplier;
-
             Vector3 velocity = _input.y * speed * Transform.forward;
 
             Rigidbody.velocity = Vector3.MoveTowards(Rigidbody.velocity, velocity, MaxDistanceDelta);

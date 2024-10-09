@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Project.SDK.Leaderboard;
-using Project.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +16,7 @@ namespace Project.UI.Leaderboard
         protected override void Awake()
         {
             base.Awake();
+
             _authorizationButton.onClick.AddListener(OnAuthorizationClicked);
             Hide();
         }
@@ -32,18 +30,21 @@ namespace Project.UI.Leaderboard
         public void OpenLeaderboardPanel()
         {
             _leaderboardPanel.gameObject.SetActive(true);
+
             base.Show();
         }
 
         public void OpenAuthorizationPanel()
         {
             _authorizationPanel.gameObject.SetActive(true);
+
             base.Show();
         }
 
         public void OpenLoadingPlaceholder()
         {
             _loadingPlaceHolder.gameObject.SetActive(true);
+
             base.Show();
         }
 
@@ -59,6 +60,5 @@ namespace Project.UI.Leaderboard
             AuthorizationRequested?.Invoke();
             Hide();
         }
-
     }
 }

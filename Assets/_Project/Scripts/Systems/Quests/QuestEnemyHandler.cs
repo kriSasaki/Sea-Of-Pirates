@@ -4,12 +4,10 @@ using System.Linq;
 using Project.Spawner;
 using Project.Systems.Cameras;
 using UnityEngine;
-using Zenject;
 
 namespace Project.Systems.Quests
 {
     public class QuestEnemyHandler : IDisposable
-
     {
         private const float SpawnerShowDuration = 3f;
 
@@ -31,7 +29,10 @@ namespace Project.Systems.Quests
             {
                 if (_spawners.Any(spawner => spawner.EnemyType == quest.Config.TargetType))
                 {
-                    List<BaseEnemySpawner> questSpawners = _spawners.Where(s => s.EnemyType == quest.Config.TargetType).ToList();
+                    List<BaseEnemySpawner> questSpawners = _spawners
+                        .Where(s => s.EnemyType == quest.Config.TargetType)
+                        .ToList();
+
                     _questEnemySpawners.Add(quest, questSpawners);
                 }
             }
@@ -101,7 +102,7 @@ namespace Project.Systems.Quests
         {
             Transform questSpawner = _questEnemySpawners[quest].First().transform;
 
-            _cameraSystem.ShowTarget(questSpawner, SpawnerShowDuration).Forget();
+            _cameraSystem.ShowTargetAsync(questSpawner, SpawnerShowDuration).Forget();
         }
     }
 }

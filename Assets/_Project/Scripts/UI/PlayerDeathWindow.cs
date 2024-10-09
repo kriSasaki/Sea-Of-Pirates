@@ -18,16 +18,6 @@ namespace Project.UI
         private IAudioService _audioService;
         private SoundID _playerLooseSound;
 
-        [Inject]
-        private void Construct(IAudioService audioService, UiConfigs uiConfigs)
-        {
-            _audioService = audioService;
-            _playerLooseSound = uiConfigs.PlayerLooseSound;
-            _windowCanvas = GetComponent<Canvas>();
-            _scaleTween.Initialize(transform);
-            Hide();
-        }
-
         public void Show(Action onConfirmCallback)
         {
             _confirmButton.onClick.AddListener(() =>
@@ -46,6 +36,16 @@ namespace Project.UI
             _windowCanvas.enabled = false;
 
             _confirmButton.onClick.RemoveAllListeners();
+        }
+
+        [Inject]
+        private void Construct(IAudioService audioService, UiConfigs uiConfigs)
+        {
+            _audioService = audioService;
+            _playerLooseSound = uiConfigs.PlayerLooseSound;
+            _windowCanvas = GetComponent<Canvas>();
+            _scaleTween.Initialize(transform);
+            Hide();
         }
     }
 }

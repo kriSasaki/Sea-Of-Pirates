@@ -1,4 +1,3 @@
-using Ami.BroAudio;
 using Project.Configs.Game;
 using Project.Interfaces.Audio;
 using Project.Players.Logic;
@@ -14,6 +13,13 @@ namespace Project.Interactables
 
         private IAudioService _audioService;
         private GameConfig _gameConfig;
+
+        [Inject]
+        public void Construct(IAudioService audioService, GameConfig gameConfig)
+        {
+            _audioService = audioService;
+            _gameConfig = gameConfig;
+        }
 
         protected override void OnPlayerEntered(Player player)
         {
@@ -31,13 +37,6 @@ namespace Project.Interactables
             base.OnPlayerExited(player);
 
             _audioService.PlayMusic(_gameConfig.MainMusic);
-        }
-
-        [Inject]
-        public void Construct(IAudioService audioService, GameConfig gameConfig)
-        {
-            _audioService = audioService;
-            _gameConfig = gameConfig;
         }
     }
 }

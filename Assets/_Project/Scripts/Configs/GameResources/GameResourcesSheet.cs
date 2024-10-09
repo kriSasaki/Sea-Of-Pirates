@@ -1,5 +1,5 @@
-﻿using NaughtyAttributes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Project.Configs.GameResources

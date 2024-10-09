@@ -1,4 +1,5 @@
 ﻿using Project.Interfaces.SDK;
+using UnityEngine;
 
 namespace Project.SDK.Leaderboard
 {
@@ -8,7 +9,7 @@ namespace Project.SDK.Leaderboard
 
         public void SetPlayerScore(int score)
         {
-
+            Debug.Log("New score is " +  score);
         }
     }
 }

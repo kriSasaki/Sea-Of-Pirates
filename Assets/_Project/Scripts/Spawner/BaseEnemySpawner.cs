@@ -27,9 +27,9 @@ namespace Project.Spawner
 
         public event Action<EnemyConfig> EnemyDied;
 
-        protected bool HasAliveEnemies => _enemies.Any(e => e.IsAlive);
-
         public EnemyConfig EnemyType => _enemyConfig;
+
+        protected bool HasAliveEnemies => _enemies.Any(e => e.IsAlive);
 
         private void OnDestroy()
         {
@@ -65,12 +65,6 @@ namespace Project.Spawner
             EnemyDied?.Invoke(_enemyConfig);
         }
 
-        [Inject]
-        private void Construct(EnemyFactory enemyFactory)
-        {
-            _enemyFactory = enemyFactory;
-        }
-
         protected void Spawn()
         {
             Vector3 enemyPosition = GetSpawnPosition();
@@ -84,10 +78,11 @@ namespace Project.Spawner
         {
             Vector3 position = GetRandomSpawnPosition();
             Bounds shipBounds = _enemyConfig.View.ShipBounds;
+            Vector3 shipExtents = shipBounds.extents * BoundsMultiplier;
 
             for (int i = 0; i < MaxTries; i++)
             {
-                bool hasObstacles = Physics.CheckBox(position, shipBounds.extents * BoundsMultiplier, Quaternion.identity, _obstaclesMask);
+                bool hasObstacles = Physics.CheckBox(position, shipExtents, Quaternion.identity, _obstaclesMask);
 
                 if (hasObstacles == false)
                     break;
@@ -96,6 +91,12 @@ namespace Project.Spawner
             }
 
             return position;
+        }
+
+        [Inject]
+        private void Construct(EnemyFactory enemyFactory)
+        {
+            _enemyFactory = enemyFactory;
         }
 
         private void SetQuestMarks()

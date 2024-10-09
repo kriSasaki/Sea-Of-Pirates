@@ -79,6 +79,7 @@ namespace Project.Systems.Quests
             {
                 Unsubscribe();
                 ChangeState(QuestState.Done);
+
                 return;
             }
 

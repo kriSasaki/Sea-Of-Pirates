@@ -21,6 +21,12 @@ namespace Project.UI
             _endGamePanel.gameObject.SetActive(false);
         }
 
+        protected override void OnDestroy()
+        {
+            _confirmButton.onClick.RemoveAllListeners();
+            base.OnDestroy();
+        }
+
         public void Open(string windowText, bool hasMap, Action onConfirmCallback)
         {
             base.Show();
@@ -40,12 +46,6 @@ namespace Project.UI
         {
             _confirmButton.onClick.RemoveAllListeners();
             base.Hide();
-        }
-
-        protected override void OnDestroy()
-        {
-            _confirmButton.onClick.RemoveAllListeners();
-            base.OnDestroy();
         }
     }
 }

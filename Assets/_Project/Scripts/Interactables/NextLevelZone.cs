@@ -6,7 +6,6 @@ using Project.Interfaces.Data;
 using Project.Interfaces.SDK;
 using Project.Players.Logic;
 using Project.UI;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
@@ -81,9 +80,10 @@ namespace Project.Interactables
 
             _storage.TrySpendResource(_map, MapAmount);
             _levelSceneService.UpdateCurrentLevel(_levelConfig.NextLevel);
-            DG.Tweening.DOTween.KillAll();
+
             YandexGame.GameplayStop();
             _metricaService.SendLevelFinishedEvent(_levelConfig.name);
+            DG.Tweening.DOTween.KillAll();
 
             SceneManager.LoadScene(_gameConfig.LoadingScene);
         }

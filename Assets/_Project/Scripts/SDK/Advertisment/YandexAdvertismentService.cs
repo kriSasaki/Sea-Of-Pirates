@@ -1,5 +1,4 @@
 using Project.Interfaces.SDK;
-using System;
 using YG;
 
 namespace Project.SDK.Advertisment

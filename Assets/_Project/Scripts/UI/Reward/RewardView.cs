@@ -1,11 +1,11 @@
-﻿using Ami.BroAudio;
+﻿using System;
+using System.Collections;
+using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
 using Project.Configs.UI;
 using Project.Interfaces.Audio;
 using Project.Utils.Extensions;
 using Project.Utils.Tweens;
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

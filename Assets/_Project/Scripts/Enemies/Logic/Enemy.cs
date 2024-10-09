@@ -70,11 +70,12 @@ namespace Project.Enemies.Logic
             _vfxSpawner = vfxSpawner;
             _audioService = audioService;
             _currentHealth = _config.MaxHealth;
-            SetSpawnPosition();
-
             _shipCollider = GetComponent<BoxCollider>();
             _stateMachine = GetComponent<EnemyStateMachine>();
             _mover = new EnemyMover(_config, transform);
+
+            SetSpawnPosition();
+
             _view = Instantiate(_config.View, transform);
 
             SetShipCollider(player);
@@ -100,7 +101,10 @@ namespace Project.Enemies.Logic
         public async UniTaskVoid DealDamageAsync(Player player)
         {
             _view.Shoot(player.transform.position);
-            await UniTask.Delay(TimeSpan.FromSeconds(ShootDelay), cancellationToken: destroyCancellationToken);
+            TimeSpan delay = TimeSpan.FromSeconds(ShootDelay);
+
+            await UniTask.Delay(delay, cancellationToken: destroyCancellationToken);
+
             player.TakeDamage(Damage);
         }
 
@@ -113,6 +117,7 @@ namespace Project.Enemies.Logic
             SetSpawnPosition();
             RestoreHealth();
             _view.Ressurect();
+
             Respawned?.Invoke();
         }
 
@@ -153,6 +158,7 @@ namespace Project.Enemies.Logic
         public async UniTask SinkAsync()
         {
             await _view.DieAsync();
+
             Deactivate();
         }
     }
