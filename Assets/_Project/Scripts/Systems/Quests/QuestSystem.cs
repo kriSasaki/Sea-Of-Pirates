@@ -32,15 +32,15 @@ namespace Project.Systems.Quests
             _questDoneSound = config.QuestDoneSound;
         }
 
+        public void Initialize()
+        {
+            InitializeQuestGivers();
+        }
+
         public void Dispose()
         {
             foreach (QuestGiver questGiver in _questGivers)
                 questGiver.QuestStatusChanged -= OnQuestStatusChanged;
-        }
-
-        public void Initialize()
-        {
-            InitializeQuestGivers();
         }
 
         public IEnumerable<Quest> GetQuests()

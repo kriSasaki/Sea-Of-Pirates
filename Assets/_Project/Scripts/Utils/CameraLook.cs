@@ -1,4 +1,3 @@
-using Project.Utils.Extensions;
 using UnityEngine;
 
 [RequireComponent(typeof(Canvas))]

@@ -31,7 +31,7 @@ namespace Project.UI.Bars
             base.OnFill();
 
             ClearFadeRoutine();
-            UnFade();
+            Unfade();
         }
 
         [Inject]
@@ -39,7 +39,7 @@ namespace Project.UI.Bars
         {
             _canvasGroup = GetComponent<CanvasGroup>();
             _waitDelay = new WaitForSeconds(_fadeDelay);
-            UnFade();
+            Unfade();
         }
 
         private void ClearFadeRoutine()
@@ -60,7 +60,7 @@ namespace Project.UI.Bars
             yield return _canvasGroup.DOFade(MinAlpha, _fadeDuration).SetEase(_fadeEase);
         }
 
-        private void UnFade()
+        private void Unfade()
             => _canvasGroup.DOFade(MaxAlpha, _fadeDuration).SetEase(_fadeEase);
     }
 }

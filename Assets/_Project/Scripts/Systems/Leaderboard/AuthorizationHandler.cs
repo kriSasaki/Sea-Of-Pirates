@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DTT.Utils.Extensions;
 using Project.Configs.Game;
@@ -44,11 +45,15 @@ namespace Project.Systems.Leaderboard
 
         private async UniTaskVoid ReloadGameAsync()
         {
-            await UniTask.WaitUntil(() => YandexGame.auth == true, cancellationToken: _leaderboardWindow.destroyCancellationToken);
+            CancellationToken token = _leaderboardWindow.destroyCancellationToken;
+
+            await UniTask.WaitUntil(() => YandexGame.auth == true, cancellationToken: token);
 
             YandexGame.ProgressLoaded += OnProgressLoaded;
             YandexGame.LoadProgress();
+
             _leaderboardWindow.OpenLoadingPlaceholder();
+
             YandexGame.GameplayStop();
         }
 

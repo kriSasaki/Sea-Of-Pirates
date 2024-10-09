@@ -1,4 +1,4 @@
-﻿using Project.Enemies.View;
+﻿using Project.Enemies;
 using Project.Interfaces.Audio;
 using UnityEngine;
 using Zenject;
@@ -21,16 +21,6 @@ namespace Project.Spawner
 
         private IAudioService _audioService;
 
-        [Inject]
-        private void Construct(IAudioService audioService)
-        {
-            _smokePool = new VFXPool<ParticleSystem>(_cannonSmokePrefab);
-            _explosionPool = new VFXPool<ParticleSystem>(_explosionPrefab);
-            _damagePopupPool = new VFXPool<DamagePopup>(_damagePopupPrefab);
-            _projectilePool = new VFXPool<Projectile>(_projectilePrefab);
-            _audioService = audioService;
-        }
-
         public void SpawnCannonSmoke(Collider shooterCollider, Vector3 targetPosition)
         {
             Vector3 spawnPosition = shooterCollider.ClosestPoint(targetPosition);
@@ -52,21 +42,31 @@ namespace Project.Spawner
             explotion.Play();
         }
 
-        public void SpawnDamagePopup(Vector3 atposition, int damage)
+        public void SpawnDamagePopup(Vector3 atPosition, int damage)
         {
             Quaternion rotation = Camera.main.transform.rotation;
-            var damagePopup = _damagePopupPool.Get();
-            damagePopup.transform.SetPositionAndRotation(atposition, rotation);
+            DamagePopup damagePopup = _damagePopupPool.Get();
+            damagePopup.transform.SetPositionAndRotation(atPosition, rotation);
             damagePopup.Initialize(damage);
         }
 
-        public Projectile SpawnProjectile(Vector3 at)
+        public Projectile SpawnProjectile(Vector3 atPosition)
         {
             var projectile = _projectilePool.Get();
             projectile.Initialize(_audioService);
-            projectile.transform.SetPositionAndRotation(at, Quaternion.identity);
+            projectile.transform.SetPositionAndRotation(atPosition, Quaternion.identity);
 
             return projectile;
+        }
+
+        [Inject]
+        private void Construct(IAudioService audioService)
+        {
+            _smokePool = new VFXPool<ParticleSystem>(_cannonSmokePrefab);
+            _explosionPool = new VFXPool<ParticleSystem>(_explosionPrefab);
+            _damagePopupPool = new VFXPool<DamagePopup>(_damagePopupPrefab);
+            _projectilePool = new VFXPool<Projectile>(_projectilePrefab);
+            _audioService = audioService;
         }
     }
 }

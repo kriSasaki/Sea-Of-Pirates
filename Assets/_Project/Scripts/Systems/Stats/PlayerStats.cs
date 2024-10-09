@@ -39,7 +39,6 @@ namespace Project.Systems.Data
             UpdateStatsValues();
         }
 
-
         public int GetStatValue(StatType type)
         {
             return _stats[type].GetValue();

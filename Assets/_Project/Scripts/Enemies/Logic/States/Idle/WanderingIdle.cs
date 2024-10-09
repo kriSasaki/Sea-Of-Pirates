@@ -18,6 +18,7 @@ namespace Project.Enemies.Logic.States.Idle
         public override void Enter()
         {
             base.Enter();
+
             _targetPosition = SpawnPosition;
         }
 
@@ -52,8 +53,8 @@ namespace Project.Enemies.Logic.States.Idle
         {
             Bounds shipBounds = Enemy.ShipCollider.bounds;
             Vector3 direction = position - Enemy.Position;
-            float distance = direction.magnitude;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
+            float distance = direction.magnitude;
 
             bool hasObstacles = Physics.BoxCast(
                 shipBounds.center, 

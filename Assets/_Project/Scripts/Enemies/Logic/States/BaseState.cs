@@ -13,7 +13,11 @@ namespace Project.Enemies.Logic.States
         protected EnemyStateMachine StateMachine { get; private set; }
         protected IAudioService AudioService { get; private set; }
 
-        public void Initialize(Enemy enemy, Player player, EnemyStateMachine stateMachine, IAudioService audioService)
+        public void Initialize(
+            Enemy enemy,
+            Player player,
+            EnemyStateMachine stateMachine,
+            IAudioService audioService)
         {
             Enemy = enemy;
             Player = player;

@@ -7,6 +7,8 @@ namespace Project.General.View
 {
     public abstract class ShipView : MonoBehaviour
     {
+        private const float GizmoLineLenght = 20f;
+
         [SerializeField] private float _verticalOffset = 0.5f;
         [SerializeField] private ShipSwinger _shipSwinger;
         [SerializeField] private SinkTween _sinkTween;
@@ -17,6 +19,7 @@ namespace Project.General.View
         {
             transform.localPosition = transform.localPosition.AddY(-_verticalOffset);
             _originLocalPosition = transform.localPosition;
+
             _sinkTween.Initialize(transform);
             _shipSwinger.Initialize();
         }
@@ -27,6 +30,7 @@ namespace Project.General.View
         {
             _shipSwinger.enabled = false;
             OnDie();
+
             await _sinkTween.Sink(destroyCancellationToken);
         }
 
@@ -51,7 +55,7 @@ namespace Project.General.View
 
             Gizmos.DrawLine(
                 transform.position.AddY(_verticalOffset),
-                transform.position.AddY(_verticalOffset) + transform.forward * 20);
+                transform.position.AddY(_verticalOffset) + transform.forward * GizmoLineLenght);
         }
     }
 }

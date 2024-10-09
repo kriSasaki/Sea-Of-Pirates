@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using Project.Configs.Level;
 using Project.Enemies;
@@ -6,6 +5,7 @@ using Project.Enemies.Logic;
 using Project.Interactables;
 using Project.Players.Logic;
 using Project.Players.View;
+using Project.SDK.Advertisment;
 using Project.Spawner;
 using Project.Systems.Cameras;
 using Project.Systems.Data;
@@ -20,18 +20,16 @@ using Project.UI.Quests;
 using Project.UI.Reward;
 using Project.UI.Shop;
 using Project.UI.Upgrades;
+using Project.Utils;
 using SimpleInputNamespace;
 using UnityEngine;
 using YG;
 using Zenject;
 
-
 namespace Project.Installers.SceneContext
 {
     public class SceneInstaller : MonoInstaller
     {
-        [SerializeField] private bool _isMobile = false;
-
         [SerializeField] private LevelConfig _levelConfig;
         [SerializeField] private VfxSpawner _vfxSpawner;
         [SerializeField] private Enemy _enemyPrefab;
@@ -48,7 +46,6 @@ namespace Project.Installers.SceneContext
             BindInteractables();
             BindPlayer();
         }
-
 
         private void BindConfigs()
         {
@@ -75,6 +72,7 @@ namespace Project.Installers.SceneContext
             Container.BindInterfacesTo<AuthorizationHandler>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<QuestEnemyHandler>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesTo<EnemyDeathNotifier>().AsSingle();
+            Container.Bind<AdvertismentController>().AsSingle().NonLazy();
             Container.Bind<CameraSystem>().FromComponentInHierarchy().AsSingle();
         }
 
@@ -124,8 +122,7 @@ namespace Project.Installers.SceneContext
 
         private void BindMoveHandler()
         {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            if (YandexGame.EnvironmentData.isMobile || YandexGame.EnvironmentData.isTablet || IsIPad())
+            if (MobileDetector.IsMobile())
             {
                 Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
                 Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
@@ -134,22 +131,6 @@ namespace Project.Installers.SceneContext
             {
                 Container.Bind<MoveHandler>().To<DesktopMoveHandler>().FromNew().AsSingle();
             };
-
-            bool IsIPad()
-            {
-                return WebGLBrowserCheck.IsMobileBrowser();
-            }
-#else
-            if (_isMobile)
-            {
-                Container.Bind<JoystickCanvas>().FromComponentInNewPrefab(_joystickCanvas).AsSingle();
-                Container.Bind<MoveHandler>().To<MobileMoveHandler>().FromNew().AsSingle();
-            }
-            else
-            {
-                Container.Bind<MoveHandler>().To<DesktopMoveHandler>().FromNew().AsSingle();
-            }
-#endif
         }
     }
 }

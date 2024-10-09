@@ -14,8 +14,8 @@ namespace Project.Systems.Shop.Items
             Item = config.Item;
 
         }
-        public GameResourceAmount Item { get; }
 
+        public GameResourceAmount Item { get; }
         public override Sprite PriceSprite => Price.Resource.Sprite;
         public override string AmountText => Item.Amount.ToNumericalString();
 

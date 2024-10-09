@@ -1,6 +1,5 @@
 ﻿using Project.Enemies.View;
 using Project.Players.Logic;
-using Unity.Profiling;
 using UnityEngine;
 
 namespace Project.Enemies.Logic.States.Battle
@@ -18,6 +17,7 @@ namespace Project.Enemies.Logic.States.Battle
         public override void Enter()
         {
             base.Enter();
+
             ResetCooldown();
             _attackRangeView.ShowAttackRange();
         }
@@ -25,6 +25,7 @@ namespace Project.Enemies.Logic.States.Battle
         public override void Exit()
         {
             base.Exit();
+
             _attackRangeView.HideAttackRange();
         }
 

@@ -7,7 +7,8 @@ namespace Project.Systems.Data
 {
     public class QuestsProvider : IQuestsProvider
     {
-        private IQuestsData _questsData;
+        private readonly IQuestsData _questsData;
+
         private Dictionary<string, QuestStatus> _quests;
 
         public QuestsProvider(IQuestsData questsData)

@@ -6,23 +6,23 @@ namespace Project.SDK
 {
     public class MetricaService : IMetricaService
     {
-        private const string LevelMetricID = "level";
-        private const string DeadMetricID = "dead";
-        private const string QuestMetricID = "quest";
+        private const string LevelMetricaID = "level";
+        private const string DeadMetricaID = "dead";
+        private const string QuestMetricaID = "quest";
 
         public void SendLevelFinishedEvent(string levelName)
         {
-            SendMetrica(LevelMetricID, levelName);
+            SendMetrica(LevelMetricaID, levelName);
         }
 
         public void SendQuestDoneEvent(string questID)
         {
-            SendMetrica(QuestMetricID, questID);
+            SendMetrica(QuestMetricaID, questID);
         }
 
         public void SendPlayerDieEvent()
         {
-            SendMetrica(DeadMetricID);
+            SendMetrica(DeadMetricaID);
         }
 
         private void SendMetrica(string target, string name)

@@ -37,7 +37,8 @@ namespace Project.Enemies.Logic
         {
             Vector3 direction = target - Position;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
-            _transform.rotation = Quaternion.RotateTowards(_transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
+
+            SetRotation(lookRotation);
         }
 
         public void RotateTowards(Vector3 target, BoardSide side)
@@ -52,7 +53,15 @@ namespace Project.Enemies.Logic
             };
 
             Quaternion lookRotation = Quaternion.LookRotation(direction) * boardAngleOffset;
-            _transform.rotation = Quaternion.RotateTowards(_transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
+
+            SetRotation(lookRotation);
+        }
+
+        private void SetRotation(Quaternion lookRotation)
+        {
+            float rotationDelta = _rotationSpeed * Time.deltaTime;
+
+            _transform.rotation = Quaternion.RotateTowards(_transform.rotation, lookRotation, rotationDelta);
         }
     }
 }

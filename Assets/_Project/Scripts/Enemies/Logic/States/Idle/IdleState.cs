@@ -16,12 +16,21 @@ namespace Project.Enemies.Logic.States.Idle
         public override void Enter()
         {
             base.Enter();
+
             DetectPlayerAsync(ExitToken).Forget();
 
             if (_isHealState )
                 HealAsync(ExitToken).Forget();
 
             Enemy.Damaged += OnEnemyDamaged;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            Detector.PlayerDetected -= OnPlayerDetected;
+            Enemy.Damaged -= OnEnemyDamaged;
         }
 
         private void OnEnemyDamaged()
@@ -33,14 +42,6 @@ namespace Project.Enemies.Logic.States.Idle
         {
             if (Player.IsAlive)
                 StateMachine.SetState<BattleState>();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-            Detector.PlayerDetected -= OnPlayerDetected;
-            Enemy.Damaged -= OnEnemyDamaged;
-
         }
 
         private async UniTaskVoid DetectPlayerAsync(CancellationToken token)

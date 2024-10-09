@@ -16,6 +16,7 @@ namespace Project.Enemies.Logic.States.Battle
         public override void Enter()
         {
             base.Enter();
+
             Detector.PlayerLost += OnPlayerLost;
             Player.Died += OnPlayerDied;
             _enemyView.ShowHud();
@@ -24,6 +25,7 @@ namespace Project.Enemies.Logic.States.Battle
         public override void Exit()
         {
             base.Exit();
+
             Detector.PlayerLost -= OnPlayerLost;
             Player.Died -= OnPlayerDied;
             _enemyView.HideHud();

@@ -12,13 +12,12 @@ namespace Project.Systems.Data
         {
             _levelName = levelName;
         }
+        public string LevelName => _levelName;
+        public bool IsReachedPirateBay => _isReachedPirateBay;
 
         public void ReachPirateBay()
         {
             _isReachedPirateBay = true;
         }
-
-        public bool IsReachedPirateBay => _isReachedPirateBay;
-        public string LevelName => _levelName;
     }
 }

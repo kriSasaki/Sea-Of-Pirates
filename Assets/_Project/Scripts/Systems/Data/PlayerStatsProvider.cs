@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Project.Interfaces.Data;
-using Project.Systems.Data;
 
 namespace Project.Systems.Data
 {
     public class PlayerStatsProvider : IPlayerStatsProvider
     {
+        private const int MinimalStatLevel = 1;
+
         private readonly IPlayerStatsData _statsData;
         private readonly StatsSheet _statsSheet;
 
@@ -23,6 +24,7 @@ namespace Project.Systems.Data
         public Dictionary<StatType, PlayerStat> LoadStats()
         {
             _stats = new();
+
             Dictionary<StatType, int> statsLevels = GetStatsLevels();
 
             foreach (StatType statType in statsLevels.Keys)
@@ -58,7 +60,7 @@ namespace Project.Systems.Data
 
             foreach (StatType statType in Enum.GetValues(typeof(StatType)).Cast<StatType>())
             {
-                statsLevels.Add(statType, 1);
+                statsLevels.Add(statType, MinimalStatLevel);
             }
             foreach (PlayerStatData statData in _statsData.StatsLevels)
             {

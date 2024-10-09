@@ -4,7 +4,6 @@ using Project.Configs.ShopItems;
 using Project.Interfaces.Data;
 using Project.SDK.Advertisment;
 using Project.Systems.Shop.Items;
-using YG;
 using YG.Utils.Pay;
 
 namespace Project.Systems.Shop

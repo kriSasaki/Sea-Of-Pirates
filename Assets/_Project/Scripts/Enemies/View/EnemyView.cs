@@ -10,7 +10,6 @@ using UnityEngine;
 
 namespace Project.Enemies.View
 {
-
     public class EnemyView : ShipView
     {
         [SerializeField] private PunchShipTween _punchTween;

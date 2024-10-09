@@ -1,7 +1,6 @@
 using Project.Configs.Enemies;
 using Project.Configs.Level;
 using Project.Enemies.Logic;
-using Project.Enemies.View;
 using Project.Interfaces.Audio;
 using Project.Players.Logic;
 using UnityEngine;
@@ -18,8 +17,8 @@ namespace Project.Spawner
 
         public EnemyFactory(
             Enemy prefab,
-            VfxSpawner vfxSpawner, 
-            Player player, 
+            VfxSpawner vfxSpawner,
+            Player player,
             IAudioService audioService,
             LevelConfig levelConfig)
         {
@@ -27,7 +26,7 @@ namespace Project.Spawner
             _vfxSpawner = vfxSpawner;
             _player = player;
             _audioService = audioService;
-            _levelConfig = levelConfig;            
+            _levelConfig = levelConfig;
         }
 
         public Enemy Create(EnemyConfig enemyConfig, Vector3 position, Transform parent = null)

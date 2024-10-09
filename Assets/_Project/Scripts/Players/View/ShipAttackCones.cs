@@ -5,9 +5,15 @@ namespace Project.Players.View
 {
     public class ShipAttackCones : ArcRegionBase
     {
-        private static readonly int ArcShaderID = Shader.PropertyToID("_Arc");
+        private const float ScaleMultiplier = 2f;
 
-        private static readonly int ProgressShaderID = Shader.PropertyToID("_Progress");
+        private static readonly int s_arcShaderID = Shader.PropertyToID("_Arc");
+        private static readonly int s_progressShaderID = Shader.PropertyToID("_Progress");
+
+        [SerializeField] private Transform _rightCone;
+        [SerializeField] private Transform _leftCone;
+        [SerializeField, Range(0, 1)] private float _fillProgress;
+        [SerializeField] private MeshRenderer[] _maskedCentres;
 
         public float FillProgress
         {
@@ -15,25 +21,10 @@ namespace Project.Players.View
             set => _fillProgress = Mathf.Clamp01(value);
         }
 
-        [SerializeField]
-        private Transform _rightCone;
-        [SerializeField]
-        private Transform _leftCone;
-
-        [SerializeField]
-        [Range(0, 1)]
-        private float _fillProgress;
-
-        [SerializeField]
-        private MeshRenderer[] _maskedCentres;
-
         public void SetRadius(float radius)
         {
-            _rightCone.localPosition = Vector3.zero;
-            _rightCone.localScale = radius * 2 * Vector3.one;
-
-            _leftCone.localPosition = Vector3.zero;
-            _leftCone.localScale = radius * 2 * Vector3.one;
+            SetConeRadius(_leftCone, radius);
+            SetConeRadius(_rightCone, radius);
         }
 
         public void SetAngle(float angle)
@@ -41,7 +32,7 @@ namespace Project.Players.View
             Arc = angle;
 
             for (int i = 0; i < _maskedCentres.Length; i++)
-                _maskedCentres[i].sharedMaterial.SetFloat(ArcShaderID, 1 - Arc / 360);
+                _maskedCentres[i].sharedMaterial.SetFloat(s_arcShaderID, 1 - Arc / 360);
         }
 
         public void SetProgress(float progress)
@@ -49,7 +40,13 @@ namespace Project.Players.View
             FillProgress = progress;
 
             for (int i = 0; i < _maskedCentres.Length; i++)
-                _maskedCentres[i].sharedMaterial.SetFloat(ProgressShaderID, Mathf.Clamp01(_fillProgress));
+                _maskedCentres[i].sharedMaterial.SetFloat(s_progressShaderID, Mathf.Clamp01(_fillProgress));
+        }
+
+        private void SetConeRadius(Transform cone, float radius)
+        {
+            cone.localPosition = Vector3.zero;
+            cone.localScale = radius * ScaleMultiplier * Vector3.one;
         }
     }
 }

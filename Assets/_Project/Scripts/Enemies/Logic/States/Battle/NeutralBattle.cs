@@ -8,22 +8,17 @@ namespace Project.Enemies.Logic.States.Battle
     {
         [SerializeField] private AttackBattle _attackState;
 
-        protected override void OnInitialize()
-        {
-            base.OnInitialize();
-
-            StateMachine.RegisterState<AttackBattle>(_attackState);
-        }
-
         public override void Enter()
         {
             base.Enter();
+
             Enemy.Damaged += OnEnemyDamaged;
         }
 
         public override void Exit()
         {
             base.Exit();
+
             Enemy.Damaged -= OnEnemyDamaged;
         }
 
@@ -32,6 +27,13 @@ namespace Project.Enemies.Logic.States.Battle
             base.Update();
 
             Enemy.Mover.RotateTowards(Player.Position);
+        }
+
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
+
+            StateMachine.RegisterState<AttackBattle>(_attackState);
         }
 
         private void OnEnemyDamaged()

@@ -1,7 +1,7 @@
-﻿using Project.Configs.GameResources;
-using Project.Interfaces.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Project.Configs.GameResources;
+using Project.Interfaces.Data;
 
 namespace Project.Systems.Data
 {

@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using DTT.Utils.Extensions;
 using Project.Configs.Game;
 using Project.Interfaces.Data;
-using UnityEngine;
 using YG;
 
 namespace Project.Systems.Data
@@ -20,8 +19,6 @@ namespace Project.Systems.Data
         private const int SaveDelay = 1000;
         private const string SaveKey = nameof(SaveKey);
         private bool _isSaving = false;
-
-        private GameData GameData => YandexGame.savesData.GameData;
 
         public GameDataService(GameConfig config)
         {
@@ -47,6 +44,8 @@ namespace Project.Systems.Data
         public string CurrentLevel => GameData.CurrentScene;
 
         public bool IsAdHided { get => GameData.IsAddHided; set => GameData.IsAddHided = value; }
+
+        private GameData GameData => YandexGame.savesData.GameData;
 
         public void UpdateCurrentLevel(string levelName)
         {
@@ -90,7 +89,9 @@ namespace Project.Systems.Data
         private async UniTaskVoid SaveAsync()
         {
             _isSaving = true;
+
             await UniTask.Delay(SaveDelay, cancellationToken: YandexGame.Instance.destroyCancellationToken);
+
             YandexGame.SaveProgress();
             _isSaving = false;
         }

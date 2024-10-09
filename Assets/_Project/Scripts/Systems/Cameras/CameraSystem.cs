@@ -27,10 +27,7 @@ namespace Project.Systems.Cameras
         private Vector3 _followOffset;
 
         [Inject]
-        public void Construct(
-            Player player, 
-            CinemachineBrain brain,
-            UiCanvas uiCanvas)
+        public void Construct(Player player, CinemachineBrain brain, UiCanvas uiCanvas)
         {
             _player = player;
             _brain = brain;
@@ -59,17 +56,27 @@ namespace Project.Systems.Cameras
             if (_isOpeningShows == false)
             {
                 await UniTask.NextFrame(cancellationToken: cts);
+
                 return;
             }
 
             await UniTask.Delay(TimeSpan.FromSeconds(_openingViewDuration), cancellationToken: cts);
+
             GoToPlayer();
+
             await UniTask.WaitUntil(() => _brain.IsBlending == false, cancellationToken: cts);
         }
 
         public void GoToTarget(Transform target, CameraFollowOffset cameraFollowOffset = null)
         {
-            _targetCameraTransposer.m_FollowOffset = cameraFollowOffset == null ? _followOffset : cameraFollowOffset.Value;
+            if (cameraFollowOffset == null)
+            {
+                _targetCameraTransposer.m_FollowOffset = _followOffset;
+            }
+            else
+            {
+                _targetCameraTransposer.m_FollowOffset = cameraFollowOffset.Value;
+            }
 
             SetTargetCamera(target);
             EnableCamera(_targetCamera);
@@ -80,7 +87,7 @@ namespace Project.Systems.Cameras
             EnableCamera(_playerCamera);
         }
 
-        public async UniTaskVoid ShowTarget(Transform target, float duration)
+        public async UniTaskVoid ShowTargetAsync(Transform target, float duration)
         {
             _uiCanvas.Disable();
             _player.DisableMove();
@@ -106,7 +113,7 @@ namespace Project.Systems.Cameras
 
         private void EnableCamera(CinemachineVirtualCamera camera)
         {
-            foreach (var virtualCamera in _cameras)
+            foreach (CinemachineVirtualCamera virtualCamera in _cameras)
             {
                 if (virtualCamera == camera)
                     virtualCamera.gameObject.SetActive(true);

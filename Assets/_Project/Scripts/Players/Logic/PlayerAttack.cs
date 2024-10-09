@@ -110,6 +110,7 @@ namespace Project.Players.Logic
                 return false;
 
             EnterBattle();
+
             return true;
         }
 
@@ -125,6 +126,7 @@ namespace Project.Players.Logic
                 return false;
 
             ExitBattle();
+
             return true;
         }
 

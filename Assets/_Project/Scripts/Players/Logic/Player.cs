@@ -1,9 +1,9 @@
+using System;
 using Ami.BroAudio;
 using Project.Interfaces.Audio;
 using Project.Interfaces.Hold;
 using Project.Interfaces.Stats;
 using Project.Players.View;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +12,8 @@ namespace Project.Players.Logic
     [RequireComponent(typeof(Rigidbody))]
     public class Player : MonoBehaviour
     {
+        private const int ZeroHealth = 0;
+
         [SerializeField] private PlayerView _view;
         [SerializeField] private SoundID _healSound;
 
@@ -63,7 +65,7 @@ namespace Project.Players.Logic
             if (IsAlive == false)
                 return;
 
-            _currentHealth = Math.Max(_currentHealth - damage, 0);
+            _currentHealth = Math.Max(_currentHealth - damage, ZeroHealth);
 
             HealthChanged?.Invoke();
             _view.TakeDamage(damage);

@@ -1,5 +1,4 @@
 using Project.Players.Logic;
-using UnityEngine;
 
 namespace Project.Interactables
 {

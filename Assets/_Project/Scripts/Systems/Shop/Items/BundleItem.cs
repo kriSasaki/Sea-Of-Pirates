@@ -9,10 +9,7 @@ namespace Project.Systems.Shop.Items
     {
         private readonly List<InAppItem> _items;
 
-        public BundleItem(
-            List<InAppItem> items,
-            BundleItemConfig config,
-            Purchase itemData)
+        public BundleItem(List<InAppItem> items, BundleItemConfig config, Purchase itemData)
             : base(config, itemData)
         {
             _items = items;

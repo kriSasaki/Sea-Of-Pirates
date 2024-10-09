@@ -20,9 +20,9 @@ public class StatConfig : ScriptableObject
     [field: SerializeField, Min(0)] public int MinValue { get; private set; }
     [field: SerializeField, Min(0)] public int MaxValue { get; private set; }
     [field: SerializeField, Min(0)] public int MaxLevel { get; private set; }
+
     public string Name => LeanLocalization.GetTranslationText(_nameToken);
     public string Description => LeanLocalization.GetTranslationText(_descriptionToken);
-
     public int MinLevel => 1;
 
     public int GetValue(int level)

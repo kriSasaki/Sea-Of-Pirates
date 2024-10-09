@@ -29,12 +29,14 @@ namespace Project.Interactables
         {
             base.OnPlayerEntered(player);
             _tip.enabled = true;
+
             ShowTip();
         }
 
         protected override void OnPlayerExited(Player player)
         {
             base.OnPlayerExited(player);
+
             _typewriter.StartDisappearingText();
             _typewriter.onTextDisappeared.AddListener(()  => Destroy(gameObject));
         }

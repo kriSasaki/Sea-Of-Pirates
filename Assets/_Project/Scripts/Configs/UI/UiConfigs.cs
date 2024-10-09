@@ -8,7 +8,6 @@ namespace Project.Configs.UI
     {
         [field: SerializeField] public ItemViewColorConfig GameItemViewColor { get; private set; }
         [field: SerializeField] public ItemViewColorConfig InApptemViewColor { get; private set; }
-
         [field: SerializeField] public SoundID OpenWindowSound { get; private set; }
         [field: SerializeField] public SoundID CloseWindowSound { get; private set; }
         [field: SerializeField] public SoundID ShowButtonSound { get; private set; }

@@ -1,5 +1,4 @@
-﻿using System;
-using Project.Interfaces.SDK;
+﻿using Project.Interfaces.SDK;
 using UnityEngine;
 
 namespace Project.SDK.Advertisment

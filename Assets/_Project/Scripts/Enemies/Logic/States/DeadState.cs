@@ -9,6 +9,7 @@ namespace Project.Enemies.Logic.States
         public override void Enter()
         {
             base.Enter();
+
             Enemy.Respawned += OnEnemyRespawned;
             Enemy.Detector.Disable();
         }
@@ -21,6 +22,7 @@ namespace Project.Enemies.Logic.States
         public override void Exit()
         {
             base.Exit();
+
             Enemy.Respawned -= OnEnemyRespawned;
         }
     }

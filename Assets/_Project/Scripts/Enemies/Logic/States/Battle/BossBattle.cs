@@ -1,12 +1,11 @@
-﻿using Ami.BroAudio;
-using Cysharp.Threading.Tasks;
-using NaughtyAttributes;
-using Project.Enemies.View;
-using Project.Players.Logic;
-using Project.Utils.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Ami.BroAudio;
+using Cysharp.Threading.Tasks;
+using NaughtyAttributes;
+using Project.Players.Logic;
+using Project.Utils.Extensions;
 using UnityEngine;
 
 namespace Project.Enemies.Logic.States.Battle
@@ -15,26 +14,27 @@ namespace Project.Enemies.Logic.States.Battle
 
     public class BossBattle : BattleState
     {
+        private const float LaunchDelay = 0.05f;
+
         [SerializeField] private float _attackAngle = 50;
         [SerializeField] float _attackPhaseDuration = 10f;
         [SerializeField] float _phaseSwitchDuration = 2f;
         [HorizontalLine(3f, EColor.Blue)]
         [SerializeField] float _volleyPhaseDuration = 10f;
         [SerializeField] float _volleyRange = 15f;
-        [SerializeField] float _volleyInterval= 2f;
+        [SerializeField] float _volleyInterval = 2f;
         [HorizontalLine(3f, EColor.Blue)]
         [SerializeField] float _projectileRadius = 4f;
         [SerializeField] float _projectileExplodeDelay = 4f;
         [SerializeField] int _projectilesAmount = 10;
         [SerializeField] private SoundID _shootSound;
 
-        private readonly float _launchDelay = 0.05f;
-
         private float HalfAttackAngle => _attackAngle / 2f;
 
         public override void Enter()
         {
             base.Enter();
+
             EnterAttackPhase().Forget();
         }
 
@@ -51,17 +51,18 @@ namespace Project.Enemies.Logic.States.Battle
 
             await UniTask.Delay(TimeSpan.FromSeconds(_phaseSwitchDuration), cancellationToken: ExitToken);
 
-
             using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(ExitToken);
 
-            UniTask phaseEndTask = UniTask.Delay(TimeSpan.FromSeconds(_attackPhaseDuration), cancellationToken: linkedCts.Token);
-            UniTask PlayerInZoneTask = UniTask.WaitUntil(() => CanAttackPlayer(), cancellationToken: linkedCts.Token);
+            TimeSpan phaseDuration = TimeSpan.FromSeconds(_attackPhaseDuration);
+            UniTask phaseEndTask = UniTask.Delay(phaseDuration, cancellationToken: linkedCts.Token);
+            UniTask playerInZoneTask = UniTask.WaitUntil(() => CanAttackPlayer(), cancellationToken: linkedCts.Token);
 
-            UniTask<int>.Awaiter conditonAwaiter = UniTask.WhenAny(phaseEndTask, PlayerInZoneTask).GetAwaiter();
+            UniTask<int>.Awaiter conditonAwaiter = UniTask.WhenAny(phaseEndTask, playerInZoneTask).GetAwaiter();
 
             while (conditonAwaiter.IsCompleted == false)
             {
                 Enemy.Mover.RotateTowards(Player.Position, GetClosestSide());
+
                 await UniTask.NextFrame();
             }
 
@@ -81,7 +82,8 @@ namespace Project.Enemies.Logic.States.Battle
 
             await UniTask.Delay(TimeSpan.FromSeconds(_phaseSwitchDuration), cancellationToken: ExitToken);
 
-            UniTask.Awaiter phaseEndAwaiter = UniTask.Delay(TimeSpan.FromSeconds(_volleyPhaseDuration), cancellationToken: ExitToken).GetAwaiter();
+            TimeSpan phaseDuration = TimeSpan.FromSeconds(_volleyPhaseDuration);
+            UniTask.Awaiter phaseEndAwaiter = UniTask.Delay(phaseDuration, cancellationToken: ExitToken).GetAwaiter();
 
             while (!phaseEndAwaiter.IsCompleted)
             {
@@ -101,30 +103,26 @@ namespace Project.Enemies.Logic.States.Battle
             foreach (Vector3 position in projectilePositions)
             {
                 Projectile projectile = Enemy.VfxSpawner.SpawnProjectile(position);
+                ProjectileSettings settings = new(_projectileRadius, _projectileExplodeDelay, playerMask);
 
-                projectile.ShootAsync(
-                    _projectileRadius,
-                    _projectileExplodeDelay,
-                    playerMask,
-                    () => Player.TakeDamage(Enemy.Damage)).Forget();
-
+                projectile.ShootAsync(settings, () => Player.TakeDamage(Enemy.Damage)).Forget();
                 AudioService.PlaySound(_shootSound);
 
-                await UniTask.Delay(TimeSpan.FromSeconds(_launchDelay), cancellationToken: ExitToken);
+                await UniTask.Delay(TimeSpan.FromSeconds(LaunchDelay), cancellationToken: ExitToken);
             }
         }
 
         private List<Vector3> GetProjectilePositions()
         {
-            List<Vector3> bombPositions = new List<Vector3>(_projectilesAmount);
+            List<Vector3> positions = new List<Vector3>(_projectilesAmount);
 
             for (int i = 0; i < _projectilesAmount; i++)
             {
                 Vector3 position = (UnityEngine.Random.insideUnitSphere * _volleyRange + Player.Position).WithZeroY();
-                bombPositions.Add(position);
+                positions.Add(position);
             }
 
-            return bombPositions;
+            return positions;
         }
 
         private bool CanAttackPlayer()

@@ -9,13 +9,8 @@ namespace Project.Installers.ProjectContext
 {
     public class GameSystemsInstaller : MonoInstaller
     {
-        [SerializeField] private YandexGame _yandexPrefab;
-
         public override void InstallBindings()
         {
-#if UNITY_EDITOR
-            Container.Bind<YandexGame>().FromComponentInNewPrefab(_yandexPrefab).AsSingle().NonLazy();
-#endif
             BindInput();
         }
 

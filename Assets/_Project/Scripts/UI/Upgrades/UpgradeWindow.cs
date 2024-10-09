@@ -57,7 +57,6 @@ namespace Project.UI.Upgrades
             }
         }
 
-
         private void CreateUpgradeBars()
         {
             foreach (StatConfig statConfig in _statsSheet.Stats)

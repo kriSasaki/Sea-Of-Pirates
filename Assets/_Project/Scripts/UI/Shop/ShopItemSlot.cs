@@ -1,7 +1,6 @@
 ﻿using Project.Configs.UI;
 using Project.Systems.Shop.Items;
 using System;
-using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 

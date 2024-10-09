@@ -1,10 +1,9 @@
-﻿using Project.Interactables;
-using Project.Players.Logic;
-using Project.Systems.Cameras;
+﻿using Project.Players.Logic;
+using Project.Systems.Upgrades;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Systems.Upgrades
+namespace Project.Interactables
 {
     [RequireComponent(typeof(SphereCollider))]
     public class UpgradePlace : InteractableZone
@@ -24,11 +23,11 @@ namespace Project.Systems.Upgrades
 
             _upgradeSystem.Hide();
         }
- 
+
         [Inject]
         private void Construct(UpgradeSystem upgradeSystemView)
         {
-           _upgradeSystem = upgradeSystemView;
+            _upgradeSystem = upgradeSystemView;
         }
     }
 }

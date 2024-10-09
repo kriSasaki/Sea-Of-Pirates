@@ -56,12 +56,12 @@ namespace Project.Systems.Shop
             if (_isItemsLoaded)
                 return;
 
-            LoadShopItems();
+            SetShopItems();
         }
 
-        private void LoadShopItems()
+        private void SetShopItems()
         {
-            LoadGameItems();
+            SetGameItems();
 
             if (YandexGame.auth == true)
             {
@@ -75,7 +75,7 @@ namespace Project.Systems.Shop
             _isItemsLoaded = true;
         }
 
-        private void LoadGameItems()
+        private void SetGameItems()
         {
             foreach (GameItemConfig config in _shopItemsConfigs.GameItemsConfigs)
             {

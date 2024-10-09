@@ -25,10 +25,5 @@ namespace Project.SDK.InApp
 
             onLoadCallback(products.ToArray());
         }
-
-        public void HandlePurchase(string id, Action onPurchaseCallback)
-        {
-            onPurchaseCallback();
-        }
     }
 }

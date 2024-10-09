@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Project.Interfaces.SDK
+﻿namespace Project.Interfaces.SDK
 {
     public interface IAdvertismentService
     {

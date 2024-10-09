@@ -1,5 +1,5 @@
-﻿using Lean.Localization;
-using System.Globalization;
+﻿using System.Globalization;
+using Lean.Localization;
 
 namespace Project.Utils.Extensions
 {

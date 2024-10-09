@@ -5,7 +5,7 @@ using DG.Tweening;
 using Project.Interfaces.Audio;
 using UnityEngine;
 
-namespace Project.Enemies.View
+namespace Project.Enemies
 {
     public class Projectile : MonoBehaviour
     {
@@ -23,27 +23,26 @@ namespace Project.Enemies.View
             _audioService ??= audioService;
         }
 
-        public async UniTaskVoid ShootAsync(float radius, float explodeDelay, LayerMask targetMask, Action onReachCallback)
+        public async UniTaskVoid ShootAsync(ProjectileSettings settings, Action onReachCallback)
         {
-            Vector3 scale = ScaleMiltiplier * (radius + VisualRadiusOffset) * Vector3.one;
+            Vector3 scale = ScaleMiltiplier * (settings.Radius + VisualRadiusOffset) * Vector3.one;
             transform.localScale = Vector3.one;
             _projectileRenderer.enabled = true;
 
+            await transform.DOScale(scale, settings.ExplodeDelay);
 
-            await transform.DOScale(scale, explodeDelay);
-
-            if (Physics.CheckSphere(transform.position, radius, targetMask))
+            if (Physics.CheckSphere(transform.position, settings.Radius, settings.TargetMask))
             {
                 onReachCallback();
             }
             else
             {
                 _projectileRenderer.enabled = false;
-                
+
                 _splashParticles.Play();
                 _audioService.PlaySound(_splashSound);
 
-                await UniTask.WaitUntil (() => _splashParticles.isPlaying == false);
+                await UniTask.WaitUntil(() => _splashParticles.isPlaying == false);
             }
 
             gameObject.SetActive(false);
