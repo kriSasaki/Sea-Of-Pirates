@@ -53,7 +53,6 @@ namespace Project.Enemies.Logic
         public GameResourceAmount Loot => _config.Loot;
         public Vector3 SpawnPosition { get; private set; }
 
-
         private void Start()
         {
             HealthChanged?.Invoke(_currentHealth, _config.MaxHealth);
@@ -132,6 +131,13 @@ namespace Project.Enemies.Logic
             _shipCollider.center = _view.ShipBounds.center;
         }
 
+        public async UniTask SinkAsync()
+        {
+            await _view.DieAsync();
+
+            Deactivate();
+        }
+
         public void RestoreHealth()
         {
             _currentHealth = _config.MaxHealth;
@@ -153,13 +159,6 @@ namespace Project.Enemies.Logic
         private void Deactivate()
         {
             gameObject.SetActive(false);
-        }
-
-        public async UniTask SinkAsync()
-        {
-            await _view.DieAsync();
-
-            Deactivate();
         }
     }
 }

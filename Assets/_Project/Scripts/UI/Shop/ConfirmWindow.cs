@@ -1,6 +1,5 @@
-﻿using Project.Systems.Shop.Items;
-using Project.UI;
-using System;
+﻿using System;
+using Project.Systems.Shop.Items;
 using UnityEngine;
 using UnityEngine.UI;
 

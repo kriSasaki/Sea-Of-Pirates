@@ -31,17 +31,6 @@ namespace Project.Systems.Quests
             _quest.Unsubscribe();
         }
 
-        [Inject]
-        public void Construct(
-            IEnemyDeathNotifier enemyDeathNotifier,
-            IPlayerStorage playerStorage,
-            QuestView questView)
-        {
-            _enemyDeathNotifier = enemyDeathNotifier;
-            _playerStorage = playerStorage;
-            _questView = questView;
-        }
-
         public void Initialize(QuestStatus status)
         {
             _quest = new Quest(_questConfig, status, _enemyDeathNotifier);
@@ -65,6 +54,17 @@ namespace Project.Systems.Quests
         {
             base.OnPlayerExited(player);
             _questView.Hide();
+        }
+
+        [Inject]
+        private void Construct(
+            IEnemyDeathNotifier enemyDeathNotifier,
+            IPlayerStorage playerStorage,
+            QuestView questView)
+        {
+            _enemyDeathNotifier = enemyDeathNotifier;
+            _playerStorage = playerStorage;
+            _questView = questView;
         }
 
         private void OnQuestStatusChanged(Quest quest)

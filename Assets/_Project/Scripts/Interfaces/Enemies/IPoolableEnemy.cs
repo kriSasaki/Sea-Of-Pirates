@@ -8,6 +8,6 @@ namespace Project.Interfaces.Enemies
        Transform Transform { get; }
 
        void Respawn(Vector3 atPosition);
-       UniTask SinkAsync(); 
+       UniTask SinkAsync();
     }
 }

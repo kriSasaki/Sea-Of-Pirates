@@ -2,7 +2,7 @@
 
 namespace Project.UI.Quests
 {
-    public class QuestButton: UiButton
+    public class QuestButton : UiButton
     {
         [Inject]
         private void Construct()

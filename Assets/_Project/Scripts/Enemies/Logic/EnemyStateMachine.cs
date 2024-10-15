@@ -13,7 +13,7 @@ namespace Project.Enemies.Logic
     [RequireComponent(typeof(Enemy))]
     public class EnemyStateMachine : MonoBehaviour
     {
-        private readonly Dictionary<Type,BaseState> _states = new ();
+        private readonly Dictionary<Type, BaseState> _states = new();
 
         private Player _player;
         private Enemy _enemy;
@@ -51,7 +51,8 @@ namespace Project.Enemies.Logic
             SetState<IdleState>();
         }
 
-        public void RegisterState<T>(T state) where T : BaseState
+        public void RegisterState<T>(T state)
+            where T : BaseState
         {
             if (!_states.ContainsKey(typeof(T)))
             {
@@ -66,7 +67,8 @@ namespace Project.Enemies.Logic
             }
         }
 
-        public void SetState<T>() where T : BaseState
+        public void SetState<T>()
+            where T : BaseState
         {
             Type type = typeof(T);
 

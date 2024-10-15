@@ -5,6 +5,7 @@ using UnityEngine;
 public class BroAudioService : IAudioService
 {
     private const float FadeTime = 0.1f;
+
     public void PlayMusic(SoundID id)
     {
         BroAudio.Play(id).AsBGM();
@@ -23,7 +24,7 @@ public class BroAudioService : IAudioService
 
     public void MuteAudio()
     {
-        BroAudio.SetVolume(BroAudioType.All,0f, FadeTime);
+        BroAudio.SetVolume(BroAudioType.All, 0f, FadeTime);
     }
 
     public void UnmuteAudio()

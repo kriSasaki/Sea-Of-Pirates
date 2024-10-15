@@ -7,6 +7,8 @@ namespace Project.Enemies.Logic.States.Idle
 
     public class WanderingIdle : IdleState
     {
+        private const float DistanceTrashhold = 0.001f;
+
         [SerializeField, Min(1f)] private float _movementRange = 15f;
         [SerializeField] private LayerMask _obstacleMask;
 
@@ -31,7 +33,7 @@ namespace Project.Enemies.Logic.States.Idle
         {
             base.Update();
 
-            if (Vector3.SqrMagnitude(_targetPosition - Position) < 0.001f)
+            if (Vector3.SqrMagnitude(_targetPosition - Position) < DistanceTrashhold)
                 SetTargetPosition();
 
             Enemy.Mover.Move(_targetPosition);
@@ -57,10 +59,10 @@ namespace Project.Enemies.Logic.States.Idle
             float distance = direction.magnitude;
 
             bool hasObstacles = Physics.BoxCast(
-                shipBounds.center, 
-                shipBounds.extents, 
-                direction, 
-                lookRotation, 
+                shipBounds.center,
+                shipBounds.extents,
+                direction,
+                lookRotation,
                 distance,
                 _obstacleMask);
 

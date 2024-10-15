@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace Project.Players.Logic
 {
     public abstract class MoveHandler
@@ -27,7 +26,9 @@ namespace Project.Players.Logic
         }
 
         public abstract void ReadInput();
+
         public abstract void Move();
+
         public abstract void Rotate();
     }
 }

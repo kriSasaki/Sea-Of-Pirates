@@ -15,7 +15,7 @@ namespace Project.Systems.Leaderboard
     {
         private readonly LeaderboardWindow _leaderboardWindow;
         private readonly GameConfig _gameConfig;
-        private readonly  ILevelSceneService _levelSceneService;
+        private readonly ILevelSceneService _levelSceneService;
 
         public AuthorizationHandler(
             LeaderboardWindow leaderboardWindow,

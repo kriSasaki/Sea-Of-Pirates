@@ -38,7 +38,7 @@ namespace Project.Interactables
             base.OnPlayerExited(player);
 
             _typewriter.StartDisappearingText();
-            _typewriter.onTextDisappeared.AddListener(()  => Destroy(gameObject));
+            _typewriter.onTextDisappeared.AddListener(() => Destroy(gameObject));
         }
 
         protected string GetTipMessage(string token)

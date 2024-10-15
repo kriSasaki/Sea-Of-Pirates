@@ -24,6 +24,7 @@ namespace Project.Players.Logic
         private IPlayerStats _playerStats;
         private Coroutine _battleCoroutine;
         private WaitUntil _hasTargetAwaiter;
+
         public event Action<IEnemy> EnemyKilled;
 
         public int Damage => _playerStats.Damage;

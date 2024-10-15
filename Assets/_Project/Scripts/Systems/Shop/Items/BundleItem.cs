@@ -1,6 +1,5 @@
-﻿using Project.Configs.ShopItems;
-using System.Collections.Generic;
-using YG;
+﻿using System.Collections.Generic;
+using Project.Configs.ShopItems;
 using YG.Utils.Pay;
 
 namespace Project.Systems.Shop.Items

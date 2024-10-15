@@ -29,7 +29,7 @@ namespace Project.UI
 
         public void Open(string windowText, bool hasMap, Action onConfirmCallback)
         {
-            base.Show();
+            Show();
 
             _windowText.text = windowText;
             _mapImage.color = hasMap ? _hasMapColor : _noMapColor;

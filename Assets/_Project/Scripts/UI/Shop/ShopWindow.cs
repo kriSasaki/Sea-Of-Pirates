@@ -24,14 +24,6 @@ namespace Project.UI.Shop
         private GameConfig _gameConfig;
         private IAudioService _audioService;
 
-        [Inject]
-        public void Construct(UiConfigs uiConfigs, GameConfig gameConfig, IAudioService audioService)
-        {
-            _uiConfigs = uiConfigs;
-            _gameConfig = gameConfig;
-            _audioService = audioService;
-        }
-
         public void Open()
         {
             Show();
@@ -76,6 +68,14 @@ namespace Project.UI.Shop
             {
                 slot.CheckAvaliability();
             }
+        }
+
+        [Inject]
+        private void Construct(UiConfigs uiConfigs, GameConfig gameConfig, IAudioService audioService)
+        {
+            _uiConfigs = uiConfigs;
+            _gameConfig = gameConfig;
+            _audioService = audioService;
         }
 
         private void OnItemSelected(GameItem item, Action onBuyCallback)

@@ -24,6 +24,7 @@ namespace Project.Players.View
         {
             _waterTrail.Play();
         }
+
         public override void TakeDamage(int damage)
         {
             _audioService.PlaySound(_hitSound);

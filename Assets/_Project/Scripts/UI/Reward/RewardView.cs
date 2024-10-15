@@ -35,7 +35,6 @@ namespace Project.UI.Reward
 
         public void Show(Sprite rewardSprite, int rewardAmount, float offerDuration, Action rewardCallback)
         {
-
             _rewardIcon.sprite = rewardSprite;
             _rewardAmount.text = rewardAmount.ToNumericalString();
 

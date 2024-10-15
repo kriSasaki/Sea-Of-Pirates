@@ -1,5 +1,4 @@
 ﻿using Project.Enemies.View;
-using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Enemies.Logic.States.Battle

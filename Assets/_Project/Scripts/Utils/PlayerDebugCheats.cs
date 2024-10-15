@@ -35,7 +35,7 @@ namespace Project.Utils
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.P)) 
+            if (Input.GetKeyUp(KeyCode.P))
             {
                 PlayerPrefsReseter.ResetPlayerPrefs();
             }

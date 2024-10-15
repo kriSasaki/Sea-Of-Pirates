@@ -12,7 +12,6 @@ namespace Project.Systems.Shop.Items
             : base(config, playerStorage)
         {
             Item = config.Item;
-
         }
 
         public GameResourceAmount Item { get; }

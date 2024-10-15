@@ -1,5 +1,5 @@
-﻿using Project.Interfaces.SDK;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Project.Interfaces.SDK;
 using YG;
 
 namespace Project.SDK
@@ -29,7 +29,7 @@ namespace Project.SDK
         {
             var eventParams = new Dictionary<string, string>
             {
-                {target, name }
+                { target, name },
             };
 
             YandexMetrica.Send(target, eventParams);

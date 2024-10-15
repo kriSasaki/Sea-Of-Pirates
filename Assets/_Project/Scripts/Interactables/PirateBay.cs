@@ -6,9 +6,9 @@ namespace Project.Interactables
 {
     public class PirateBay : InteractableZone
     {
-        [field: SerializeField] public Transform PlayerRessurectPoint { get; private set; }
-
         public event Action ReachedByPlayer;
+
+        [field: SerializeField] public Transform PlayerRessurectPoint { get; private set; }
 
         protected override void OnPlayerEntered(Player player)
         {

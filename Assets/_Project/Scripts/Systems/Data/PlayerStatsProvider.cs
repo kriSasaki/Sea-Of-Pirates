@@ -47,7 +47,8 @@ namespace Project.Systems.Data
                 }
                 else
                 {
-                    _statsData.StatsLevels.Add(new PlayerStatData() { StatType = statType, Level = _stats[statType].Level });
+                    var statData = new PlayerStatData() { StatType = statType, Level = _stats[statType].Level };
+                    _statsData.StatsLevels.Add(statData);
                 }
             }
 
@@ -62,6 +63,7 @@ namespace Project.Systems.Data
             {
                 statsLevels.Add(statType, MinimalStatLevel);
             }
+
             foreach (PlayerStatData statData in _statsData.StatsLevels)
             {
                 statsLevels[statData.StatType] = statData.Level;

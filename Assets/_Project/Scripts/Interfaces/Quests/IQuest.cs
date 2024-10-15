@@ -6,6 +6,7 @@ namespace Project.Interfaces.Quests
     public interface IQuest
     {
         QuestConfig Config { get; }
+
         QuestStatus Status { get; }
 
         void UpdateState();

@@ -12,6 +12,7 @@ namespace Project.Systems.Data
         {
             _levelName = levelName;
         }
+
         public string LevelName => _levelName;
         public bool IsReachedPirateBay => _isReachedPirateBay;
 

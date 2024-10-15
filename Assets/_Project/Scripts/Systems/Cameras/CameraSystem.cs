@@ -26,31 +26,6 @@ namespace Project.Systems.Cameras
         private UiCanvas _uiCanvas;
         private Vector3 _followOffset;
 
-        [Inject]
-        public void Construct(Player player, CinemachineBrain brain, UiCanvas uiCanvas)
-        {
-            _player = player;
-            _brain = brain;
-            _uiCanvas = uiCanvas;
-
-            _cameras = new List<CinemachineVirtualCamera>()
-            {
-                _playerCamera,
-                _targetCamera,
-                _openingCamera,
-            };
-
-            _targetCameraTransposer = _targetCamera.GetCinemachineComponent<CinemachineTransposer>();
-            _followOffset = _targetCameraTransposer.m_FollowOffset;
-
-            SetPlayerCamera();
-
-            if (_isOpeningShows)
-                EnableCamera(_openingCamera);
-            else
-                GoToPlayer();
-        }
-
         public async UniTask ShowOpeningAsync(CancellationToken cts)
         {
             if (_isOpeningShows == false)
@@ -97,6 +72,31 @@ namespace Project.Systems.Cameras
             await UniTask.WaitUntil(() => _brain.IsBlending == false, cancellationToken: destroyCancellationToken);
             _player.EnableMove();
             _uiCanvas.Enable();
+        }
+
+        [Inject]
+        private void Construct(Player player, CinemachineBrain brain, UiCanvas uiCanvas)
+        {
+            _player = player;
+            _brain = brain;
+            _uiCanvas = uiCanvas;
+
+            _cameras = new List<CinemachineVirtualCamera>()
+            {
+                _playerCamera,
+                _targetCamera,
+                _openingCamera,
+            };
+
+            _targetCameraTransposer = _targetCamera.GetCinemachineComponent<CinemachineTransposer>();
+            _followOffset = _targetCameraTransposer.m_FollowOffset;
+
+            SetPlayerCamera();
+
+            if (_isOpeningShows)
+                EnableCamera(_openingCamera);
+            else
+                GoToPlayer();
         }
 
         private void SetPlayerCamera()

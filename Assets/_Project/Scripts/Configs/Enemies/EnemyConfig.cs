@@ -10,7 +10,7 @@ namespace Project.Configs.Enemies
     {
         [SerializeField, Min(1)] private int _maxHealth;
         [SerializeField] private bool _canDealDamage = false;
-        [SerializeField,ShowIf(nameof(_canDealDamage)) , Min(0)] private int _damage = 0;
+        [SerializeField, ShowIf(nameof(_canDealDamage)), Min(0)] private int _damage = 0;
         [SerializeField, ShowIf(nameof(_canDealDamage)), Min(0.1f)] private float _attackCooldown;
         [HorizontalLine(2f, EColor.Blue)]
         [SerializeField, Min(0.1f)] private float _speed;

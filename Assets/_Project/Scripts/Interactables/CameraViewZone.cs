@@ -12,12 +12,6 @@ namespace Project.Interactables
 
         private CameraSystem _cameraSystem;
 
-        [Inject]
-        public void Construct(CameraSystem transitionService)
-        {
-            _cameraSystem = transitionService;
-        }
-
         protected override void OnPlayerEntered(Player player)
         {
             base.OnPlayerEntered(player);
@@ -30,6 +24,12 @@ namespace Project.Interactables
             base.OnPlayerExited(player);
 
             _cameraSystem.GoToPlayer();
+        }
+
+        [Inject]
+        private void Construct(CameraSystem transitionService)
+        {
+            _cameraSystem = transitionService;
         }
     }
 }

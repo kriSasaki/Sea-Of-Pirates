@@ -14,13 +14,6 @@ namespace Project.Interactables
         private IAudioService _audioService;
         private GameConfig _gameConfig;
 
-        [Inject]
-        public void Construct(IAudioService audioService, GameConfig gameConfig)
-        {
-            _audioService = audioService;
-            _gameConfig = gameConfig;
-        }
-
         protected override void OnPlayerEntered(Player player)
         {
             base.OnPlayerEntered(player);
@@ -37,6 +30,13 @@ namespace Project.Interactables
             base.OnPlayerExited(player);
 
             _audioService.PlayMusic(_gameConfig.MainMusic);
+        }
+
+        [Inject]
+        private void Construct(IAudioService audioService, GameConfig gameConfig)
+        {
+            _audioService = audioService;
+            _gameConfig = gameConfig;
         }
     }
 }

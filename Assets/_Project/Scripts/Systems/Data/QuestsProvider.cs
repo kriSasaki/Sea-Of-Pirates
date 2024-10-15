@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Project.Interfaces.Data;
 using Project.Systems.Quests;
 
@@ -19,7 +19,6 @@ namespace Project.Systems.Data
 
         public Dictionary<string, QuestStatus> LoadQuests()
         {
-
             _quests = new Dictionary<string, QuestStatus>();
 
             foreach (QuestData questData in _questsData.Quests)

@@ -6,11 +6,9 @@ using Project.Spawner;
 
 namespace Project.Enemies
 {
-    public class EnemyDeathNotifier: IEnemyDeathNotifier, IDisposable
+    public class EnemyDeathNotifier : IEnemyDeathNotifier, IDisposable
     {
         private readonly List<BaseEnemySpawner> _enemySpawners;
-
-        public event Action<EnemyConfig> EnemyDied;
 
         public EnemyDeathNotifier(List<BaseEnemySpawner> enemySpawners)
         {
@@ -21,6 +19,8 @@ namespace Project.Enemies
                 enemySpawner.EnemyDied += OnEnemyDied;
             }
         }
+
+        public event Action<EnemyConfig> EnemyDied;
 
         public void Dispose()
         {

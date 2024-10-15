@@ -5,8 +5,11 @@
         bool IsAdsPlaying { get; }
 
         void ShowInterstitialAd();
+
         void ShowRewardAd(int rewardAmount);
+
         void ShowSticky();
+
         void HideSticky();
     }
 }

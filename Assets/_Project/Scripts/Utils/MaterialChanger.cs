@@ -24,7 +24,6 @@ public class MaterialChanger : MonoBehaviour
 
     private void ChangeMaterial(Transform transform)
     {
-        
         if (transform.TryGetComponent<MeshRenderer>(out var renderer))
         {
             renderer.material = _material;

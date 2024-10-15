@@ -43,14 +43,14 @@ namespace Project.Systems.Shop
 
         private List<InAppItem> CreateBundle(BundleItemConfig bundleConfig, Purchase itemData)
         {
-            List<InAppItem> _items = new List<InAppItem>();
+            List<InAppItem> items = new List<InAppItem>();
 
             foreach (InAppItemConfig config in bundleConfig.Items)
             {
-                _items.Add(Create(config, itemData));
+                items.Add(Create(config, itemData));
             }
 
-            return _items;
+            return items;
         }
     }
 }

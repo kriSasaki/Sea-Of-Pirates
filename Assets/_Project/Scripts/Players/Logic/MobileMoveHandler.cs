@@ -34,7 +34,8 @@ namespace Project.Players.Logic
                 return;
 
             Quaternion lookRotation = Quaternion.LookRotation(_inputDirection);
-            var rotation = Quaternion.RotateTowards(Rigidbody.rotation, lookRotation, RotationSpeed * Time.deltaTime);
+            float deltaSpeed = RotationSpeed * Time.deltaTime;
+            Quaternion rotation = Quaternion.RotateTowards(Rigidbody.rotation, lookRotation, deltaSpeed);
 
             Rigidbody.rotation = rotation;
         }
@@ -45,7 +46,7 @@ namespace Project.Players.Logic
                 return;
 
             Vector3 direction = _inputDirection.magnitude > 1f ? _inputDirection.normalized : _inputDirection;
-            Vector3 velocity = (direction * MovementSpeed);
+            Vector3 velocity = direction * MovementSpeed;
 
             Rigidbody.velocity = Vector3.MoveTowards(Rigidbody.velocity, velocity, MaxDistanceDelta);
             PlayerMove.SetForwardValue(ForwardValue);

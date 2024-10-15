@@ -30,7 +30,7 @@ namespace Project.UI.Bars
 
         private void OnCargoFilled()
         {
-           WarningLerpColor(_warningColor, _warningLoops,_loopDuration);
+           WarningLerpColor(_warningColor, _warningLoops, _loopDuration);
         }
 
         private void OnCargoChanged(int currentCargo)

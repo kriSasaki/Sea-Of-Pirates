@@ -9,7 +9,7 @@ namespace Project.SDK.Leaderboard
 
         public void SetPlayerScore(int score)
         {
-            Debug.Log("New score is " +  score);
+            Debug.Log("New score is " + score);
         }
     }
 }

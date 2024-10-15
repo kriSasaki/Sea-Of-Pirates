@@ -32,10 +32,7 @@ public class StatConfig : ScriptableObject
 
     public List<GameResourceAmount> GetUpgradePrice(int currentLevel)
     {
-        List<GameResourceAmount> price = new()
-        {
-            _primaryCost.GetCost(this, currentLevel)
-        };
+        List<GameResourceAmount> price = new() { _primaryCost.GetCost(this, currentLevel) };
 
         if (_secondaryCost.IsApplicable(currentLevel))
         {

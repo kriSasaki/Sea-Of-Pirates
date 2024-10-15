@@ -36,7 +36,6 @@ namespace Project.Enemies.Logic
         public void Enable()
             => _detectZone.enabled = true;
 
-
         public void Disable()
             => _detectZone.enabled = false;
 

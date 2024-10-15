@@ -19,7 +19,7 @@ namespace Project.Enemies.Logic.States.Idle
 
             DetectPlayerAsync(ExitToken).Forget();
 
-            if (_isHealState )
+            if (_isHealState)
                 HealAsync(ExitToken).Forget();
 
             Enemy.Damaged += OnEnemyDamaged;

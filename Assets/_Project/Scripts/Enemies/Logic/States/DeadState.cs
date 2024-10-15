@@ -14,16 +14,16 @@ namespace Project.Enemies.Logic.States
             Enemy.Detector.Disable();
         }
 
-        private void OnEnemyRespawned()
-        {
-            StateMachine.SetState<IdleState>();
-        }
-
         public override void Exit()
         {
             base.Exit();
 
             Enemy.Respawned -= OnEnemyRespawned;
+        }
+
+        private void OnEnemyRespawned()
+        {
+            StateMachine.SetState<IdleState>();
         }
     }
 }

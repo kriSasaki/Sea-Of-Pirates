@@ -42,7 +42,6 @@ namespace Project.Interactables
                 _window.Open(windowText, hasMap, SwitchLevel);
             else
                 _window.Open(windowText, hasMap, () => _window.Hide());
-
         }
 
         protected override void OnPlayerExited(Player player)
@@ -51,7 +50,6 @@ namespace Project.Interactables
 
             _window.Hide();
         }
-
 
         [Inject]
         private void Construct(

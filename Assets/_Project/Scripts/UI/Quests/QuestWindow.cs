@@ -20,7 +20,7 @@ namespace Project.UI.Quests
 
         public void Open(IQuest quest)
         {
-            base.Show();
+            Show();
 
             _confirmButton.onClick.AddListener(() => OnButtonClicked(quest));
 

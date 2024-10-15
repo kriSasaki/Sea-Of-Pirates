@@ -3,6 +3,7 @@
     public interface ILeaderboardService
     {
         bool IsPlayerAuthorized { get; }
+
         void SetPlayerScore(int score);
     }
 }

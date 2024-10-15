@@ -56,7 +56,7 @@ namespace Project.Systems.Audio
 
         private void UpdateButtonImage()
         {
-            _muteButtonImage.sprite = _isMuted ?  _muteIcon : _unmuteIcon;
+            _muteButtonImage.sprite = _isMuted ? _muteIcon : _unmuteIcon;
         }
     }
 }

@@ -17,7 +17,6 @@ namespace Project.General.View
         private float _waveFrequency = 1f;
         private float _waterlineOffset;
 
-
         private void Update()
         {
             Vector3 offset = _waterlineOffset * Mathf.Sin((Time.time + _timeOffset) * _waveFrequency) * Vector3.down;
@@ -39,7 +38,6 @@ namespace Project.General.View
             Gizmos.DrawLine(
                 transform.position.WithZeroY(),
                 transform.position.WithZeroY() + transform.forward * GizmoLineLenght);
-
 
             Gizmos.color = Color.red;
 

@@ -8,6 +8,6 @@
         CargoSize,
         Speed,
         AttackRange,
-        CannonsAmount
+        CannonsAmount,
     }
 }

@@ -67,7 +67,7 @@ namespace Project.UI.Upgrades
             _statDescription.text = _config.Description;
 
             int nextStatLevel = CurrentStatLevel + One;
-            
+
             SetStatValues(CurrentStatLevel, nextStatLevel);
             SetLevelProgress(CurrentStatLevel);
             CheckUpgradePrice();

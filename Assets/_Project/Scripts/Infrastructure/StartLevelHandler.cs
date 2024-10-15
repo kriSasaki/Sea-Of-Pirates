@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Project.Configs.Game;
 using Project.Interfaces.Audio;
@@ -7,7 +8,6 @@ using Project.Spawner;
 using Project.Systems.Cameras;
 using Project.Systems.Quests;
 using Project.UI;
-using System.Collections.Generic;
 using UnityEngine;
 using YG;
 using Zenject;
@@ -31,7 +31,7 @@ namespace Project.Infrastructure
         private IAudioService _audioService;
 
         [Inject]
-        public void Construct(
+        private void Construct(
             List<BaseEnemySpawner> enemySpawners,
             QuestEnemyHandler questEnemyHandler,
             Player player,

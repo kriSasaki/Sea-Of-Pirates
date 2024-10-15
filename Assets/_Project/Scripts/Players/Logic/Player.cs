@@ -45,21 +45,6 @@ namespace Project.Players.Logic
             _playerStats.StatsUpdated -= OnStatsUpdated;
         }
 
-        [Inject]
-        public void Construct(
-            IPlayerStats playerStats,
-            IPlayerHold playerHold,
-            IAudioService audioService)
-        {
-            _playerStats = playerStats;
-            _playerHold = playerHold;
-            _audioService = audioService;
-            _currentHealth = MaxHealth;
-            _rigidbody = GetComponent<Rigidbody>();
-
-            _playerStats.StatsUpdated += OnStatsUpdated;
-        }
-
         public void TakeDamage(int damage)
         {
             if (IsAlive == false)
@@ -102,6 +87,18 @@ namespace Project.Players.Logic
         public void SetPosition(Vector3 at)
         {
             _rigidbody.MovePosition(at);
+        }
+
+        [Inject]
+        private void Construct(IPlayerStats playerStats, IPlayerHold playerHold, IAudioService audioService)
+        {
+            _playerStats = playerStats;
+            _playerHold = playerHold;
+            _audioService = audioService;
+            _currentHealth = MaxHealth;
+            _rigidbody = GetComponent<Rigidbody>();
+
+            _playerStats.StatsUpdated += OnStatsUpdated;
         }
 
         private void OnStatsUpdated()

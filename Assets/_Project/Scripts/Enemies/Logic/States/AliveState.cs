@@ -1,5 +1,5 @@
-﻿using Project.Interfaces.Enemies;
-using System.Threading;
+﻿using System.Threading;
+using Project.Interfaces.Enemies;
 
 namespace Project.Enemies.Logic.States
 {

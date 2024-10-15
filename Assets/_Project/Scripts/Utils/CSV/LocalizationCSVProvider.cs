@@ -24,7 +24,7 @@ namespace Project.Utils.CSV
         [SerializeField] private LeanLanguageCSV _turkishCSV;
 
         [ExecuteInEditMode]
-        [Button("Update Localization",EButtonEnableMode.Editor)]
+        [Button("Update Localization", EButtonEnableMode.Editor)]
         public void UpdateCSV()
         {
             CSVLoader loader = new CSVLoader();

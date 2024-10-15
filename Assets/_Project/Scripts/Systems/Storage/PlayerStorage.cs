@@ -18,8 +18,6 @@ namespace Project.Systems.Storage
         private readonly Dictionary<GameResource, int> _storage;
         private readonly SoundID _earnResourceSound;
 
-        public event Action<GameResource, int> ResourceAmountChanged;
-
         public PlayerStorage(IResourceStorageProvider provider, IAudioService audioService, GameConfig config)
         {
             _resourceStorageProvider = provider;
@@ -27,6 +25,8 @@ namespace Project.Systems.Storage
             _storage = _resourceStorageProvider.LoadStorage();
             _earnResourceSound = config.EarnResourceSound;
         }
+
+        public event Action<GameResource, int> ResourceAmountChanged;
 
         public int GetResourceAmount(GameResource gameResource)
         {
@@ -49,7 +49,7 @@ namespace Project.Systems.Storage
         public void AddResource(List<GameResourceAmount> gameResourcesAmounts)
         {
             foreach (GameResourceAmount gameResourceAmount in gameResourcesAmounts)
-                AddToStorage(gameResourceAmount.Resource,gameResourceAmount.Amount);
+                AddToStorage(gameResourceAmount.Resource, gameResourceAmount.Amount);
 
             _audioService.PlaySound(_earnResourceSound);
             SaveResources();

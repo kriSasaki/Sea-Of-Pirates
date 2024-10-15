@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamageZone : InteractableZone
 {
     [SerializeField] private int _damage = 10;
+
     protected override void OnPlayerEntered(Player player)
     {
         base.OnPlayerEntered(player);

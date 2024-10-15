@@ -6,6 +6,6 @@
         Taken,
         InProgress,
         Done,
-        Completed
+        Completed,
     }
 }

@@ -47,7 +47,7 @@ namespace Project.Players.Logic
             _player.Died += OnPlayerDied;
         }
 
-        private void OnDestroy() 
+        private void OnDestroy()
             => _player.Died -= OnPlayerDied;
 
         private void OnPlayerDied()

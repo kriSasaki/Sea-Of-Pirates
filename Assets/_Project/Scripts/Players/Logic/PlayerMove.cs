@@ -3,7 +3,6 @@ using Project.Interfaces.Stats;
 using UnityEngine;
 using Zenject;
 
-
 namespace Project.Players.Logic
 {
     [RequireComponent(typeof(Animator))]
@@ -13,7 +12,7 @@ namespace Project.Players.Logic
         [SerializeField] private Animator _animator;
         [SerializeField, Range(30f, 120f)] private float _rotationSpeed;
         [SerializeField, Range(0.1f, 0.7f)] private float _moveAngleDot;
-        [SerializeField, Range(0.1f,1f)] private float _reverseMoveMultiplier;
+        [SerializeField, Range(0.1f, 1f)] private float _reverseMoveMultiplier;
 
         private readonly int _forwardValueHash = Animator.StringToHash("ForwardValue");
 
@@ -56,7 +55,7 @@ namespace Project.Players.Logic
             _moveHandler = moveHandler;
             _animator = GetComponent<Animator>();
 
-            _moveHandler.Initialize(_playerRigidbody,this);
+            _moveHandler.Initialize(_playerRigidbody, this);
         }
     }
 }

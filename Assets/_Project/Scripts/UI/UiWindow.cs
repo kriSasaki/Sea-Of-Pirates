@@ -45,16 +45,16 @@ namespace Project.UI
             Close();
         }
 
-        private void Close()
-        {
-            _windowCanvas.enabled = false;
-        }
-
         protected void Show()
         {
             _windowCanvas.enabled = true;
             _audioService.PlaySound(_openWindowSound);
             _scaleTween.RunFrom();
+        }
+
+        private void Close()
+        {
+            _windowCanvas.enabled = false;
         }
 
         [Inject]

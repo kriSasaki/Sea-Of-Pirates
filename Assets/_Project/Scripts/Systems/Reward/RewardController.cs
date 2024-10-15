@@ -40,7 +40,7 @@ namespace Project.Systems.Reward
         }
 
         [Inject]
-        public void Construct(
+        private void Construct(
             StatsSheet statSheet,
             IUpgradableStats stats,
             IPlayerStorage playerStorage,

@@ -98,7 +98,6 @@ namespace Project.Installers.SceneContext
             Container.Bind<UiCanvas>().FromComponentInHierarchy().AsSingle();
         }
 
-
         private void BindInteractables()
         {
             Container.Bind<QuestGiver>().FromComponentsInHierarchy().AsCached();
@@ -130,7 +129,7 @@ namespace Project.Installers.SceneContext
             else
             {
                 Container.Bind<MoveHandler>().To<DesktopMoveHandler>().FromNew().AsSingle();
-            };
+            }
         }
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Project.Spawner
 {
-    public class VFXPool<T> where T : Component
+    public class VFXPool<T>
+        where T : Component
     {
         private readonly T _prefab;
         private readonly List<T> _pool = new();

@@ -1,5 +1,4 @@
 ﻿using Project.Enemies.Logic.States.Idle;
-using Project.Players.Logic;
 using UnityEngine;
 
 namespace Project.Enemies.Logic.States.Battle

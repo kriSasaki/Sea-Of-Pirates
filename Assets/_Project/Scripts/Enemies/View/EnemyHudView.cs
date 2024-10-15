@@ -23,6 +23,7 @@ namespace Project.Enemies.View
         {
             _enemy.HealthChanged -= OnHealthChanged;
         }
+
         public void Initialize(Enemy enemy)
         {
             _enemy = enemy;

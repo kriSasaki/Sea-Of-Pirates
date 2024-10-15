@@ -49,6 +49,11 @@ namespace Project.Systems.Shop
             _billingService.LoadProductCatalog(LoadInAppItems);
         }
 
+        public void Dispose()
+        {
+            YandexGame.PurchaseSuccessEvent -= OnBuyInApp;
+        }
+
         private void OpenShop()
         {
             _shopWindow.Open();
@@ -135,9 +140,5 @@ namespace Project.Systems.Shop
             _shopWindow.CheckSlots();
         }
 
-        public void Dispose()
-        {
-            YandexGame.PurchaseSuccessEvent -= OnBuyInApp;
-        }
     }
 }

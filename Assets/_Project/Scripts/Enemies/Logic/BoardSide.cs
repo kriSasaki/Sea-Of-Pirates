@@ -3,6 +3,6 @@
     public enum BoardSide
     {
         Left,
-        Right
+        Right,
     }
 }

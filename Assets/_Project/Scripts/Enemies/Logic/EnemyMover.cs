@@ -13,8 +13,6 @@ namespace Project.Enemies.Logic
         private readonly Transform _transform;
         private readonly float _moveAngleDot;
 
-        private Vector3 Position => _transform.position;
-
         public EnemyMover(EnemyConfig config, Transform transform)
         {
             _speed = config.Speed;
@@ -22,6 +20,8 @@ namespace Project.Enemies.Logic
             _moveAngleDot = config.MoveAngleDot;
             _transform = transform;
         }
+
+        private Vector3 Position => _transform.position;
 
         public void Move(Vector3 target)
         {
