@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     public class SineMover : MonoBehaviour
     {

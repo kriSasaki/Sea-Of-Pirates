@@ -1,4 +1,4 @@
-﻿namespace Project.Interfaces.SDK
+﻿namespace Scripts.Interfaces.SDK
 {
     public interface ILeaderboardService
     {

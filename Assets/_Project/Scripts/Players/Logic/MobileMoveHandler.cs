@@ -1,7 +1,7 @@
-﻿using Project.Utils.Extensions;
+﻿using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     public class MobileMoveHandler : MoveHandler
     {

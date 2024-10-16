@@ -1,4 +1,4 @@
-﻿namespace Project.Enemies.Logic
+﻿namespace Scripts.Enemies.Logic
 {
     public enum BoardSide
     {

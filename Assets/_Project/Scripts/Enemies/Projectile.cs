@@ -2,10 +2,10 @@
 using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Project.Interfaces.Audio;
+using Scripts.Interfaces.Audio;
 using UnityEngine;
 
-namespace Project.Enemies
+namespace Scripts.Enemies
 {
     public class Projectile : MonoBehaviour
     {

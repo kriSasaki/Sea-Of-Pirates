@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project.Interfaces.Stats
+namespace Scripts.Interfaces.Stats
 {
     public interface IPlayerStats
     {

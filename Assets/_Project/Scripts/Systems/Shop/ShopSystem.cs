@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Configs.ShopItems;
-using Project.Interfaces.Data;
-using Project.SDK.InApp;
-using Project.Systems.Shop.Items;
-using Project.UI.Shop;
+using Scripts.Configs.ShopItems;
+using Scripts.Interfaces.Data;
+using Scripts.SDK.InApp;
+using Scripts.Systems.Shop.Items;
+using Scripts.UI.Shop;
 using YG;
 using YG.Utils.Pay;
 using Zenject;
 
-namespace Project.Systems.Shop
+namespace Scripts.Systems.Shop
 {
     public class ShopSystem : IInitializable, IDisposable
     {

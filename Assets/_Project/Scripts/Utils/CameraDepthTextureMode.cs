@@ -1,21 +1,24 @@
 using UnityEngine;
 
-public class CameraDepthTextureMode : MonoBehaviour
+namespace Scripts.Utils
 {
-    [SerializeField] private DepthTextureMode _depthTextureMode;
-
-    private void OnValidate()
+    public class CameraDepthTextureMode : MonoBehaviour
     {
-        SetCameraDepthTextureMode();
-    }
+        [SerializeField] private DepthTextureMode _depthTextureMode;
 
-    private void Awake()
-    {
-        SetCameraDepthTextureMode();
-    }
+        private void OnValidate()
+        {
+            SetCameraDepthTextureMode();
+        }
 
-    private void SetCameraDepthTextureMode()
-    {
-        GetComponent<Camera>().depthTextureMode = _depthTextureMode;
+        private void Awake()
+        {
+            SetCameraDepthTextureMode();
+        }
+
+        private void SetCameraDepthTextureMode()
+        {
+            GetComponent<Camera>().depthTextureMode = _depthTextureMode;
+        }
     }
 }

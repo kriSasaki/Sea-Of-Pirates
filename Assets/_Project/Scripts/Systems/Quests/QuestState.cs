@@ -1,4 +1,4 @@
-﻿namespace Project.Systems.Quests
+﻿namespace Scripts.Systems.Quests
 {
     public enum QuestState
     {

@@ -1,7 +1,7 @@
-﻿using Project.Configs.Quests;
-using Project.Systems.Quests;
+﻿using Scripts.Configs.Quests;
+using Scripts.Systems.Quests;
 
-namespace Project.Interfaces.Quests
+namespace Scripts.Interfaces.Quests
 {
     public interface IQuest
     {

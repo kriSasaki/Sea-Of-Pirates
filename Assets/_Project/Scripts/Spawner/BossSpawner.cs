@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
-using Project.Interfaces.Enemies;
+using Scripts.Interfaces.Enemies;
 
-namespace Project.Spawner
+namespace Scripts.Spawner
 {
     public class BossSpawner : BaseEnemySpawner
     {

@@ -1,12 +1,12 @@
-﻿using Project.Interfaces.Quests;
-using Project.Systems.Quests;
-using Project.UI.Bars;
-using Project.Utils.Extensions;
+﻿using Scripts.Interfaces.Quests;
+using Scripts.Systems.Quests;
+using Scripts.UI.Bars;
+using Scripts.Utils.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Quests
+namespace Scripts.UI.Quests
 {
     public class QuestWindow : UiWindow
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Spawner;
-using Project.Systems.Cameras;
+using Scripts.Spawner;
+using Scripts.Systems.Cameras;
 using UnityEngine;
 
-namespace Project.Systems.Quests
+namespace Scripts.Systems.Quests
 {
     public class QuestEnemyHandler : IDisposable
     {

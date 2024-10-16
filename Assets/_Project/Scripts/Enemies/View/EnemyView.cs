@@ -1,14 +1,14 @@
 ﻿using Ami.BroAudio;
 using NaughtyAttributes;
-using Project.Configs.Level;
-using Project.Enemies.Logic;
-using Project.General.View;
-using Project.Interfaces.Audio;
-using Project.Spawner;
-using Project.Utils.Tweens;
+using Scripts.Configs.Level;
+using Scripts.Enemies.Logic;
+using Scripts.General.View;
+using Scripts.Interfaces.Audio;
+using Scripts.Spawner;
+using Scripts.Utils.Tweens;
 using UnityEngine;
 
-namespace Project.Enemies.View
+namespace Scripts.Enemies.View
 {
     public class EnemyView : ShipView
     {

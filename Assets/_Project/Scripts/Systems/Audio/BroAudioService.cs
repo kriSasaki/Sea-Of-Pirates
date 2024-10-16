@@ -1,5 +1,5 @@
 using Ami.BroAudio;
-using Project.Interfaces.Audio;
+using Scripts.Interfaces.Audio;
 using UnityEngine;
 
 public class BroAudioService : IAudioService

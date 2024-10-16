@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     public abstract class MoveHandler
     {

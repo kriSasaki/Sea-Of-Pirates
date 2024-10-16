@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Configs.ShopItems;
+using Scripts.Configs.ShopItems;
 using YG.Utils.Pay;
 
-namespace Project.SDK.InApp
+namespace Scripts.SDK.InApp
 {
     public class MockBillingService : IBillingService
     {

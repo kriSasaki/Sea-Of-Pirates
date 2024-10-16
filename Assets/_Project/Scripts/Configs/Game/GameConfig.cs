@@ -2,7 +2,7 @@ using Ami.BroAudio;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Project.Configs.Game
+namespace Scripts.Configs.Game
 {
     [CreateAssetMenu(fileName = "GameConfig", menuName = "Configs/GameConfig")]
     public class GameConfig : ScriptableObject

@@ -1,9 +1,9 @@
-using Project.Interfaces.Audio;
+using Scripts.Interfaces.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Systems.Audio
+namespace Scripts.Systems.Audio
 {
     public class MuteController : MonoBehaviour
     {

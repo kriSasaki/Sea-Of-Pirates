@@ -1,9 +1,9 @@
-﻿using Project.Configs.Enemies;
-using Project.Interfaces.Audio;
-using Project.Players.Logic;
+﻿using Scripts.Configs.Enemies;
+using Scripts.Interfaces.Audio;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States
+namespace Scripts.Enemies.Logic.States
 {
     public abstract class BaseState : ScriptableObject
     {

@@ -1,9 +1,9 @@
 using DG.Tweening;
 using NaughtyAttributes;
-using Project.Players.Logic;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class InteractableZoneVisual : MonoBehaviour
     {

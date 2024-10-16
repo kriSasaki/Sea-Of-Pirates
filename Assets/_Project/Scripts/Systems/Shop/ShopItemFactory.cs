@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Configs.ShopItems;
-using Project.Interfaces.Data;
-using Project.SDK.Advertisment;
-using Project.Systems.Shop.Items;
+using Scripts.Configs.ShopItems;
+using Scripts.Interfaces.Data;
+using Scripts.SDK.Advertisment;
+using Scripts.Systems.Shop.Items;
 using YG.Utils.Pay;
 
-namespace Project.Systems.Shop
+namespace Scripts.Systems.Shop
 {
     public class ShopItemFactory
     {

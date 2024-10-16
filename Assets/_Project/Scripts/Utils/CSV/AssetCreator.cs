@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Project.Utils.CSV
+namespace Scripts.Utils.CSV
 {
     public static class AssetCreator
     {

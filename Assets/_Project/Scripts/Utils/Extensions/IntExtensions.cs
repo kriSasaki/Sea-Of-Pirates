@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Lean.Localization;
 
-namespace Project.Utils.Extensions
+namespace Scripts.Utils.Extensions
 {
     public static class IntExtensions
     {

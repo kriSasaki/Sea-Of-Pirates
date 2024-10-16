@@ -1,11 +1,11 @@
-using Project.Configs.Game;
-using Project.Interfaces.Audio;
-using Project.Players.Logic;
-using Project.Spawner;
+using Scripts.Configs.Game;
+using Scripts.Interfaces.Audio;
+using Scripts.Players.Logic;
+using Scripts.Spawner;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class BossZone : CameraViewZone
     {

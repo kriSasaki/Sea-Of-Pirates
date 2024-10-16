@@ -1,13 +1,13 @@
 ﻿using Ami.BroAudio;
-using Project.Configs.Level;
-using Project.General.View;
-using Project.Interfaces.Audio;
-using Project.Spawner;
-using Project.Utils.Tweens;
+using Scripts.Configs.Level;
+using Scripts.General.View;
+using Scripts.Interfaces.Audio;
+using Scripts.Spawner;
+using Scripts.Utils.Tweens;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.View
+namespace Scripts.Players.View
 {
     public class PlayerView : ShipView
     {

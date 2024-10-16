@@ -1,7 +1,7 @@
-﻿using Project.Utils.Extensions;
+﻿using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Idle
+namespace Scripts.Enemies.Logic.States.Idle
 {
     [CreateAssetMenu(fileName = "WanderingIdle", menuName = "Configs/Enemies/States/WanderingIdle")]
 

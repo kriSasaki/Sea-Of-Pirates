@@ -1,4 +1,4 @@
-﻿namespace Project.Interfaces.Data
+﻿namespace Scripts.Interfaces.Data
 {
     public interface ILevelSceneService
     {

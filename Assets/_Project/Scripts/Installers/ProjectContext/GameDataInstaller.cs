@@ -1,8 +1,8 @@
-using Project.Interfaces.Data;
-using Project.Systems.Data;
+using Scripts.Interfaces.Data;
+using Scripts.Systems.Data;
 using Zenject;
 
-namespace Project.Installers.ProjectContext
+namespace Scripts.Installers.ProjectContext
 {
     public class GameDataInstaller : MonoInstaller
     {

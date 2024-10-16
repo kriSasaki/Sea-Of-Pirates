@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Configs.Game
+namespace Scripts.Configs.Game
 {
     [CreateAssetMenu(fileName = "CameraFollowOffset", menuName = "Configs/CameraFollow")]
     public class CameraFollowOffset : ScriptableObject

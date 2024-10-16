@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Project.Utils.Extensions;
+using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.Utils.Tweens
+namespace Scripts.Utils.Tweens
 {
     [System.Serializable]
     public class SinkTween

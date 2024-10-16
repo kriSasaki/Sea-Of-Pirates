@@ -1,4 +1,4 @@
-﻿namespace Project.Systems.Data
+﻿namespace Scripts.Systems.Data
 {
     public class PlayerStat
     {

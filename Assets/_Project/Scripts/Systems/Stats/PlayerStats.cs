@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Interfaces.Data;
-using Project.Interfaces.Stats;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Stats;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     public class PlayerStats : IPlayerStats, IUpgradableStats
     {

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     public class NextLevelWindow : UiWindow
     {

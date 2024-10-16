@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Project.Configs.GameResources;
+using Scripts.Configs.GameResources;
 
-namespace Project.Interfaces.Data
+namespace Scripts.Interfaces.Data
 {
     public interface IResourceStorageProvider
     {

@@ -1,6 +1,6 @@
-﻿using Project.Interfaces.SDK;
+﻿using Scripts.Interfaces.SDK;
 
-namespace Project.SDK.Advertisment
+namespace Scripts.SDK.Advertisment
 {
     public abstract class AdvertismentService : IAdvertismentService
     {

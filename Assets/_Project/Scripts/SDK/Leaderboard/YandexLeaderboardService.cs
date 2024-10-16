@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Project.Interfaces.SDK;
+using Scripts.Interfaces.SDK;
 using YG;
 
-namespace Project.SDK.Leaderboard
+namespace Scripts.SDK.Leaderboard
 {
     public class YandexLeaderboardService : ILeaderboardService
     {

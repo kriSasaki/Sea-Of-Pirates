@@ -1,9 +1,9 @@
 using NaughtyAttributes;
-using Project.Enemies.View;
-using Project.Systems.Data;
+using Scripts.Enemies.View;
+using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Configs.Enemies
+namespace Scripts.Configs.Enemies
 {
     [CreateAssetMenu(fileName = "Enemy", menuName = "Configs/Enemies/Enemy")]
     public class EnemyConfig : ScriptableObject

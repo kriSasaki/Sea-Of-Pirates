@@ -1,8 +1,8 @@
-﻿using Project.Configs.ShopItems;
-using Project.SDK.Advertisment;
+﻿using Scripts.Configs.ShopItems;
+using Scripts.SDK.Advertisment;
 using YG.Utils.Pay;
 
-namespace Project.Systems.Shop.Items
+namespace Scripts.Systems.Shop.Items
 {
     public class AddRemovalItem : InAppItem
     {

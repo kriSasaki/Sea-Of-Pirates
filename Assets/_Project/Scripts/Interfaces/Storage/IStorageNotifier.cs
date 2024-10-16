@@ -1,7 +1,7 @@
 ﻿using System;
-using Project.Configs.GameResources;
+using Scripts.Configs.GameResources;
 
-namespace Project.Interfaces.Storage
+namespace Scripts.Interfaces.Storage
 {
     public interface IStorageNotifier
     {

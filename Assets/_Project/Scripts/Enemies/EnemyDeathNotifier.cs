@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Project.Configs.Enemies;
-using Project.Interfaces.Enemies;
-using Project.Spawner;
+using Scripts.Configs.Enemies;
+using Scripts.Interfaces.Enemies;
+using Scripts.Spawner;
 
-namespace Project.Enemies
+namespace Scripts.Enemies
 {
     public class EnemyDeathNotifier : IEnemyDeathNotifier, IDisposable
     {

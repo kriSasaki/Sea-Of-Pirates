@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Enemies
+namespace Scripts.Enemies
 {
     public struct ProjectileSettings
     {

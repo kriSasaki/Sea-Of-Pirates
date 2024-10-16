@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Project.Configs.GameResources;
-using Project.Systems.Data;
+using Scripts.Configs.GameResources;
+using Scripts.Systems.Data;
 
-namespace Project.Interfaces.Data
+namespace Scripts.Interfaces.Data
 {
     public interface IPlayerStorage
     {

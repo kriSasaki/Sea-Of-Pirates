@@ -1,10 +1,10 @@
 using Febucci.UI;
 using Lean.Localization;
-using Project.Players.Logic;
+using Scripts.Players.Logic;
 using TMPro;
 using UnityEngine;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class TipZone : InteractableZone
     {

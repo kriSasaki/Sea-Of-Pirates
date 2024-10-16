@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Upgrades
+namespace Scripts.UI.Upgrades
 {
     public class UpgradeCostView : MonoBehaviour
     {

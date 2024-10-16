@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     public class UiCanvas : MonoBehaviour
     {

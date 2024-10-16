@@ -1,9 +1,9 @@
-﻿using Project.Players.Logic;
-using Project.Systems.Upgrades;
+﻿using Scripts.Players.Logic;
+using Scripts.Systems.Upgrades;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     [RequireComponent(typeof(SphereCollider))]
     public class UpgradePlace : InteractableZone

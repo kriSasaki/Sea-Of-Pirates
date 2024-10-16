@@ -1,6 +1,6 @@
 ﻿using Ami.BroAudio;
 
-namespace Project.Interfaces.Audio
+namespace Scripts.Interfaces.Audio
 {
     public interface IAudioService
     {

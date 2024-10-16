@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Interfaces.Enemies;
-using Project.Interfaces.Stats;
-using Project.Players.View;
+using Scripts.Interfaces.Enemies;
+using Scripts.Interfaces.Stats;
+using Scripts.Players.View;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerAttack : MonoBehaviour

@@ -1,7 +1,7 @@
 using DTT.AreaOfEffectRegions;
 using UnityEngine;
 
-namespace Project.Players.View
+namespace Scripts.Players.View
 {
     public class ShipAttackCones : ArcRegionBase
     {

@@ -1,9 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
-using Project.Utils.Extensions;
-using Project.Utils.Tweens;
+using Scripts.Utils.Extensions;
+using Scripts.Utils.Tweens;
 using UnityEngine;
 
-namespace Project.General.View
+namespace Scripts.General.View
 {
     public abstract class ShipView : MonoBehaviour
     {

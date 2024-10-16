@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Interfaces.Data;
+using Scripts.Interfaces.Data;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     public class PlayerStatsProvider : IPlayerStatsProvider
     {

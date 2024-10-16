@@ -1,7 +1,7 @@
-﻿using Project.Interfaces.SDK;
+﻿using Scripts.Interfaces.SDK;
 using UnityEngine;
 
-namespace Project.SDK.Leaderboard
+namespace Scripts.SDK.Leaderboard
 {
     public class MockLeaderboardService : ILeaderboardService
     {

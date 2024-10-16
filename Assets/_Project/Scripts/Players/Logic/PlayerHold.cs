@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Interfaces.Data;
-using Project.Interfaces.Hold;
-using Project.Interfaces.Stats;
-using Project.Systems.Data;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Hold;
+using Scripts.Interfaces.Stats;
+using Scripts.Systems.Data;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     public class PlayerHold : IPlayerHold, IInitializable
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     [RequireComponent(typeof(Camera))]
     public class LayerDistanceCuller : MonoBehaviour

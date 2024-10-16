@@ -1,9 +1,9 @@
-﻿using Project.Configs.GameResources;
-using Project.Systems.Data;
-using Project.Utils;
+﻿using Scripts.Configs.GameResources;
+using Scripts.Systems.Data;
+using Scripts.Utils;
 using UnityEngine;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     [System.Serializable]
     public class UpgradeCost

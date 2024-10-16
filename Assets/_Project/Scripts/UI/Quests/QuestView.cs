@@ -1,7 +1,7 @@
-﻿using Project.Interfaces.Quests;
+﻿using Scripts.Interfaces.Quests;
 using UnityEngine;
 
-namespace Project.UI.Quests
+namespace Scripts.UI.Quests
 {
     public class QuestView
     {

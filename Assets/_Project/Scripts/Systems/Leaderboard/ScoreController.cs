@@ -1,12 +1,12 @@
 using System.Collections;
-using Project.Interfaces.Data;
-using Project.Interfaces.Enemies;
-using Project.Interfaces.SDK;
-using Project.Players.Logic;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Enemies;
+using Scripts.Interfaces.SDK;
+using Scripts.Players.Logic;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Systems.Leaderboard
+namespace Scripts.Systems.Leaderboard
 {
     public class ScoreController : MonoBehaviour
     {

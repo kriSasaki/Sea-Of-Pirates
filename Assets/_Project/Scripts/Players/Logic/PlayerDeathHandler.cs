@@ -1,15 +1,15 @@
 using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
-using Project.Interactables;
-using Project.Interfaces.Audio;
-using Project.Interfaces.SDK;
-using Project.Players.View;
-using Project.SDK.Advertisment;
-using Project.UI;
+using Scripts.Interactables;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.SDK;
+using Scripts.Players.View;
+using Scripts.SDK.Advertisment;
+using Scripts.UI;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     public class PlayerDeathHandler : MonoBehaviour
     {

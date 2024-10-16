@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ami.BroAudio;
-using Project.Configs.Game;
-using Project.Configs.GameResources;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Data;
-using Project.Interfaces.Storage;
-using Project.Systems.Data;
+using Scripts.Configs.Game;
+using Scripts.Configs.GameResources;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Storage;
+using Scripts.Systems.Data;
 
-namespace Project.Systems.Storage
+namespace Scripts.Systems.Storage
 {
     public class PlayerStorage : IPlayerStorage, IStorageNotifier
     {

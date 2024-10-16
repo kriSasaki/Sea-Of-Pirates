@@ -1,14 +1,14 @@
 ﻿using System;
-using Project.Configs.Quests;
-using Project.Interactables;
-using Project.Interfaces.Data;
-using Project.Interfaces.Enemies;
-using Project.Players.Logic;
-using Project.UI.Quests;
+using Scripts.Configs.Quests;
+using Scripts.Interactables;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Enemies;
+using Scripts.Players.Logic;
+using Scripts.UI.Quests;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Systems.Quests
+namespace Scripts.Systems.Quests
 {
     public class QuestGiver : InteractableZone
     {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Project.Interfaces.Data;
-using Project.Systems.Quests;
+using Scripts.Interfaces.Data;
+using Scripts.Systems.Quests;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     public class QuestsProvider : IQuestsProvider
     {

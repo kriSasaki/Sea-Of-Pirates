@@ -1,9 +1,9 @@
-using Project.Interactables;
-using Project.Players.Logic;
+using Scripts.Interactables;
+using Scripts.Players.Logic;
 using UnityEngine;
 using Zenject;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     public class PirateBayPointer : MonoBehaviour
     {

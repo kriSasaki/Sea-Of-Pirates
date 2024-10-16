@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Bars
+namespace Scripts.UI.Bars
 {
     public class FillableBar : MonoBehaviour
     {

@@ -1,32 +1,32 @@
 using Cinemachine;
-using Project.Configs.Level;
-using Project.Enemies;
-using Project.Enemies.Logic;
-using Project.Interactables;
-using Project.Players.Logic;
-using Project.Players.View;
-using Project.SDK.Advertisment;
-using Project.Spawner;
-using Project.Systems.Cameras;
-using Project.Systems.Data;
-using Project.Systems.Leaderboard;
-using Project.Systems.Quests;
-using Project.Systems.Shop;
-using Project.Systems.Storage;
-using Project.Systems.Upgrades;
-using Project.UI;
-using Project.UI.Leaderboard;
-using Project.UI.Quests;
-using Project.UI.Reward;
-using Project.UI.Shop;
-using Project.UI.Upgrades;
-using Project.Utils;
+using Scripts.Configs.Level;
+using Scripts.Enemies;
+using Scripts.Enemies.Logic;
+using Scripts.Interactables;
+using Scripts.Players.Logic;
+using Scripts.Players.View;
+using Scripts.SDK.Advertisment;
+using Scripts.Spawner;
+using Scripts.Systems.Cameras;
+using Scripts.Systems.Data;
+using Scripts.Systems.Leaderboard;
+using Scripts.Systems.Quests;
+using Scripts.Systems.Shop;
+using Scripts.Systems.Storage;
+using Scripts.Systems.Upgrades;
+using Scripts.UI;
+using Scripts.UI.Leaderboard;
+using Scripts.UI.Quests;
+using Scripts.UI.Reward;
+using Scripts.UI.Shop;
+using Scripts.UI.Upgrades;
+using Scripts.Utils;
 using SimpleInputNamespace;
 using UnityEngine;
 using YG;
 using Zenject;
 
-namespace Project.Installers.SceneContext
+namespace Scripts.Installers.SceneContext
 {
     public class SceneInstaller : MonoInstaller
     {

@@ -1,6 +1,6 @@
-﻿using Project.Systems.Data;
+﻿using Scripts.Systems.Data;
 
-namespace Project.Interfaces.Stats
+namespace Scripts.Interfaces.Stats
 {
     public interface IUpgradableStats
     {

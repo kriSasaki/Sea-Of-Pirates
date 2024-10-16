@@ -2,10 +2,10 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Project.Enemies.Logic.States.Battle;
+using Scripts.Enemies.Logic.States.Battle;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Idle
+namespace Scripts.Enemies.Logic.States.Idle
 {
     public abstract class IdleState : AliveState
     {

@@ -1,13 +1,13 @@
 using System;
 using Ami.BroAudio;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Hold;
-using Project.Interfaces.Stats;
-using Project.Players.View;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Hold;
+using Scripts.Interfaces.Stats;
+using Scripts.Players.View;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Player : MonoBehaviour

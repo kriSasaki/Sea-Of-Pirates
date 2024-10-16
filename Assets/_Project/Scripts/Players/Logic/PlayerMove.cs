@@ -1,9 +1,9 @@
 using System;
-using Project.Interfaces.Stats;
+using Scripts.Interfaces.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     [RequireComponent(typeof(Animator))]
     public class PlayerMove : MonoBehaviour

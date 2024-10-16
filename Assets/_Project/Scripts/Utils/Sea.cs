@@ -1,8 +1,8 @@
-using Project.Configs.Level;
+using Scripts.Configs.Level;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     public class Sea : MonoBehaviour
     {

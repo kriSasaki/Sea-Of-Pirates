@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Project.Interfaces.SDK;
+using Scripts.Interfaces.SDK;
 using YG;
 
-namespace Project.SDK
+namespace Scripts.SDK
 {
     public class MetricaService : IMetricaService
     {

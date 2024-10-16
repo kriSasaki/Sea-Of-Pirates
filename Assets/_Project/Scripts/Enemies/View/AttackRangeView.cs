@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Project.Enemies.View
+namespace Scripts.Enemies.View
 {
     public class AttackRangeView : MonoBehaviour
     {

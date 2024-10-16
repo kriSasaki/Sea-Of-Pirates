@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Project.Systems.Quests;
+using Scripts.Systems.Quests;
 
-namespace Project.Interfaces.Data
+namespace Scripts.Interfaces.Data
 {
     public interface IQuestsProvider
     {

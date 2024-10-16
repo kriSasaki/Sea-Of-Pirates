@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Project.Interfaces.Enemies
+namespace Scripts.Interfaces.Enemies
 {
     public interface IPoolableEnemy : IEnemy
     {

@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using Ami.BroAudio;
 using DG.Tweening;
-using Project.Interfaces.Audio;
-using Project.Spawner;
-using Project.Utils.Tweens;
+using Scripts.Interfaces.Audio;
+using Scripts.Spawner;
+using Scripts.Utils.Tweens;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.View
+namespace Scripts.Players.View
 {
     public class PlayerAttackView : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-﻿using Project.Enemies.Logic.States.Idle;
+﻿using Scripts.Enemies.Logic.States.Idle;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Battle
+namespace Scripts.Enemies.Logic.States.Battle
 {
     [CreateAssetMenu(fileName = "ChasingBattle", menuName = "Configs/Enemies/States/ChasingBattle")]
     public class ChasingBattle : BattleState

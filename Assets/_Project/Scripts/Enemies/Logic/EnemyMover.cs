@@ -1,7 +1,7 @@
-﻿using Project.Configs.Enemies;
+﻿using Scripts.Configs.Enemies;
 using UnityEngine;
 
-namespace Project.Enemies.Logic
+namespace Scripts.Enemies.Logic
 {
     public class EnemyMover
     {

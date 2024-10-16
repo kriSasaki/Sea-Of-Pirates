@@ -1,5 +1,5 @@
-using Project.Interactables;
-using Project.Players.Logic;
+using Scripts.Interactables;
+using Scripts.Players.Logic;
 using UnityEngine;
 
 public class DamageZone : InteractableZone

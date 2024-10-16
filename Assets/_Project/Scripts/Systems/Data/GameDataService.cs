@@ -2,11 +2,11 @@
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using DTT.Utils.Extensions;
-using Project.Configs.Game;
-using Project.Interfaces.Data;
+using Scripts.Configs.Game;
+using Scripts.Interfaces.Data;
 using YG;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     public class GameDataService : IResourceStorageData,
         IPlayerStatsData,

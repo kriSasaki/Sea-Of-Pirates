@@ -1,7 +1,7 @@
-﻿using Project.Enemies.Logic.States.Idle;
+﻿using Scripts.Enemies.Logic.States.Idle;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States
+namespace Scripts.Enemies.Logic.States
 {
     [CreateAssetMenu(fileName = "Dead", menuName = "Configs/Enemies/States/Dead")]
     public class DeadState : BaseState

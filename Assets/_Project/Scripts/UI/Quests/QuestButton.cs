@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Project.UI.Quests
+namespace Scripts.UI.Quests
 {
     public class QuestButton : UiButton
     {

@@ -1,11 +1,11 @@
 using System.Collections;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Project.Interfaces.Enemies;
+using Scripts.Interfaces.Enemies;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Spawner
+namespace Scripts.Spawner
 {
     public class EnemySpawner : BaseEnemySpawner
     {

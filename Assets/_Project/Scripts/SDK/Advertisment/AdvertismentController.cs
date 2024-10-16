@@ -1,7 +1,7 @@
-﻿using Project.Interfaces.Data;
-using Project.Interfaces.SDK;
+﻿using Scripts.Interfaces.Data;
+using Scripts.Interfaces.SDK;
 
-namespace Project.SDK.Advertisment
+namespace Scripts.SDK.Advertisment
 {
     public class AdvertismentController
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using YG.Utils.Pay;
 
-namespace Project.SDK.InApp
+namespace Scripts.SDK.InApp
 {
     public interface IBillingService
     {

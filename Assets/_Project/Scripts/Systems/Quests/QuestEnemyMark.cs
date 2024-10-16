@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Systems.Quests
+namespace Scripts.Systems.Quests
 {
     public class QuestEnemyMark : MonoBehaviour
     {

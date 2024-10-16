@@ -4,10 +4,10 @@ using System.Threading;
 using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Project.Utils.Extensions;
+using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Battle
+namespace Scripts.Enemies.Logic.States.Battle
 {
     [CreateAssetMenu(fileName = "BossBattle", menuName = "Configs/Enemies/States/BossBattle")]
 

@@ -1,8 +1,8 @@
-﻿using Project.Interfaces.SDK;
-using Project.UI.Leaderboard;
+﻿using Scripts.Interfaces.SDK;
+using Scripts.UI.Leaderboard;
 using Zenject;
 
-namespace Project.Systems.Leaderboard
+namespace Scripts.Systems.Leaderboard
 {
     public class LeaderboardSystem : IInitializable
     {

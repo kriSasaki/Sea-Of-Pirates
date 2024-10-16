@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Project.Utils.CSV
+namespace Scripts.Utils.CSV
 {
     public class CSVLoader
     {

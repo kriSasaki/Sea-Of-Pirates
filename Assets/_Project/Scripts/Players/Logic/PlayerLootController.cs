@@ -1,8 +1,8 @@
 ﻿using System;
-using Project.Interfaces.Enemies;
-using Project.Interfaces.Hold;
+using Scripts.Interfaces.Enemies;
+using Scripts.Interfaces.Hold;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     public class PlayerLootController : IDisposable
     {

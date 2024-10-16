@@ -1,6 +1,6 @@
-﻿using Project.Systems.Data;
+﻿using Scripts.Systems.Data;
 
-namespace Project.Interfaces.Data
+namespace Scripts.Interfaces.Data
 {
     public interface ILevelDataService
     {

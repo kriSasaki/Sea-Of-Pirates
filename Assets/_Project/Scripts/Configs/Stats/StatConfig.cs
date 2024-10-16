@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Lean.Localization;
 using NaughtyAttributes;
-using Project.Systems.Data;
-using Project.Utils;
+using Scripts.Systems.Data;
+using Scripts.Utils;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatConfig", menuName = "Configs/Stats/StatConfig")]

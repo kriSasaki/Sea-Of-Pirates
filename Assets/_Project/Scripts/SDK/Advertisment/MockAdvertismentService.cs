@@ -1,7 +1,7 @@
-﻿using Project.Interfaces.SDK;
+﻿using Scripts.Interfaces.SDK;
 using UnityEngine;
 
-namespace Project.SDK.Advertisment
+namespace Scripts.SDK.Advertisment
 {
     public class MockAdvertismentService : AdvertismentService, IAdvertismentService
     {

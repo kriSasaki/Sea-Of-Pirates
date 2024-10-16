@@ -1,7 +1,7 @@
-﻿using Project.Utils;
+﻿using Scripts.Utils;
 using Zenject;
 
-namespace Project.UI.Upgrades
+namespace Scripts.UI.Upgrades
 {
     public class UpgradeButton : UiButton
     {

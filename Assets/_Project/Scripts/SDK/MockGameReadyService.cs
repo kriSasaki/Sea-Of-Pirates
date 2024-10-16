@@ -1,7 +1,7 @@
-﻿using Project.Interfaces.SDK;
+﻿using Scripts.Interfaces.SDK;
 using UnityEngine;
 
-namespace Project.SDK
+namespace Scripts.SDK
 {
     public class MockGameReadyService : IGameReadyService
     {

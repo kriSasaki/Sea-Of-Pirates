@@ -1,13 +1,13 @@
 using Lean.Localization;
-using Project.Interfaces.SDK;
-using Project.SDK;
-using Project.SDK.Advertisment;
-using Project.SDK.InApp;
-using Project.SDK.Leaderboard;
+using Scripts.Interfaces.SDK;
+using Scripts.SDK;
+using Scripts.SDK.Advertisment;
+using Scripts.SDK.InApp;
+using Scripts.SDK.Leaderboard;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Installers.ProjectContext
+namespace Scripts.Installers.ProjectContext
 {
     public class ServiceInstaller : MonoInstaller
     {

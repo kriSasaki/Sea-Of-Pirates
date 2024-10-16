@@ -1,7 +1,7 @@
-﻿using Project.Utils.Extensions;
+﻿using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.General.View
+namespace Scripts.General.View
 {
     public class ShipSwinger : MonoBehaviour
     {

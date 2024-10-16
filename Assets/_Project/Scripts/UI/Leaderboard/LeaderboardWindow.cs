@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Leaderboard
+namespace Scripts.UI.Leaderboard
 {
     public class LeaderboardWindow : UiWindow
     {

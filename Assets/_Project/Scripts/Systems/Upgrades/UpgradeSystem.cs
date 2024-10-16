@@ -1,6 +1,6 @@
-﻿using Project.UI.Upgrades;
+﻿using Scripts.UI.Upgrades;
 
-namespace Project.Systems.Upgrades
+namespace Scripts.Systems.Upgrades
 {
     public class UpgradeSystem
     {

@@ -1,8 +1,8 @@
-﻿using Project.Configs.ShopItems;
+﻿using Scripts.Configs.ShopItems;
 using UnityEngine;
 using YG.Utils.Pay;
 
-namespace Project.Systems.Shop.Items
+namespace Scripts.Systems.Shop.Items
 {
     public abstract class InAppItem : ShopItem
     {

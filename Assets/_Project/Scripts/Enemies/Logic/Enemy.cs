@@ -1,17 +1,17 @@
 using System;
 using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
-using Project.Configs.Enemies;
-using Project.Configs.Level;
-using Project.Enemies.View;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Enemies;
-using Project.Players.Logic;
-using Project.Spawner;
-using Project.Systems.Data;
+using Scripts.Configs.Enemies;
+using Scripts.Configs.Level;
+using Scripts.Enemies.View;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Enemies;
+using Scripts.Players.Logic;
+using Scripts.Spawner;
+using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Enemies.Logic
+namespace Scripts.Enemies.Logic
 {
     [RequireComponent(typeof(EnemyStateMachine), typeof(BoxCollider))]
     public class Enemy : MonoBehaviour, IPoolableEnemy

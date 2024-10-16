@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Configs.Enemies;
-using Project.Enemies.Logic.States;
-using Project.Enemies.Logic.States.Battle;
-using Project.Enemies.Logic.States.Idle;
-using Project.Interfaces.Audio;
-using Project.Players.Logic;
+using Scripts.Configs.Enemies;
+using Scripts.Enemies.Logic.States;
+using Scripts.Enemies.Logic.States.Battle;
+using Scripts.Enemies.Logic.States.Idle;
+using Scripts.Interfaces.Audio;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Enemies.Logic
+namespace Scripts.Enemies.Logic
 {
     [RequireComponent(typeof(Enemy))]
     public class EnemyStateMachine : MonoBehaviour

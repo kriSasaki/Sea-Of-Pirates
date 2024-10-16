@@ -1,7 +1,7 @@
 using System;
-using Project.Systems.Data;
+using Scripts.Systems.Data;
 
-namespace Project.Interfaces.Hold
+namespace Scripts.Interfaces.Hold
 {
     public interface IPlayerHold
     {

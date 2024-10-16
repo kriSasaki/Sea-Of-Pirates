@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Threading;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
-using Project.Configs.Game;
-using Project.Players.Logic;
-using Project.UI;
+using Scripts.Configs.Game;
+using Scripts.Players.Logic;
+using Scripts.UI;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Systems.Cameras
+namespace Scripts.Systems.Cameras
 {
     public class CameraSystem : MonoBehaviour
     {

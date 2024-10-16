@@ -1,11 +1,11 @@
-﻿using Project.Configs.Game;
-using Project.Configs.GameResources;
-using Project.Configs.ShopItems;
-using Project.Configs.UI;
+﻿using Scripts.Configs.Game;
+using Scripts.Configs.GameResources;
+using Scripts.Configs.ShopItems;
+using Scripts.Configs.UI;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Installers.ProjectContext
+namespace Scripts.Installers.ProjectContext
 {
     public class GameSettingsInstaller : MonoInstaller
     {

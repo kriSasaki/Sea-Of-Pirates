@@ -1,7 +1,7 @@
-﻿using Project.Systems.Data;
+﻿using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Configs.ShopItems
+namespace Scripts.Configs.ShopItems
 {
     public abstract class GameItemConfig : ShopItemConfig
     {

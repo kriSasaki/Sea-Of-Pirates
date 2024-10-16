@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project.Configs.ShopItems
+namespace Scripts.Configs.ShopItems
 {
     [CreateAssetMenu(fileName = "BundleItem", menuName = "Configs/Shop/InApp/BundleItem")]
     public class BundleItemConfig : InAppItemConfig

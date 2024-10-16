@@ -1,8 +1,8 @@
 ﻿using System;
-using Project.Players.Logic;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     [RequireComponent(typeof(SphereCollider))]
     public abstract class InteractableZone : MonoBehaviour

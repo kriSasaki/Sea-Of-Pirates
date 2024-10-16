@@ -1,17 +1,17 @@
 using Lean.Localization;
-using Project.Configs.Game;
-using Project.Configs.GameResources;
-using Project.Configs.Level;
-using Project.Interfaces.Data;
-using Project.Interfaces.SDK;
-using Project.Players.Logic;
-using Project.UI;
+using Scripts.Configs.Game;
+using Scripts.Configs.GameResources;
+using Scripts.Configs.Level;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.SDK;
+using Scripts.Players.Logic;
+using Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
 using Zenject;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class NextLevelZone : InteractableZone
     {

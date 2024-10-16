@@ -1,7 +1,7 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
 
-namespace Project.Configs.Level
+namespace Scripts.Configs.Level
 {
     [CreateAssetMenu(fileName = "LevelConfig", menuName = "Configs/LevelConfig")]
     public class LevelConfig : ScriptableObject
