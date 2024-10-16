@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Upgrades
+namespace Scripts.UI.Upgrades
 {
     public class UpgradeCostView : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace Project.UI.Upgrades
             gameObject.SetActive(true);
             _resourceIcon.sprite = resourceSprite;
             _amount.text = amount;
-            _amount.color = canSpend? _avaliableColor : _unavaliableColor;
+            _amount.color = canSpend ? _avaliableColor : _unavaliableColor;
         }
 
         public void Hide()

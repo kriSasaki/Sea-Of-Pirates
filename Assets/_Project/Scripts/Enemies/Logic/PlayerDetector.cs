@@ -1,8 +1,8 @@
 ﻿using System;
-using Project.Players.Logic;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Enemies.Logic
+namespace Scripts.Enemies.Logic
 {
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerDetector : MonoBehaviour
@@ -35,7 +35,6 @@ namespace Project.Enemies.Logic
 
         public void Enable()
             => _detectZone.enabled = true;
-
 
         public void Disable()
             => _detectZone.enabled = false;

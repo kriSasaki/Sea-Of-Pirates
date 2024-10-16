@@ -1,8 +1,8 @@
 ﻿using Zenject;
 
-namespace Project.UI.Quests
+namespace Scripts.UI.Quests
 {
-    public class QuestButton: UiButton
+    public class QuestButton : UiButton
     {
         [Inject]
         private void Construct()

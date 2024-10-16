@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Battle
+namespace Scripts.Enemies.Logic.States.Battle
 {
     [CreateAssetMenu(fileName = "NeutralBattle", menuName = "Configs/Enemies/States/NeutralBattle")]
 
-    public class NeutralBattle: BattleState
+    public class NeutralBattle : BattleState
     {
         [SerializeField] private AttackBattle _attackState;
 

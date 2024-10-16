@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Project.Enemies.View
+namespace Scripts.Enemies.View
 {
     public class AttackRangeView : MonoBehaviour
     {
@@ -11,9 +11,9 @@ namespace Project.Enemies.View
         [SerializeField] private Ease _showEase = Ease.InOutBack;
 
         private float _attackRange;
-        private bool IsZeroAttackRange => _attackRange == 0f;
-
         private Vector3 _attackRangeScale;
+
+        private bool IsZeroAttackRange => _attackRange == 0f;
 
         public void Initialize(float attackRange)
         {

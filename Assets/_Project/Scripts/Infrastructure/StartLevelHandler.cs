@@ -1,18 +1,18 @@
-using Cysharp.Threading.Tasks;
-using Project.Configs.Game;
-using Project.Interfaces.Audio;
-using Project.Interfaces.SDK;
-using Project.Players.Logic;
-using Project.Spawner;
-using Project.Systems.Cameras;
-using Project.Systems.Quests;
-using Project.UI;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using Scripts.Configs.Game;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.SDK;
+using Scripts.Players.Logic;
+using Scripts.Spawner;
+using Scripts.Systems.Cameras;
+using Scripts.Systems.Quests;
+using Scripts.UI;
 using UnityEngine;
 using YG;
 using Zenject;
 
-namespace Project.Infrastructure
+namespace Scripts.Infrastructure
 {
     public class StartLevelHandler : MonoBehaviour
     {
@@ -31,7 +31,7 @@ namespace Project.Infrastructure
         private IAudioService _audioService;
 
         [Inject]
-        public void Construct(
+        private void Construct(
             List<BaseEnemySpawner> enemySpawners,
             QuestEnemyHandler questEnemyHandler,
             Player player,

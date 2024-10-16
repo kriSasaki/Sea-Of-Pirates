@@ -1,7 +1,7 @@
-﻿using Project.Utils.Extensions;
+﻿using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.General.View
+namespace Scripts.General.View
 {
     public class ShipSwinger : MonoBehaviour
     {
@@ -16,7 +16,6 @@ namespace Project.General.View
         private float _timeOffset = 0f;
         private float _waveFrequency = 1f;
         private float _waterlineOffset;
-
 
         private void Update()
         {
@@ -39,7 +38,6 @@ namespace Project.General.View
             Gizmos.DrawLine(
                 transform.position.WithZeroY(),
                 transform.position.WithZeroY() + transform.forward * GizmoLineLenght);
-
 
             Gizmos.color = Color.red;
 

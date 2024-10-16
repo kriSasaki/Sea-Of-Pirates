@@ -1,12 +1,12 @@
-using Project.Enemies.Logic;
-using Project.Systems.Data;
-using Project.UI.Bars;
-using Project.Utils.Extensions;
+using Scripts.Enemies.Logic;
+using Scripts.Systems.Data;
+using Scripts.UI.Bars;
+using Scripts.Utils.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Enemies.View
+namespace Scripts.Enemies.View
 {
     public class EnemyHudView : MonoBehaviour
     {
@@ -23,6 +23,7 @@ namespace Project.Enemies.View
         {
             _enemy.HealthChanged -= OnHealthChanged;
         }
+
         public void Initialize(Enemy enemy)
         {
             _enemy = enemy;

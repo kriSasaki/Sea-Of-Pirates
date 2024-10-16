@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Project.Configs.GameResources;
-using Project.Interfaces.Data;
+using Scripts.Configs.GameResources;
+using Scripts.Interfaces.Data;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     public class ResourceStorageProvider : IResourceStorageProvider
     {

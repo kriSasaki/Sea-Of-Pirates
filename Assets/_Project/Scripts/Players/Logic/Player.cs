@@ -1,13 +1,13 @@
 using System;
 using Ami.BroAudio;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Hold;
-using Project.Interfaces.Stats;
-using Project.Players.View;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Hold;
+using Scripts.Interfaces.Stats;
+using Scripts.Players.View;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Player : MonoBehaviour
@@ -43,21 +43,6 @@ namespace Project.Players.Logic
         private void OnDestroy()
         {
             _playerStats.StatsUpdated -= OnStatsUpdated;
-        }
-
-        [Inject]
-        public void Construct(
-            IPlayerStats playerStats,
-            IPlayerHold playerHold,
-            IAudioService audioService)
-        {
-            _playerStats = playerStats;
-            _playerHold = playerHold;
-            _audioService = audioService;
-            _currentHealth = MaxHealth;
-            _rigidbody = GetComponent<Rigidbody>();
-
-            _playerStats.StatsUpdated += OnStatsUpdated;
         }
 
         public void TakeDamage(int damage)
@@ -102,6 +87,18 @@ namespace Project.Players.Logic
         public void SetPosition(Vector3 at)
         {
             _rigidbody.MovePosition(at);
+        }
+
+        [Inject]
+        private void Construct(IPlayerStats playerStats, IPlayerHold playerHold, IAudioService audioService)
+        {
+            _playerStats = playerStats;
+            _playerHold = playerHold;
+            _audioService = audioService;
+            _currentHealth = MaxHealth;
+            _rigidbody = GetComponent<Rigidbody>();
+
+            _playerStats.StatsUpdated += OnStatsUpdated;
         }
 
         private void OnStatsUpdated()

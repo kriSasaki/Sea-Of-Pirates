@@ -1,11 +1,11 @@
-using Project.Configs.Enemies;
-using Project.Configs.Level;
-using Project.Enemies.Logic;
-using Project.Interfaces.Audio;
-using Project.Players.Logic;
+using Scripts.Configs.Enemies;
+using Scripts.Configs.Level;
+using Scripts.Enemies.Logic;
+using Scripts.Interfaces.Audio;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Spawner
+namespace Scripts.Spawner
 {
     public class EnemyFactory
     {

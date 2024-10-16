@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf33b687a09a2a4886add56b719d893, type: 3}
   m_Name: Level_Tutorial
   m_EditorClassIdentifier: 
-  nextLevelScene: Level_01
+  _nextLevelScene: Level_01
   <IsLastLevel>k__BackingField: 0
   <LevelMaterial>k__BackingField: {fileID: 2100000, guid: c7759b2363016bf4095e3b686857f4b7, type: 2}
   <WaterMaterial>k__BackingField: {fileID: 2100000, guid: 7f40e8ab732544343ac8b893f60aa504, type: 2}

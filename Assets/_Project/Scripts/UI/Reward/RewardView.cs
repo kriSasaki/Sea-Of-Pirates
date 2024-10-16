@@ -2,16 +2,16 @@
 using System.Collections;
 using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
-using Project.Configs.UI;
-using Project.Interfaces.Audio;
-using Project.Utils.Extensions;
-using Project.Utils.Tweens;
+using Scripts.Configs.UI;
+using Scripts.Interfaces.Audio;
+using Scripts.Utils.Extensions;
+using Scripts.Utils.Tweens;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.UI.Reward
+namespace Scripts.UI.Reward
 {
     [RequireComponent(typeof(RectTransform))]
     public class RewardView : MonoBehaviour
@@ -35,7 +35,6 @@ namespace Project.UI.Reward
 
         public void Show(Sprite rewardSprite, int rewardAmount, float offerDuration, Action rewardCallback)
         {
-
             _rewardIcon.sprite = rewardSprite;
             _rewardAmount.text = rewardAmount.ToNumericalString();
 

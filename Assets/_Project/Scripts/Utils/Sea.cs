@@ -1,8 +1,8 @@
-using Project.Configs.Level;
+using Scripts.Configs.Level;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     public class Sea : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace Project.Utils
         private Material _material;
         private float _offsetValue;
 
-       private void Update()
+        private void Update()
         {
             _offsetValue = Mathf.Repeat(_offsetValue + Time.deltaTime * _timeMultiplier, MaxOffsetValue);
             Vector2 distortionOffset = new Vector2(_offsetValue, -_offsetValue);

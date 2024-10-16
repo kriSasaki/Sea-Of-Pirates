@@ -1,9 +1,9 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using System.Threading;
 using UnityEngine;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     public class UiCanvas : MonoBehaviour
     {

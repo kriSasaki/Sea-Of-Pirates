@@ -1,14 +1,14 @@
 ﻿using System;
-using Project.Configs.Quests;
-using Project.Interactables;
-using Project.Interfaces.Data;
-using Project.Interfaces.Enemies;
-using Project.Players.Logic;
-using Project.UI.Quests;
+using Scripts.Configs.Quests;
+using Scripts.Interactables;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Enemies;
+using Scripts.Players.Logic;
+using Scripts.UI.Quests;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Systems.Quests
+namespace Scripts.Systems.Quests
 {
     public class QuestGiver : InteractableZone
     {
@@ -29,17 +29,6 @@ namespace Project.Systems.Quests
         {
             _quest.StatusChanged -= OnQuestStatusChanged;
             _quest.Unsubscribe();
-        }
-
-        [Inject]
-        public void Construct(
-            IEnemyDeathNotifier enemyDeathNotifier,
-            IPlayerStorage playerStorage,
-            QuestView questView)
-        {
-            _enemyDeathNotifier = enemyDeathNotifier;
-            _playerStorage = playerStorage;
-            _questView = questView;
         }
 
         public void Initialize(QuestStatus status)
@@ -65,6 +54,17 @@ namespace Project.Systems.Quests
         {
             base.OnPlayerExited(player);
             _questView.Hide();
+        }
+
+        [Inject]
+        private void Construct(
+            IEnemyDeathNotifier enemyDeathNotifier,
+            IPlayerStorage playerStorage,
+            QuestView questView)
+        {
+            _enemyDeathNotifier = enemyDeathNotifier;
+            _playerStorage = playerStorage;
+            _questView = questView;
         }
 
         private void OnQuestStatusChanged(Quest quest)

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using Project.Configs.GameResources;
-using Project.Interfaces.Data;
-using Project.Interfaces.SDK;
-using Project.Interfaces.Stats;
-using Project.Systems.Data;
-using Project.UI.Reward;
+using Scripts.Configs.GameResources;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.SDK;
+using Scripts.Interfaces.Stats;
+using Scripts.Systems.Data;
+using Scripts.UI.Reward;
 using UnityEngine;
 using YG;
 using Zenject;
 
-namespace Project.Systems.Reward
+namespace Scripts.Systems.Reward
 {
     public class RewardController : MonoBehaviour
     {
@@ -40,7 +40,7 @@ namespace Project.Systems.Reward
         }
 
         [Inject]
-        public void Construct(
+        private void Construct(
             StatsSheet statSheet,
             IUpgradableStats stats,
             IPlayerStorage playerStorage,

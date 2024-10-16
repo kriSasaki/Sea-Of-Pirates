@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Configs.ShopItems;
-using Project.Interfaces.Data;
-using Project.SDK.Advertisment;
-using Project.Systems.Shop.Items;
+using Scripts.Configs.ShopItems;
+using Scripts.Interfaces.Data;
+using Scripts.SDK.Advertisment;
+using Scripts.Systems.Shop.Items;
 using YG.Utils.Pay;
 
-namespace Project.Systems.Shop
+namespace Scripts.Systems.Shop
 {
     public class ShopItemFactory
     {
@@ -43,14 +43,14 @@ namespace Project.Systems.Shop
 
         private List<InAppItem> CreateBundle(BundleItemConfig bundleConfig, Purchase itemData)
         {
-            List<InAppItem> _items = new List<InAppItem>();
+            List<InAppItem> items = new List<InAppItem>();
 
             foreach (InAppItemConfig config in bundleConfig.Items)
             {
-                _items.Add(Create(config, itemData));
+                items.Add(Create(config, itemData));
             }
 
-            return _items;
+            return items;
         }
     }
 }

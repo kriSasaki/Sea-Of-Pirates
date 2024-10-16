@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Battle
+namespace Scripts.Enemies.Logic.States.Battle
 {
     [CreateAssetMenu(fileName = "PassiveBattle", menuName = "Configs/Enemies/States/PassiveBattle")]
 

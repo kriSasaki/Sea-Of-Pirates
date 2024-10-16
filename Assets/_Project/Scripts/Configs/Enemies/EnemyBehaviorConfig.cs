@@ -1,9 +1,9 @@
-﻿using Project.Enemies.Logic.States;
-using Project.Enemies.Logic.States.Battle;
-using Project.Enemies.Logic.States.Idle;
+﻿using Scripts.Enemies.Logic.States;
+using Scripts.Enemies.Logic.States.Battle;
+using Scripts.Enemies.Logic.States.Idle;
 using UnityEngine;
 
-namespace Project.Configs.Enemies
+namespace Scripts.Configs.Enemies
 {
     [CreateAssetMenu(fileName = "EnemyBehavior", menuName = "Configs/Enemies/Behaviour")]
     public class EnemyBehaviorConfig : ScriptableObject

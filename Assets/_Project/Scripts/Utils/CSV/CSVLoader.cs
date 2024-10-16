@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Project.Utils.CSV
+namespace Scripts.Utils.CSV
 {
     public class CSVLoader
     {
@@ -14,13 +14,15 @@ namespace Project.Utils.CSV
             string actualURL = UrlPattern.Replace("*", sheetID);
             DownloadCSVTable(actualURL, onSheetLoadedAction).Forget();
         }
+
         private async UniTaskVoid DownloadCSVTable(string actualUrl, Action<string> callback)
         {
             using (UnityWebRequest request = UnityWebRequest.Get(actualUrl))
             {
                 await request.SendWebRequest();
-                if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError ||
-                    request.result == UnityWebRequest.Result.DataProcessingError)
+                if (request.result == UnityWebRequest.Result.ConnectionError
+                    || request.result == UnityWebRequest.Result.ProtocolError
+                    || request.result == UnityWebRequest.Result.DataProcessingError)
                 {
                     Debug.Log(request.error);
                 }

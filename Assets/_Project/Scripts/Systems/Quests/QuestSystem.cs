@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Ami.BroAudio;
-using Project.Configs.Game;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Data;
-using Project.Interfaces.SDK;
+using Scripts.Configs.Game;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.SDK;
 using Zenject;
 
-namespace Project.Systems.Quests
+namespace Scripts.Systems.Quests
 {
     public class QuestSystem : IDisposable, IInitializable
     {

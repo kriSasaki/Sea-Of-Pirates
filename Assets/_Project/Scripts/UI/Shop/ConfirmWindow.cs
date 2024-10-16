@@ -1,10 +1,9 @@
-﻿using Project.Systems.Shop.Items;
-using Project.UI;
-using System;
+﻿using System;
+using Scripts.Systems.Shop.Items;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Shop
+namespace Scripts.UI.Shop
 {
     public class ConfirmWindow : UiWindow
     {

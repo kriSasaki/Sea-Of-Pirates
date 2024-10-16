@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Idle
+namespace Scripts.Enemies.Logic.States.Idle
 {
     [CreateAssetMenu(fileName = "PassiveIdle", menuName = "Configs/Enemies/States/PassiveIdle")]
     public class PassiveIdle : IdleState

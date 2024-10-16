@@ -1,10 +1,10 @@
-﻿using Project.Configs.UI;
-using Project.Systems.Shop.Items;
-using System;
+﻿using System;
+using Scripts.Configs.UI;
+using Scripts.Systems.Shop.Items;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Shop
+namespace Scripts.UI.Shop
 {
     public class ShopItemSlot : MonoBehaviour
     {
@@ -35,7 +35,7 @@ namespace Project.UI.Shop
 
         public void CheckAvaliability()
         {
-            if(_item.IsAvaliable == false)
+            if (_item.IsAvaliable == false)
             {
                 _selectButton.interactable = false;
             }

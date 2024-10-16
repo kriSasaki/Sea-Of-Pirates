@@ -1,7 +1,7 @@
-using Project.Configs.GameResources;
-using Project.Interfaces.Storage;
-using Project.Utils.Extensions;
-using Project.Utils.Tweens;
+using Scripts.Configs.GameResources;
+using Scripts.Interfaces.Storage;
+using Scripts.Utils.Extensions;
+using Scripts.Utils.Tweens;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

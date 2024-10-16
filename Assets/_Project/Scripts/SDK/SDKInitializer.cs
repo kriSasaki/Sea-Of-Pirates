@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
 
-namespace Project.SDK
+namespace Scripts.SDK
 {
     public class SDKInitializer : MonoBehaviour
     {

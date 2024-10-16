@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Configs.Enemies;
-using Project.Interfaces.Enemies;
-using Project.Systems.Quests;
-using Project.Utils.Extensions;
+using Scripts.Configs.Enemies;
+using Scripts.Interfaces.Enemies;
+using Scripts.Systems.Quests;
+using Scripts.Utils.Extensions;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Project.Spawner
+namespace Scripts.Spawner
 {
     public abstract class BaseEnemySpawner : MonoBehaviour
     {

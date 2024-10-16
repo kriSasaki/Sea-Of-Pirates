@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Bars
+namespace Scripts.UI.Bars
 {
     public class FillableBar : MonoBehaviour
     {
@@ -57,7 +57,7 @@ namespace Project.UI.Bars
 
             _filler.DOColor(_originColor, loopDuration)
                 .SetLoops(loops)
-                .OnComplete(()=> _filler.color = _originColor);
+                .OnComplete(() => _filler.color = _originColor);
         }
 
         protected virtual void OnFill()

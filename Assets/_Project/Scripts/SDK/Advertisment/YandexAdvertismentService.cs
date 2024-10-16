@@ -1,7 +1,7 @@
-using Project.Interfaces.SDK;
+using Scripts.Interfaces.SDK;
 using YG;
 
-namespace Project.SDK.Advertisment
+namespace Scripts.SDK.Advertisment
 {
     public class YandexAdvertismentService : AdvertismentService, IAdvertismentService
     {

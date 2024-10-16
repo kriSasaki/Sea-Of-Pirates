@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
-namespace Project.UI.Bars
+namespace Scripts.UI.Bars
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class FadeableBar : FillableBar

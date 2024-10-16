@@ -1,12 +1,12 @@
 using System;
 using Cysharp.Threading.Tasks;
-using Project.Interfaces.Data;
+using Scripts.Interfaces.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Infrastructure
+namespace Scripts.Infrastructure
 {
     public class SceneLoader : MonoBehaviour, IProgress<float>
     {

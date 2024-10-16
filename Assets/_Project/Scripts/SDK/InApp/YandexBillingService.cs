@@ -2,7 +2,7 @@
 using YG;
 using YG.Utils.Pay;
 
-namespace Project.SDK.InApp
+namespace Scripts.SDK.InApp
 {
     public class YandexBillingService : IBillingService
     {

@@ -1,7 +1,7 @@
-using Project.Systems.Data;
+using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Configs.ShopItems
+namespace Scripts.Configs.ShopItems
 {
     [CreateAssetMenu(fileName = "GameResourceItem", menuName = "Configs/Shop/GameResourceItem")]
 

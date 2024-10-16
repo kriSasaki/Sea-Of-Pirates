@@ -1,7 +1,7 @@
-﻿using Project.Interfaces.Enemies;
-using System.Threading;
+﻿using System.Threading;
+using Scripts.Interfaces.Enemies;
 
-namespace Project.Enemies.Logic.States
+namespace Scripts.Enemies.Logic.States
 {
     public abstract class AliveState : BaseState
     {

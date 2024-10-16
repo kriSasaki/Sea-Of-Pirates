@@ -1,21 +1,24 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Canvas))]
-public class CameraLook : MonoBehaviour
+namespace Scripts.Utils
 {
-    private Canvas _canvas;
-    private Camera _camera;
-
-    private void Awake()
+    [RequireComponent(typeof(Canvas))]
+    public class CameraLook : MonoBehaviour
     {
-        _canvas = GetComponent<Canvas>();
-        _camera = Camera.main;
-        _canvas.worldCamera = _camera;
-    }
+        private Canvas _canvas;
+        private Camera _camera;
 
-    private void LateUpdate()
-    {
-        Quaternion rotation = _camera.transform.rotation;
-        transform.rotation = rotation;
+        private void Awake()
+        {
+            _canvas = GetComponent<Canvas>();
+            _camera = Camera.main;
+            _canvas.worldCamera = _camera;
+        }
+
+        private void LateUpdate()
+        {
+            Quaternion rotation = _camera.transform.rotation;
+            transform.rotation = rotation;
+        }
     }
 }

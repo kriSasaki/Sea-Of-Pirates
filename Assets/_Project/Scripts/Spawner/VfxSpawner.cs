@@ -1,9 +1,10 @@
-﻿using Project.Enemies;
-using Project.Interfaces.Audio;
+﻿using Scripts.Enemies;
+using Scripts.Interfaces.Audio;
+using Scripts.Utils;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Spawner
+namespace Scripts.Spawner
 {
     public class VfxSpawner : MonoBehaviour
     {

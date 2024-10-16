@@ -1,9 +1,9 @@
 using Lean.Localization;
-using Project.Configs.Enemies;
-using Project.Systems.Data;
+using Scripts.Configs.Enemies;
+using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Configs.Quests
+namespace Scripts.Configs.Quests
 {
     [CreateAssetMenu(fileName = "Quest", menuName = "Configs/Quest")]
     public class QuestConfig : ScriptableObject

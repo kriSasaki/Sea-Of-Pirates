@@ -1,6 +1,6 @@
 ﻿using YG;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     public static class MobileDetector
     {

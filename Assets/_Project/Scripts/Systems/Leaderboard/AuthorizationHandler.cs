@@ -2,20 +2,20 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DTT.Utils.Extensions;
-using Project.Configs.Game;
-using Project.Interfaces.Data;
-using Project.UI.Leaderboard;
+using Scripts.Configs.Game;
+using Scripts.Interfaces.Data;
+using Scripts.UI.Leaderboard;
 using UnityEngine.SceneManagement;
 using YG;
 using Zenject;
 
-namespace Project.Systems.Leaderboard
+namespace Scripts.Systems.Leaderboard
 {
     public class AuthorizationHandler : IInitializable, IDisposable
     {
         private readonly LeaderboardWindow _leaderboardWindow;
         private readonly GameConfig _gameConfig;
-        private readonly  ILevelSceneService _levelSceneService;
+        private readonly ILevelSceneService _levelSceneService;
 
         public AuthorizationHandler(
             LeaderboardWindow leaderboardWindow,

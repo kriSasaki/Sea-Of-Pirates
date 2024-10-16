@@ -1,22 +1,16 @@
-﻿using Project.Configs.Game;
-using Project.Players.Logic;
-using Project.Systems.Cameras;
+﻿using Scripts.Configs.Game;
+using Scripts.Players.Logic;
+using Scripts.Systems.Cameras;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class CameraViewZone : InteractableZone
     {
         [SerializeField] private CameraFollowOffset _followOffset;
 
         private CameraSystem _cameraSystem;
-
-        [Inject]
-        public void Construct(CameraSystem transitionService)
-        {
-            _cameraSystem = transitionService;
-        }
 
         protected override void OnPlayerEntered(Player player)
         {
@@ -30,6 +24,12 @@ namespace Project.Interactables
             base.OnPlayerExited(player);
 
             _cameraSystem.GoToPlayer();
+        }
+
+        [Inject]
+        private void Construct(CameraSystem transitionService)
+        {
+            _cameraSystem = transitionService;
         }
     }
 }

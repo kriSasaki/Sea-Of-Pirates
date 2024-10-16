@@ -1,14 +1,14 @@
 ﻿using System.Globalization;
 using Lean.Localization;
 
-namespace Project.Utils.Extensions
+namespace Scripts.Utils.Extensions
 {
     public static class IntExtensions
     {
         private const float Thousand = 1000;
         private const float Million = 1000000;
-        private const string ThousandToken = "Misc/thousandToken";
-        private const string MillionToken = "Misc/millionToken";
+        private const string KToken = "Misc/thousandToken";
+        private const string MToken = "Misc/millionToken";
 
         public static string ToNumericalString(this int value)
         {
@@ -16,10 +16,11 @@ namespace Project.Utils.Extensions
                 return value.ToString();
 
             if (value < Million)
-                return (value / Thousand).ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(ThousandToken);
-
+                return (value / Thousand)
+                    .ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(KToken);
             else
-                return (value / Million).ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(MillionToken);
+                return (value / Million)
+                    .ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(MToken);
         }
     }
 }

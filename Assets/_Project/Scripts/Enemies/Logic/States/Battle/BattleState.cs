@@ -1,9 +1,8 @@
-﻿using Project.Enemies.Logic.States.Idle;
-using Project.Enemies.View;
-using Project.Players.Logic;
+﻿using Scripts.Enemies.Logic.States.Idle;
+using Scripts.Enemies.View;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Battle
+namespace Scripts.Enemies.Logic.States.Battle
 {
     public abstract class BattleState : AliveState
     {

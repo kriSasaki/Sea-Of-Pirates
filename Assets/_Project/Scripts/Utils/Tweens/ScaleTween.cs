@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Project.Utils.Tweens
+namespace Scripts.Utils.Tweens
 {
     [System.Serializable]
     public class ScaleTween

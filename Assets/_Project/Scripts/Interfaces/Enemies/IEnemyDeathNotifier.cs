@@ -1,7 +1,7 @@
 using System;
-using Project.Configs.Enemies;
+using Scripts.Configs.Enemies;
 
-namespace Project.Interfaces.Enemies
+namespace Scripts.Interfaces.Enemies
 {
     public interface IEnemyDeathNotifier
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     [System.Serializable]
     public class LevelData
@@ -12,6 +12,7 @@ namespace Project.Systems.Data
         {
             _levelName = levelName;
         }
+
         public string LevelName => _levelName;
         public bool IsReachedPirateBay => _isReachedPirateBay;
 

@@ -1,13 +1,13 @@
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     public class SineMover : MonoBehaviour
     {
-        [SerializeField] float _duration;
-        [SerializeField] float _height;
-        [SerializeField] Ease _ease;
+        [SerializeField] private float _duration;
+        [SerializeField] private float _height;
+        [SerializeField] private Ease _ease;
 
         private void Start()
         {

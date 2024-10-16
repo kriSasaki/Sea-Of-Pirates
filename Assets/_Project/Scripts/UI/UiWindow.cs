@@ -1,12 +1,12 @@
 ﻿using Ami.BroAudio;
-using Project.Configs.UI;
-using Project.Interfaces.Audio;
-using Project.Utils.Tweens;
+using Scripts.Configs.UI;
+using Scripts.Interfaces.Audio;
+using Scripts.Utils.Tweens;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     [RequireComponent(typeof(Canvas))]
     public class UiWindow : MonoBehaviour
@@ -45,16 +45,16 @@ namespace Project.UI
             Close();
         }
 
-        private void Close()
-        {
-            _windowCanvas.enabled = false;
-        }
-
         protected void Show()
         {
             _windowCanvas.enabled = true;
             _audioService.PlaySound(_openWindowSound);
             _scaleTween.RunFrom();
+        }
+
+        private void Close()
+        {
+            _windowCanvas.enabled = false;
         }
 
         [Inject]

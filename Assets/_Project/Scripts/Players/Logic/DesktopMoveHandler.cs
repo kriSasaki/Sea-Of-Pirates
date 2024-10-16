@@ -1,11 +1,13 @@
 ﻿using System;
-using Project.Utils.Extensions;
+using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     public class DesktopMoveHandler : MoveHandler
     {
+        private const float InputTrashhold = 0.01f;
+        private const float Zero = 0f;
         private Vector3 _input;
 
         public DesktopMoveHandler(IInputService inputService)
@@ -22,7 +24,7 @@ namespace Project.Players.Logic
 
         public override void Rotate()
         {
-            if (Math.Abs(_input.x) < 0.01f)
+            if (Math.Abs(_input.x) < InputTrashhold)
                 return;
 
             float rotationY = _input.x * RotationSpeed;
@@ -33,7 +35,7 @@ namespace Project.Players.Logic
 
         public override void Move()
         {
-            float speed = _input.y >= 0f ? MovementSpeed : MovementSpeed * PlayerMove.ReverseMoveMultiplier;
+            float speed = _input.y >= Zero ? MovementSpeed : MovementSpeed * PlayerMove.ReverseMoveMultiplier;
             Vector3 velocity = _input.y * speed * Transform.forward;
 
             Rigidbody.velocity = Vector3.MoveTowards(Rigidbody.velocity, velocity, MaxDistanceDelta);

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project.Configs.ShopItems
+namespace Scripts.Configs.ShopItems
 {
     [CreateAssetMenu(fileName = "ShopItemsConfigs", menuName = "Configs/Shop/ItemsConfigs")]
 

@@ -1,14 +1,14 @@
 using System;
-using Project.Players.Logic;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class PirateBay : InteractableZone
     {
-        [field: SerializeField] public Transform PlayerRessurectPoint { get; private set; }
-
         public event Action ReachedByPlayer;
+
+        [field: SerializeField] public Transform PlayerRessurectPoint { get; private set; }
 
         protected override void OnPlayerEntered(Player player)
         {

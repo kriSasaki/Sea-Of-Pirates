@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using Lean.Localization;
-using Project.Interfaces.Data;
-using Project.Interfaces.Stats;
-using Project.Systems.Data;
-using Project.Utils.Extensions;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Stats;
+using Scripts.Systems.Data;
+using Scripts.Utils.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Upgrades
+namespace Scripts.UI.Upgrades
 {
     public class StatUpgradeBar : MonoBehaviour
     {
@@ -67,7 +67,7 @@ namespace Project.UI.Upgrades
             _statDescription.text = _config.Description;
 
             int nextStatLevel = CurrentStatLevel + One;
-            
+
             SetStatValues(CurrentStatLevel, nextStatLevel);
             SetLevelProgress(CurrentStatLevel);
             CheckUpgradePrice();

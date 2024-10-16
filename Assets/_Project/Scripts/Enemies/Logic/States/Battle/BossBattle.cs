@@ -4,11 +4,10 @@ using System.Threading;
 using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using Project.Players.Logic;
-using Project.Utils.Extensions;
+using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Battle
+namespace Scripts.Enemies.Logic.States.Battle
 {
     [CreateAssetMenu(fileName = "BossBattle", menuName = "Configs/Enemies/States/BossBattle")]
 
@@ -17,16 +16,16 @@ namespace Project.Enemies.Logic.States.Battle
         private const float LaunchDelay = 0.05f;
 
         [SerializeField] private float _attackAngle = 50;
-        [SerializeField] float _attackPhaseDuration = 10f;
-        [SerializeField] float _phaseSwitchDuration = 2f;
+        [SerializeField] private float _attackPhaseDuration = 10f;
+        [SerializeField] private float _phaseSwitchDuration = 2f;
         [HorizontalLine(3f, EColor.Blue)]
-        [SerializeField] float _volleyPhaseDuration = 10f;
-        [SerializeField] float _volleyRange = 15f;
-        [SerializeField] float _volleyInterval = 2f;
+        [SerializeField] private float _volleyPhaseDuration = 10f;
+        [SerializeField] private float _volleyRange = 15f;
+        [SerializeField] private float _volleyInterval = 2f;
         [HorizontalLine(3f, EColor.Blue)]
-        [SerializeField] float _projectileRadius = 4f;
-        [SerializeField] float _projectileExplodeDelay = 4f;
-        [SerializeField] int _projectilesAmount = 10;
+        [SerializeField] private float _projectileRadius = 4f;
+        [SerializeField] private float _projectileExplodeDelay = 4f;
+        [SerializeField] private int _projectilesAmount = 10;
         [SerializeField] private SoundID _shootSound;
 
         private float HalfAttackAngle => _attackAngle / 2f;

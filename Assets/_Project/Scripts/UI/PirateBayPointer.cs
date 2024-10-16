@@ -1,9 +1,9 @@
-using Project.Interactables;
-using Project.Players.Logic;
+using Scripts.Interactables;
+using Scripts.Players.Logic;
 using UnityEngine;
 using Zenject;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     public class PirateBayPointer : MonoBehaviour
     {
@@ -25,7 +25,7 @@ namespace Project.UI
             Quaternion.Euler(0f, 0f, -90f),
             Quaternion.Euler(0f, 0f, 180f),
             Quaternion.Euler(0f, 0f, 0f),
-            Quaternion.identity
+            Quaternion.identity,
         };
 
         private void Awake()
@@ -98,7 +98,6 @@ namespace Project.UI
 
         private bool IsVisibleFrom(Camera camera, Transform transform)
         {
-
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
             Vector3 pirateBaySize = Vector3.one;
 

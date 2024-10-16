@@ -1,9 +1,8 @@
-﻿using Project.Configs.ShopItems;
-using System.Collections.Generic;
-using YG;
+﻿using System.Collections.Generic;
+using Scripts.Configs.ShopItems;
 using YG.Utils.Pay;
 
-namespace Project.Systems.Shop.Items
+namespace Scripts.Systems.Shop.Items
 {
     public class BundleItem : InAppItem
     {

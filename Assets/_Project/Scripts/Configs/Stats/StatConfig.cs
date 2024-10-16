@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Lean.Localization;
 using NaughtyAttributes;
-using Project.Systems.Data;
-using Project.Utils;
+using Scripts.Systems.Data;
+using Scripts.Utils;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatConfig", menuName = "Configs/Stats/StatConfig")]
@@ -32,10 +32,7 @@ public class StatConfig : ScriptableObject
 
     public List<GameResourceAmount> GetUpgradePrice(int currentLevel)
     {
-        List<GameResourceAmount> price = new()
-        {
-            _primaryCost.GetCost(this, currentLevel)
-        };
+        List<GameResourceAmount> price = new() { _primaryCost.GetCost(this, currentLevel) };
 
         if (_secondaryCost.IsApplicable(currentLevel))
         {

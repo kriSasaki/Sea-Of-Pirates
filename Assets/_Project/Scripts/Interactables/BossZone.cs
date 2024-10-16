@@ -1,11 +1,11 @@
-using Project.Configs.Game;
-using Project.Interfaces.Audio;
-using Project.Players.Logic;
-using Project.Spawner;
+using Scripts.Configs.Game;
+using Scripts.Interfaces.Audio;
+using Scripts.Players.Logic;
+using Scripts.Spawner;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class BossZone : CameraViewZone
     {
@@ -13,13 +13,6 @@ namespace Project.Interactables
 
         private IAudioService _audioService;
         private GameConfig _gameConfig;
-
-        [Inject]
-        public void Construct(IAudioService audioService, GameConfig gameConfig)
-        {
-            _audioService = audioService;
-            _gameConfig = gameConfig;
-        }
 
         protected override void OnPlayerEntered(Player player)
         {
@@ -37,6 +30,13 @@ namespace Project.Interactables
             base.OnPlayerExited(player);
 
             _audioService.PlayMusic(_gameConfig.MainMusic);
+        }
+
+        [Inject]
+        private void Construct(IAudioService audioService, GameConfig gameConfig)
+        {
+            _audioService = audioService;
+            _gameConfig = gameConfig;
         }
     }
 }

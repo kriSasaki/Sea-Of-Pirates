@@ -1,11 +1,13 @@
-﻿using Project.Systems.Data;
+﻿using Scripts.Systems.Data;
 
-namespace Project.Interfaces.Stats
+namespace Scripts.Interfaces.Stats
 {
     public interface IUpgradableStats
     {
         int GetStatLevel(StatType type);
+
         int GetStatValue(StatType type);
+
         void UpgradeStat(StatType type);
     }
 }

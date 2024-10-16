@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-namespace Project.Utils.Extensions
+namespace Scripts.Utils.Extensions
 {
-    public static class VectorExtensions 
+    public static class VectorExtensions
     {
-        public static Vector3 WithZeroY(this Vector3 vector) 
+        public static Vector3 WithZeroY(this Vector3 vector)
         {
             return new Vector3(vector.x, 0f, vector.z);
         }
+
         public static Vector3 WithZeroX(this Vector3 vector)
         {
             return new Vector3(0f, vector.y, vector.z);

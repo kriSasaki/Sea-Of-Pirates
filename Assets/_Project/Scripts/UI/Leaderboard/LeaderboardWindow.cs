@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Leaderboard
+namespace Scripts.UI.Leaderboard
 {
     public class LeaderboardWindow : UiWindow
     {
@@ -31,21 +31,21 @@ namespace Project.UI.Leaderboard
         {
             _leaderboardPanel.gameObject.SetActive(true);
 
-            base.Show();
+            Show();
         }
 
         public void OpenAuthorizationPanel()
         {
             _authorizationPanel.gameObject.SetActive(true);
 
-            base.Show();
+            Show();
         }
 
         public void OpenLoadingPlaceholder()
         {
             _loadingPlaceHolder.gameObject.SetActive(true);
 
-            base.Show();
+            Show();
         }
 
         public override void Hide()

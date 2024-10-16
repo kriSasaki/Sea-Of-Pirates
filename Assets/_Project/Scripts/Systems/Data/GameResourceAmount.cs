@@ -1,6 +1,6 @@
-﻿using Project.Configs.GameResources;
+﻿using Scripts.Configs.GameResources;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     [System.Serializable]
     public struct GameResourceAmount

@@ -1,7 +1,7 @@
-﻿using Project.Interfaces.SDK;
+﻿using Scripts.Interfaces.SDK;
 using UnityEngine;
 
-namespace Project.SDK.Leaderboard
+namespace Scripts.SDK.Leaderboard
 {
     public class MockLeaderboardService : ILeaderboardService
     {
@@ -9,7 +9,7 @@ namespace Project.SDK.Leaderboard
 
         public void SetPlayerScore(int score)
         {
-            Debug.Log("New score is " +  score);
+            Debug.Log("New score is " + score);
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Project.Utils.Extensions;
-using System.Threading;
+using Scripts.Utils.Extensions;
 using UnityEngine;
 
-namespace Project.Utils.Tweens
+namespace Scripts.Utils.Tweens
 {
     [System.Serializable]
     public class SinkTween
@@ -15,6 +15,7 @@ namespace Project.Utils.Tweens
         [SerializeField] private Ease _sinkEase;
 
         private Transform _transform;
+
         public void Initialize(Transform transform)
         {
             _transform = transform;
@@ -22,16 +23,14 @@ namespace Project.Utils.Tweens
 
         public async UniTask Sink(CancellationToken token)
         {
-            await UniTask.WhenAll
-                (
+            await UniTask.WhenAll(
                     _transform.DOMoveY(-_sinkDeep, _sinkDuration)
                         .SetEase(_sinkEase)
                         .SetRelative()
                         .WithCancellation(token),
 
                     _transform.DORotate(_transform.rotation.eulerAngles.WithX(_sinkAngle), _sinkDuration)
-                        .WithCancellation(token)
-                );
+                        .WithCancellation(token));
         }
     }
 }

@@ -1,11 +1,11 @@
-using Project.Players.Inputs;
-using Project.Systems.Data;
-using Project.Systems.Storage;
+using Scripts.Players.Inputs;
+using Scripts.Systems.Data;
+using Scripts.Systems.Storage;
 using UnityEngine;
 using YG;
 using Zenject;
 
-namespace Project.Installers.ProjectContext
+namespace Scripts.Installers.ProjectContext
 {
     public class GameSystemsInstaller : MonoInstaller
     {

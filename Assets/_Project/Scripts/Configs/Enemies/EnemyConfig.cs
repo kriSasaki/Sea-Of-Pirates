@@ -1,16 +1,16 @@
 using NaughtyAttributes;
-using Project.Enemies.View;
-using Project.Systems.Data;
+using Scripts.Enemies.View;
+using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Configs.Enemies
+namespace Scripts.Configs.Enemies
 {
     [CreateAssetMenu(fileName = "Enemy", menuName = "Configs/Enemies/Enemy")]
     public class EnemyConfig : ScriptableObject
     {
         [SerializeField, Min(1)] private int _maxHealth;
         [SerializeField] private bool _canDealDamage = false;
-        [SerializeField,ShowIf(nameof(_canDealDamage)) , Min(0)] private int _damage = 0;
+        [SerializeField, ShowIf(nameof(_canDealDamage)), Min(0)] private int _damage = 0;
         [SerializeField, ShowIf(nameof(_canDealDamage)), Min(0.1f)] private float _attackCooldown;
         [HorizontalLine(2f, EColor.Blue)]
         [SerializeField, Min(0.1f)] private float _speed;

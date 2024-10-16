@@ -1,8 +1,7 @@
-﻿using Project.Enemies.View;
-using Project.Players.Logic;
+﻿using Scripts.Enemies.View;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States.Battle
+namespace Scripts.Enemies.Logic.States.Battle
 {
     [CreateAssetMenu(fileName = "SimpleAttack", menuName = "Configs/Enemies/States/SimpleAttack")]
     public class AttackBattle : BattleState

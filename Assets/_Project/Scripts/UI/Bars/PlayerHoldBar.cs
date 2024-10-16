@@ -1,9 +1,9 @@
-﻿using Project.Interfaces.Hold;
+﻿using Scripts.Interfaces.Hold;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Project.UI.Bars
+namespace Scripts.UI.Bars
 {
     public class PlayerHoldBar : FadeableBar
     {
@@ -30,7 +30,7 @@ namespace Project.UI.Bars
 
         private void OnCargoFilled()
         {
-           WarningLerpColor(_warningColor, _warningLoops,_loopDuration);
+           WarningLerpColor(_warningColor, _warningLoops, _loopDuration);
         }
 
         private void OnCargoChanged(int currentCargo)

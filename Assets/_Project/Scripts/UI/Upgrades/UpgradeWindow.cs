@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using Ami.BroAudio;
-using Project.Configs.UI;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Data;
-using Project.Interfaces.Stats;
+using Scripts.Configs.UI;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Stats;
 using UnityEngine;
 using Zenject;
 
-namespace Project.UI.Upgrades
+namespace Scripts.UI.Upgrades
 {
     [RequireComponent(typeof(Canvas))]
     public class UpgradeWindow : UiWindow
@@ -31,8 +31,18 @@ namespace Project.UI.Upgrades
                 bar.StatUpgraded -= OnStatUpgraded;
         }
 
+        public void Open()
+        {
+            Show();
+
+            foreach (StatUpgradeBar bar in _bars)
+            {
+                bar.Fill();
+            }
+        }
+
         [Inject]
-        public void Construct(
+        private void Construct(
             StatsSheet statsSheet,
             IUpgradableStats stats,
             IPlayerStorage playerStorage,
@@ -45,16 +55,6 @@ namespace Project.UI.Upgrades
             _audioService = audioService;
             _upgradeSound = config.UpgradeSound;
             CreateUpgradeBars();
-        }
-
-        public void Open()
-        {
-            base.Show();
-
-            foreach (StatUpgradeBar bar in _bars)
-            {
-                bar.Fill();
-            }
         }
 
         private void CreateUpgradeBars()

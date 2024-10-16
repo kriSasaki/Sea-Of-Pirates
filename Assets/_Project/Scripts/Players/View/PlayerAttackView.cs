@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using Ami.BroAudio;
 using DG.Tweening;
-using Project.Interfaces.Audio;
-using Project.Spawner;
-using Project.Utils.Tweens;
+using Scripts.Interfaces.Audio;
+using Scripts.Spawner;
+using Scripts.Utils.Tweens;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.View
+namespace Scripts.Players.View
 {
     public class PlayerAttackView : MonoBehaviour
     {
@@ -23,15 +23,6 @@ namespace Project.Players.View
 
         private VfxSpawner _vfxSpawner;
         private IAudioService _audioService;
-
-        [Inject]
-        public void Construct(VfxSpawner vfxSpawner, IAudioService audioService)
-        {
-            _vfxSpawner = vfxSpawner;
-            _audioService = audioService;
-            _appearingTween.Initialize(_attackCones.transform);
-            _attackCones.gameObject.SetActive(false);
-        }
 
         public void Show()
         {
@@ -72,6 +63,15 @@ namespace Project.Players.View
             yield return DOTween.To(SetProgress, MaxProgress, MinProgress, _unloadDuration)
                 .SetEase(Ease.Linear)
                 .WaitForKill();
+        }
+
+        [Inject]
+        private void Construct(VfxSpawner vfxSpawner, IAudioService audioService)
+        {
+            _vfxSpawner = vfxSpawner;
+            _audioService = audioService;
+            _appearingTween.Initialize(_attackCones.transform);
+            _attackCones.gameObject.SetActive(false);
         }
 
         private void SetProgress(float progress)

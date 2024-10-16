@@ -1,17 +1,18 @@
 using UnityEngine;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     [RequireComponent(typeof(Camera))]
     public class LayerDistanceCuller : MonoBehaviour
     {
-        const int EnvironmentLayer = 12;
-        const float CullDistance = 150;
+        private const int EnvironmentLayer = 12;
+        private const float CullDistance = 150;
+        private const int LayerAmount = 32;
 
-        void Start()
+        private void Start()
         {
             Camera camera = GetComponent<Camera>();
-            float[] distances = new float[32];
+            float[] distances = new float[LayerAmount];
             distances[EnvironmentLayer] = CullDistance;
             camera.layerCullDistances = distances;
         }

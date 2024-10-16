@@ -1,9 +1,9 @@
 using DG.Tweening;
 using NaughtyAttributes;
-using Project.Players.Logic;
+using Scripts.Players.Logic;
 using UnityEngine;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class InteractableZoneVisual : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace Project.Interactables
         private const float ScaleMultiplier = 2f;
 
         [SerializeField] private InteractableZone _interactableZone;
-        [HorizontalLine (3f, EColor.Green)]
+        [HorizontalLine(3f, EColor.Green)]
         [SerializeField] private MeshRenderer _zoneRenderer;
         [SerializeField] private Color _zoneColor;
         [SerializeField] private float _scaleDuration = 0.5f;

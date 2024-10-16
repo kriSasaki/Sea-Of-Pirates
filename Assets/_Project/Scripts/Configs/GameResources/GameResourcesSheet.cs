@@ -2,7 +2,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Project.Configs.GameResources
+namespace Scripts.Configs.GameResources
 {
     [CreateAssetMenu(fileName = "GameResourcesShert", menuName = "Configs/GameResourceSheet")]
     public class GameResourcesSheet : ScriptableObject

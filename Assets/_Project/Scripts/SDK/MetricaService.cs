@@ -1,8 +1,8 @@
-﻿using Project.Interfaces.SDK;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Scripts.Interfaces.SDK;
 using YG;
 
-namespace Project.SDK
+namespace Scripts.SDK
 {
     public class MetricaService : IMetricaService
     {
@@ -29,7 +29,7 @@ namespace Project.SDK
         {
             var eventParams = new Dictionary<string, string>
             {
-                {target, name }
+                { target, name },
             };
 
             YandexMetrica.Send(target, eventParams);

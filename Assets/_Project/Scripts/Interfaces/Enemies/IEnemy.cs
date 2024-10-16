@@ -1,9 +1,9 @@
 using System;
-using Project.Configs.Enemies;
-using Project.Systems.Data;
+using Scripts.Configs.Enemies;
+using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Interfaces.Enemies
+namespace Scripts.Interfaces.Enemies
 {
     public interface IEnemy
     {

@@ -1,11 +1,10 @@
-﻿using Project.Configs.UI;
-using Project.Systems.Shop.Items;
-using Project.Systems.Data;
+﻿using Scripts.Configs.UI;
+using Scripts.Systems.Shop.Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI.Shop
+namespace Scripts.UI.Shop
 {
     public class ShopItemView : MonoBehaviour
     {

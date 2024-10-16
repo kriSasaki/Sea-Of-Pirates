@@ -1,10 +1,10 @@
 ﻿using System;
-using Project.Configs.Enemies;
-using Project.Configs.Quests;
-using Project.Interfaces.Enemies;
-using Project.Interfaces.Quests;
+using Scripts.Configs.Enemies;
+using Scripts.Configs.Quests;
+using Scripts.Interfaces.Enemies;
+using Scripts.Interfaces.Quests;
 
-namespace Project.Systems.Quests
+namespace Scripts.Systems.Quests
 {
     public class Quest : IQuest
     {

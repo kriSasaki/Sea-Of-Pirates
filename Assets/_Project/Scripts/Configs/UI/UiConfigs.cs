@@ -1,7 +1,7 @@
 ﻿using Ami.BroAudio;
 using UnityEngine;
 
-namespace Project.Configs.UI
+namespace Scripts.Configs.UI
 {
     [CreateAssetMenu(fileName = "UiConfigs", menuName = "Configs/UI/UiConfigs")]
     public class UiConfigs : ScriptableObject

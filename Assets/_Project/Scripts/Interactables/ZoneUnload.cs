@@ -1,6 +1,6 @@
-using Project.Players.Logic;
+using Scripts.Players.Logic;
 
-namespace Project.Interactables
+namespace Scripts.Interactables
 {
     public class ZoneUnload : InteractableZone
     {

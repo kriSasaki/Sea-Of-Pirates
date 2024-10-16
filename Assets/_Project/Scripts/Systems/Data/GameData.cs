@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Project.Systems.Data
+namespace Scripts.Systems.Data
 {
     [System.Serializable]
     public class GameData
@@ -14,7 +14,7 @@ namespace Project.Systems.Data
         public string CurrentScene;
         public int Score = 0;
 
-        public GameData(string sceneName) 
+        public GameData(string sceneName)
         {
             CurrentScene = sceneName;
         }

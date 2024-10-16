@@ -1,6 +1,6 @@
-﻿using Project.UI;
+﻿using Scripts.UI;
 
-namespace Project.UI.Leaderboard
+namespace Scripts.UI.Leaderboard
 {
     public class LeaderboardButton : UiButton
     {

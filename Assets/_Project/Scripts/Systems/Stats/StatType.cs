@@ -1,4 +1,4 @@
-﻿namespace Project.Systems.Data
+﻿namespace Scripts.Systems.Data
 {
     [System.Serializable]
     public enum StatType
@@ -8,6 +8,6 @@
         CargoSize,
         Speed,
         AttackRange,
-        CannonsAmount
+        CannonsAmount,
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Project.Utils
+﻿namespace Scripts.Utils
 {
     public static class ExtendedMath
     {

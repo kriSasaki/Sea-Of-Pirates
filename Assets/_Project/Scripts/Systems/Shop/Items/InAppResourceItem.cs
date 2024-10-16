@@ -1,10 +1,10 @@
-﻿using Project.Configs.ShopItems;
-using Project.Interfaces.Data;
-using Project.Systems.Data;
-using Project.Utils.Extensions;
+﻿using Scripts.Configs.ShopItems;
+using Scripts.Interfaces.Data;
+using Scripts.Systems.Data;
+using Scripts.Utils.Extensions;
 using YG.Utils.Pay;
 
-namespace Project.Systems.Shop.Items
+namespace Scripts.Systems.Shop.Items
 {
     public class InAppResourceItem : InAppItem
     {

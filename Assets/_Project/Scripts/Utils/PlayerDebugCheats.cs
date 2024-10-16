@@ -1,13 +1,13 @@
 ﻿using System;
 using NaughtyAttributes;
-using Project.Interactables;
-using Project.Players.Logic;
-using Project.Systems.Data;
-using Project.UI;
+using Scripts.Interactables;
+using Scripts.Players.Logic;
+using Scripts.Systems.Data;
+using Scripts.UI;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Utils
+namespace Scripts.Utils
 {
     public class PlayerDebugCheats : MonoBehaviour
     {
@@ -35,7 +35,7 @@ namespace Project.Utils
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.P)) 
+            if (Input.GetKeyUp(KeyCode.P))
             {
                 PlayerPrefsReseter.ResetPlayerPrefs();
             }

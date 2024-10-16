@@ -1,7 +1,7 @@
-﻿using Project.Enemies.Logic.States.Idle;
+﻿using Scripts.Enemies.Logic.States.Idle;
 using UnityEngine;
 
-namespace Project.Enemies.Logic.States
+namespace Scripts.Enemies.Logic.States
 {
     [CreateAssetMenu(fileName = "Dead", menuName = "Configs/Enemies/States/Dead")]
     public class DeadState : BaseState
@@ -14,16 +14,16 @@ namespace Project.Enemies.Logic.States
             Enemy.Detector.Disable();
         }
 
-        private void OnEnemyRespawned()
-        {
-            StateMachine.SetState<IdleState>();
-        }
-
         public override void Exit()
         {
             base.Exit();
 
             Enemy.Respawned -= OnEnemyRespawned;
+        }
+
+        private void OnEnemyRespawned()
+        {
+            StateMachine.SetState<IdleState>();
         }
     }
 }

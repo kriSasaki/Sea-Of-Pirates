@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Configs.Game;
-using Project.Configs.UI;
-using Project.Interfaces.Audio;
-using Project.Systems.Shop.Items;
+using Scripts.Configs.Game;
+using Scripts.Configs.UI;
+using Scripts.Interfaces.Audio;
+using Scripts.Systems.Shop.Items;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.UI.Shop
+namespace Scripts.UI.Shop
 {
     public class ShopWindow : UiWindow
     {
@@ -23,14 +23,6 @@ namespace Project.UI.Shop
         private UiConfigs _uiConfigs;
         private GameConfig _gameConfig;
         private IAudioService _audioService;
-
-        [Inject]
-        public void Construct(UiConfigs uiConfigs, GameConfig gameConfig, IAudioService audioService)
-        {
-            _uiConfigs = uiConfigs;
-            _gameConfig = gameConfig;
-            _audioService = audioService;
-        }
 
         public void Open()
         {
@@ -76,6 +68,14 @@ namespace Project.UI.Shop
             {
                 slot.CheckAvaliability();
             }
+        }
+
+        [Inject]
+        private void Construct(UiConfigs uiConfigs, GameConfig gameConfig, IAudioService audioService)
+        {
+            _uiConfigs = uiConfigs;
+            _gameConfig = gameConfig;
+            _audioService = audioService;
         }
 
         private void OnItemSelected(GameItem item, Action onBuyCallback)

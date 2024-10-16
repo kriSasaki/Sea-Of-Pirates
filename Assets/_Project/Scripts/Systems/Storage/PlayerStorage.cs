@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ami.BroAudio;
-using Project.Configs.Game;
-using Project.Configs.GameResources;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Data;
-using Project.Interfaces.Storage;
-using Project.Systems.Data;
+using Scripts.Configs.Game;
+using Scripts.Configs.GameResources;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Data;
+using Scripts.Interfaces.Storage;
+using Scripts.Systems.Data;
 
-namespace Project.Systems.Storage
+namespace Scripts.Systems.Storage
 {
     public class PlayerStorage : IPlayerStorage, IStorageNotifier
     {
@@ -18,8 +18,6 @@ namespace Project.Systems.Storage
         private readonly Dictionary<GameResource, int> _storage;
         private readonly SoundID _earnResourceSound;
 
-        public event Action<GameResource, int> ResourceAmountChanged;
-
         public PlayerStorage(IResourceStorageProvider provider, IAudioService audioService, GameConfig config)
         {
             _resourceStorageProvider = provider;
@@ -27,6 +25,8 @@ namespace Project.Systems.Storage
             _storage = _resourceStorageProvider.LoadStorage();
             _earnResourceSound = config.EarnResourceSound;
         }
+
+        public event Action<GameResource, int> ResourceAmountChanged;
 
         public int GetResourceAmount(GameResource gameResource)
         {
@@ -49,7 +49,7 @@ namespace Project.Systems.Storage
         public void AddResource(List<GameResourceAmount> gameResourcesAmounts)
         {
             foreach (GameResourceAmount gameResourceAmount in gameResourcesAmounts)
-                AddToStorage(gameResourceAmount.Resource,gameResourceAmount.Amount);
+                AddToStorage(gameResourceAmount.Resource, gameResourceAmount.Amount);
 
             _audioService.PlaySound(_earnResourceSound);
             SaveResources();

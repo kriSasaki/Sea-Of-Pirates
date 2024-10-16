@@ -1,9 +1,9 @@
-﻿using Project.Players.Logic;
+﻿using Scripts.Players.Logic;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Project.UI.Bars
+namespace Scripts.UI.Bars
 {
     public class PlayerHealthBar : FadeableBar
     {

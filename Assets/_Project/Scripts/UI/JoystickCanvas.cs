@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     public class JoystickCanvas : MonoBehaviour
     {

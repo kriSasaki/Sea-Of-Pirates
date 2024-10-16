@@ -1,17 +1,17 @@
 using System;
 using Ami.BroAudio;
 using Cysharp.Threading.Tasks;
-using Project.Configs.Enemies;
-using Project.Configs.Level;
-using Project.Enemies.View;
-using Project.Interfaces.Audio;
-using Project.Interfaces.Enemies;
-using Project.Players.Logic;
-using Project.Spawner;
-using Project.Systems.Data;
+using Scripts.Configs.Enemies;
+using Scripts.Configs.Level;
+using Scripts.Enemies.View;
+using Scripts.Interfaces.Audio;
+using Scripts.Interfaces.Enemies;
+using Scripts.Players.Logic;
+using Scripts.Spawner;
+using Scripts.Systems.Data;
 using UnityEngine;
 
-namespace Project.Enemies.Logic
+namespace Scripts.Enemies.Logic
 {
     [RequireComponent(typeof(EnemyStateMachine), typeof(BoxCollider))]
     public class Enemy : MonoBehaviour, IPoolableEnemy
@@ -52,7 +52,6 @@ namespace Project.Enemies.Logic
         public Vector3 Position => transform.position;
         public GameResourceAmount Loot => _config.Loot;
         public Vector3 SpawnPosition { get; private set; }
-
 
         private void Start()
         {
@@ -132,6 +131,13 @@ namespace Project.Enemies.Logic
             _shipCollider.center = _view.ShipBounds.center;
         }
 
+        public async UniTask SinkAsync()
+        {
+            await _view.DieAsync();
+
+            Deactivate();
+        }
+
         public void RestoreHealth()
         {
             _currentHealth = _config.MaxHealth;
@@ -153,13 +159,6 @@ namespace Project.Enemies.Logic
         private void Deactivate()
         {
             gameObject.SetActive(false);
-        }
-
-        public async UniTask SinkAsync()
-        {
-            await _view.DieAsync();
-
-            Deactivate();
         }
     }
 }

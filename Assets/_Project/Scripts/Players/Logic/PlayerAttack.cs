@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Project.Interfaces.Enemies;
-using Project.Interfaces.Stats;
-using Project.Players.View;
+using Scripts.Interfaces.Enemies;
+using Scripts.Interfaces.Stats;
+using Scripts.Players.View;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerAttack : MonoBehaviour
@@ -24,6 +24,7 @@ namespace Project.Players.Logic
         private IPlayerStats _playerStats;
         private Coroutine _battleCoroutine;
         private WaitUntil _hasTargetAwaiter;
+
         public event Action<IEnemy> EnemyKilled;
 
         public int Damage => _playerStats.Damage;

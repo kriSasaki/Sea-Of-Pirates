@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Configs.ShopItems
+namespace Scripts.Configs.ShopItems
 {
     public abstract class ShopItemConfig : ScriptableObject
     {

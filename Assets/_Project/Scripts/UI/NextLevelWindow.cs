@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.UI
+namespace Scripts.UI
 {
     public class NextLevelWindow : UiWindow
     {
@@ -29,7 +29,7 @@ namespace Project.UI
 
         public void Open(string windowText, bool hasMap, Action onConfirmCallback)
         {
-            base.Show();
+            Show();
 
             _windowText.text = windowText;
             _mapImage.color = hasMap ? _hasMapColor : _noMapColor;

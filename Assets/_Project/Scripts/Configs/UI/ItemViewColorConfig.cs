@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Configs.UI
+namespace Scripts.Configs.UI
 {
     [CreateAssetMenu(fileName = "ItemViewColor", menuName = "Configs/UI/ItemViewColor")]
     public class ItemViewColorConfig : ScriptableObject

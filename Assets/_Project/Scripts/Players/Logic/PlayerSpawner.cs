@@ -1,10 +1,10 @@
 using System;
-using Project.Interactables;
-using Project.Interfaces.Data;
-using Project.Systems.Data;
+using Scripts.Interactables;
+using Scripts.Interfaces.Data;
+using Scripts.Systems.Data;
 using UnityEngine.SceneManagement;
 
-namespace Project.Players.Logic
+namespace Scripts.Players.Logic
 {
     public class PlayerSpawner : IDisposable
     {
