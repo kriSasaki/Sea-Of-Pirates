@@ -73,7 +73,7 @@ namespace Scripts.Enemies.Logic
             Type type = typeof(T);
 
             if (_states.ContainsKey(type) == false)
-                throw new Exception($"StateMachine has not registered state {typeof(T)}");
+                throw new Exception($"StateMachine has not registered _state {typeof(T)}");
 
             SwitchState(_states[type]);
         }

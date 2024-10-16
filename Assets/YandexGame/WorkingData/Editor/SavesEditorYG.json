@@ -1,16 +1,41 @@
 {
-    "idSave": 310,
+    "idSave": 323,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "GameData": {
         "StorageData": [],
-        "PlayerStatsLevels": [],
+        "PlayerStatsLevels": [
+            {
+                "_statType": 0,
+                "_level": 1
+            },
+            {
+                "_statType": 1,
+                "_level": 1
+            },
+            {
+                "_statType": 2,
+                "_level": 1
+            },
+            {
+                "_statType": 3,
+                "_level": 1
+            },
+            {
+                "_statType": 4,
+                "_level": 1
+            },
+            {
+                "_statType": 5,
+                "_level": 1
+            }
+        ],
         "Quests": [
             {
-                "ID": "BossQuest_Tutorial",
-                "State": 1,
-                "Progress": 0
+                "_id": "BossQuest_Tutorial",
+                "_state": 1,
+                "_progress": 0
             }
         ],
         "Levels": [
@@ -19,8 +44,8 @@
                 "_isReachedPirateBay": true
             }
         ],
-        "IsAddHided": false,
-        "CurrentScene": "Tutorial",
-        "Score": 0
+        "_currentScene": "Tutorial",
+        "_isAddHided": false,
+        "_score": 0
     }
 }

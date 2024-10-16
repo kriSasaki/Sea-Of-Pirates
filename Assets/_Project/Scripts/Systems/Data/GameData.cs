@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Scripts.Systems.Quests;
+using UnityEngine;
 
 namespace Scripts.Systems.Data
 {
@@ -9,18 +10,20 @@ namespace Scripts.Systems.Data
     {
         private const int InitialStatLevel = 1;
 
-        public List<GameResourceData> StorageData = new List<GameResourceData>();
-        public List<PlayerStatData> PlayerStatsLevels = new List<PlayerStatData>();
-        public List<QuestData> Quests = new List<QuestData>();
-        public List<LevelData> Levels = new List<LevelData>();
+        [SerializeField] private List<GameResourceData> StorageData = new List<GameResourceData>();
+        [SerializeField] private List<PlayerStatData> PlayerStatsLevels = new List<PlayerStatData>();
+        [SerializeField] private List<QuestData> Quests = new List<QuestData>();
+        [SerializeField] private List<LevelData> Levels = new List<LevelData>();
+        [SerializeField] private string _currentScene;
+        [SerializeField] private bool _isAddHided = false;
+        [SerializeField] private int _score = 0;
 
-        public bool IsAddHided = false;
-        public string CurrentScene;
-        public int Score = 0;
+        public bool IsAddHided => _isAddHided;
+        public string CurrentScene => _currentScene;
 
         public GameData(string sceneName)
         {
-            CurrentScene = sceneName;
+            _currentScene = sceneName;
         }
 
         public GameResourceData GetResourceData(string id)
@@ -28,17 +31,17 @@ namespace Scripts.Systems.Data
            return StorageData.FirstOrDefault(r => r.ID == id);
         }
 
-        public void UpdateResourceData(string id, int Value)
+        public void UpdateResourceData(string id, int value)
         {
             GameResourceData data = StorageData.FirstOrDefault(r => r.ID == id);
 
             if (data != null)
             {
-                data.Value = Value;
+                data.ChangeResourceAmount(value);
             }
             else
             {
-                StorageData.Add(new GameResourceData() { ID = id, Value = Value });
+                StorageData.Add(new GameResourceData(id, value));
             }
         }
 
@@ -61,7 +64,7 @@ namespace Scripts.Systems.Data
 
             if (data != null)
             {
-                data.Level = level;
+                data.SetLevel(level);
             }
             else
             {
@@ -109,22 +112,22 @@ namespace Scripts.Systems.Data
 
         public void RemoveAd()
         {
-            IsAddHided = true;
+            _isAddHided = true;
         }
 
         public void UpdateCurrentLevel(string levelName)
         {
-            CurrentScene = levelName;
+            _currentScene = levelName;
         }
 
         public void SetScore(int score)
         {
-            Score = score;
+            _score = score;
         }
 
         public int GetScore()
         {
-            return Score;
+            return _score;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Scripts.SDK
 {
     public class MetricaService : IMetricaService
     {
-        private const string LevelMetricaID = "level";
+        private const string LevelMetricaID = "_level";
         private const string DeadMetricaID = "dead";
         private const string QuestMetricaID = "quest";
 

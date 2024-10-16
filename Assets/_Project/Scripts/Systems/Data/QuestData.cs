@@ -1,25 +1,30 @@
 ﻿using Scripts.Systems.Quests;
+using UnityEngine;
 
 namespace Scripts.Systems.Data
 {
     [System.Serializable]
     public class QuestData
     {
-        public string ID;
-        public QuestState State = QuestState.Avaliable;
-        public int Progress;
+        [SerializeField] private string _id;
+        [SerializeField] private QuestState _state;
+        [SerializeField] private int _progress;
+
+        public string ID => _id;
+        public QuestState State => _state;
+        public int Progress => _progress;
 
         public QuestData(string id, QuestStatus status)
         {
-            ID = id;
-            State = status.State;
-            Progress = status.Progress;
+            _id = id;
+            _state = status.State;
+            _progress = status.Progress;
         }
 
         public void Update(QuestStatus status)
         {
-            State = status.State;
-            Progress = status.Progress;
+            _state = status.State;
+            _progress = status.Progress;
         }
     }
 }
