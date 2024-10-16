@@ -5,6 +5,8 @@ namespace Scripts.Interfaces.Data
 {
     public interface IResourceStorageData : ISaveable
     {
-        List<GameResourceData> Storage { get; }
+        GameResourceData GetResourceData(string id);
+
+        void UpdateResourceData(string id, int value);
     }
 }

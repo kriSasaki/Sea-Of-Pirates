@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Cysharp.Threading.Tasks;
 using DTT.Utils.Extensions;
 using Scripts.Configs.Game;
 using Scripts.Interfaces.Data;
+using Scripts.Systems.Quests;
 using YG;
 
 namespace Scripts.Systems.Data
@@ -30,41 +30,76 @@ namespace Scripts.Systems.Data
 
             if (GameData.CurrentScene.IsNullOrEmpty())
             {
-                GameData.CurrentScene = config.FirstLevelScene;
+                UpdateCurrentLevel(config.FirstLevelScene);
                 Save();
             }
         }
 
-        public List<GameResourceData> Storage => GameData.StorageData;
-
-        public List<PlayerStatData> StatsLevels => GameData.PlayerStatsLevels;
-
-        public List<QuestData> Quests => GameData.Quests;
-
         public string CurrentLevel => GameData.CurrentScene;
 
-        public bool IsAdHided { get => GameData.IsAddHided; set => GameData.IsAddHided = value; }
+        public bool IsAdHided { get => GameData.IsAddHided; }
 
         private GameData GameData => YandexGame.savesData.GameData;
 
-        public void UpdateCurrentLevel(string levelName)
+        public GameResourceData GetResourceData(string id)
         {
-            GameData.CurrentScene = levelName;
-            Save();
+            return GameData.GetResourceData(id);
+        }
+
+        public PlayerStatData GetPlayerStatData(StatType statType)
+        {
+            return GameData.GetPlayerStatData(statType);
+        }
+
+        public Dictionary<string, QuestStatus> GetQuests()
+        {
+            return GameData.GetQuests();
         }
 
         public LevelData GetLevelData(string levelName)
         {
-            LevelData leveldata = GameData.Levels.FirstOrDefault(l => l.LevelName == levelName);
+            return GameData.GetLevelData(levelName);
+        }
 
-            if (leveldata == null)
-            {
-                leveldata = new LevelData(levelName);
+        public int GetScore()
+        {
+            return GameData.GetScore();
+        }
 
-                GameData.Levels.Add(leveldata);
-            }
+        public void SetScore(int score)
+        {
+            GameData.SetScore(score);
+            Save();
+        }
 
-            return leveldata;
+        public void UpdateCurrentLevel(string levelName)
+        {
+            GameData.UpdateCurrentLevel(levelName);
+            Save();
+        }
+
+        public void UpdateResourceData(string id, int value)
+        {
+            GameData.UpdateResourceData(id, value);
+            Save();
+        }
+
+        public void UpdateStatData(StatType type, int level)
+        {
+            GameData.UpdateStatData(type, level);
+            Save();
+        }
+
+        public void UpdateQuestData(string id, QuestStatus status)
+        {
+            GameData.UpdateQuestData(id, status);
+            Save();
+        }
+
+        public void RemoveAd()
+        {
+            GameData.RemoveAd();
+            Save();
         }
 
         public void Save()
@@ -73,17 +108,6 @@ namespace Scripts.Systems.Data
                 return;
 
             SaveAsync().Forget();
-        }
-
-        public int GetScore()
-        {
-            return GameData.Score;
-        }
-
-        public void SetScore(int score)
-        {
-            GameData.Score = score;
-            Save();
         }
 
         private async UniTaskVoid SaveAsync()
