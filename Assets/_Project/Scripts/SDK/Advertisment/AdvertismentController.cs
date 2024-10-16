@@ -26,9 +26,7 @@ namespace Scripts.SDK.Advertisment
 
         public void RemoveAd()
         {
-            _addData.IsAdHided = true;
-            _addData.Save();
-
+            _addData.RemoveAd();
             HandleAd();
         }
 

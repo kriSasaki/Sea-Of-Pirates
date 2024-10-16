@@ -7,6 +7,7 @@ namespace Scripts.Systems.Data
 {
     public class ResourceStorageProvider : IResourceStorageProvider
     {
+        private const int InitialResourceAmount = 0;
         private readonly IResourceStorageData _storageData;
         private readonly GameResourcesSheet _resourcesSheet;
         private Dictionary<GameResource, int> _storage;
@@ -24,7 +25,7 @@ namespace Scripts.Systems.Data
 
             foreach (GameResource resource in _resourcesSheet.GameResources)
             {
-                GameResourceData data = _storageData.Storage.FirstOrDefault(r => r.ID == resource.ID);
+                GameResourceData data = _storageData.GetResourceData(resource.ID);
 
                 if (data != null)
                 {
@@ -32,7 +33,7 @@ namespace Scripts.Systems.Data
                 }
                 else
                 {
-                    _storage.Add(resource, 0);
+                    _storage.Add(resource, InitialResourceAmount);
                 }
             }
 
@@ -41,21 +42,10 @@ namespace Scripts.Systems.Data
 
         public void UpdateStorage()
         {
-            foreach (GameResource resource in _resourcesSheet.GameResources)
+            foreach (GameResource resource in _storage.Keys)
             {
-                GameResourceData data = _storageData.Storage.FirstOrDefault(r => r.ID == resource.ID);
-
-                if (data != null)
-                {
-                    data.Value = _storage[resource];
-                }
-                else
-                {
-                    _storageData.Storage.Add(new GameResourceData() { ID = resource.ID, Value = _storage[resource] });
-                }
+                _storageData.UpdateResourceData(resource.ID, _storage[resource]);
             }
-
-            _storageData.Save();
         }
     }
 }

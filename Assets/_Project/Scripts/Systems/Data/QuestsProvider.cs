@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Scripts.Interfaces.Data;
 using Scripts.Systems.Quests;
 
@@ -9,39 +8,19 @@ namespace Scripts.Systems.Data
     {
         private readonly IQuestsData _questsData;
 
-        private Dictionary<string, QuestStatus> _quests;
-
         public QuestsProvider(IQuestsData questsData)
         {
             _questsData = questsData;
-            _quests = null;
         }
 
         public Dictionary<string, QuestStatus> LoadQuests()
         {
-            _quests = new Dictionary<string, QuestStatus>();
-
-            foreach (QuestData questData in _questsData.Quests)
-            {
-                _quests.Add(questData.ID, new QuestStatus(questData.State, questData.Progress));
-            }
-
-            return _quests;
+            return _questsData.GetQuests();
         }
 
         public void UpdateQuest(string questID, QuestStatus status)
         {
-            _quests[questID] = status;
-
-            if (_questsData.Quests.Any(q => q.ID == questID) == false)
-            {
-                _questsData.Quests.Add(new QuestData(questID, status));
-            }
-
-            QuestData data = _questsData.Quests.Find(q => q.ID == questID);
-            data.Update(status);
-
-            _questsData.Save();
+            _questsData.UpdateQuestData(questID, status);
         }
     }
 }

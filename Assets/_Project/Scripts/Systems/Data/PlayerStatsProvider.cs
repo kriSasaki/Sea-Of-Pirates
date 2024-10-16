@@ -7,8 +7,6 @@ namespace Scripts.Systems.Data
 {
     public class PlayerStatsProvider : IPlayerStatsProvider
     {
-        private const int MinimalStatLevel = 1;
-
         private readonly IPlayerStatsData _statsData;
         private readonly StatsSheet _statsSheet;
 
@@ -39,20 +37,8 @@ namespace Scripts.Systems.Data
         {
             foreach (StatType statType in _stats.Keys)
             {
-                PlayerStatData data = _statsData.StatsLevels.FirstOrDefault(s => s.StatType == statType);
-
-                if (data != null)
-                {
-                    data.Level = _stats[statType].Level;
-                }
-                else
-                {
-                    var statData = new PlayerStatData() { StatType = statType, Level = _stats[statType].Level };
-                    _statsData.StatsLevels.Add(statData);
-                }
+                _statsData.UpdateStatData(statType, _stats[statType].Level);
             }
-
-            _statsData.Save();
         }
 
         private Dictionary<StatType, int> GetStatsLevels()
@@ -61,12 +47,9 @@ namespace Scripts.Systems.Data
 
             foreach (StatType statType in Enum.GetValues(typeof(StatType)).Cast<StatType>())
             {
-                statsLevels.Add(statType, MinimalStatLevel);
-            }
+                PlayerStatData playerStatData = _statsData.GetPlayerStatData(statType);
 
-            foreach (PlayerStatData statData in _statsData.StatsLevels)
-            {
-                statsLevels[statData.StatType] = statData.Level;
+                statsLevels.Add(playerStatData.StatType, playerStatData.Level);
             }
 
             return statsLevels;

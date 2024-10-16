@@ -5,6 +5,8 @@ namespace Scripts.Interfaces.Data
 {
     public interface IPlayerStatsData : ISaveable
     {
-        List<PlayerStatData> StatsLevels { get; }
+        PlayerStatData GetPlayerStatData(StatType statType);
+
+        void UpdateStatData(StatType type, int level);
     }
 }
