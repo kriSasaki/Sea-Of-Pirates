@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Scripts.Configs.ShopItems;
 using Scripts.Interfaces.Data;
-using Scripts.SDK;
+using Scripts.Interfaces.SDK;
 using Scripts.Systems.Shop.Items;
 using Scripts.UI.Shop;
 using YG;

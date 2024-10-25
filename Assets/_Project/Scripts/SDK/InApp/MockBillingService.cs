@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Scripts.Configs.ShopItems;
+using Scripts.Interfaces.SDK;
 using YG.Utils.Pay;
 
 namespace Scripts.SDK.InApp
