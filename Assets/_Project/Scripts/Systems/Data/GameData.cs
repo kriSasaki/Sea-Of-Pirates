@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Scripts.Systems.Quests;
+using Scripts.Systems.Stats;
 using UnityEngine;
 
 namespace Scripts.Systems.Data
@@ -18,17 +19,17 @@ namespace Scripts.Systems.Data
         [SerializeField] private bool _isAddHided = false;
         [SerializeField] private int _score = 0;
 
-        public bool IsAddHided => _isAddHided;
-        public string CurrentScene => _currentScene;
-
         public GameData(string sceneName)
         {
             _currentScene = sceneName;
         }
 
+        public bool IsAddHided => _isAddHided;
+        public string CurrentScene => _currentScene;
+
         public GameResourceData GetResourceData(string id)
         {
-           return _storageData.FirstOrDefault(r => r.ID == id);
+            return _storageData.FirstOrDefault(r => r.ID == id);
         }
 
         public void UpdateResourceData(string id, int value)
@@ -104,7 +105,7 @@ namespace Scripts.Systems.Data
             {
                 leveldata = new LevelData(levelName);
 
-               _levels.Add(leveldata);
+                _levels.Add(leveldata);
             }
 
             return leveldata;

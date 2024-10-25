@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using Scripts.Configs.GameResources;
+using Scripts.Configs.Stats;
 using Scripts.Interfaces.Data;
 using Scripts.Interfaces.SDK;
 using Scripts.Interfaces.Stats;

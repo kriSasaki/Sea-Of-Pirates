@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Interfaces.Input;
+using UnityEngine;
 
 namespace Scripts.Players.Logic
 {

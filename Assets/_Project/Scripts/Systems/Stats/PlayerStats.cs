@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Scripts.Interfaces.Data;
 using Scripts.Interfaces.Stats;
 
-namespace Scripts.Systems.Data
+namespace Scripts.Systems.Stats
 {
     public class PlayerStats : IPlayerStats, IUpgradableStats
     {

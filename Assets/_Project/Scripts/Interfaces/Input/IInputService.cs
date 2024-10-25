@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public interface IInputService
+namespace Scripts.Interfaces.Input
 {
-    Vector2 Axis { get; }
+    public interface IInputService
+    {
+        Vector2 Axis { get; }
+    }
 }

@@ -1,7 +1,8 @@
-﻿using Scripts.Utils;
+﻿using Scripts.Configs.Stats;
+using Scripts.Utils;
 using UnityEngine;
 
-namespace Scripts.Systems.Data
+namespace Scripts.Systems.Stats
 {
     [System.Serializable]
     public class AdditionalUpgradeCost : UpgradeCost

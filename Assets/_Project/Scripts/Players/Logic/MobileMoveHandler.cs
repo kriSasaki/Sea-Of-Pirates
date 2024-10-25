@@ -1,4 +1,5 @@
-﻿using Scripts.Utils.Extensions;
+﻿using Scripts.Interfaces.Input;
+using Scripts.Utils.Extensions;
 using UnityEngine;
 
 namespace Scripts.Players.Logic

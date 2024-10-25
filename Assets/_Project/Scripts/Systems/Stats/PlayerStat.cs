@@ -1,4 +1,6 @@
-﻿namespace Scripts.Systems.Data
+﻿using Scripts.Configs.Stats;
+
+namespace Scripts.Systems.Stats
 {
     public class PlayerStat
     {

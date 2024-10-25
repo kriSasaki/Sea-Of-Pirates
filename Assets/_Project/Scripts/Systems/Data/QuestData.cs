@@ -10,16 +10,16 @@ namespace Scripts.Systems.Data
         [SerializeField] private QuestState _state;
         [SerializeField] private int _progress;
 
-        public string ID => _id;
-        public QuestState State => _state;
-        public int Progress => _progress;
-
         public QuestData(string id, QuestStatus status)
         {
             _id = id;
             _state = status.State;
             _progress = status.Progress;
         }
+
+        public string ID => _id;
+        public QuestState State => _state;
+        public int Progress => _progress;
 
         public void Update(QuestStatus status)
         {

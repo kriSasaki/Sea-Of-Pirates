@@ -2,7 +2,7 @@
 using NaughtyAttributes;
 using Scripts.Interactables;
 using Scripts.Players.Logic;
-using Scripts.Systems.Data;
+using Scripts.Systems.Stats;
 using Scripts.UI;
 using UnityEngine;
 using Zenject;

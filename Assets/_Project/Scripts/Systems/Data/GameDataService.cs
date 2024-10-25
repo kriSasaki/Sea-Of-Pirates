@@ -4,6 +4,7 @@ using DTT.Utils.Extensions;
 using Scripts.Configs.Game;
 using Scripts.Interfaces.Data;
 using Scripts.Systems.Quests;
+using Scripts.Systems.Stats;
 using YG;
 
 namespace Scripts.Systems.Data

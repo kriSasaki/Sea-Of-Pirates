@@ -1,22 +1,24 @@
-using Scripts.Interactables;
 using Scripts.Players.Logic;
 using UnityEngine;
 
-public class DamageZone : InteractableZone
+namespace Scripts.Interactables
 {
-    [SerializeField] private int _damage = 10;
-
-    protected override void OnPlayerEntered(Player player)
+    public class DamageZone : InteractableZone
     {
-        base.OnPlayerEntered(player);
+        [SerializeField] private int _damage = 10;
 
-        player.TakeDamage(_damage);
-    }
+        protected override void OnPlayerEntered(Player player)
+        {
+            base.OnPlayerEntered(player);
 
-    protected override void OnPlayerExited(Player player)
-    {
-        base.OnPlayerExited(player);
+            player.TakeDamage(_damage);
+        }
 
-        Destroy(gameObject);
+        protected override void OnPlayerExited(Player player)
+        {
+            base.OnPlayerExited(player);
+
+            Destroy(gameObject);
+        }
     }
 }

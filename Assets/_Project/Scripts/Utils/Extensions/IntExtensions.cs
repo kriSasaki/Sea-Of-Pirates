@@ -14,13 +14,20 @@ namespace Scripts.Utils.Extensions
         {
             if (value < Thousand)
                 return value.ToString();
-
-            if (value < Million)
-                return (value / Thousand)
-                    .ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(KToken);
+            else if (value < Million)
+                return GetFormattedNumber(value / Thousand, KToken);
             else
-                return (value / Million)
-                    .ToString("f1", CultureInfo.InvariantCulture) + LeanLocalization.GetTranslationText(MToken);
+                return GetFormattedNumber(value / Million, MToken);
+        }
+
+        private static string GetFormattedNumber (float value, string token)
+        {
+            return value.ToString("f1", CultureInfo.InvariantCulture) + GetRadix(token);
+        }
+
+        private static string GetRadix(string token)
+        {
+            return LeanLocalization.GetTranslationText(token);
         }
     }
 }

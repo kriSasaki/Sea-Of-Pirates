@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Scripts.Systems.Data;
+using Scripts.Systems.Stats;
 
 namespace Scripts.Interfaces.Data
 {

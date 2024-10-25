@@ -1,6 +1,7 @@
 ﻿using Scripts.Configs.Game;
 using Scripts.Configs.GameResources;
 using Scripts.Configs.ShopItems;
+using Scripts.Configs.Stats;
 using Scripts.Configs.UI;
 using UnityEngine;
 using Zenject;

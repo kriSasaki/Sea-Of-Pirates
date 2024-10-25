@@ -1,3 +1,4 @@
+using Scripts.Interfaces.Input;
 using Scripts.Players.Inputs;
 using Scripts.Systems.Data;
 using Scripts.Systems.Storage;

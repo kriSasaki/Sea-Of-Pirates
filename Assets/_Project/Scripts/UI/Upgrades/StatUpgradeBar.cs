@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Lean.Localization;
+using Scripts.Configs.Stats;
 using Scripts.Interfaces.Data;
 using Scripts.Interfaces.Stats;
 using Scripts.Systems.Data;
+using Scripts.Systems.Stats;
 using Scripts.Utils.Extensions;
 using TMPro;
 using UnityEngine;

@@ -7,44 +7,47 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class ResourceBar : MonoBehaviour
+namespace Scripts.UI.GameResources
 {
-    [SerializeField] private GameResource _resource;
-    [SerializeField] private Image _icon;
-    [SerializeField] private TMP_Text _amount;
-    [SerializeField] private ScaleTween _scaleTween;
-
-    private IStorageNotifier _storage;
-
-    private void OnDestroy()
+    public class ResourceBar : MonoBehaviour
     {
-        _storage.ResourceAmountChanged -= OnResourceAmountChanged;
-    }
+        [SerializeField] private GameResource _resource;
+        [SerializeField] private Image _icon;
+        [SerializeField] private TMP_Text _amount;
+        [SerializeField] private ScaleTween _scaleTween;
 
-    [Inject]
-    public void Construct(IStorageNotifier storage)
-    {
-        _storage = storage;
-        _icon.sprite = _resource.Sprite;
+        private IStorageNotifier _storage;
 
-        int amount = _storage.GetResourceAmount(_resource);
-        ChangeResourceAmount(amount);
+        private void OnDestroy()
+        {
+            _storage.ResourceAmountChanged -= OnResourceAmountChanged;
+        }
 
-        _storage.ResourceAmountChanged += OnResourceAmountChanged;
-        _scaleTween.Initialize(_amount.transform);
-    }
+        [Inject]
+        public void Construct(IStorageNotifier storage)
+        {
+            _storage = storage;
+            _icon.sprite = _resource.Sprite;
 
-    private void OnResourceAmountChanged(GameResource resource, int amount)
-    {
-        if (resource != _resource)
-            return;
+            int amount = _storage.GetResourceAmount(_resource);
+            ChangeResourceAmount(amount);
 
-        ChangeResourceAmount(amount);
-        _scaleTween.RunFrom();
-    }
+            _storage.ResourceAmountChanged += OnResourceAmountChanged;
+            _scaleTween.Initialize(_amount.transform);
+        }
 
-    private void ChangeResourceAmount(int amount)
-    {
-        _amount.text = amount.ToNumericalString();
+        private void OnResourceAmountChanged(GameResource resource, int amount)
+        {
+            if (resource != _resource)
+                return;
+
+            ChangeResourceAmount(amount);
+            _scaleTween.RunFrom();
+        }
+
+        private void ChangeResourceAmount(int amount)
+        {
+            _amount.text = amount.ToNumericalString();
+        }
     }
 }

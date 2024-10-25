@@ -45,6 +45,14 @@ namespace Scripts.Systems.Quests
             InitializeQuestEnemies();
         }
 
+        public void Dispose()
+        {
+            foreach (var quest in _questEnemySpawners.Keys)
+            {
+                quest.StatusChanged -= OnQuestStatusChanged;
+            }
+        }
+
         private void InitializeQuestEnemies()
         {
             foreach (Quest quest in _questEnemySpawners.Keys)
@@ -53,14 +61,6 @@ namespace Scripts.Systems.Quests
 
                 if (state == QuestState.Taken || state == QuestState.InProgress)
                     MarkQuestEnemies(quest);
-            }
-        }
-
-        public void Dispose()
-        {
-            foreach (var quest in _questEnemySpawners.Keys)
-            {
-                quest.StatusChanged -= OnQuestStatusChanged;
             }
         }
 

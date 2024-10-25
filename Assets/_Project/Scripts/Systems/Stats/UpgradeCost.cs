@@ -1,9 +1,10 @@
 ﻿using Scripts.Configs.GameResources;
+using Scripts.Configs.Stats;
 using Scripts.Systems.Data;
 using Scripts.Utils;
 using UnityEngine;
 
-namespace Scripts.Systems.Data
+namespace Scripts.Systems.Stats
 {
     [System.Serializable]
     public class UpgradeCost

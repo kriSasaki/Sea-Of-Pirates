@@ -1,4 +1,4 @@
-﻿namespace Scripts.Systems.Data
+﻿namespace Scripts.Systems.Stats
 {
     [System.Serializable]
     public enum StatType

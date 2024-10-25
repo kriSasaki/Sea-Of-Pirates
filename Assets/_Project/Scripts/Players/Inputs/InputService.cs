@@ -1,3 +1,4 @@
+using Scripts.Interfaces.Input;
 using UnityEngine;
 
 namespace Scripts.Players.Inputs

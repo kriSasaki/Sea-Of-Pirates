@@ -28,7 +28,6 @@ namespace Scripts.Utils.Tweens
                         .SetEase(_sinkEase)
                         .SetRelative()
                         .WithCancellation(token),
-
                     _transform.DORotate(_transform.rotation.eulerAngles.WithX(_sinkAngle), _sinkDuration)
                         .WithCancellation(token));
         }

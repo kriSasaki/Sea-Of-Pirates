@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Scripts.Configs.Stats;
 using Scripts.Interfaces.Data;
+using Scripts.Systems.Stats;
 
 namespace Scripts.Systems.Data
 {

@@ -24,11 +24,6 @@ namespace Scripts.Enemies.Logic.States.Idle
             _targetPosition = SpawnPosition;
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-        }
-
         public override void Update()
         {
             base.Update();
