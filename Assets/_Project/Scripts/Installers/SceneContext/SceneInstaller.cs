@@ -116,7 +116,6 @@ namespace Scripts.Installers.SceneContext
             Container.Bind<PlayerView>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerAttack>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<PlayerLootController>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<PlayerSpawner>().FromNew().AsSingle().NonLazy();
         }
 
         private void BindMoveHandler()

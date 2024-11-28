@@ -456,6 +456,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5203064189268252663, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203064189268252663, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203064189268252663, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -616,6 +624,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7258256220306377703, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258256220306377703, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258256220306377703, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -655,6 +671,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -49.678894
       objectReference: {fileID: 0}
+    - target: {fileID: 8138938701926310908, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_fontSize
+      value: 63.95
+      objectReference: {fileID: 0}
     - target: {fileID: 8526539240840167700, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -679,9 +699,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8560332792916310466, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_fontSize
+      value: 79.35
+      objectReference: {fileID: 0}
     - target: {fileID: 8945067801985389115, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_text
       value: BarlogDao
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069758384522243598, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
+      propertyPath: m_fontSize
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 9186901106969843457, guid: 04a2a8474f40c264cba8af0eae96f985, type: 3}
       propertyPath: m_AnchorMax.y
